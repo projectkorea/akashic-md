@@ -1,6 +1,6 @@
 # DOM을 깨우치다
 
-<p align='center'><img src="https://user-images.githubusercontent.com/76730867/141681254-0ffcaf89-add0-4b80-91aa-8f45ecf9db9a.jpg" width="600" height="300"/></center></p>
+<p align='center'><img src="https://user-images.githubusercontent.com/76730867/141681254-0ffcaf89-add0-4b80-91aa-8f45ecf9db9a.jpg" width="300" height="600"/></center></p>
 
 ### 목표
 
