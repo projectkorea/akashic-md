@@ -1,4 +1,4 @@
-const examples = ['class', 'promise'];
+const examples = ['class', 'promise', 'callback'];
 
 const addButton = (args) => {
     args.forEach((element) => {
