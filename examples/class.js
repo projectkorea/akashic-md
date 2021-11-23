@@ -5,6 +5,14 @@ class Person {
         this.name = name;
         this.age = age;
     }
+    get age() { //return value
+        return this.age
+    }
+
+    set age(value) { //set value
+        this.age = value  
+    }
+
     speak() {
         console.log(`${this.name}:Hello`);
     }
