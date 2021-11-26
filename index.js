@@ -5,6 +5,9 @@ const examples = [
     'callback-to-promise',
     'async',
     'json',
+    'hoisting',
+    'operator',
+    'function',
 ];
 
 const addButton = (args) => {
