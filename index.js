@@ -8,6 +8,10 @@ const examples = [
     'hoisting',
     'operator',
     'function',
+    'object',
+    'array',
+    'arrayAPIs',
+    'arrayAPIsAnswer',
 ];
 
 const addButton = (args) => {
