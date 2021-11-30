@@ -1,9 +1,9 @@
 const examples = [
     'class',
-    'promise',
-    'callback',
-    'callback-to-promise',
-    'async',
+    '1.callback',
+    '2.callback-to-promise',
+    '3. promise',
+    '4.async',
     'json',
     'hoisting',
     'operator',

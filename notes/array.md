@@ -1,8 +1,10 @@
 # Array
 
--   자바스크립트의 배열의 요소는 다양한 데이터 타입을 넣는 것이 가능하지만, 동일한 데이터 타입을 넣는 것을 권장한다.
+-   `[number, string, Object]`
+-   자바스크립트의 배열의 요소는 다양한 데이터 타입을 넣는 것이 가능하다.
+-   하지만 동일한 데이터 타입을 넣는 것을 권장한다.
 
-## 1. Looping over an array
+## 1. 3 Way of Looping over an array
 
 ```js
 const fruits = ['🍒', '🥭', '🍍'];
@@ -25,8 +27,8 @@ fruits.unshift('🥝'); // unshift: add an item to the begining
 fruits.shift(); // shift: remove an item from the begining
 ```
 
--   unshift, shift are slower than pop, push
--   배열의 전체 요소가 움직여지기 때문이다.
+-   `unshift, shift` are slower than `pop, push`
+-   배열의 전체 요소가 움직이기 때문이다.
 
 ## 3. splice 메서드
 
@@ -46,9 +48,10 @@ const array1 = [0, 1, 2, 3, 4, 5];
 const array2 = ['a', 'b', 'c'];
 
 const array3 = array1.concat(array2);
+console.log(array3); // [0, 1, 2, 3, 4, 5, 'a', 'b', 'c']
 ```
 
-## 5. Search
+## 5. Search에 관한 메서드
 
 ```js
 // indexOf: return the index of value
