@@ -1,58 +1,47 @@
-# Class Object
+# Class, Object
 
 ## 1) class, object
 
----
+-   class
 
-class
+    1. template
+    2. declare once
+    3. no data in
 
-1. template
-2. declare once
-3. no data in
-
-Object
-
-1. instance of a class
-2. created many Times
-3. data in
-
----
+-   object
+    1. instance of a class
+    2. created many times
+    3. data in
 
 ## 2) getter, setter
 
-getter, setter
-
--   이상한 값 방어모드
+-   이상한 값이 들어올 때 방어적으로 대응할 수 있다.
 
 ```js
-this.age = age
-get age() {
-    return this.age
-}
-set age(value){
-    this.age = value
+class User {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    get age() {
+        return this._age;
+    }
+
+    set age(value) {
+        if (value < 0) {
+            throw Error('age cannot be negative');
+        }
+        this._age = value;
+    }
 }
 ```
 
--   age라는 getter를(get age(){}) 정의하는 순간, `this.age`는 메모리에 올라와 있는 데이터를 읽어오는 것이 아니라, `getter를 호출`하게 된다.
--   age라는 setter를(set age(){}) 정의하는 순간, `=`age는, 값을 할당할 때 바로 메모리의 값을 할당하는 것이 아니라 `setter를 호출`하게 된다.
+-   getter = `get age(){}`를 정의하는 순간, `this.age`는 메모리에 올라와 있는 데이터를 읽어오는 것이 아니라, `getter를 호출`하게 된다.
+-   setter = `set age(){}`를 정의하는 순간, `= age`는 값을 할당할 때 바로 메모리의 값을 할당하는 것이 아니라 `setter를 호출`하게 된다.
 -   그말은 setter 안에서 전달된 value를 this.age에 할당할 때 메모리의 값을 업데이트 하는 것이 아니라 setter를 호출하게 된다.
--   또 반복된다.
-
-```js
-this.age = age
-get age() {
-    return this._age
-}
-set age(value){
-    this._age = value
-}
-```
-
--   따라서 getter, setter에서 사용하는 변수는 다르게 해준다.
--   따라서 User의 프로퍼티에는 1) \_age만 존재하게 된다.
-
--   set `age`(){}랑 setter안에 있는 `this.age`이름이 같으면 무한반복이 된다.
+-   따라서 User의 프로퍼티에는 1) `_age`만 존재하게 된다.
 
 ---
 
