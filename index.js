@@ -12,6 +12,7 @@ const examples = [
     'array',
     'arrayAPIs',
     'arrayAPIsAnswer',
+    'tips',
 ];
 
 const addButton = (args) => {
