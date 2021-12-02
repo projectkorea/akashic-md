@@ -35,6 +35,12 @@
 -   ul, ol(unordered, order list)
 -   li: list item
 -   자식요소는 무조건 li만가능
+-   shorthand: `li*3{$} + tab`
+    ```html
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    ```
 
 ```html
 // 올바른 예시

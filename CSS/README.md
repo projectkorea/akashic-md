@@ -1,6 +1,6 @@
 # CSS 원리
 
--   CSS:Cascading Style Sheet
+-   CSS: Cascading Style Sheet
 
 ```
 selector {
