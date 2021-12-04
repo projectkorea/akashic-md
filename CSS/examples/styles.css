@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+}
+
+section {
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}

@@ -3,9 +3,7 @@
 -   `cascade`: 폭포수, style을 계속 덮어가는 특성이 있다.
 
 ```css
-selector {
-    property: value;
-}
+
 ```
 
 ## CSS 적용 방법

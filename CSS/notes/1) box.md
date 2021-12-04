@@ -84,4 +84,3 @@ display: block, ...
 
 -   block과 inline의 특징을 취합한 것
 -   inline처럼 가로로 흐르지만 block처럼 영역을 차지하는 특징도 갖고 있다.
--

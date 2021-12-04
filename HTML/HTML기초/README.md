@@ -506,3 +506,16 @@
 -   main tag: 단 한 번밖에 못쓴다.
     -   main은 sectioning element가 아니기 때문에 h1 tag를 반드시 적어줄 필요는 없다.
     -   `Header Main Footer` `서론, 본론, 결론`과 같은 구조
+
+## 버튼을 눌렀을 때 나오는 모달창
+
+```html
+<button></button>
+<div>
+    <button></button>
+    <button></button>
+    <button></button>
+</div>
+```
+
+-   버튼을 눌렀을 때 나오는 모달창은 주로 병렬적으로 배치한다.

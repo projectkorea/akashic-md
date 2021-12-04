@@ -1,0 +1,30 @@
+.bgimg-1 {
+    width: 200px;
+
+    height: 200px;
+    background-image: url('https://media.istockphoto.com/photos/lluminated-silhouette-of-famous-russian-university-on-the-dramatic-picture-id1052391648?b=1&k=20&m=1052391648&s=170667a&w=0&h=zN3PxnCI9Pgca4Dm1mLmsb2G4BlB31BhQfEV-KIyt8U=');
+    background-size: contain;
+}
+
+.bgimg-2 {
+    width: 200px;
+    height: 200px;
+    background-image: url('https://media.istockphoto.com/photos/lluminated-silhouette-of-famous-russian-university-on-the-dramatic-picture-id1052391648?b=1&k=20&m=1052391648&s=170667a&w=0&h=zN3PxnCI9Pgca4Dm1mLmsb2G4BlB31BhQfEV-KIyt8U=');
+    background-size: cover;
+}
+
+.bgimg-3 {
+    width: 200px;
+    height: 200px;
+    background-image: url('https://media.istockphoto.com/photos/lluminated-silhouette-of-famous-russian-university-on-the-dramatic-picture-id1052391648?b=1&k=20&m=1052391648&s=170667a&w=0&h=zN3PxnCI9Pgca4Dm1mLmsb2G4BlB31BhQfEV-KIyt8U=');
+    background-size: cover;
+    align-items: center;
+    background-position: center center;
+}
+
+.bgimg-4 {
+    width: 200px;
+    height: 200px;
+    background-image: url('https://media.istockphoto.com/photos/lluminated-silhouette-of-famous-russian-university-on-the-dramatic-picture-id1052391648?b=1&k=20&m=1052391648&s=170667a&w=0&h=zN3PxnCI9Pgca4Dm1mLmsb2G4BlB31BhQfEV-KIyt8U=');
+    background-size: 50% 50%;
+}
