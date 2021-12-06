@@ -3,7 +3,7 @@
 ## background
 
 -   background-image : url("")
-    -url("")은 CSS 함수이며, 상대경로, 절대경로를 설정할 수 있다.
+    - url("")은 CSS 함수이며, 상대경로, 절대경로를 설정할 수 있다.
 
 -   `background-repeat: repeat | no-repeat`
 
@@ -50,3 +50,14 @@
 -   visibility : hidden, visible 스타일로만 안보이는 녀석
 -   vs display: none
 -   display는 박스의 type을 정해주는 녀석이다. 없는 존재처럼 취급하라. 존재 영역까지 없어지는 녀석
+
+
+1vw 뷰포트 너비의 1%
+1vh 뷰포트 높이의 1%
+
+```css
+container {
+    width : 50vw
+    height : 100vh
+}
+```

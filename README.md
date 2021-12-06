@@ -2,13 +2,15 @@
 
 -   Markdown can be easily shared between computers, mobile phones, and people. It’s quickly becoming the writing standard for academics, scientists, writers, and many more. Websites like GitHub and reddit use Markdown to style their comments.
 
-## 줄바꿈, 문단구분
+## 줄바꿈, 문단 구분
 
--   줄바꿈: `<br/>`, 라인의 마지막에 `공백 두 칸`
--   Enter 하나를 입력하면 줄바꿈이 되지 않는다.
--   문단 구분: `Enter` 두 번 입력
--   h1 태그인 `#`에서도 자동으로 구분선이 생긴다.
--   구분선: `___`, `---`, `<hr/>`
+-   줄바꿈
+    -   `<br/>`, 라인의 마지막에 `공백 두 칸`
+    -   Enter 하나를 입력하면 줄바꿈이 되지 않는다.
+-   문단 구분
+    -   : `Enter` 두 번 입력
+    -   h1 태그인 `#`에서도 자동으로 구분선이 생긴다.
+    -   구분선: `___`, `---`, `<hr/>`
 
 ## 글꼴 서식
 
@@ -30,19 +32,19 @@
 
 -   링크 문법: `[글자](URL)`
 -   이미지 문법: `![이미지 설명 글](URL)`, `<img width="">`
--   링크 설명칸에서 글꼴 서식:
+-   글꼴 서식 적용 가능:
     -   `[링크 설명칸에도 **글꼴 서식**이 적용된다 ](www.github.com)`
     -   [링크 설명칸에도 **글꼴 서식**이 적용된다 ](www.github.com)
 -   링크를 따로 정의:
 
     ```markdown
     링크 URL을 [따로 정의할 수도 있다][variable]
+    ![yellow cat][cute cat]
 
     <!-- 정의 칸은 한 줄을 띄어야 한다. -->
 
     [variable]: www.gitbub.com
-
-    ![yellow cat][cute cat]
+    [cute cat]: http://icons.iconarchive.com/icons/google/noto-emoji-animals-nature/256/22221-cat-icon.png
     ```
 
     -   링크 URL을 [따로 정의할 수도 있다][variable]
@@ -53,7 +55,8 @@
 
 ## 테이블
 
--   `|`는 두개만 붙여도 된다. Prettier에서 자동완성됌.
+-   `|`를 양쪽에 붙여 테이블의 한 셀을 만든다.
+-   `-`는 두개만 붙여도 된다. 가독성을 좋게 하기 위해 여러개를 붙이기도 한다.
 
 ```markdown
 | 애칭 혹은 별멍 |  출생년도  |       특기 |

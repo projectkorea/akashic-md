@@ -33,6 +33,14 @@ hex #0066ff
 rgb(0,102,255)
 rgba(0,102,255,1)
 
+2. 컬러에 투명한 효과를 주려면 rgba 4번째 파라미터를 이용하면 된다.
+
+rgba(51, 170, 51, .1)    /*  10% opaque green */ 
+rgba(51, 170, 51, .4)    /*  40% opaque green */ 
+rgba(51, 170, 51, .7)    /*  70% opaque green */ 
+rgba(51, 170, 51,  1)    /* full opaque green */ 
+
+
 text-align
 
 left, right, center

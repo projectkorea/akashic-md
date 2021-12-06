@@ -1,4 +1,4 @@
-# Flexbox
+# flex box
 
 -   `float`, `position`을 사용하지 않아도 정렬을 쉽게 할 수 있다.
 
