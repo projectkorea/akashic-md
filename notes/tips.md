@@ -154,3 +154,14 @@ const arr = ['a', 'a', 'b', 'b', 'c', 'd', 'e'];
 const answer = [...new Set(arr)];
 console.log(answer);
 ```
+
+
+## use strict
+
+-   Javascript is very flexible
+-   flexible is dangerous
+-   so use `'use strict'`
+
+```js
+a = 6; // not working with 'use strict'
+```

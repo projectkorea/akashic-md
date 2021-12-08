@@ -3,14 +3,14 @@
 class Person {
     constructor(name, age) {
         this._name = name;
-        this.dage = age;
+        this._age = age;
     }
-    get dage() {
+    get _age() {
         //return value
         return this._age;
     }
 
-    set dage(value) {
+    set _age(value) {
         //set value
         value > 25 ? (this._age = 20) : (this._age = value);
     }
