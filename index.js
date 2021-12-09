@@ -5,11 +5,10 @@ const examples = [
     '4.async',
     '5.json',
     '6.arrayAPIs',
-    'operator',
-    'object',
-    'arrayAPIs',
-    'arrayAPIsAnswer',
-    'tips',
+    '7.class',
+    '8.object',
+    '9.operator',
+    '10.tips',
 ];
 
 const addButton = (args) => {
