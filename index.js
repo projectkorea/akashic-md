@@ -9,6 +9,7 @@ const examples = [
     '8.object',
     '9.operator',
     '10.tips',
+    'temp',
 ];
 
 const addButton = (args) => {
