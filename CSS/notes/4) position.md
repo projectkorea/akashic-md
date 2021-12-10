@@ -1,7 +1,7 @@
 # Position
 
-1) 기준 잡기: `position: *static || relative || absolute || fixed || sticky`
-2) 옮기기: `top || left || bottom || right : 0px`
+1) 기준 잡기: `position: *static | relative | absolute | fixed | sticky`
+2) 옮기기: `top | left | bottom | right : 0px`
 
 ## position의 종류 & 기준점
 
@@ -18,10 +18,10 @@
      -  기준점을 잡는 부모 요소는 보통 다른 레이아웃에 영향을 끼치지 않는 `relative`로 설정한다.
    -  붕뜨게 되며, `display:block`으로 바뀌지만, 영역 차지를 못한다
 4) `fixed`
--   `abosulte`와 동일하다.
--   한 가지 차이점은 기준점이 `viewport size`로 명확히 정해진다.
-- 부모의 속성에 상관없이 항상 화면에서 절대적인 위치가 된다. 스크롤시에도 항상 그자리이다.
-- Navigation을 구현할 때 fixed속성을 많이 사용한다. 
+   -   `abosulte`와 동일하다.
+   -   한 가지 차이점은 기준점이 `viewport size`로 명확히 정해진다.
+   - 부모의 속성에 상관없이 항상 화면에서 절대적인 위치가 된다. 스크롤시에도 항상 그자리이다.
+   - Navigation을 구현할 때 fixed속성을 많이 사용한다. 
 
 
 ### 옮기기
@@ -57,7 +57,8 @@ selector {
 
 #### 2) `z-index`
 
-- `position : static`을 제외한 값은 위로 붕 뜨기 때문에 `앞으로 보내기`, `뒤로 보내기`와 같은 기능을 수행한다.
+- `position : static`을 제외한 값에서 사용할 수 있다.
+-  위로 붕 뜨기 때문에 `앞으로 보내기`, `뒤로 보내기`와 같은 기능을 이용할 수 있다.
 
 ```css
 selector {

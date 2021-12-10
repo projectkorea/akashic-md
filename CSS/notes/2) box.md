@@ -25,7 +25,7 @@
 ## Box Sizing
 
 -   `box-sizing: content-box` : width, height가 content기준으로 잡힌다.
--   `box-sizing: border-box` : width, height가 content + padding + border 기준으로 잡힌다.
+-   `box-sizing: border-box` : **width, height = content + padding + border** 기준으로 잡힌다.
 -   padding 값에 레이아웃이 망가지는 경우가 많아 boilerplate로 아래 코드를 많이 사용한다.
 
 ```css
@@ -58,8 +58,7 @@ selector {
     - default: 부모 content-box의 100%
     - width 값을 별도로 선언한 경우, 남은 공간은 margin으로 자동으로 채운다. 
     - <img src="https://user-images.githubusercontent.com/76730867/144780045-25559ae8-6f8e-41bb-8e71-765239830900.PNG" width="500px">
-    - 그렇기 때문에 margin left,right 값을 이용하여 가운데 배치는 아래와 같이 한다. 
-    - 가운데 배치: `margin : 0 auto`
+    - 이를 이용해 `margin : 0 auto`로 가운데 배치를 한다.
     
 
 -   height 값

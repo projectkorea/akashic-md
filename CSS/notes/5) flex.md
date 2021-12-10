@@ -6,27 +6,26 @@
 
 1. 플렉스 박스 선언
 
-    - `display : flex || inline-flex`
+    - `display : flex | inline-flex`
     - 정렬하고자하는 요소를 감싸고 있는 **부모**에게 선언 한다.
 
-2. 가로정렬 || 세로정렬
+2. 가로정렬 | 세로정렬
 
     - `flex-direction: *row, column, row-reverse, column-reverse`
-    -   1. Main-axis: flex-direction과 같은 축
-    -   2. Cross-axis: 반대축
+      1. Main-axis: flex-direction과 같은 축
+      2. Cross-axis: 반대축
 
-3. 한 줄 정렬 || 여러 줄 정렬
-
--   `flex-wrap : *wrap || no-wrap`
+3. 한 줄 정렬 | 여러 줄 정렬
+-   `flex-wrap : *wrap | no-wrap`
 -   `wrap`: 한줄에 모두 정렬하기에 공간이 넉넉하지 않으면 여러 줄로 만든다.
     -   사이즈가 줄어들지않는다.
 -   `no-wrap`: 감싸지(wrap) 않고 자식의 사이즈를 줄여서라도 한 줄로 정렬한다.
     -   강제로 사이즈를 줄이기 때문에 한 줄로 만들어야 할 때 유용하다.
 
-4. 플렉스 박스 사용
+. 플렉스 박스 사용
 
--   `justify-content : center ` :
--   `align-items || align-content : center`
+-   `justify-content : center `
+-   `align-items | align-content : center`
 -   space-between: 요소의 사이의 공백이 같음
 -   space-around: 모든 요소의 양 옆이 공백이 각가 나누어 가짐
 

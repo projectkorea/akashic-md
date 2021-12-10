@@ -31,8 +31,8 @@
 
 ## Overflow
 
--   overflow : visible(Default값), (auto, scroll 둘다 같음), hidden
-
+-  `overflow : *visible | auto | scroll | hidden`
+- `auto`와 `scroll`은 같은 기능을 한다.
 ## transform
 
 -   엘리먼트가 transform할 때 변형된 위치는 다른 요소에 전혀 영향을 끼치지 않는다.

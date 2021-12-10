@@ -30,7 +30,8 @@
 
 
 ### float를 고쳐서 사용하는 방법
-1. `overflow: hidden`
+
+#### 1. `overflow: hidden`
 ```css
 .parent{
     overflow : hidden;
@@ -43,7 +44,7 @@
   3) 스타일에 아무 영향이 없는 `hidden` 값을 이용한다.
 - `overflow`는 overflowing content를 다루기 위해 BFC를 생성하는 것이므로, float된 요소의 레이아웃을 고치기 위해선 그 목적에 맞게 설계된 `clear` 프로퍼티를 사용하는 것을 권장하고 있다.
 
-2. `clear: left || right || both`
+#### 2. `clear: left || right || both`
 ```css
 .parent::after {
     content: '';
