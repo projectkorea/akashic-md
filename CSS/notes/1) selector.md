@@ -10,7 +10,6 @@ selector {
 }
 ```
 
-
 ## 선택자의 종류
 
 ### 1) Type Selector
@@ -20,34 +19,28 @@ h1, h2 {
     property : value;
 }
 ```
-
-- `h1{}`: tag 이름을 선택자로 삼는다.
 - `,`를 활용하여 동시에 여러개 지정이 가능하다.
 
 
 ### 2) Class Selector
 
-
--   `.className{}`: `dot`을 붙여 class 이름을 선택자로 삼는다.
--   class를 여러개 선언할 경우 
-    - **공백으로 구분**한다.
-    - `<div class='box-0 box-1 box-2'></div>`
-- 특정 클래스 2개 이상을 가진 요소에 적용할 경우
-  -  **`.classNAme`을 붙여서** 선택자로 삼는다.
-    -   `.box-0.box-1{}` : box-0과 box-1의 클래스네임을 갖고 있는 엘리먼트
-    -   `.box-0.box-2{}`: box-0과 box-2의 클래스네임을 갖고 있는 엘리먼트
-    -   `.box-1.box-2{}`: box-1과 box-2의 클래스네임을 갖고 있는 엘리먼트
-    -   `.box-0.box.-1.box-2{}`: : box-0, 1, 2 클래스네임을 갖고있는 엘리먼트를 선택
+- `.className{}`: `dot`을 붙여 선택자로 삼는다.
+-  class를 여러개 가진 HTML을 선언할 경우, **공백으로 구분**한다.
+   - `<div class='box-0 box-1 box-2'></div>`
+- 특정 클래스 2개 이상을 가진 요소에 CSS를 적용할 경우, 각 요소를 **띄어쓰기 없이 붙여서** 선언한다.
+    - `.box-0.box-1{}` : box-0 ∩ box-1의 클래스네임을 갖고 있는 엘리먼트
+    - `.box-0.box-2{}`: box-0과 box-2의 클래스네임을 갖고 있는 엘리먼트
+    - `.box-1.box-2{}`: box-1과 box-2의 클래스네임을 갖고 있는 엘리먼트
+    - `.box-0.box.-1.box-2{}`: : box-0, 1, 2 클래스네임을 갖고있는 엘리먼트를 선택
 
 ### 3) ID Selector
 
 -   `#idName`: id 이름을 선택자로 삼는다.
--   특정 태그, 클래스네임, ID를 만족하는 선택자는 아래와 같다.
+- 특정 Type, className, idName을 가진 요소를 선택하는 선택자는 다음과 같다.
 
 ```html
 <div class="box active" id="junha">1</div>
 ```
-
 ```css
 div.box.active#junha {
     property : value;
@@ -68,7 +61,6 @@ div.box.active#junha {
     -   `parent descendant {}`
 
 -   3. Sibling Combinators(형제 선택자)
-
     -   Adjecant Sibling selector (+)
         -   `brother + sbling `: brother과 동일 level에 있는 엘리먼트 요소 **한 개** 선택
     -   General Sibling selector (~)

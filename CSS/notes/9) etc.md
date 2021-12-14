@@ -1,38 +1,30 @@
 # 기타 CSS 속성
 
+- CSS 속성 값들은 웹 css툴, figma로 쉽게 알아낼 수 있다.
+
 ## background
 
--   background-image : url("")
-    - url("")은 CSS 함수이며, 상대경로, 절대경로를 설정할 수 있다.
-
+-   `background-image : url("")`
+    - **url("")**: CSS 함수이며, 상대경로, 절대경로를 설정할 수 있다.
 -   `background-repeat: repeat | no-repeat`
+-   `background-size: contain | cover | custom`
+    -   contain: 이미지 전체가 보이도록 한다.
+    -   cover: 빈공간이 남지 않도록 이미지를 꽉 채운다.
+    -   custom: 100% 100px등으로 조정한다.
+-   `background-position : center, center`
 
--   backgrouund-size:
+## box-shadow
 
-    -   contain: 요소 안에 이미지의 모든 안에 들어갈 수 있도록 이미지가 다 보이도록
-    -   cover: 빈공간을 남기지 않도록 요소가 꽉차도록 넣는 것, 이미지가 다 보이지 않더라도 박스가 꽉 차도록
-    -   custom: 100% 100px등으로 조정가능
+- `box-shadow: h-offset, v-offset, blur, spread, color`
+- 속성은 5가지이며, 순서는 맞춰야 한다.
+- x축, y축, 흐린 정도, 그림자 크기, 색상
 
--   background-position: x y
-    -   `background-position : center, center`
-
-## Box Shadow
-
--   box-shadow
--   속성 5가지
--   순서 맞춰야함
-
--   h-offset, v-offset, blur, spread, color
--   x축, y축, 흐린 정도, 그림자 사이즈, 생상
-
--   box shadow 값은 웹 css툴, figma로 쉽게 알아낼 수 있다.
-
--   Opacity: 0(투명)~1(불투명)
-
-## Overflow
+-   
+## overflow
 
 -  `overflow : *visible | auto | scroll | hidden`
 - `auto`와 `scroll`은 같은 기능을 한다.
+
 ## transform
 
 -   엘리먼트가 transform할 때 변형된 위치는 다른 요소에 전혀 영향을 끼치지 않는다.

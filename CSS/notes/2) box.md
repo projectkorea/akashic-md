@@ -1,32 +1,29 @@
 # Box
 
-## Box Model
+## 1. Box Model(구조)
 
 <img src="https://user-images.githubusercontent.com/76730867/144774009-8488e16c-61a8-4416-bce8-a1271ae0fb3c.png" width="400px">
 
-**구조**
--   content : width, height
--   padding: 안쪽 여백, content와 border 사이의 공간을 나타낸다.
--   border: 테두리를 나타낸다.
-    -   `border: 1px(굵기) solid(스타일) #000(색상)` 순서는 무관하다.
-    -   박스 모양을 원으로 만들고 싶은 경우: `border-radius: 50%`
--   margin: 바깥 여백, 요소와 요소 사이의 간격을 나타낼 때 사용한다.
+1) **content**: `width` * `height`
+2) **padding**: 안쪽 여백, content ↔ border 사이의 공간
+3) **border**: 테두리, `border: 1px(굵기) solid(스타일) #000(색상)`
+    -   원 모양의 박스 모형: `border-radius: 50%`
+4) **margin**: 바깥 여백
 
-**shorthand**
+<br>
 
--   시계방향 순서로 사이즈를 정의한다. 
--   `top -> right -> bottom -> left`
--   `padding: 10px 20px (bottom)`
+- `top -> right -> bottom -> left`: 시계방향 순서로 사이즈를 정의한다. 
+1)  `padding: 10px 20px (bottom)`
     - bottom에 대한 명시가 없으므로 `top,bottom: 10px`, `right, left: 20px`로 가져간다.
--   `padding: 10px 20px 30px (left)`
+2)  `padding: 10px 20px 30px (left)`
     - left에 대한 명시가 없으므로 right과 한짝을 이뤄 20px을 가져간다.
 - <img src="https://user-images.githubusercontent.com/76730867/144776321-57b25f5a-6b25-4a83-a927-2a7168da03e7.png" width="300px">
 
-## Box Sizing
+## 2. Box Sizing
 
--   `box-sizing: content-box` : width, height가 content기준으로 잡힌다.
--   `box-sizing: border-box` : **width, height = content + padding + border** 기준으로 잡힌다.
--   padding 값에 레이아웃이 망가지는 경우가 많아 boilerplate로 아래 코드를 많이 사용한다.
+- `box-sizing: *content-box | border-box`
+-   `border-box` : **width, height = content + padding + border** 기준으로 잡힌다.
+-   padding 값이 추가되면서 레이아웃이 망가지기 때문에 `border-box`를 자주 사용한다.
 
 ```css
 * {
@@ -34,56 +31,40 @@
 }
 ```
 
+## 3. Box Type(종류)
 
-## Box Type
+- `display: block | inline | inline-block | flex`
+- <img src='https://user-images.githubusercontent.com/76730867/144802489-32272aba-66b9-4422-b0eb-591de90d2c0f.png' width='200px'>
 
-```css
-selector {
-    display: block || inline || inline-block || flex
-}
-```
-
--   Box type에 따라 Box Model이 달라지기 때문에 종류를 파악하는 것이 중요하다.
-    -   1. block
-    -   2. inline
-    -   3. inline-blcok
-    -   4. flex
-    <img src='https://user-images.githubusercontent.com/76730867/144802489-32272aba-66b9-4422-b0eb-591de90d2c0f.png' width='200px'>
 
 ### 1) block
 
--   영역을 차지하는 특징이 있다.
--   공간을 차지하는 배치에 적합하다.
--   width 값
-    - default: 부모 content-box의 100%
-    - width 값을 별도로 선언한 경우, 남은 공간은 margin으로 자동으로 채운다. 
-    - <img src="https://user-images.githubusercontent.com/76730867/144780045-25559ae8-6f8e-41bb-8e71-765239830900.PNG" width="500px">
-    - 이를 이용해 `margin : 0 auto`로 가운데 배치를 한다.
+- **한 라인을 독차지한다.**
+- **영역을 차지**하는 특징이 있어, 레이아웃 구성에 적합하다.
+    1) **width 값**
+       - = 내용과 상관없이 항상 **부모 content-box의 100%**
+       - width 값을 별도로 선언해도, 남은 공간은 margin으로 자동으로 채워, 부모 사이즈의 100%를 채운다.
+       - 이를 이용해 `margin : 0 auto`로 가운데 배치를 한다.
+        <img src="https://user-images.githubusercontent.com/76730867/144780045-25559ae8-6f8e-41bb-8e71-765239830900.PNG" width="500px">
     
+    2) **height 값**
+       - = **자식 요소의 height의 합**
+       - 별도로 height 값을 선언할 수도 있다.
 
--   height 값
-    -   부모 height를 선언하지 않은 경우, 부모 height 값은 자식 요소의 height의 합이 된다.
-
--   `width`, `height`, `padding`, `border`, `margin` 값을 사용할 수 있다.
+-   **높이 값** 사용 가능: `width`, `height`, `padding`, `border`, `margin`
+* `display:block` 태그 예시들
+* `<address>, <article>, <aside>, <audio>, <blockquote>, <canvas>, <dd>, <div>, <dl>, <fieldset>, <figcaption>, <figure>, <footer>, <form>, <h1>, <h2>, <h3>, <h4>, <h5>, <h6>, <header>, <hgroup>, <hr>, <noscript>, <ol>, <output>, <p>, <pre>, <section>, <table>, <ul>, <video>`
 
 ### 2) inline
 
--   컨텐츠를 옆으로 흐르게하는 **흐름**이 있다.
--   가로 배치에 사용된다.
--   다음 property들은 사용할 수 없다.
+-   컨텐츠를 **옆으로 흐르게하는 흐름**이 있다.
+-   **가로 배치**에 사용된다.
+*   **높이 값** 사용 불가: `inline`의 흐르는 간격을 망치기 때문이다.
+    -  ❌: `width`, `height`, `padding-top`, `border-top`, `padding-bottom`, `border-bottom`, `margin-top`, `margin-bottom`
+*   물론 속성을 적용하면 영역이 생기기는 하지만, 영역으로써 의미가 없다. 왜냐하면 **영역을 차지하지 않고 덮고 있기만** 하기 때문이다.
+-   `display : inline` 태그 예시들
+-   `<a>, <abbr>, <acronym>, <b>, <bdo>, <big>, <br/>, <button>, <cite>, <code>, <dfn>, <em>, <i>, <img>, <input>, <kbd>, <label>, <map>, <object>, <q>, <samp>, <small>, <script>, <select>, <span>, <strong>, <sub>, <sup>, <textarea>, <tt>, <var>`
 
-    -   `width`
-    -   `height`
-    -   `padding-top`
-    -   `padding-bottom`
-    -   `border-top`
-    -   `border-bottom`
-    -   `margin-top`
-    -   `margin-bottom`
-
--   위와 같은 property는 inline 줄간격에서 흐르는 간격을 망치기 때문이다.
--   padding top을 할 때 영역이 생기기는 하지만, 영역으로써 의미가 없다. 왜냐하면 **영역을 차지하지 않고 덮고 있기만** 하기 때문이다.
--   `span`, `a`, `strong`은 `display : inline`이다.
 
 ### 3) inline-block
 

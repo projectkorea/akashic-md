@@ -32,8 +32,8 @@
 **align-items vs align-content**
 
     -   flexwrap: wrap인 경우에만 차이가 있다.
-    -   aligh-items: 각 줄, 각 axis에 해당하는 배치에 관한 속성
-    -   align-content: 전체 axis에 관한 배치에 관한 속성
+    -   align-items: 한 축에 배치되어 있는, 각 item들의 배치에 관 한속성
+    -   align-content: cross 축들의 배치에 관한 속성
     -   팁: 선 align-items 후 align-content를 통해 화면을 보고 사용
 
 **order**
