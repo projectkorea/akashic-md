@@ -27,11 +27,11 @@
 
 ## transform
 
+- `transform: rotate(360) `
+-   변형할 때 사용하며, css함수 `translate()`, `scale()`,` rotate()`등을 사용한다.
 -   엘리먼트가 transform할 때 변형된 위치는 다른 요소에 전혀 영향을 끼치지 않는다.
--   변형할 때 사용, css함수를 사용
--   translate(), scale(), rotate()
 
--   translate(x,y)- 좌표를 움직일때 사용한다
+-   translate(x,y): 좌표를 움직일때 사용한다
 -   translate(100%, 100%)
 -   sclae(N): 사이즈를 키웠다 ,줄였다 N배수
 -   scale(x,y)
@@ -43,9 +43,10 @@
 -   vs display: none
 -   display는 박스의 type을 정해주는 녀석이다. 없는 존재처럼 취급하라. 존재 영역까지 없어지는 녀석
 
+## viewport
 
-1vw 뷰포트 너비의 1%
-1vh 뷰포트 높이의 1%
+- 1vw 뷰포트 너비의 1%
+- 1vh 뷰포트 높이의 1%
 
 ```css
 container {
