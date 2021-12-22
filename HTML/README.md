@@ -33,15 +33,8 @@
 
 ## 목록태그
 
--   ul, ol(unordered, order list)
--   li: list item
--   자식요소는 무조건 li만가능
--   shorthand: `li*3{$} + tab`
-    ```html
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    ```
+-   ul, ol(order list), li: list item
+-   목록 태그의 자식요소는 항상 li가 되게 한다.
 
 ```html
 // 올바른 예시
@@ -58,7 +51,6 @@
 </ol>
 ```
 
--   목록 태그의 자식요소는 항상 li가 되게 한다.
 
 ## dl(정의 리스트) 태그
 
@@ -359,6 +351,8 @@
 -   code 태그: code에 관한 태그
 -   code에서 indent를 그대로 표시하고 싶은 경우 pre태그로 감싸서 표현한다.
 
+---
+
 ## DocType
 
 ```html
@@ -384,7 +378,7 @@
 
 -   자동완성: `! + tab`
 
-## Inside head 태그
+## `title`, `link`, `style`, `script` in head 태그
 
 ### title
 
@@ -399,10 +393,9 @@
 -   css 스타일 시트
 -   자동완성: `link:css + tab`
 
-### style
+### style, script 태그
 
--   html문서내에서 css코드를 작성할 때 사용, 굳이 사용하지 않는다.
--   자동완성: `script:src + tab`
+-   html 문서내에서 css, js코드를 작성할 때 사용하지만 권장하지 않는다.
 
 ```html
 <style>
@@ -410,14 +403,11 @@
         color: red;
     }
 </style>
-```
-
-<scropt src="">
 
 <script>
-    // js코드를 사용
     console.log("js in html")
 </script>
+```
 
 ## Meta 태그, 메타 데이터
 
@@ -449,10 +439,9 @@
 ## 마크업 우선 순위: 의미있는 단위로 나누기
 
 -   `<h1><img /></h1>` 도 가능
--   특수문자는 브라우저가 랜더링할 때 혼란이 올 수가 있으므로 escape code로 대체한다.
--   html escape code, 특수문자 대신 사용한다.
+-   특수문자는 브라우저가 랜더링할 때 혼란의 여지가 있으므로 escape code로 대체한다.
 
-## 의미마크업 할때는 의미에 맞게만 할 것!
+## 마크업 할때는 의미에 맞게만 할 것!
 
 ```html
 <div>
@@ -486,19 +475,20 @@
     -   논리적 집합체에 따라 구획을 나누고 구획에 적합한 sectioning element을 고른 후 종합적으로 붙여나간다.
 
 ## Sectioning Element
-
--   section
+- `section`, `article`, `nav`, `aside`
+1. section
     -   div vs section
         -   section은 element를 모아줄 때 논리적 관계가 좀 더 명확할 때 사용한다.
         -   div는 미관상, 혹은 단순히 요소를 모아줄 때 사용한다.
--   article
+2. article
     -   블로그, 뉴스기사, 피드 등에 사용
     -   정보컨텐츠로써 완결성이 있는 독립적인 컨텐츠인 경우 article이 뉘앙스를 전달하기 쉽다.
--   nav
--   aside
+3. nav
+4. aside
     -   본문내용과 직접적인 연관이 없는 분리된 내용을 마크업할 때 사용한다.
     -   배너광고, 위젯
--   위와 같은 Section Elemtnt 태그들은 단원을 뜻하므로, 주제가 언급되어야 하기 때문에 heading tag를 반드시 작성한다.
+-   위와 같은 Section Elemtnt 태그들은 단원을 뜻하므로, 주제가 언급되어야 하기 때문에 반드시 **`h1` tag를 반드시 작성**한다.
+-   섹셔닝 엘리먼트의 header, footer로 의미를 나눌 수 있다.
 
 ## header, footer, main
 
