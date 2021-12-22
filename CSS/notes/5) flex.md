@@ -70,3 +70,17 @@ container {
 
 -   space-between: 요소의 사이의 공백이 같음
 -   space-around: 모든 요소의 양 옆이 공백이 각가 나누어 가짐
+
+container속성
+1) flex-wrap : norwrap(Default) wrap: 꽉차면 다음 줄로 찍힌다. wrap-reverse으로 순서를 거꾸로 나타낼수도 있다.
+2) flex-flow: flex-direaction과 flex-wrap을 한 번에 찍을 수 있다.
+3) justify content: 중심축에서 배치방법
+4) align items: 서브축에서 배치방법
+5) flex start: 왼쪽부터 순서대로 배치
+
+container width를 고정했을 때 
+display를 flex로 했는데, width와 height를 고정시키면
+
+1) 크기가 화면에 따라 유동적으로 변하지 않는다.
+
+2) position이 고정이 되버린다.
