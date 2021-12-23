@@ -57,10 +57,10 @@
 
 ## 6. header, footer, main
 
--   header: 도입부를 표현할 떄 묶어주는 태그
--   footer: 하단부
--   main tag: 단 한 번밖에 못쓴다.
-    -   main은 sectioning element가 아니기 때문에 h1 tag를 반드시 적어줄 필요는 없다.
+-   `header`: 도입부를 표현할 떄 묶어주는 태그
+-   `footer`: 하단부
+-   `main`: 단 한 번밖에 못쓴다.
+    -   `main` 태그는 sectioning element가 아니기 때문에 h1 tag를 반드시 적어줄 필요는 없다.
     -   `Header Main Footer` `서론, 본론, 결론`과 같은 구조
 
 ### 기타) 버튼을 눌렀을 때 나오는 모달창
