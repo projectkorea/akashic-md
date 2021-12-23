@@ -9,7 +9,7 @@
 </a>
 ```
 
-1. `nav`안에 `h1`를 넣는 이유는 aria label로, css처리로 display:None을 하면 된다.
+3. `nav`안에 `h1`를 넣는 이유는 aria label로, css로 `display:None`처리하면 된다.
 ```html
 <nav>
   <h1>Global Navigation Menu</h1>
@@ -35,7 +35,7 @@
 </a>
 ```
 
-6. `section`태그로 감싼 후 `h1`태그로 내용을 `form` 태그로 양식을 채울 버튼과 인풋 태그를 넣어준다.
+6. `section`태그로 감싼 후 `h1`태그로 내용을, `form` 태그로 양식을 채울 버튼과 인풋 태그를 넣어준다.
 ```html
 <section>
   <h1></h1>
@@ -72,7 +72,7 @@
 </button>
 ```
 
-10. `button` 태그와 `a` 태그를 구분할 때.`a` 태그는 주소를 이동한다는 의미로 구분하자.
+10. `button` 태그와 `a` 태그를 구분할 때, `a` 태그는 주소를 이동한다는 의미로 구분하자.
 ```html
 <footer>
     <a>링크1</a>
@@ -83,5 +83,4 @@
         <a>링크4</a>
     </div>
 </footer>
-
 ```
