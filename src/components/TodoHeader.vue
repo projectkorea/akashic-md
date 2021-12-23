@@ -1,15 +1,22 @@
 <template>
+  <header><h1>Vue로 구현하는 Todo</h1></header>
   <div>
-    <div id="app"></div>
+    <!-- <button v-on:click="fromHeader">this from header</button> -->
   </div>
 </template>
 <script>
-export default {};
+export default {
+  methods: {
+    fromHeader() {
+      console.dir(this);
+    },
+  },
+};
 </script>
-<style>
+<style scoped>
 h1 {
-  color: #2f3b52;
-  font-weight: 900;
-  margin: 2.5rem 0 1.5rem;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 42px;
+  font-weight: bold;
 }
 </style>
