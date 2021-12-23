@@ -2,8 +2,10 @@
 
 ### 토이프로젝트: 트위터 클론 마크업
 
-<img src="https://github.com/projectkorea/study-html-css/blob/main/HTML/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%ED%8A%B8%EC%9C%84%ED%84%B0.PNG" width=600px>
-<img src="https://github.com/projectkorea/study-html-css/blob/main/HTML/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B5%AC%ED%9A%8D.PNG" width=600px>
+<p>
+<img src="https://github.com/projectkorea/study-html-css/blob/main/HTML/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%ED%8A%B8%EC%9C%84%ED%84%B0.PNG" width=500px>
+<img src="https://github.com/projectkorea/study-html-css/blob/main/HTML/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/%EA%B5%AC%ED%9A%8D.PNG" width=500px>
+</p>
 
 1. 레이아웃에 따라 `Header`안에 `Nav`를 넣기도한다.  
 
