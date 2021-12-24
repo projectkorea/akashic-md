@@ -1,11 +1,7 @@
 <template>
   <section>
-    <ul>
-      <li
-        v-for="(todoItem, index) in propsdata"
-        :key="todoItem.id"
-        class="shadow"
-      >
+    <transition-group name="list" tag="ul">
+      <li v-for="(todoItem, index) in propsdata" :key="todoItem" class="shadow">
         {{ todoItem }}
         <span
           class="removeBtn"
@@ -15,7 +11,7 @@
           <i class="far fa-trash-alt alra-hidden"></i>
         </span>
       </li>
-    </ul>
+    </transition-group>
   </section>
 </template>
 <script>
@@ -28,8 +24,7 @@ export default {
   },
   methods: {
     removeTodo(todoItem, index) {
-      localStorage.removeItem(todoItem);
-      this.todoItems.splice(index, 1);
+      this.$emit('removeTodo', todoItem, index);
     },
   },
 };
@@ -54,5 +49,14 @@ li {
 .removeBtn {
   margin-left: auto;
   color: #de4343;
+}
+.list-enter-active,
+.list-leave-active {
+  transition: all 500ms ease-out;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
 }
 </style>

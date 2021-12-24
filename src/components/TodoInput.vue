@@ -1,17 +1,32 @@
 <template>
   <div class="inputBox shadow">
     <!-- <button v-on:click="printThis">this from input</button> -->
-    <input type="text" v-model="newTodoItem" placeholder="할 일을 입력하세요" />
+    <input
+      type="text"
+      v-model="newTodoItem"
+      placeholder="할 일을 입력하세요"
+      @keyup.enter="addTodo"
+    />
     <span class="addContainer" v-on:click="addTodo"
       ><i class="addBtn fas fa-plus aria-hidden"></i>
     </span>
+    <Modal :showProp="showModal" @close="showModal = false">
+      <template v-slot:header>
+        <h3>경고</h3>
+      </template>
+      <template v-slot:body>
+        <h4>아무것도 입력하지 않았습니다.</h4>
+      </template>
+    </Modal>
   </div>
 </template>
 <script>
+import Modal from './common/Modal.vue';
 export default {
   data() {
     return {
       newTodoItem: '',
+      showModal: false,
     };
   },
   methods: {
@@ -20,6 +35,8 @@ export default {
         var value = this.newTodoItem && this.newTodoItem.trim();
         this.$emit('addTodo', value);
         this.clearInput();
+      } else {
+        this.showModal = !this.showModal;
       }
     },
     clearInput() {
@@ -28,6 +45,9 @@ export default {
     printThis() {
       console.dir(this);
     },
+  },
+  components: {
+    Modal,
   },
 };
 </script>
