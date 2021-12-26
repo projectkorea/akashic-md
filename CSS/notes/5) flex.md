@@ -2,8 +2,8 @@
 
 -   `float`, `position`을 사용하지 않아도 쉽게 정렬할 수 있다.
 - 구성 요소: 
-  - `container`: item들의 배치를 책임지는 속성값을 가진다.
-  - `item`: 
+  1. `container`: item들의 배치를 책임지는 속성값을 가진다.
+  2.  `item`: 정렬되는 아이템들이다.
 
 <img src="https://user-images.githubusercontent.com/76730867/146141031-daedb4ce-5146-4733-8a6b-8e8846a8ae56.png" width="600px">
 
@@ -26,24 +26,50 @@
 #### 4) 플렉스 박스 사용
 
 - `justify-content`: main-axis를 가리키며 `flex-direction`과 같은 축이다.
-- `align-items | align-content`: cross-axis를 가리키며 main-axis의 반대 축이다.
+- `align-items | align-content : center | space-between | space-around`: main-axis의 반대 축이다.
+- `space-between`: 요소의 사이의 공백이 같음
+- `space-around`: 모든 요소의 양 옆이 공백이 각가 나누어 가짐
 
 ```css
 container {
+  display: flex;
   flex-direction:column;
+  flex-wrap:no-wrap;
   justify-content:flex-start;
 }
 ```
-❤ 예시한번 써보자
+
+#### `align-items` vs `align-content`
+
 ![2](https://user-images.githubusercontent.com/76730867/146141036-804d5dfa-a5d1-4ef9-bc64-0315dd802d08.png)
 
-##### `align-items` vs `align-content`
-
--   `flexwrap: wrap`인 경우에만 차이가 있다.
+-   **`flexwrap: wrap`인 경우에만 차이가 있다.**
 -   `align-items`: **한 축**에 배치되어 있는 각 item들의 배치에 관한 속성
 -   `align-content`: **cross 축들**의 배치에 관한 속성
--   팁: 선 align-items 후 align-content를 통해 화면을 보고 사용
+-   팁: 선 `align-items` 후 `align-content`를 통해 화면을 보고 사용
 
+#### 반응형 레이아웃 예시
+
+![](https://user-images.githubusercontent.com/76730867/147397503-223cbf08-1545-4d51-8af2-a5c2bd6be6c2.gif)
+
+```css
+.content{
+    max-width: 800px;
+    margin: 0 auto;
+}
+.flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+.item{
+    min-height: 200px;
+    flex-basis: 150px;
+    flex-grow: 1;
+}
+```
+- `flex-grow : 1`: 자동으로 크기가 늘어나면서 남는 여백을 메꿈
+- `flex-basis : 150px`: 아이템 너비 150px을 기준으로 남는 여백을 자동으로 채우면서 아이템들을 다음 행에 채워나간다. 레이아웃 너비인 "800px" 안에 "flex-basis" 속성에서 정한 아이템 너비의 합이 레이아웃 너비보다 더 커지면 한 행에 3개, 또는 2개의 아이템이 자동으로 배치됩니다.
 
 ### 2. container 속성
 <img src="https://user-images.githubusercontent.com/76730867/146140705-6b8a58f5-4fa5-4601-a873-a065ed640827.png" width=600px>
@@ -66,21 +92,6 @@ container {
 }
 ```
 
-
-
--   space-between: 요소의 사이의 공백이 같음
--   space-around: 모든 요소의 양 옆이 공백이 각가 나누어 가짐
-
-container속성
-1) flex-wrap : norwrap(Default) wrap: 꽉차면 다음 줄로 찍힌다. wrap-reverse으로 순서를 거꾸로 나타낼수도 있다.
-2) flex-flow: flex-direaction과 flex-wrap을 한 번에 찍을 수 있다.
-3) justify content: 중심축에서 배치방법
-4) align items: 서브축에서 배치방법
-5) flex start: 왼쪽부터 순서대로 배치
-
-container width를 고정했을 때 
-display를 flex로 했는데, width와 height를 고정시키면
-
-1) 크기가 화면에 따라 유동적으로 변하지 않는다.
-
-2) position이 고정이 되버린다.
+### 4. `flex` 박스 이용 시 주의사항
+- 부모의 `width`, `height`을 보자
+- `width`, `height` 값을 주지 않으면 부모의 값을 상속하기 때문에 width는 끝까지 늘어나고, height는 자식 엘리먼트값만 포함한다. 이는 `align-items:center`을 해도 세로 중앙 정렬이 먹지 않을 수 있기 때문에 `height:95vh;`로 정도로 잡아놓아 정렬할 수 있는 여백을 마련한다.
