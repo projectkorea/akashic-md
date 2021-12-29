@@ -17,7 +17,7 @@
 
 #### 2) `display : block`으로 바뀐다.
 
-##### (1) `width`, `padding`등 높이에 관한 프로퍼티를 사용할 수 있게 된다.
+##### (1) `width`, `padding`등 높이에 관한 프로퍼티를 사용할 수 있다.
 ##### (2) width는 content 만큼만 늘어난다.
 - `display:block`의 `width`는 부모의 content-box의 100%를 상속받지만, `float`된 요소는 컨텐츠 길이 만큼만 width가 정의되어 margin이 늘어나 영역을 차지하는 **길막하는 특징**이 사라지게 된다. 이런 특징 덕에 부모의 width 값이 여유가 있는 한, child 요소를 가로로 배치할 수 있는 것이다.
 

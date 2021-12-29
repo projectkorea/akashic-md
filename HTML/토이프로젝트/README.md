@@ -14,7 +14,7 @@
 <a href="#">
   <img src="#" alt="Twitter" />
 </a>
-```
+``` 
 
 3. `nav`안에 `h1`를 넣는 이유는 aria label로, css로 `display:None`처리하면 된다.
 ```html
