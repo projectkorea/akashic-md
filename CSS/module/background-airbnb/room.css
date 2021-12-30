@@ -1,0 +1,108 @@
+.like-button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* code */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.card {
+  position: relative;
+  padding: 20px;
+  width: 900px;
+  display: flex;
+  justify-content: space-between;
+  background-color: thistle;
+}
+
+.card-image {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 6px;
+  background-image: url('./img-house.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-right: 24px;
+}
+
+.plus-badge {
+  background-color: brown;
+  padding: 1px 8px;
+  color: white;
+}
+
+.like-button {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url('./icon-favorite.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+}
+
+.property-rate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.card-header {
+  margin-bottom: 10px;
+}
+
+.property-rate::before {
+  content: '';
+  /* display: inline-block; */
+  width: 16px;
+  height: 16px;
+  background-image: url('./icon-star.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.property-detail dd span::after {
+  content: '·';
+  margin: 0 8px;
+}
+
+.property-detail dd span:last-child::after {
+  content: '';
+  margin: 0;
+}
+
+.property-detail div:first-child {
+  margin-bottom: 10px;
+}
+/* property-detail에 있는 div 중 첫번째 요소만 */
+
+span {
+  font-size: 16px;
+}
+
+dd {
+  font-size: 0px;
+}
+
+.sr-only {
+  display: none;
+}
+
+.card-content {
+  flex-grow: 1;
+}
