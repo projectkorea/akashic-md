@@ -81,7 +81,7 @@ parent descendant {
 ##### (3) Sibling Combinators(형제 선택자): `+`, `~`
 
 ###### i) Adjecant Sibling selector: `+`
--  앞에서 지정한 요소의 **바로 다음에 위치하는 형제 요소** 한개만 선택한다.
+-  앞에서 지정한 요소의 바로 다음에 위치하는 형제 요소 **한개만** 선택한다.
 ```css
 brother + sibling{
   property:value;
@@ -89,18 +89,19 @@ brother + sibling{
 ```
 ###### ii) General Sibling selector: `~`
 
-- `brother ~ sbling `: brother과 **동일 level에 있는 모든 sbling**이 선택된다.
+- `brother ~ sbling `: brother과 동일 level에 있는 **모든** 형제요소를 선택한다.
+
+```css
+img ~ p {
+  propery:value;
+}
+```
 
 ```html
 <p>not be selected</p>
 <img/>
 <p>be selected</p>
 <p>be selected</p>
-```
-```css
-img ~ p {
-  propery:value;
-}
 ```
 
 #### 5) Pseudo-class(가상 클래스): `:`
@@ -115,6 +116,7 @@ img ~ p {
 -   `element:nth-child(n)`
     -   element인데 n번째 요소인 경우 선택
     -   n could be 2n(짝수), 2n-1(홀수)
+
 ```css
 li:nth-child(3){
     property : value;
@@ -141,18 +143,22 @@ li:nth-child(3){
   }
 ```
 
+---
+
 ## 2. 선택자 우선순위
 
 #### 1) 항상 높은 우선순위의 선택자가 우선으로 적용된다.
-```
-3순위: type 선택자
-2순위: class, pesudo-class 선택자
-1순위: id 선택자
-```
+
+- 3순위: type 선택자
+- 2순위: class, pesudo-class 선택자
+- 1순위: id 선택자
+
 #### 2) Rule Breakers
 - `id 선택자`보다 우선순위가 앞서지만, 왠만하면 권장하지 않는다.
+
 ##### (1) Inline Style
 - `<p style=""></p>`
+
 ##### (2) `!important` 
    - `{color: red !important}`
    - **우선순위가 가장 높기** 때문에, 다른 곳에서 값을 바꿔도 오버라이딩하여 **해당 속성이 변경되지 않도록** 한다.
