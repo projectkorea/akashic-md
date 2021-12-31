@@ -76,6 +76,7 @@ from{
 - `animation-iteration-count : countNumber | infinite`
 
 #### 6. animation-dirtection
+- 교대로 왔다갔다 하기
 - `animation-direction : alternate | reverse`
 
 ### 사용 예시

@@ -1,8 +1,8 @@
 # Selector
 
-- CSS는 1) 선택자와 2) 선언으로 구성되어 있다.
+- CSS는 1) 선택자와 2) 선언문으로 구성되어 있다.
   - 선택자: 규칙을 적용할 **요소**를 나타낸다.
-  - 선언: 적용될 **기능**을 나타낸다.
+  - 선언문: 적용될 **기능**을 `key:value`로 나타낸다.
 
 ```css
 selector {
@@ -14,8 +14,8 @@ selector {
 
 #### 1) Type Selector: `tagName` 
 
-- `<h1>`와 같은 태그를 말한다.
 - `,`를 활용하여 동시에 여러개 지정이 가능하다.
+
 ```css
 h1, h2 {
     property : value;
@@ -30,23 +30,27 @@ h1, h2 {
 }
 ```
 
--  class를 여러개 가진 HTML을 선언할 경우, **공백으로 구분**한다.
+##### 예시1) `box-0`, `box-1`, `box-2`의 클래스를 가진 `div` 태그 생성
+
 ```html
 <div class='box-0 box-1 box-2'></div>
 ```
-- 클래스 2개 이상을 가진 요소에 CSS를 적용할 경우, **띄어쓰기 없이 붙여서** 선언한다.
-    - `.box-0.box-1{}` : box-0과 box-1의 클래스네임을 갖고 있는 엘리먼트
-    - `.box-0.box-2{}`: box-0과 box-2의 클래스네임을 갖고 있는 엘리먼트
-    - `.box-1.box-2{}`: box-1과 box-2의 클래스네임을 갖고 있는 엘리먼트
-    - `.box-0.box.-1.box-2{}`: : box-0, 1, 2 클래스네임을 갖고있는 엘리먼트
+
+##### 예시2) 띄어쓰기 없이 붙여서 선언
+  
+  - `.box-0.box-1{}`: box-0, box-1 클래스 네임 모두 갖고 있는 엘리먼트를 선택
+  - `.box-0.box-2{}`: box-0, box-2 클래스 네임 모두 갖고 있는 엘리먼트를 선택
+  - `.box-1.box-2{}`: box-1, box-2 클래스 네임 모두 갖고 있는 엘리먼트를 선택
+  - `.box-0.box.-1.box-2{}`: : box-0, box-1, box-2 클래스 네임 모두 갖고 있는 엘리먼트를 선택
 
 #### 3) ID Selector: `#`
 
-- **예시) 특정 type, class, id를 가진 요소를 선택할 경우**
+##### 예시) 특정 type, class, id를 모두 가진 요소를 선택할 경우
 
 ```html
 <div class="box active" id="junha"></div>
 ```
+
 ```css
 div.box.active#junha {
     property : value;
@@ -64,8 +68,10 @@ parent > child {
 }
 ```
 
-##### (2) Descendant Combinators(자손 선택자): ` `
+##### (2) Descendant Combinators(자손 선택자): ` `(공백)
+
 -   아래 level에 있는 모든 엘리먼트 요소 선택을 한다.
+
 ```css
 parent descendant {
   property:value;
@@ -73,6 +79,7 @@ parent descendant {
 ```
 
 ##### (3) Sibling Combinators(형제 선택자): `+`, `~`
+
 ###### i) Adjecant Sibling selector: `+`
 -  앞에서 지정한 요소의 **바로 다음에 위치하는 형제 요소** 한개만 선택한다.
 ```css
@@ -81,7 +88,9 @@ brother + sibling{
 }
 ```
 ###### ii) General Sibling selector: `~`
+
 - `brother ~ sbling `: brother과 **동일 level에 있는 모든 sbling**이 선택된다.
+
 ```html
 <p>not be selected</p>
 <img/>

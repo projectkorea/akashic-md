@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+button {
+  border: none;
+  background-color: #fff;
+  padding: 18px 30px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.line-button {
+  position: relative;
+}
+
+.line-button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0066ff;
+  transition: width 250ms ease-out;
+}
+
+.line-button:hover::after {
+  width: 100%;
+}

@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.loading {
+  padding: 20px;
+}
+
+.loading-title {
+  animation-name: flicker;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+
+.progress-bar {
+  background: rgba(0, 0, 0, 0.1);
+  width: 500px;
+  height: 20px;
+  position: relative;
+  border-radius: 100px;
+}
+
+.progress-bar-gauge {
+  position: absolute;
+  border-radius: 100px;
+  background-color: #0066ff;
+  width: 0;
+  height: 10px;
+  top: 25%;
+  left: 0;
+  animation-name: loading;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 10%;
+  }
+}
