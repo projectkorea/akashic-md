@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Reset CSS */
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+}
+
+button:focus,
+button:active,
+input:focus,
+input:active,
+textarea:focus,
+textarea:active {
+  outline: none;
+  box-shadow: none;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+/* >= 760px (Desktop) */
+@media screen and (min-width: 1200px) {
+  /*  */
+}
+
+/* Custom Grid System - Fix container width */
+/* xl 반응형 사이즈 없애는 역할 */
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 960px !important;
+  }
+}

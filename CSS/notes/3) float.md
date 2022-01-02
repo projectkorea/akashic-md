@@ -1,7 +1,7 @@
 # float
 
 - `block`이 하지 못하는 **가로 배치**를 하기 위해 사용한다.
-- `float : left | right`
+- `float : left | right | center`
 
 ### 1. float가 적용된 요소는...
 
@@ -19,7 +19,7 @@
 
 ##### (1) `width`, `padding`등 높이에 관한 프로퍼티를 사용할 수 있다.
 ##### (2) width는 content 만큼만 늘어난다.
-- `display:block`의 `width`는 부모의 content-box의 100%를 상속받지만, `float`된 요소는 컨텐츠 길이 만큼만 width가 정의되어 margin이 늘어나 영역을 차지하는 **길막하는 특징**이 사라지게 된다. 이런 특징 덕에 부모의 width 값이 여유가 있는 한, child 요소를 가로로 배치할 수 있는 것이다.
+- `display:block`의 `width`는 부모의 content-box의 100%를 상속받지만, ❗ `float`된 요소는 컨텐츠 길이 만큼만 width가 정의되어 margin이 늘어나 영역을 차지하는 **길막하는 특징**이 사라지게 된다. 이런 특징 덕에 부모의 width 값이 여유가 있는 한, child 요소를 가로로 배치할 수 있는 것이다.
 
 
 #### 3) `inline` 요소는 `float`요소를 존중한다.
