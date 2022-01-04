@@ -5,7 +5,7 @@
 
 ### 1. float가 적용된 요소는...
 
-#### 1) 접점이 사라진다.
+#### 1) 부모와 형제와 접점이 사라진다.
 
 ##### (1) `float`된 빨간 요소는 위로 붕 뜬다.
 - 부모 요소와 형제 요소와의 접점이 사라져, 노란 요소를 덮게 된다.
@@ -39,6 +39,7 @@
 }
 ```
 - 부모가 float된 자식을 인식할 수 있다.
+
 - 이유
   1) `overflow` property에 `visible` 이외의 값을 넣으면 BFC(Block formatting context)를 생성한다.
   2) BFC는 자신이 포함하고 있는 float된 자식 요소들을 강제로 포함시킨다.
@@ -49,12 +50,14 @@
 - `clear: left | right | both`
 - div안의 모든 요소가 `float`인 경우, width 값이 0이 되어 영역을 차지 하지 않기 때문에 `clear`프로퍼티를 이용해 공간을 인식한다.
 ```css
+.clearfix,
 .parent::after {
     content: '';
     display:block;
     clear: left;
 }
 ```
+
 - `clear:left` : `float:left`된 요소를 인지하는 능력이 생긴다.
 - **pesudo-element**
   - 자리를 차지하는 block을 만들기 위해, 의미 없는 `div`를 만들고 싶지 않기 때문에 **CSS로 페이크 요소** `::after`를 만들어 `clear` 프로퍼티를 만든다.
