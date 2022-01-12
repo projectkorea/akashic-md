@@ -21,6 +21,7 @@
        - ⭐별도로 `widht`,`height`값을 설정하거나, `relative`안에 들어가 영역을 확보해야한다.
      - 기준점: 부모 요소가 `position: static`이 아닌 경우, **부모 요소를 기준점으로 삼는다.** 부모 요소가 `position: static`인 경우, 그 다음 부모 요소의 `position`을 확인한다. 조상 `position`이 따로 정의되어 있지 않으면, **화면(0,0)을 기준**으로 삼는다.
      - **relative in absolute 패턴**: 보통 기준을 잡는 부모 요소는 다른 레이아웃에 영향을 끼치지 않는 `relative`로 설정한다. 
+
 4) `fixed`
    - 기준이 항상 `viewport size`인 점을 제외하면, `abosulte`와 동일하다.
    - 부모의 속성에 상관없이 항상 화면에서 절대적인 위치가 된다. 스크롤시에도 항상 그자리이다. Navigation을 구현할 때 많이 사용한다. 

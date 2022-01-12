@@ -35,7 +35,6 @@
 ```
 - 반응형으로도 작성할 수 있다.
 
-
 ```html
 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 ">
 ```

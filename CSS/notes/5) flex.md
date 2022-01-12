@@ -27,8 +27,8 @@
 
 - `justify-content`: main-axis를 가리키며 `flex-direction`과 같은 축이다.
 - `align-items | align-content : center | space-between | space-around`: main-axis의 반대 축이다.
-- `space-between`: 요소의 사이의 공백이 같음
-- `space-around`: 모든 요소의 양 옆이 공백이 각가 나누어 가짐
+- `space-between`: 가운데 공백이 생김
+- `space-around`: 양 옆에 공백이 생김
 
 ```css
 container {

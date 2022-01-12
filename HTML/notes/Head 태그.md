@@ -58,11 +58,15 @@
 
 ```html
 <meta charset="UTF-8">
+```
+
+- chracter setting의 약자로, UTF-8 인코딩 방식으로 문자를 표시하겠다는 의미다.
+
+```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
-- 화면사이즈의 가로는 디바이스의 가로에 맞추고
-- 처음보여줄 때 1.0배율에 보여줌
+- 화면의 가로 사이즈는 디바이스의 가로에 맞추고, 처음보여줄 때 1.0배율로 보여준다.
 
 ```html
 <meta name="author" content="junha" />

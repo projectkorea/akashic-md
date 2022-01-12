@@ -18,9 +18,10 @@
 #### 2) `display : block`으로 바뀐다.
 
 ##### (1) `width`, `padding`등 높이에 관한 프로퍼티를 사용할 수 있다.
-##### (2) width는 content 만큼만 늘어난다.
-- `display:block`의 `width`는 부모의 content-box의 100%를 상속받지만, ❗ `float`된 요소는 컨텐츠 길이 만큼만 width가 정의되어 margin이 늘어나 영역을 차지하는 **길막하는 특징**이 사라지게 된다. 이런 특징 덕에 부모의 width 값이 여유가 있는 한, child 요소를 가로로 배치할 수 있는 것이다.
 
+##### (2) width는 content 만큼만 늘어난다.
+
+- `display:block`의 `width`는 부모의 content-box의 100%를 상속받지만, ❗ `float`된 요소는 컨텐츠 길이 만큼만 width가 정의되어 margin이 늘어나 영역을 차지하는 **길막하는 특징**이 사라지게 된다. 이런 특징 덕에 부모의 width 값이 여유가 있는 한, child 요소를 가로로 배치할 수 있는 것이다.
 
 #### 3) `inline` 요소는 `float`요소를 존중한다.
 
@@ -61,7 +62,6 @@
 - `clear:left` : `float:left`된 요소를 인지하는 능력이 생긴다.
 - **pesudo-element**
   - 자리를 차지하는 block을 만들기 위해, 의미 없는 `div`를 만들고 싶지 않기 때문에 **CSS로 페이크 요소** `::after`를 만들어 `clear` 프로퍼티를 만든다.
-
 
 ---
 ### reference
