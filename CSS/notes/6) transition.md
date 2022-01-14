@@ -1,9 +1,8 @@
 # transition
 
-- 요소의 속성값을 바꿀 때 **자연스럽게 바뀌게** 전환할 때 사용한다.
+- 요소의 속성값이 **바뀌는 과정을 부드럽게 보여주고 싶을 때** 사용한다.
 - `transition: property(all) duration [timing-function] [delay]`
-
-### transition 사용 예시
+- 속성을 적어주는 순서는 상관없지만 먼저 나오는 숫자는 `duration`, 나중에 나오는 숫자는 `delay`이다.
 
 ```css
 .box{

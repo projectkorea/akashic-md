@@ -27,21 +27,18 @@
 
 ## transform
 
-- `transform: rotate(360) `
 -   변형할 때 사용하며, css함수 `translate()`, `scale()`,` rotate()`등을 사용한다.
--   엘리먼트가 transform할 때 변형된 위치는 다른 요소에 전혀 영향을 끼치지 않는다.
+-   엘리먼트가 `transform`할 때 변형된 위치는 다른 요소에 전혀 영향을 끼치지 않는다.
+- `transform: rotate(45deg) `
+- `transform: translate(10px,10px) | translate(50%,50%)`: 좌표를 움직일때 사용한다
+- `transform: scale(N) | scale(x,y)`: 사이즈를 조정한다(N배수, x축y축 배수)
+- `transform: skew(10deg,20deg)`: x축,y축 기준으로 각도만큼 비튼다.
 
--   translate(x,y): 좌표를 움직일때 사용한다
--   translate(100%, 100%)
--   sclae(N): 사이즈를 키웠다 ,줄였다 N배수
--   scale(x,y)
--   rotate(Ndeg)
 
 ## Visibility
 
--   visibility : hidden, visible 스타일로만 안보이는 녀석
--   vs display: none
--   display는 박스의 type을 정해주는 녀석이다. 없는 존재처럼 취급하라. 존재 영역까지 없어지는 녀석
+- `visibility : hidden | visible`: 영역은 차지하지만, 스타일로만 안보인다.
+- `display: none`는: 영역이 아에 없어진다.
 
 ## viewport
 
@@ -54,3 +51,7 @@ container {
     height : 100vh
 }
 ```
+
+## prefix 접두사
+- `-webkit`, `-moz`, `-ms`, `-o`
+- `transition`, `animation`등 최신 브라우저에서 작동하는 프로퍼티를 하위 버전의 브라우저에서도 작동할 수 있게 한다.
