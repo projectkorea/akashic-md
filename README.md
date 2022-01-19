@@ -27,3 +27,6 @@
 9.  DOM에서의 Javascript
 10. DOM 이벤트
 11. dom.js 만들기
+
+---
+- p 47오류 ownerElement- > ownerDocument
