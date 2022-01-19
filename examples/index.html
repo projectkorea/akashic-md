@@ -1,9 +1,14 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <script defer src="index.js"></script>
   </head>
   <body>
-    <a href="#">상속받을 앵커노드</a>
+    <ul>
+      <li>1</li><li>2</li><li>3</li>
+    </ul>
+    <script>
+      var ulElementChildNodes = document.querySelector('ul').childNodes;
+      console.log(ulElementChildNodes);
+    </script>
   </body>
 </html>
