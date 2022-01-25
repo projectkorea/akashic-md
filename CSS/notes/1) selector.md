@@ -111,10 +111,9 @@ img ~ p {
 
 ##### (1) Structural Pseudo-classes
 
--   `element:fist-child`: element인데 첫번째 요소인 경우 선택
+-   `element:first-child`: element인데 첫번째 요소인 경우 선택
 -   `element:last-child`: element인데 마지막 요소인 경우 선택
--   `element:nth-child(n)`
-    -   element인데 n번째 요소인 경우 선택
+-   `element:nth-child(n)`: element인데 n번째 요소인 경우 선택
     -   n could be 2n(짝수), 2n-1(홀수)
 
 ```css
@@ -135,7 +134,14 @@ li:nth-child(3){
 }
 ```
 
-#### 6) 범용 선택자
+#### 6) Pseudo-element(가상 요소): `::`
+
+- `::after`, `::before`
+- 내용의 앞과 뒤에 콘텐츠를 추가할 때 사용한다.
+- `content=""`는 가상요소가 만들어지므로 필수 속성이다.
+
+
+#### 7) 범용 선택자
 - 문서에 있는 모든 요소에 대해 스타일을 적용한다.
 ```css
  * {
