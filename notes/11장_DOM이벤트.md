@@ -2,9 +2,113 @@
 
 ## 1. DOM 이벤트 개요
 
-## 2. 
+- `DOM 이벤트`는 `DOM` 내의 `element`, `document` 객체, `window` 객체와 관련되어 발생하는 <U>사전에 정의된 시점</U> 또는 <U>사용자 정의 시점</U>을 말한다.
+- 이 시점(=`이벤트`)는 사전에 결정되어 있으며, `이벤트`가 발생할 때 실행될 기능을(핸들러/콜백) 연관시킨다. 
+- `이벤트`는 UI의 상태(focus), Javascript 실행 환경 상태(페이지가 로드되거나 XHR 요청이 완료되었을 때), 프로그램 자체의 상태(페이지 로드된 후 30초 동안 모든 마우스 클릭을 모니터링)에 의해 발생한다.
+
+#### 이벤트를 설정하는 세 가지 방법
+
+1. 인라인 `attribute event handler`, (`= HTML 이벤트 핸들러`)
+```html
+<body onclick="console.log('trigger attribute event handler')">
+```
+2. `property event handler`
+
+```js
+divElem.onclick = function() {console.log('trigger property event handler')}
+```
+
+3. `addEventListener()`
+
+```js
+divElem.addEventListener('click', function() {
+  console.log('trigger property event handler')
+  })  
+```
+
+- `<div>`를 클릭할 때 `<body>`도 클릭하고 있다는 것을 명심하자.
+- 인라인 `attribute event handler`은 `HTML`과 `Javascript`를 혼합하게 사용하기 때문에 이 둘을 분리해서 사용하는것이 바람직하다.
+- 이 세가지 방법 모두 이벤트를 예약할 수 있지만 `addEventListener()`만이 견고하고 조직화된 솔루션을 제공한다. 
+
+#### `property event handler`의 단점
+- 한 번에 한 개의 값만 이벤트 속성에 할당할 수 있다. 이벤트를 속성 값으로 할당할 때 하나 이상의 속성 이벤트 핸드러를 DOM에 추가할 수 없다는 것을 의미한다.
+- `onclick`속성에 값을 두 번 할당한다면, 마지막에 할당한 값으로 오버라이딩 된다.
+
+```js
+divElem.onclick = function() {console.log('i get overridden')}
+divElem.onclick = function() {console.log('i win')}
+```
+
+- 뿐만 아니라 이벤트가 호출하는 `함수의 영역 체인`을 활용하려는 시도는 영역문제를 겪을 수 있다. 
+
+#### `Document` 노드, `Window` 객체
+
+- `Document` 노드는 `property event handler`(`document.onclick = function()`), `addEventListener()`를 지원한다
+- `window` 객체는
+  1. `<body>`,`<frameset>` element를 통해 인라인 이벤트 핸들러를 지원하며 <body onload=""></body> 
+  2. 속성 이벤트 핸들러 메서드의 사용도 지원하고  `window.load = function(){}`
+  3.  `addEventListener()`도 지원한다
+
+
+## 2. DOM 이벤트 유형
+
+- 사용자 인터페이스 이벤트
+- Focus 이벤트
+- Form 이벤트
+- Mouse 이벤트
+- Wheel 이벤트
+- Keyboard 이벤트
+- Touch 이벤트
+- Winodw, `<body>`, 프레임 관련 이벤트
+- Document 관련 이벤트
+- Drag 이벤트
+- 
 
 ## 3. 이벤트 흐름
+
+- 이벤트가 발생되면 DOM을 따라 흘러가거나 전파되면서 다른 노드와 Javascropt 객체들에서 **동일한 이벤트**를 발생시킨다. 
+- 이벤트 흐름은 `캡처` 단계(Dom 트리 줄기 -> 가지), `target` 단계, `버블링`단계(Dom 트리 가지 -> 줄기), 혹은 양쪽 모두로 발생할 수 있게 할 수 있다.
+![event flow](https://user-images.githubusercontent.com/76730867/150773355-1daa477c-69e4-4874-965c-5e8654fa885d.PNG)
+- `target`: 이벤트를 발생시킨 element
+- `current target`: 이벤트 흐름을 통해 현재 이벤트를 갖고 있는 element 
+
+```js
+//1. 캡처 단계, window
+window.addEventListener('click', function(){console.log(1)},true)
+
+//2. 캡처 단계, document
+document.addEventListener('click', function(){console.log(2)},true)
+
+//3. 캡처 단계, html
+document.documentElement.addEventListener('click', function(){console.log(3)},true)
+
+//4. 캡처 단계, body
+document.body.addEventListener('click', function(){console.log(4)},true)
+
+//5. 캡처 단계 도중에 타겟 단계가 발생
+document.querySelector('div').addEventListener('click', function(){console.log(5)},true)
+
+//6. 버블링 단계 도중에 타겟 단계가 발생
+document.querySelector('div').addEventListener('click', function(){console.log(6)},false)
+
+//7. 버블링 단계
+document.body.addEventListener('click', function(){console.log(6)},true)
+
+//8. 버블링 단계, html
+document.documentElement.addEventListener('click', function(){console.log(7)},true)
+
+//9. 버블링 단계
+document.addEventListener('click', function(){console.log(8)},true)
+
+//10. 버블링 단계
+window.addEventListener('click', function(){console.log(4)},true)
+```
+- `<div>`를 클릭하면 위와 같은 순서대로 이벤트가 발생한다.
+- `<div>`를 제외한 다른 위치를 클릭하면, `<div>`에 연결된 `click`이벤트는 호출되지 않으며, 버블링 호출은 `<body>`에서 시작된다. 이벤트 타겟이 더 이상 `<div>`가 아니라 `<body>` element이기 때문이다.
+- 통상적으로 이벤트는 `버블링 단계` 도중에 호출되는 것으로 가정한다. 
+- 이벤트 타겟에서 이벤트가 발생하기 전에 이를 가로채는 것이 가능하다. `이벤트 위임`에서 이를 설명할 것이다.
+##### e.eventPhase
+- `이벤트 리스너`에 전달되는 `이벤트 객체`는 이벤트가 어느 단계에서 호출되었는지를 가리키는 숫자를 가지고 있는 **`eventPhase`**라는 속성을 갖고있다. 값이 1이면 캡처 단계, 2이면 타겟 단계, 3이면 버블링 단계다.
 
 ## 4. `EventTarget.addEventListener()`
 

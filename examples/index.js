@@ -1,5 +1,5 @@
-console.log(callMe());
+// console.log(callMe());
 
-function callMe() {
-  return x;
-}
+// function callMe() {
+//   return x;
+// }
