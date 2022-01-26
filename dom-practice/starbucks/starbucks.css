@@ -1,0 +1,26 @@
+body {
+  background: white;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  border: 1px solid #808080;
+  background: none;
+  padding: 10px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.btn1,
+.btn2,
+.btn3 {
+  color: #808080;
+}
+
+.btn:hover,
+.btn2:hover,
+.btn3:hover {
+  border: 2px solid #000000;
+}
