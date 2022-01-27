@@ -1,5 +1,1 @@
-// console.log(callMe());
-
-// function callMe() {
-//   return x;
-// }
+const a = 1;

@@ -62,15 +62,14 @@ divElem.onclick = function() {console.log('i win')}
 - Winodw, `<body>`, 프레임 관련 이벤트
 - Document 관련 이벤트
 - Drag 이벤트
-- 
+- [이벤트 유형 확인하러가기](http://domenlightenment.com/#11.2)
 
 ## 3. 이벤트 흐름
 
 - 이벤트가 발생되면 DOM을 따라 흘러가거나 전파되면서 다른 노드와 Javascropt 객체들에서 **동일한 이벤트**를 발생시킨다. 
 - 이벤트 흐름은 `캡처` 단계(Dom 트리 줄기 -> 가지), `target` 단계, `버블링`단계(Dom 트리 가지 -> 줄기), 혹은 양쪽 모두로 발생할 수 있게 할 수 있다.
 ![event flow](https://user-images.githubusercontent.com/76730867/150773355-1daa477c-69e4-4874-965c-5e8654fa885d.PNG)
-- `target`: 이벤트를 발생시킨 element
-- `current target`: 이벤트 흐름을 통해 현재 이벤트를 갖고 있는 element 
+- `addEventListener()`의 default 값은 버블링 단계로 세번째 인자에 `false`값이 들어가있으며, 캡처 단계로 바꾸고자 할 경우 `true`를 넣는다.
 
 ```js
 //1. 캡처 단계, window
@@ -107,6 +106,7 @@ window.addEventListener('click', function(){console.log(4)},true)
 - `<div>`를 제외한 다른 위치를 클릭하면, `<div>`에 연결된 `click`이벤트는 호출되지 않으며, 버블링 호출은 `<body>`에서 시작된다. 이벤트 타겟이 더 이상 `<div>`가 아니라 `<body>` element이기 때문이다.
 - 통상적으로 이벤트는 `버블링 단계` 도중에 호출되는 것으로 가정한다. 
 - 이벤트 타겟에서 이벤트가 발생하기 전에 이를 가로채는 것이 가능하다. `이벤트 위임`에서 이를 설명할 것이다.
+
 ##### e.eventPhase
 - `이벤트 리스너`에 전달되는 `이벤트 객체`는 이벤트가 어느 단계에서 호출되었는지를 가리키는 숫자를 가지고 있는 **`eventPhase`**라는 속성을 갖고있다. 값이 1이면 캡처 단계, 2이면 타겟 단계, 3이면 버블링 단계다.
 
@@ -142,17 +142,135 @@ divElem.removeEventListener('click', sayHi) // 제거 성공
 document.body.removeEventListener('click', function() {console.log("Hi from Anonymous")}) // 제거 실패
 ```
 
-## 6. 
+## 6. 이벤트 객체
 
-## 7. 
+- 이벤트에서 호출되는 핸들러나 콜백 함수에는 이벤트와 관련된 모든 정보를 가지고 있는 **매개변수**(event)가 전송된다.
 
-## 8. 
+```js
+elem.addEventListener("click", function(event){
+  console.dir(event)
+})
+```
 
-## 9. 
+## 7. `this` 값: `event.currentTarget`
 
-## 10. 
+- `this` 값은 **이벤트가 연결된** element를 가리킨다.
+  
+1. `Event.target`: **이벤트를 발생시킨 element**, 이벤트의 진원지를 알아낼 수 있다.
+2. `Event.currentTarget`: 이벤트 흐름을 통해 **현재 이벤트를 갖고 있는 element**
 
-## 11. 
+```js
+divElem.addEventListener('click',()=>console.log(this)) // <div>
+```
+
+```js
+document.body.addEventListener('click', function(){console.log(this)})  // <body>
+```
+- `<div>`나 `<body>`를 클릭해도 `this` 값은 **이벤트가 연결된 `<body>` element 노드**가 된다.
+
+
+```js
+document.body.addEventListener('click',()=>console.log(this))  // window
+```
+
+- 화살표 함수는 `this`바인딩을 하지 않으므로 `window`가 나온다.
+
+## 8. 이벤트의 대상을 참조: `event.target`
+
+```html
+<body>
+  <div>
+    <button>
+    </button>
+  </div>
+</body>
+```
+
+```js
+document.body.addEventListener("click",function(e){
+console.log(e.currentTarget, e.target)
+```
+- `<body>`를 클릭했을 때: `e.currentTarget` = `<body>`, `e.target` = `<body>`
+- `<div>`를 클릭했을 때: `e.currentTarget` = `<body>`, `e.target` = `<div>`
+- `<button>`를 클릭했을 때: `e.currentTarget` = `<body>`, `e.target` = `<button>`
+-  `e.currentTarget` 값은 이벤트가 연결된 `body`로 동일한 반면, `e.target` 이벤트의 진원지를 출력한다.
+
+
+## 9. 기본 브라우저 이벤트 취소하기
+
+- 브라우저는 사전에 구성된 여러 이벤트를 제공한다. 예를 들어 링크를 클릭할 때 URL로 이동한다거나, 체크박스를 클릭할 때 박스가 체크된다거나, 텍스트 필드에 텍스트를 입력할 때 텍스트가 입력되어 스크린에 표시되는 것과 같이 말이다. 
+- 이런 브라우저 이벤트는 기본 이벤트를 호출하는 노드나 객체에 연결된 이벤트 핸들러 함수 내부에서 `preventDefault()` 메서드를 호출해서 막을 수 있다.
+
+```html
+<a href="google.com">google<a>
+<input type="checkbox" />
+<textarea></textarea>
+```
+
+```js
+aElem.addEventListener("click",function(e){e.preventDefault()})
+inputElem.addEventListener("click",function(e){e.preventDefault()})
+textareaElem.addEventListener("keypress",function(e){e.preventDefault()})
+
+document.body.addEventListener("click", function(){console.log(the event flow still flows!)})
+// html문서 내의 링크를 클릭하면 기본 이벤트가 중지되어 링크이동은 안되지만,
+// 이벤트 버블링은 중지되지 않았으므로, 이벤트가 여전히 전파된다.
+```
+- `Event.cacelable`: 기본 동작 취소가 가능한지 `boolean` 타입의 값이다.
+- `Event.defaultPrevented`: `read-only` property of the Event interface returns a boolean value indicating whether or not the call to Event.preventDefault() canceled the event.
+
+
+## 10. 이벤트 흐름 중지시키기
+
+- `stopPropagation()`: 캡처/버블링 이벤트 흐름 단계가 중지된다.
+- 이벤트 흐름을 차단하는 것이지, 이벤트 자체를 없애는 것은 아니다.
+- 하지만 노드나 객체에 **직접 연결된 이벤트**는 여전히 호출된다.
+- **기본 이벤트**를 막지 않는다.
+
+```js
+document.querySelector('div').addEventListener('click', function(){
+  console.log('no.1 from div')
+})
+
+document.querySelector('div').addEventListener('click', function(event){
+  console.log('no.2 from div')
+  event.stopPropagation();
+})
+
+document.querySelector('div').addEventListener('click', function(event){
+  console.log('no.3 from div')
+})
+
+document.body.addEventListener('click', function(event){
+  console.log('denied from stopPropagation()')
+}) // 버블단계 막힘
+```
+
+## 11. 동일한 대상의 이벤트 흐름 & 다른 유사 이벤트 중지 시키기
+
+- `stopImmediatePropagation()`: 이벤트 흐름을 중지시킴과 더불어 **직접 연결된 후속 이벤트를 중지시킨다.**
+
+```js
+document.querySelector('div').addEventListener('click', function(){
+  console.log('no.1 from div')
+})
+
+document.querySelector('div').addEventListener('click', function(event){
+  console.log('no.2 from div')
+  event.stopImmediatePropagation();
+})
+
+document.querySelector('div').addEventListener('click', function(event){
+  console.log('denied from stopImmediatePropagation()')
+})
+
+document.body.addEventListener('click', function(event){
+  console.log('denied from stopImmediatePropagation()')
+})
+```
+
+- `stopImmediatePropagation()` 메서드 역시 기본 이벤트는 막지 않는다. 
+- 브라우저 기본 이벤트는 여전히 호출되며, 이는 `preventDefault()`를 호출해야만 이 이벤트를 막을 수 있다.
 
 ## 12. 사용자 정의 이벤트
 
@@ -167,7 +285,8 @@ event.initEvent('build', true, true);
 
 // Listen for the event.
 elem.addEventListener('build', function (e) {
-  // e.target matches elem
+  // e.target matches elem.
+  
 }, false);
 
 // target can be any Element or other EventTarget.
@@ -185,7 +304,7 @@ elem.addEventListener('build', function (e) { /* ... */ }, false);
 elem.dispatchEvent(event);
 ```
 
-- 이벤트 객체를 생성한 다음엔 `elem.dispatchEvent(event)`를 호출해 요소에 있는 이벤트를 반드시 '실행’시켜줘야 한다. (dispatch는 일을 '처리하다’라는 뜻을 가진 영어단어)
+- 이벤트 객체를 생성한 다음엔 `elem.dispatchEvent(event)`를 호출해 요소에 있는 이벤트를 반드시 '실행’시켜줘야 한다. 
 - 이벤트를 실행시켜줘야 핸들러가 일반 브라우저 이벤트처럼 이벤트에 반응할 수 있다.
 
 
