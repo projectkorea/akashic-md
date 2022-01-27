@@ -1,5 +1,9 @@
 # 11. DOM 이벤트
 
+- `이벤트`: 웹 브라우저가 알려주는 HTML 요소에 대한 사건의 발생을 말한다. 브라우저는 이벤트를 감지하여 사용자와 웹페이지 간의 상호 작용을 가능하게 한다.
+- `이벤트 핸들러`: 이벤트가 발생했을 때 그 처리를 담당하는 함수, 지정된 이벤트가 발생하면, 웹 브라우저는 그 요소에 등록된 이벤트핸들러를 실행시킨다. 
+
+
 ## 1. DOM 이벤트 개요
 
 - `DOM 이벤트`는 `DOM` 내의 `element`, `document` 객체, `window` 객체와 관련되어 발생하는 <U>사전에 정의된 시점</U> 또는 <U>사용자 정의 시점</U>을 말한다.
@@ -8,17 +12,17 @@
 
 #### 이벤트를 설정하는 세 가지 방법
 
-1. 인라인 `attribute event handler`, (`= HTML 이벤트 핸들러`)
+1. **인라인 `attribute event handler`, (`= HTML 이벤트 핸들러`)**
 ```html
 <body onclick="console.log('trigger attribute event handler')">
 ```
-2. `property event handler`
+2. **`property event handler`**
 
 ```js
 divElem.onclick = function() {console.log('trigger property event handler')}
 ```
 
-3. `addEventListener()`
+3. **`addEventListener()`**
 
 ```js
 divElem.addEventListener('click', function() {
@@ -30,25 +34,56 @@ divElem.addEventListener('click', function() {
 - 인라인 `attribute event handler`은 `HTML`과 `Javascript`를 혼합하게 사용하기 때문에 이 둘을 분리해서 사용하는것이 바람직하다.
 - 이 세가지 방법 모두 이벤트를 예약할 수 있지만 `addEventListener()`만이 견고하고 조직화된 솔루션을 제공한다. 
 
-#### `property event handler`의 단점
-- 한 번에 한 개의 값만 이벤트 속성에 할당할 수 있다. 이벤트를 속성 값으로 할당할 때 하나 이상의 속성 이벤트 핸드러를 DOM에 추가할 수 없다는 것을 의미한다.
-- `onclick`속성에 값을 두 번 할당한다면, 마지막에 할당한 값으로 오버라이딩 된다.
+#### (1) `adddEventListener` vs `onclick`
+- `property event handler`는 한 번에 한 개의 값만 이벤트 속성에 할당할 수 있다. 이벤트를 속성 값으로 할당할 때 하나 이상의 속성 이벤트 핸드러를 DOM에 추가할 수 없다.
+
 
 ```js
 divElem.onclick = function() {console.log('i get overridden')}
 divElem.onclick = function() {console.log('i win')}
 ```
-
+- `onclick`속성에 값을 두 번 할당한다면, 마지막에 할당한 값으로 오버라이딩 된다.
 - 뿐만 아니라 이벤트가 호출하는 `함수의 영역 체인`을 활용하려는 시도는 영역문제를 겪을 수 있다. 
 
-#### `Document` 노드, `Window` 객체
+#### (2) `addEventListener`는 함수 이외에도 객체를 이벤트 핸들러로 할당할 수 있다.
 
-- `Document` 노드는 `property event handler`(`document.onclick = function()`), `addEventListener()`를 지원한다
-- `window` 객체는
-  1. `<body>`,`<frameset>` element를 통해 인라인 이벤트 핸들러를 지원하며 <body onload=""></body> 
-  2. 속성 이벤트 핸들러 메서드의 사용도 지원하고  `window.load = function(){}`
-  3.  `addEventListener()`도 지원한다
+- `addEventListener`가 인수로 객체 형태의 핸들러를 받으면 이벤트 발생 시 **obj.handleEvent(event)가 호출된다.**
 
+```js
+class Menu {
+  handleEvent(event) {
+    // mousedown -> onMousedown
+    let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
+    this[method](event);
+  }
+
+  onMousedown() {
+    elem.innerHTML = "마우스 버튼을 눌렀습니다.";
+  }
+
+  onMouseup() {
+    elem.innerHTML += " 그리고 버튼을 뗐습니다.";
+  }
+}
+
+let menu = new Menu();
+
+elem.addEventListener('mousedown', menu);
+elem.addEventListener('mouseup', menu);
+```
+
+
+#### (3) `Element` 노드, `Document` 노드, `Window` 객체
+
+- 셋 다 `프로퍼티 이벤트 핸들러`와 `addEventListener`을 지원하며, `Documnet`노드만 `인라인 이벤트`를 지원하지 않는다. 
+- `Document` 노드
+  - `document.onclick = function(){}`
+  - `documet.addEventListener()`
+- `window` 객체
+  -  `<body>`,`<frameset>` element를 통해 인라인 이벤트 핸들러를 지원한다.
+  -  `<body onload=""></body> `
+  - `window.load = function(){}`
+  - `window.addEventListener()`
 
 ## 2. DOM 이벤트 유형
 
@@ -108,7 +143,10 @@ window.addEventListener('click', function(){console.log(4)},true)
 - 이벤트 타겟에서 이벤트가 발생하기 전에 이를 가로채는 것이 가능하다. `이벤트 위임`에서 이를 설명할 것이다.
 
 ##### e.eventPhase
-- `이벤트 리스너`에 전달되는 `이벤트 객체`는 이벤트가 어느 단계에서 호출되었는지를 가리키는 숫자를 가지고 있는 **`eventPhase`**라는 속성을 갖고있다. 값이 1이면 캡처 단계, 2이면 타겟 단계, 3이면 버블링 단계다.
+- `이벤트 리스너`에 전달되는 `이벤트 객체`는 이벤트가 어느 단계에서 호출되었는지를 가리키는 숫자를 가지고 있는 `eventPhase`라는 속성을 갖고있다.
+- `e.eventPhase` = 1 `캡처 단계`
+- `e.eventPhase` = 2 `타겟 단계`
+- `e.eventPhase` = 3 `버블링 단계`
 
 ## 4. `EventTarget.addEventListener()`
 
@@ -154,19 +192,29 @@ elem.addEventListener("click", function(event){
 
 ## 7. `this` 값: `event.currentTarget`
 
-- `this` 값은 **이벤트가 연결된** element를 가리킨다.
+`this` 값은 **이벤트가 연결된** element를 가리킨다.
+
+```js
+<button onclick="this.textContent = '성공입니다!'">클릭하세요!</button>
+```
+- `인라인 핸들러`에 작성한 내용은 이벤트 핸들러안의 코드와 같으므로 `this`는 **이벤트가 연결된** element를 가리킨다.
   
-1. `Event.target`: **이벤트를 발생시킨 element**, 이벤트의 진원지를 알아낼 수 있다.
-2. `Event.currentTarget`: 이벤트 흐름을 통해 **현재 이벤트를 갖고 있는 element**
-
 ```js
-divElem.addEventListener('click',()=>console.log(this)) // <div>
+divElem.addEventListener('click',function(){console.log(this)}) //<div>
+```
+- `<div>`에 이벤트가 연결됐으므로 `<div>`를 클릭하면 `this`는 `<div>`를 바라본다.
+
+```html
+<body>
+  <div><div>
+  <button></button>
+</body>
 ```
 
 ```js
-document.body.addEventListener('click', function(){console.log(this)})  // <body>
+document.body.addEventListener('click', function(){console.log(this)}) //<body>
 ```
-- `<div>`나 `<body>`를 클릭해도 `this` 값은 **이벤트가 연결된 `<body>` element 노드**가 된다.
+- 위의 코드에서 `<button>`나, `<div>`, `<body>`를 클릭해도 `this` 값은 **이벤트가 연결된 `<body>` element 노드**가 된다.
 
 
 ```js
@@ -176,6 +224,9 @@ document.body.addEventListener('click',()=>console.log(this))  // window
 - 화살표 함수는 `this`바인딩을 하지 않으므로 `window`가 나온다.
 
 ## 8. 이벤트의 대상을 참조: `event.target`
+
+1. `Event.target`: **이벤트를 발생시킨 element**, **이벤트의 진원지**를 알아낼 수 있다.
+2. `Event.currentTarget`: 이벤트 흐름을 통해 **현재 이벤트를 갖고 있는 element**
 
 ```html
 <body>
