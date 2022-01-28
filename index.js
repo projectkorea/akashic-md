@@ -29,3 +29,11 @@ const addScript = (element) => {
 };
 
 addButton(examples);
+
+function getFormData() {
+  // state의 각 필드에 있는 value를 모아 하나의 객체로 리턴합니다.
+  // { name : 'Kim', age: 30 } 의 형식으로 리턴해야 합니다.
+  return Object.entries(formState).reduce(
+    (formData, [key, { value, validator }]) => ({ ...formData, [key]: value })
+  );
+}
