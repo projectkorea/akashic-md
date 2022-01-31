@@ -31,28 +31,57 @@ document.getElementById('last').textContent // world!
 
 ## 2. 여러개의 `Element 노드` 선택하기
 
-- 선택한 elment들의 `유사배열객체`를 생성한다.
+- `NodeList`와 `HTMLCollecton`은 element들의 모음을 갖고 있는 `유사배열객체`이다.
+- `iterable`하기 때문에 둘 다 `length` 프로퍼티를 가지므로 객체를 배열처럼 접근할 수 있고 반복문을 돌 수 있다. 그러나 유사배열객체이기 때문에 자바스크립트에서 제공하는 배열 객체의 메소드는 사용할 수 없다. (ex. map, forEach, reduce 등등)
+
 
 ### 1) return `HTMLCollection`
-  - `getElementsByTagName()`
-  - `getElementsByClassName()`
-  - `getElementsByName()`: `name` 속성 값으로 선택한다.
-  - `HTMLCollection`은 문서가 바뀔 때 실시간으로 업데이트된다.
+
+- `HTMLCollection`은 문서가 바뀔 때 실시간으로 업데이트되는 **live DOM** 컬렉션 객체다.
+
+  1. `getElementsByTagName()`
+  2. `getElementsByClassName()`
+  3. `getElementsByName()`: `name` 속성 값으로 선택한다.
 
 ### 2) return `NodeList`
-  - `querySelectorAll()`, `childNodes`
 
-```js
-document.querySelectorAll('li')
-document.getElementsByTagName('li')
-document.getElementsByClassName('liClass')
-document.getElementsByName('user')
+- `NodeList` 객체는 리스트 생성 시점의 문서 스냅샷이기에, 노드 객체의 상태 변화를 반영하지 않는 **non-live DOM** 컬렉션 객체인데 비해, `childNodes` 프로퍼티는 **live DOM** 컬렉션 객체를 반환한다.
 
-documnet.childNodes // NodeList(2) [<!DOCTYPE html>, html]
+1. `querySelectorAll()`: **non-live DOM**
+2. `childNodes`: **live DOM**
+
+#### `childNodes` 예시코드
+
+
+```html
+<ul>
+  <li>hi</li>
+  <li>money</li>
+</ul>
 ```
 
-#### `NodeList` 객체는 non-live DOM 이다.
-- `NodeList` 객체는 노드 객체의 상태 변화를 반영하지 않는 **non-live DOM** 컬렉션 객체이다. `NodeList`는 리스트 생성 시점의 문서 스냅샷이기에,  `HTMLCollection`과 다르게 노드가 변경되도 그 상태를 반영하지 않는다.
+```js
+var ulElementChildNodes = document.querySelector('ul').childNodes;
+
+ulElementChildNodes 
+// NodeList(5) [text, li, text, li, text]
+// 줄바꿈도 text노드로 인식되어 ul의 자식으로 들어갔다.
+```
+- `childNodes`에서 반환되는 `NodeList`는 **직계 자식**만을 가진다.
+- `childNodes`는 Element노드 뿐만 아니라 `Text`, `Comment` 노드도 포함한다.
+
+
+#### `array`로 바꾸어 사용하는 것이 바람직하다.
+
+- `NodeList`는 `HTMCollection`과 다르게 **`NodeList.prototype.forEach`** 메서드를 상속받아 사용할 수 있다. 그러나 `forEach` 외의 `Array.prototype`에서 제공하는 `map`, `reduce`, `filter` 등의 메서드는 사용할 수 없다.
+- 따라서 `HTMLCollection`과 `NodeList` 모두 `Array.prototype.slice.call()`를 통해 `array`로 변환하면 현재DOM에 국한되지 않은 **리스트 스냅샷**을 만들 수 있다.
+1. `Array`객체가 제공하는 메서드들 접근할 수 있다.
+2. live 객체는  반복문을순회하면서 **노드가 변경**되어, 개발자의 의도와는 다른 결과가 발생할 수 있지만 이를 예방할 수 있다. 
+
+```js
+Array.isArray(document.querySelectorAll('a')) // false
+Array.isArray(Array.prototype.slice.call(document.querySelectorAll('a'))) // true
+```
 
 ## 3. 직계 자식 Element 노드를 모두 선택하기
 
@@ -61,7 +90,7 @@ documnet.childNodes // NodeList(2) [<!DOCTYPE html>, html]
 
 - HTMLCollection은 element를 문서 내의 순서대로 가진다. 라이브 상태다. 문서 변경시 동적으로 컬렉션에 반영된다. element가 DOM에 나타나는 순서대로 배열내에 위치한다.
 
-# 4. 컨텍스트 기반 Element 선택
+## 4. 컨텍스트 기반 Element 선택
 
 - 해당 메서드의 결과를 DOM 트리의 특정 부분으로 제한 할 수 있게 해준다.
 - element 노드 객체에서 이 메서드를 호출하면, element 노드를 검색하고자 하는 특정 컨텍스트를 선택할 수 있다.
