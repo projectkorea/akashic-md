@@ -37,3 +37,7 @@ function getFormData() {
     (formData, [key, { value, validator }]) => ({ ...formData, [key]: value })
   );
 }
+
+document.body.addEventListener('mousemove', () =>
+  document.write('쩡이띠 사랑해또!')
+);
