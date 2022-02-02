@@ -18,7 +18,7 @@ function getResultText(principal, rate, year, frequency, amount) {
   frequency = parseFrequencyText(frequency);
   rate = parseRateText(rate);
   amount = parseMoneyText(amount);
-  return `예금액 ${principal}원 기준\n ${year}년 후 \n ${frequency} ${rate}의 복리 계산시\n 최종 잔고는 ${amount}입니다.`;
+  return `예금액 ${principal}원 기준\n${year}년 후\n${frequency} ${rate}%의 복리 계산 시\n최종 잔고는\n ${amount}원 입니다.`;
 }
 
 function parseRateText(rate) {
@@ -34,7 +34,7 @@ function parseFrequencyText(frequency) {
     1: '연별',
     2: '반기별',
     4: '분기별',
-    12: '월기별',
+    12: '월별',
   }[frequency];
 }
 
