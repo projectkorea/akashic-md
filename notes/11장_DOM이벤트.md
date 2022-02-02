@@ -10,7 +10,7 @@
 - 이 시점(=`이벤트`)는 사전에 결정되어 있으며, `이벤트`가 발생할 때 실행될 기능을(핸들러/콜백) 연관시킨다. 
 - `이벤트`는 UI의 상태(focus), Javascript 실행 환경 상태(페이지가 로드되거나 XHR 요청이 완료되었을 때), 프로그램 자체의 상태(페이지 로드된 후 30초 동안 모든 마우스 클릭을 모니터링)에 의해 발생한다.
 
-#### 이벤트를 설정하는 세 가지 방법
+### 이벤트를 설정하는 세 가지 방법
 
 1. **인라인 `attribute event handler`, (`= HTML 이벤트 핸들러`)**
 ```html
@@ -45,23 +45,23 @@ divElem.onclick = function() {console.log('i win')}
 - `onclick`속성에 값을 두 번 할당한다면, 마지막에 할당한 값으로 오버라이딩 된다.
 - 뿐만 아니라 이벤트가 호출하는 `함수의 영역 체인`을 활용하려는 시도는 영역문제를 겪을 수 있다. 
 
-#### (2) `addEventListener`는 함수 이외에도 객체를 이벤트 핸들러로 할당할 수 있다.
+#### (2) `addEventListener`는 객체를 이벤트 핸들러로도 할당할 수 있다.
 
 - `addEventListener`가 인수로 객체 형태의 핸들러를 받으면 이벤트 발생 시 **obj.handleEvent(event)가 호출된다.**
 
 ```js
 class Menu {
-  handleEvent(event) {
+  handleEvent(e) {
     // mousedown -> onMousedown
-    let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
-    this[method](event);
+    let method = 'on' + e.type[0].toUpperCase() + e.type.slice(1);
+    this[method](e);
   }
 
-  onMousedown() {
+  onMousedown(e) {
     elem.innerHTML = "마우스 버튼을 눌렀습니다.";
   }
 
-  onMouseup() {
+  onMouseup(e) {
     elem.innerHTML += " 그리고 버튼을 뗐습니다.";
   }
 }
