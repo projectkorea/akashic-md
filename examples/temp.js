@@ -1,5 +1,11 @@
-var arr = [0, 1, 2, 3, 4, 5];
+async function calc(a, b) {
+  document.body.append('before wait');
+  const waitTime = await wait();
+  document.body.append('after wait');
+  waitTime
+    .then(() => await add(a, b))
+    .then((result) => document.body.append(`The sum is ${result}`));
+}
+document.body.append(document.createElement('br'));
 
-const a = arr.splice();
-console.log(arr);
-console.log(a);
+calc(1, 2);
