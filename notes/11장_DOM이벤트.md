@@ -1,7 +1,7 @@
 # 11. DOM 이벤트
 
-- `이벤트`: 웹 브라우저가 알려주는 HTML 요소에 대한 사건의 발생을 말한다. 브라우저는 이벤트를 감지하여 사용자와 웹페이지 간의 상호 작용을 가능하게 한다.
-- `이벤트 핸들러`: 이벤트가 발생했을 때 그 처리를 담당하는 함수, 지정된 이벤트가 발생하면, 웹 브라우저는 그 요소에 등록된 이벤트핸들러를 실행시킨다. 
+- `이벤트`: 웹 브라우저가 알려주는 **HTML 요소에 대한 사건의 발생**을 말한다. 브라우저는 이벤트를 감지하여 사용자와 웹페이지 간의 상호 작용을 가능하게 한다.
+- `이벤트 핸들러`: **이벤트가 발생했을 때 처리를 담당하는 함수**, 지정된 이벤트가 발생하면, 웹 브라우저는 그 요소에 등록된 이벤트핸들러를 실행시킨다. 
 
 
 ## 1. DOM 이벤트 개요
@@ -43,11 +43,11 @@ divElem.onclick = function() {console.log('i get overridden')}
 divElem.onclick = function() {console.log('i win')}
 ```
 - `onclick`속성에 값을 두 번 할당한다면, 마지막에 할당한 값으로 오버라이딩 된다.
-- 뿐만 아니라 이벤트가 호출하는 `함수의 영역 체인`을 활용하려는 시도는 영역문제를 겪을 수 있다. 
+- 나머지 두 방법에 비해, `adddEventListener`를 사용하면 이벤트가 호출하는 `함수의 스코프 체인`을 수월하게 활용할 수 있다.
 
 #### (2) `addEventListener`는 객체를 이벤트 핸들러로도 할당할 수 있다.
 
-- `addEventListener`가 인수로 객체 형태의 핸들러를 받으면 이벤트 발생 시 **obj.handleEvent(event)가 호출된다.**
+- `addEventListener`가 인자로 **객체 형태**의 핸들러를 받으면 이벤트 발생 시 **obj.handleEvent(event)가 호출된다.**
 
 ```js
 class Menu {
@@ -185,10 +185,36 @@ document.body.removeEventListener('click', function() {console.log("Hi from Anon
 - 이벤트에서 호출되는 핸들러나 콜백 함수에는 이벤트와 관련된 모든 정보를 가지고 있는 **매개변수**(event)가 전송된다.
 
 ```js
-elem.addEventListener("click", function(event){
+elem.addEventListener("click", function(){
   console.dir(event)
 })
 ```
+
+---
+#### 이벤트 핸들러 안에는 `event` 변수가 암묵적으로 들어간다.
+
+- `인라인 스크립트`, `.onclick`, `addEventListener` 모두 `event`를 따로 매개변수로 전달받지 않아도 이벤트 핸들러안에서 사용할 수 있다.
+
+```js
+document.body.addEventListener('click', handler)
+
+function handler() {
+  console.log(event)} // PointerEvent
+}
+```
+
+```js
+function handler() {
+  const event = "LOCAL"
+  console.log(event) // LOCAL
+}
+```
+
+- 하지만 핸들러 내부에 `event` 변수를 따로 선언하면, 내부 변수의 값이 나온다.
+- 이를 통해, `event`는 콜백함수로 실행이 될 때, `LOCAL`스코프 밖의 스코프에서 `event`를 참조한다는 것을 알 수 있다.
+---
+
+
 
 ## 7. `this` 값: `event.currentTarget`
 
@@ -246,6 +272,37 @@ console.log(e.currentTarget, e.target)
 - `<button>`를 클릭했을 때: `e.currentTarget` = `<body>`, `e.target` = `<button>`
 -  `e.currentTarget` 값은 이벤트가 연결된 `body`로 동일한 반면, `e.target` 이벤트의 진원지를 출력한다.
 
+---
+#### `<form>`태그에서 `e.target.namevalue`으로 접근하기
+
+- `name` attribute가 있는 태그는 `<select>`, `<input>`, `<textarea>`등이 있다. 
+- `<form>`태그 하위의 `name` attribute의 value에 있는 값을 `e.target.namevalue`로 바로 접근할 수 있다.
+  - ex) `<form><input name="pw"></input></form>`에서 input안의 있는 내용물은, `form`에서 발생한 `event`의 `event.target.id.value`으로 접근할 수 있다.
+
+```html
+<form>
+  <input type='text' name='id'></input>;
+  <input type='password' name='pw'></input>;
+  <textarea name="board"></textarea>
+  <select name="selecto"></select>
+  <input type="submit"></input>
+</form>
+```
+
+```js
+const form = document.querySelector('form');
+
+form.onsubmit = (e) => {
+  e.preventDefault()
+  const id = e.target.id.value
+  const pw = e.target.password.value
+  const board = e.target.board.value
+  const selecto = e.target.selecto.value
+  console.log(id, pw, board, selecto) // input, textarea등에 입력한 값이 출력됨
+}
+```
+
+---
 
 ## 9. 기본 브라우저 이벤트 취소하기
 
