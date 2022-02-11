@@ -7,7 +7,7 @@ class UserStroage {
             ) {
                 onSuccess(id);
             } else {
-                onError(new Error('login failed'));
+                onError(new Error('login failed'));w
             }
         }, 2000);
     }
