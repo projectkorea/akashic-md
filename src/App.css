@@ -1,0 +1,25 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 100px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.a,
+.b,
+.c {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  background-color: hsla(232, 100%, 69%, 0.274);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}
