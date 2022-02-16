@@ -105,3 +105,28 @@ return(
 - `<li>`태그들을 랜더링하기 위해선, map함수로 태그를 담은 배열을 리턴해야됐다.
 **- 배열 형태로 반환해도, 배열의 모든 요소가 DOM요소로 랜더링된다.**
 
+### 2. `className` 프로퍼티는 컴포넌트가 아닌 DOM태그에!
+
+### 3.
+
+```js
+<form
+          onSubmit={function (e) {
+            e.preventDefault();
+            let _cards = this.state.cards.concat({
+              id: this.state.totalCards + 1,
+              cardName: e.target.name.value,
+              price: Number(e.target.price.value),
+            });
+            this.setState({
+              cards: _cards,
+              totalCards: this.state.totalCards + 1,
+            });
+          }.bind(this)}
+>
+```
+
+- `cardName: e.target.name`로 써서 오류가 났다. props로 받아오는 type을 잘 생각하자.
+- state값을 추가할 때는 push와 같이 원본 데이터를 변경하는 방법을 사용하지 말자.
+- concat처럼 원본 데이터를 변경하지 않고 새로운 데이터를 생성하는 방법을 사용해야한다.
+- push 구현 방식은 나중에 리액트 앱의 성능 개선하기에 굉장히 까다롭다. 때문에 어떻게 원본 데이터를 바꾸지 않으면서 데이터를 state에 갱신 할 것인지 잘 생각해봐야한다.

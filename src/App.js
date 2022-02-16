@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.css';
+
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -11,15 +12,15 @@ class Card extends Component {
     const props = Object.entries(this.props);
     return (
       <div
-        className={this.props.cardName}
+        className='card-wrapper'
         onClick={function () {
           this.props.onChangeName();
           this.props.onCalc();
         }.bind(this)}
       >
-        <h4>state 상태: {String(this.state.isActive)}</h4>
-        <h4>전달받은 Props 목록</h4>
+        <span className='card-title'>{this.props.cardName}</span>
         <button
+          className='btn-active'
           onClick={function (e) {
             e.preventDefault();
             this.state.isActive
@@ -27,7 +28,7 @@ class Card extends Component {
               : this.setState({ isActive: true });
           }.bind(this)}
         >
-          활성화 버튼
+          ON
         </button>
         <ul>
           {props.map((prop, index) => (
@@ -36,6 +37,17 @@ class Card extends Component {
             </li>
           ))}
         </ul>
+        <button
+          className='btn-delete'
+          onClick={function (e) {
+            e.preventDefault();
+            this.state.isActive
+              ? this.setState({ isActive: false })
+              : this.setState({ isActive: true });
+          }.bind(this)}
+        >
+          DEL
+        </button>
       </div>
     );
   }
@@ -45,56 +57,69 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      totalCards: 3,
       currentCard: '',
       canBuy: '',
+      cards: [
+        { id: 1, cardName: 'Garen', price: 10000 },
+        { id: 2, cardName: 'Xreath', price: 680000 },
+        { id: 3, cardName: 'Viego', price: 30000 },
+      ],
     };
   }
   render() {
+    let cards = [];
+
+    const onChangeName = function (name) {
+      return function () {
+        this.setState({ currentCard: { name } });
+      }.bind(this);
+    }.bind(this);
+
+    const onCalc = function (answer) {
+      return function () {
+        this.setState({ canBuy: { answer } });
+      }.bind(this);
+    }.bind(this);
+
+    for (let elem of this.state.cards) {
+      cards.push(
+        <Card
+          key={elem.id}
+          cardName={elem.cardName}
+          price={elem.price}
+          onChangeName={onChangeName(elem.cardName)}
+          onCalc={onCalc(elem.price)}
+        ></Card>
+      );
+    }
     return (
       <div className='App'>
-        <h1>{`Your Choice is ${this.state.currentCard}`}</h1>
-        <h1>{`able to buy? ${this.state.canBuy}`}</h1>
-        <div className='wrapper'>
-          <Card
-            type='black'
-            lv='32'
-            str='100'
-            cardName='a'
-            data-money={20000}
-            onChangeName={function () {
-              this.setState({ currentCard: 'a' });
-            }.bind(this)}
-            onCalc={function () {
-              this.setState({ canBuy: 'yes' });
-            }.bind(this)}
-          ></Card>
-          <Card
-            type='red'
-            lv='68'
-            str='310'
-            cardName='b'
-            data-money={910000}
-            onChangeName={function () {
-              this.setState({ currentCard: 'b' });
-            }.bind(this)}
-            onCalc={function () {
-              this.setState({ canBuy: 'yes' });
-            }.bind(this)}
-          ></Card>
-          <Card
-            type='blue'
-            lv='17'
-            str='20'
-            cardName='c'
-            data-money={30000}
-            onChangeName={function () {
-              this.setState({ currentCard: 'c' });
-            }.bind(this)}
-            onCalc={function () {
-              this.setState({ canBuy: 'no' });
-            }.bind(this)}
-          ></Card>
+        <div className='header'>
+          <h1>{`Your Choice is ${this.state.currentCard}`}</h1>
+          <h1>{`able to buy? ${this.state.canBuy}`}</h1>
         </div>
+        <form
+          onSubmit={function (e) {
+            e.preventDefault();
+            let _cards = this.state.cards.concat({
+              id: this.state.totalCards + 1,
+              cardName: e.target.name.value,
+              price: Number(e.target.price.value),
+            });
+            this.setState({
+              cards: _cards,
+              totalCards: this.state.totalCards + 1,
+            });
+          }.bind(this)}
+        >
+          <label>이름: </label>
+          <input name='name'></input>
+          <label>가격: </label>
+          <input name='price'></input>
+          <input type='submit' value='생성'></input>
+        </form>
+        <div className='wrapper'>{cards}</div>
       </div>
     );
   }
