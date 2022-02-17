@@ -1,6 +1,6 @@
-# CRUD system by react
+# CRUD system by React
 
-- 클래스 컴포넌트를 활용하여 CRUD 시스템 페이지를 제작하여 학습한 디렉토리입니다.
+- 클래스 컴포넌트를 활용하여 CRUD 시스템 페이지를 제작하여 구현한 앱입니다.
 
 ## 코드 설명
 
@@ -103,30 +103,47 @@ return(
 - `forEach`문에서 `<li>`태그를 반환하면 알아서 랜더링 되는줄 알았다.😪
 - 하지만 이는 `{}`안의 자바스크립트 코드일 뿐이였다.
 - `<li>`태그들을 랜더링하기 위해선, map함수로 태그를 담은 배열을 리턴해야됐다.
-**- 배열 형태로 반환해도, 배열의 모든 요소가 DOM요소로 랜더링된다.**
+- **배열 형태로 반환해도, 배열의 모든 요소가 DOM요소로 랜더링되기 때문에!**
 
 ### 2. `className` 프로퍼티는 컴포넌트가 아닌 DOM태그에!
 
-### 3.
-
 ```js
-<form
-          onSubmit={function (e) {
-            e.preventDefault();
-            let _cards = this.state.cards.concat({
-              id: this.state.totalCards + 1,
-              cardName: e.target.name.value,
-              price: Number(e.target.price.value),
-            });
-            this.setState({
-              cards: _cards,
-              totalCards: this.state.totalCards + 1,
-            });
-          }.bind(this)}
->
+<Component className ="doesn't work">
 ```
 
-- `cardName: e.target.name`로 써서 오류가 났다. props로 받아오는 type을 잘 생각하자.
-- state값을 추가할 때는 push와 같이 원본 데이터를 변경하는 방법을 사용하지 말자.
-- concat처럼 원본 데이터를 변경하지 않고 새로운 데이터를 생성하는 방법을 사용해야한다.
-- push 구현 방식은 나중에 리액트 앱의 성능 개선하기에 굉장히 까다롭다. 때문에 어떻게 원본 데이터를 바꾸지 않으면서 데이터를 state에 갱신 할 것인지 잘 생각해봐야한다.
+### 3. Create 구현하기
+
+### 1) `array.prototype.concat`을 이용해 state 값 추가하기
+
+```js
+let _cards = this.state.cards.concat(newObj);
+
+this.setState({
+  cards: _cards,
+});
+```
+
+- `state`값을 추가할 때는 `push`와 같이 원본 데이터를 변경하는 방법을 사용하지 말자.
+- `concat`처럼 원본 데이터를 변경하지 않고 새로운 데이터를 생성하는 방법을 사용해야한다.
+- `push` 구현 방식은 나중에 리액트 앱의 성능 개선하기에 굉장히 까다롭다. 때문에 어떻게 원본 데이터를 바꾸지 않으면서 데이터를 state에 갱신 할 것인지 잘 생각해봐야한다.
+  
+### 2) `Array.from()`을 이용해 state 값 추가해보기
+
+```js
+var newCards = Array.from(this.state.cards)
+newCards.push(newObj)
+
+this.setState({
+  cards:newCards
+})
+```
+
+- `Array.from`을 사용해서 복사한 다음, 사본에 `push`를 하고 `setState`를 호출하기 때문에 원본을 변경하지 않고 원본을 교체한다.
+- 이외에도 `Object.assign()`을 이용해 객체의 내용을 바꾸지 않고 복제된 새 객체를 만들어 `setState`를 사용할 수 있다.
+
+
+
+---
+### 오류
+- `cardName: e.target.name`로 써서 오류가 났다. 
+- props로 받아오는 type을 잘 생각하자.

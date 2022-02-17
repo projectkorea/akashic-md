@@ -1,57 +1,7 @@
 import { Component } from 'react';
+import Card from './Card';
+import CreateForm from './CreateForm';
 import './App.css';
-
-class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isActive: true,
-    };
-  }
-  render() {
-    const props = Object.entries(this.props);
-    return (
-      <div
-        className='card-wrapper'
-        onClick={function () {
-          this.props.onChangeName();
-          this.props.onCalc();
-        }.bind(this)}
-      >
-        <span className='card-title'>{this.props.cardName}</span>
-        <button
-          className='btn-active'
-          onClick={function (e) {
-            e.preventDefault();
-            this.state.isActive
-              ? this.setState({ isActive: false })
-              : this.setState({ isActive: true });
-          }.bind(this)}
-        >
-          ON
-        </button>
-        <ul>
-          {props.map((prop, index) => (
-            <li key={index}>
-              {prop[0]} : {prop[1]}
-            </li>
-          ))}
-        </ul>
-        <button
-          className='btn-delete'
-          onClick={function (e) {
-            e.preventDefault();
-            this.state.isActive
-              ? this.setState({ isActive: false })
-              : this.setState({ isActive: true });
-          }.bind(this)}
-        >
-          DEL
-        </button>
-      </div>
-    );
-  }
-}
 
 class App extends Component {
   constructor(props) {
@@ -82,6 +32,10 @@ class App extends Component {
       }.bind(this);
     }.bind(this);
 
+    const onCreate = function (cardsParam, totalCardsParam) {
+      this.setState({ cards: cardsParam, totalCards: totalCardsParam });
+    }.bind(this);
+
     for (let elem of this.state.cards) {
       cards.push(
         <Card
@@ -99,26 +53,11 @@ class App extends Component {
           <h1>{`Your Choice is ${this.state.currentCard}`}</h1>
           <h1>{`able to buy? ${this.state.canBuy}`}</h1>
         </div>
-        <form
-          onSubmit={function (e) {
-            e.preventDefault();
-            let _cards = this.state.cards.concat({
-              id: this.state.totalCards + 1,
-              cardName: e.target.name.value,
-              price: Number(e.target.price.value),
-            });
-            this.setState({
-              cards: _cards,
-              totalCards: this.state.totalCards + 1,
-            });
-          }.bind(this)}
-        >
-          <label>이름: </label>
-          <input name='name'></input>
-          <label>가격: </label>
-          <input name='price'></input>
-          <input type='submit' value='생성'></input>
-        </form>
+        <CreateForm
+          cards={this.state.cards}
+          totalCards={this.state.totalCards}
+          onCreate={onCreate}
+        ></CreateForm>
         <div className='wrapper'>{cards}</div>
       </div>
     );
