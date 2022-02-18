@@ -4,6 +4,7 @@ class UpdateForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.data.id,
       price: this.props.data.price,
     };
   }
@@ -12,12 +13,7 @@ class UpdateForm extends Component {
       <form
         onSubmit={function (e) {
           e.preventDefault();
-          let _cards = this.props.cards.concat({
-            id: this.props.totalCards + 1,
-            cardName: e.target.name.value,
-            price: Number(e.target.price.value),
-          });
-          this.props.onCreate(_cards, this.props.totalCards + 1);
+          this.props.onSubmit(this.state.id, this.state.price);
         }.bind(this)}
       >
         <input
@@ -25,6 +21,9 @@ class UpdateForm extends Component {
           placeholder='price'
           value={this.state.price}
           name='price'
+          onChange={function (e) {
+            this.setState({ price: e.target.value });
+          }.bind(this)}
         ></input>
         <input className='btn-modify' type='submit' value='MOD'></input>
       </form>

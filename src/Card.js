@@ -10,8 +10,6 @@ class Card extends Component {
   }
   render() {
     const props = Object.entries(this.props);
-    const onSubmit = function () {};
-    const _cards = 1;
     return (
       <div
         className='card-wrapper'
@@ -39,7 +37,11 @@ class Card extends Component {
             </li>
           ))}
         </ul>
-        <UpdateForm data={_cards} onSubmit={onSubmit}></UpdateForm>
+        <UpdateForm
+          data={{ id: this.props.id, price: this.props.price }}
+          onCreate={this.props.onCreate}
+          onSubmit={this.props.onSubmit}
+        ></UpdateForm>
         <button className='btn-delete'>DEL</button>
       </div>
     );
