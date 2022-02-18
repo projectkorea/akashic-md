@@ -40,9 +40,16 @@ class Card extends Component {
         <UpdateForm
           data={{ id: this.props.id, price: this.props.price }}
           onCreate={this.props.onCreate}
-          onSubmit={this.props.onSubmit}
+          onUpdate={this.props.onUpdate}
         ></UpdateForm>
-        <button className='btn-delete'>DEL</button>
+        <button
+          className='btn-delete'
+          onClick={function () {
+            this.props.onDelete(this.props.id);
+          }.bind(this)}
+        >
+          DEL
+        </button>
       </div>
     );
   }

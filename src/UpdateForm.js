@@ -13,7 +13,7 @@ class UpdateForm extends Component {
       <form
         onSubmit={function (e) {
           e.preventDefault();
-          this.props.onSubmit(this.state.id, this.state.price);
+          this.props.onUpdate(this.state.id, this.state.price);
         }.bind(this)}
       >
         <input
