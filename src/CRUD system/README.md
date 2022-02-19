@@ -1,8 +1,4 @@
-# CRUD system by React
-
-- 클래스 컴포넌트를 활용하여 CRUD 시스템 페이지를 제작하여 구현한 앱입니다.
-
-## 코드 설명
+## 1. 이론 정리
 
 ### 1. 클래스 컴포넌트
 
@@ -24,6 +20,7 @@ class App extends Component {
 - 그 클래스는 `render`라는 메서드를 갖고 있다.
 - `import`한 `'react'`는 현재 17.0.2버전의 `react`를 말한다.
 - react 17버전 부터는 `import React from "react"`를 생략하기 때문에 이후의 코드는 생략한다.
+- `render()` 함수 안에 return을 가진다. React Component로부터 확장되고, 자동적으로 class component의 render method를 실행한다.
 
 ### 2. `constructor()`
 
@@ -74,8 +71,7 @@ class Card extends Component {
 - `this.setstate({key:value})` 함수를 이용하여 state 값 변경하기
 
 
-
-## 시행착오
+## 2. 시행착오
 
 ### 1. `<li>` 태그 랜더링
 
@@ -141,9 +137,5 @@ this.setState({
 - `Array.from`을 사용해서 복사한 다음, 사본에 `push`를 하고 `setState`를 호출하기 때문에 원본을 변경하지 않고 원본을 교체한다.
 - 이외에도 `Object.assign()`을 이용해 객체의 내용을 바꾸지 않고 복제된 새 객체를 만들어 `setState`를 사용할 수 있다.
 
-
-
----
-### 오류
-- `cardName: e.target.name`로 써서 오류가 났다. 
+### 4. `cardName: e.target.name`로 써서 오류가 났다. 
 - props로 받아오는 type을 잘 생각하자.
