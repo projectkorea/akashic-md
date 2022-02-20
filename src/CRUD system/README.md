@@ -69,6 +69,7 @@ class Card extends Component {
   - 이벤트 핸들러 함수의 `this`는 `undefined`를 가리킨다.
   - `render` 함수 내에서의 `this`는 컴포넌트를 가리킨다.
 - `this.setstate({key:value})` 함수를 이용하여 state 값 변경하기
+- `setState(addObj)`는 **`Object.assign(addObj,stateObj)` 방식으로 병합**된다.
 
 
 ## 2. 시행착오
@@ -139,3 +140,20 @@ this.setState({
 
 ### 4. `cardName: e.target.name`로 써서 오류가 났다. 
 - props로 받아오는 type을 잘 생각하자.
+
+### 5. 숫자를 전달할 때는 {}로 감싸야 한다.
+
+```js
+<Component num=2></Component> //error
+```
+```js
+<Component num="2"></Component> // typeof props.num => string
+```
+
+```js
+<Component num={2}></Component> // typeof props.num => num
+```
+
+### 6. props가 변경돼도 리랜더링되나?
+
+- props를 전달한 것은 state이기 때문에, state가 변경되면 props를 전달한 하위 컴포넌트도 diff 알고리즘에 의해 리랜더링된다.

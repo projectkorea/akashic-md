@@ -1,5 +1,12 @@
 import { Component } from 'react';
 
+class Comp extends Component {
+  render() {
+    console.log(typeof this.props.num);
+    return <div>1</div>;
+  }
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <Comp num={2}></Comp>
         <h2>{this.state.name}</h2>
         <h2>{this.state.age}</h2>
         <button
