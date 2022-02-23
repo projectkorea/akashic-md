@@ -9,9 +9,11 @@
 ### 목차
 
 
-|[1. CRUD System 구현][1장]|[2. Life Cycle 구현][2장]|[3. Styled Component 구현][3장]|
-|:-----:|:-----:|:-----:|
+|[1. CRUD System 구현][1장]|[2. Life Cycle 구현][2장]|[3. Styled Component 구현][3장]|[4. Hooks][4장]|[4. 기타 다양한 팁들][5장]|
+|:-----:|:-----:|:-----:|:-----:|:-----:|
 
 [1장]: https://github.com/projectkorea/study-js-react/tree/main/src/CRUD%20system
 [2장]: https://github.com/projectkorea/study-js-react/tree/main/src/Life%20Cycle
-[3장]: http://naver.com
+[3장]: _blank
+[4장]: _blank
+[5장]: _blank

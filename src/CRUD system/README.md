@@ -27,19 +27,33 @@ class App extends Component {
 ```js
 constructor(props) {
   super(props);
-  // 여기서 this.setState()를 호출하면 안 됩니다!
+  // 여기서 this.setState()를 호출하면 안됌
   this.state = { counter: 0 };
   this.handleClick = this.handleClick.bind(this);
 }
 ```
-- React에서 생성자는 보통 아래의 두 가지 목적을 위하여 사용됩니다.
+#### React에서 생성자는 보통 아래의 두 가지 목적을 위하여 사용한다.
 
 1. `this.state`에 객체를 할당하여 지역 **state를 초기화**
 2. 인스턴스에 이벤트 처리 메서드를 바인딩
-- 생성자는 `this.state`를 직접 할당할 수 있는 유일한 곳입니다.
--  그 외의 메서드에서는 `this.setState()`를 사용해야 합니다.
+- 생성자는 `this.state`를 직접 할당할 수 있는 유일한 곳이다.
+-  그 외의 메서드에서는 `this.setState()`를 사용해야 한다.
+
 
 ### 3. 클래스 컴포넌트에서 이벤트로 state 변경하기
+
+#### vs 바닐라
+
+- `attribute`에 이벤트 핸들러 안의 코드를 적는 html 인라인 핸들러와 다르게, **JSX는 `callback`을 선언**한다.
+
+```js
+<element onClick ={callback : function}>
+```
+
+- 일반 함수로 선언된 이벤트 핸들러 함수의 `this`는 `undefined`를 가리킨다.
+- `.bind(this)`를 추가하여 핸들러 안의 `this`가 클래스 컴포넌트를 바라보게 한다.
+- `render` 함수 내에서의 `this`는 컴포넌트를 가리킨다.
+- 추가로, 화살표 함수로 선언된 핸들러의 `this`는 상위 스코프의 `this`, 클래스 컴포넌트를 바라보기 때문에 `bind`가 필요하지 않다.
 
 ```js
 class Card extends Component {
@@ -65,11 +79,11 @@ class Card extends Component {
   }
 }
 ```
-- 이벤트 핸들러에 `.bind(this)`를 추가하여 핸들러 안의 `this`가 클래스 컴포넌트를 바라보게 하기
-  - 이벤트 핸들러 함수의 `this`는 `undefined`를 가리킨다.
-  - `render` 함수 내에서의 `this`는 컴포넌트를 가리킨다.
-- `this.setstate({key:value})` 함수를 이용하여 state 값 변경하기
-- `setState(addObj)`는 **`Object.assign(addObj,stateObj)` 방식으로 병합**된다.
+
+- `this.setstate({key:value})` 함수를 이용하여 `state` 값을 변경한다.
+
+### `setState(addObj)`는 **`Object.assign(addObj,stateObj)` 방식으로 병합**된다.
+- 하지만 함수형 컴포넌트의 훅 `useState`에서 선언한 `setState` 함수는 병합이 아니라 값을 교체한다.
 
 
 ## 2. 시행착오

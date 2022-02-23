@@ -96,6 +96,7 @@ class App extends Component {
     return (
       <div className='App'>
         <div className='header'>
+          <h1>{`My cards: ${this.state.totalCards}`}</h1>
           <h1>{`Your Choice is ${this.state.currentCard}`}</h1>
           <h1>{`자산:${this.state.money.toLocaleString()}`} &#8361;</h1>
         </div>
@@ -105,6 +106,10 @@ class App extends Component {
           onCreate={onCreate}
         ></CreateForm>
         <div className='wrapper'>{cards}</div>
+        <button onClick={() => this.setState({ money: 1 })}>
+          setstate 실험
+        </button>
+        {/* setState가 {money:1}인 객체로 아예 바뀌는지 */}
       </div>
     );
   }

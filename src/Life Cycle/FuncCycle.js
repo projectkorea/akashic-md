@@ -1,26 +1,36 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 
-class FuncCycle extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+function SubComponent({ count }) {
+  useEffect(() => {
+    console.log(
+      `2. SubComponent is (re)rendered by props which is App's State`
+    );
+    return () => {
+      console.log(`5. SubEffect clean-up: ${count}`);
+    };
+  }, [count]);
 
-  // UNSAFE_componentWillMount(){}    componentDidMount, constructor (state 초기화)를 대신 사용할 것, 랜더링 되기 전에 호출
-
-  componentDidMount() {} // render 호출 후 실행, 네트워크에서 뭔가 내려받아 어떤일을 처리해야하는ㄹ 때
-
-  shouldComponentUpdate() {} // render 호출할 필요 여부 결정
-
-  // UNSAFE_componentWillUpdate(){} componentDidUpdate를 사용할 것 (데이터 조회)
-
-  componentDidUpdate() {}
-
-  componentWillUnmount() {} // 컴포넌트 소멸될 때 호출
-
-  render() {
-    return;
-  }
+  return <h1>{count}</h1>;
 }
 
-export default FuncCycle;
+function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(`3. effect: ${count}`);
+    return () => {
+      console.log(`4. clean-up: ${count}`);
+    };
+  }, [count]);
+
+  return (
+    <div className='App'>
+      {console.log('1. APP render')}
+      <h2>{count}</h2>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      {count % 4 === 0 && <SubComponent count={count}></SubComponent>}
+    </div>
+  );
+}
+
+export default App;
