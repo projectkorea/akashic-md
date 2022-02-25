@@ -1,16 +1,32 @@
-요약
-1. 컴포넌트에 스타일을 적용해 구현하는 방법을 학습했다.
-2. styled components에 SCSS 문법을 사용하여 예제를 작성해, Themeprovider 기능에 대해 학습할 수 있었다.
+# REACT UI
 
-# styled-component
+## style 속성은 Object로 적는다.
 
-## SCSS 문법도 사용할 수 있다.
+```js
+<div style={
+  {
+    backgroundColor:"red",
+    paddingLeft: 20,
+    display: "flex",
+    justifyContent: "space-between",
+    border: "none",
+    color: "#000000",
+    cursor: "pointer",
+    padding : "8px, 16px"
+    }}>
+```
+
+- CSS의 key는 `camelCase`를 원칙으로 하고, value는 `string`을 원칙으로 하되, `number`가 들어갈 수도 있다.
+
+
+## styled-component
+
+- SCSS 문법도 사용할 수 있다.
 
 #### 1. What is SCSS ?
 
 ![1](https://user-images.githubusercontent.com/76730867/154880871-35ea6ff9-3edd-458b-bb8a-7939c8550dab.PNG)
 ![2](https://user-images.githubusercontent.com/76730867/154880876-11d55b13-aa77-4745-8df1-de0ea2a88450.PNG)
-
 
 
 #### 2. nesting 사용하기

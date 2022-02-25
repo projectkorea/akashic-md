@@ -4,7 +4,7 @@
 
 - 바닐라와는 다르게, 이벤트 핸들러는 `event` 객체를 인자로 받아와야한다.
 - 리액트에서는 이벤트 핸들러 함수에 **매개변수로 받지 않고** `event`로 dom element `event`를 접근하는 것은 `deprecated` 됐다.
-- 
+
 ```jsx
 <input onChange ={
   (event)=>{
@@ -84,18 +84,6 @@ const SubComponent = ({ value }) => {
 export default App;
 ```
 
-## 4. 스타일은 Object로
-
-```js
-<div style={ {backgroundColor:"red", paddingLeft:20} }>
-```
-
-- 위와 같은 `Inline style`의 Property name은 camelCase로 적는다
-
-## 5. `JSX`는 Babel에 의해 Transcompile 된다.
-
-![](https://user-images.githubusercontent.com/76730867/155278906-0a234173-2593-4c49-ae1f-b1ffe0d5ea48.png)
-
 ## 6. DOM Elements의 Attribute가 다르다.
 
 - 기본적인 DOM Element(div, span 등)들의 **Attribute는 camel case로** 작성한다.
@@ -126,19 +114,6 @@ React 내에서는 현재 값을 의미한다.
 -  이 말은 즉, 위 예시처럼 checked 값이 false로 고정돼있는 경우에 사용자가 checkbox를 클릭하여도 값의 변화가 일어나지 않는다.
 - 만약 ‘초기값’의 의미로 checked 또는 value를 사용하고 싶다면, defaultChecked, defaultValue Attribute를 설정해야 한다.
 
-
-## 7. State를 함수에 넣어서 변경하기
-
-```js
-const [count, setCount] = useState(0);
-
-setCount((current) => {
-  return current + 1
-})
-```
-
-- 함수가 **반환하는 값으로 State가 변경**된다.
-- 위 예시처럼 **현재 값을 기반으로 State를 변경하고자 하는 경우** 함수를 넣는 방법을 권장한다.
 
 ## 8. Object를 갖는 State를 만들 때 주의사항
 
