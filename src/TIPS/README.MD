@@ -152,3 +152,13 @@ return newUser
 ## 10. 이벤트 명명
 - 보통은 코드를 읽을 때 쉽고 빠르게 이해할 수 있도록 `“on” + 동사` 또는 `“on” + 명사 + 동사` 형태로 작성한다. (`onClick`, `onButtonClick`, `onInputChange`)
 - 핸들링 함수의 경우 마찬가지로 `“handle” + 동사` 또는 `“handle” + 명사 + 동사` 의 형태로 작성하며, “handle” 대신 이벤트명과 동일한 “on”을 앞에 붙여도 무방하다.
+
+## 11. 이벤트 핸들러와 prop 함수 햇갈림 주의
+
+```js
+<InsertForm onInsert={(value) => console.log(value)}/>
+
+<input onChange={()=>{...}} onInsert={onInsert}>
+```
+
+- `onChange`의 첫 인자는 이벤트객체가 들어가지만, `onInsert`는 커스텀 함수일 뿐이라 이벤트 객체가 들어가지 않는다.

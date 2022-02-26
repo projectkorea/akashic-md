@@ -6,7 +6,8 @@ import ReactDOM from 'react-dom';
 // import App from './App';
 // import App from './Hooks/useRef';
 // import App from './CRUD system/setTimeout/App';
-import App from './React-Ajax/AppLoading';
+// import App from './React-Ajax/AppLoading';
+import App from './Todo_functional/App';
 
 ReactDOM.render(
   <React.StrictMode>
