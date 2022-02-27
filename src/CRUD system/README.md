@@ -155,6 +155,20 @@ this.setState({
 ### 4. `cardName: e.target.name`로 써서 오류가 났다. 
 - props로 받아오는 type을 잘 생각하자.
 
+```js
+ <form
+        onSubmit={function (e) {
+          e.preventDefault();
+          let _cards = this.props.cards.concat({
+            id: this.props.totalCards + 1,
+            cardName: e.target.name.value,
+            price: Number(e.target.price.value),
+          });
+          this.props.onCreate(_cards);
+        }.bind(this)}
+>
+```
+
 ### 5. 숫자를 전달할 때는 {}로 감싸야 한다.
 
 ```js
