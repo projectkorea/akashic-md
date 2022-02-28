@@ -19,3 +19,27 @@
 
 - `isLoading` state 값이 `false`면 해당 컴포넌트를, `ture`면 로딩 컴포넌트를 반환한다.
 - 클릭 이벤트 발생시, state값을 `true`로 설정하고, `fetch`함수를 통해 `resolve`된 데이터가 반환되면 state값을 `false`로 할당한다.
+
+4. 검색시 0.5초 후에 api 작동하게 하기
+
+```js
+   useEffect(
+    (search) => {
+      const timeout = setTimeout(() => {
+        setIsActive(false);
+      }, 500);
+      return () => clearTimeout(timeout);
+    },
+    [search]
+  );
+```
+
+- 클린업 함수를 콜백함수로 전달했어야 했는데 , `return clearTimeout(timeout);`라고 작성해 오류가 났음
+- 내가 무엇을 구현하려고 하는지, 생각해서 코드를 짜야지 시간을 단축할 수 있다.
+
+5.
+
+- react double child about key prop
+- map함수 파라미터 거꾸로씀 map(item,index)
+
+6. <Component props={} seacrch={search}
