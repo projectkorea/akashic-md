@@ -93,7 +93,7 @@ export default App;
 - HTML의 Attribute와 다른 이름을 가지는 Attribute가 있다.
   - 예 class → **className**, for → **htmlFor** 등
 -  React에서만 쓰이는 새로운 Attribute가 있다.
-   - 예: **key**, dangerouslySetInnerHTML 등
+   - 예: **key**, `dangerouslySetInnerHTML` 등
 
 ```js
 <div>
@@ -103,7 +103,7 @@ export default App;
 </div>
 ```
 - HTML의 Attribute와 다른 동작 방식을 가진 Attribute가 있다.
-  - 예 **checked**(defaultChecked), **value**(defaultValue), style 등
+  - 예 **checked**(defaultChecked), **value**(defaultValue), `style={{}}` 등
 
 ```js
 input type="checkbox" checked={false} />
@@ -162,3 +162,65 @@ return newUser
 ```
 
 - `onChange`의 첫 인자는 이벤트객체가 들어가지만, `onInsert`는 커스텀 함수일 뿐이라 이벤트 객체가 들어가지 않는다.
+
+## 12. map 사용시 key props를 부여하는 이유
+
+- key는 React가 어떤 항목을 변경, 추가 또는 삭제할지 식별하는 것을 돕는다. key는 element에 안정적인 고유성을 부여하기 위해 배열 내부의 엘리먼트에 지정해야한다.
+
+```js
+const tart_array = tart.map((item)=>{
+
+import React from 'react';
+import './App.css';
+
+function App() {
+    const tart = ["딸기", "무화과", "치즈"]
+    const tart_array = tart.map((item)=>{
+        return <div>{`${item} 타르트`}</div>
+    })
+    
+  return (
+    <div className="App">
+        {tart_array}
+    </div>
+  );
+}
+
+export default App;
+```
+- key부분 안넣어도 됌? li만 넣는거야?
+- 렌더링 한 항목에 부여할 id값이 마땅히 없다면 index를 key로 사용할 수 있습니다.
+
+contentComments.map((list, index) =>
+  <li key={index}>
+    {list.name}
+    {list.text}
+  </li>
+);
+하지만 순서가 바뀔 수 있는 경우에는 key에 인덱스를 사용하는 것은 권장하지 않는다!!
+이로인해 성능이 저하되거나 state와 관련된 문제가 발생할 수 있다!
+
+만약 리스트에 key를 지정하지 않으면 React는 기본적으로 index를 key로 사용합니다
+
+key는 형제 사이에서만 고유한 값이어야 한다.
+key는 배열 안에서 형제 사이에서 고유해야 하고 전체 범위에서 고유할 필요는 없다. 두 개의 다른 배열을 만들 때 동일한 key를 사용할 수 있다.
+
+https://developer-talk.tistory.com/102
+
+### 
+```js
+function App() {
+  const [check, setCheck] = useState(false);
+  const handleChange = (event) => {
+    setCheck(event.target.checked);
+  }
+  
+  return (
+    <div className="App">
+        <input type="checkbox" onChange={handleChange}/>
+        <h2>{check? "시럽을 추가해주세요." : "시럽은 빼주세요."}</h2>
+    </div>
+  );
+}
+```
+event.target.checked를 통해 체크 여부를 확인할 수 있습니다.
