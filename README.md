@@ -2,10 +2,10 @@
 
 ### HTML
 
-- [HTML 태그](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [Head 태그](https://github.com/projectkorea/study-html-css/blob/main/HTML/Head%20%ED%83%9C%EA%B7%B8.md)
-- [HTML 설계](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%EC%84%A4%EA%B3%84.md)
-- [토이프로젝트](https://github.com/projectkorea/study-html-css/blob/main/HTML/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/README.md)
+- [1. 태그의 종류](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/HTML%20%ED%83%9C%EA%B7%B8.md)
+- [2. HEAD 안에 들어가는 태그](https://github.com/projectkorea/study-html-css/blob/main/HTML/Head%20%ED%83%9C%EA%B7%B8.md)
+- [3. HTML 설계](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/HTML%20%EC%84%A4%EA%B3%84.md)
+- [4. 토이프로젝트](https://github.com/projectkorea/study-html-css/blob/main/HTML/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/README.md)
 
 ### CSS
 
