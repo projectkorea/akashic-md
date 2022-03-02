@@ -9,12 +9,13 @@
 
 ### CSS
 
-1. [selector](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [box](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [float](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [position](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [flex](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [transition](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [mediaquery](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [typography](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-1. [etc](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [selector](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/1.selector.md)
+2. [box](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/2.box.md)
+3. [float](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/3.float.md)
+4. [position](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/4.position.md)
+5. [flex](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/5.flex.md)
+6. [transition](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/6.transition.md)
+7. [mediaquery](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/7.mediaquery.md)
+8. [typography](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/8.typography.md)
+9. [etc](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/9.etc.md)
+10. [grid](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/10.grid.md)
