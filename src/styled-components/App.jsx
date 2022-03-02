@@ -29,7 +29,17 @@ const FancyDiv = styled.div`
   position: relative;
   padding: 50px 0 0 0;
   font-size: 20px;
-  background-color: ${(props) => props.theme.colors['--blue-sky-light']};
+  background-color: darkblue;
+  :hover {
+    background-color: yellow;
+  }
+  ::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: tomato;
+  }
   div {
     position: absolute;
     width: 100px;
@@ -37,11 +47,11 @@ const FancyDiv = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: ${(props) => props.theme.colors['--blue-sky-basic']};
+    background-color: blue;
     div {
       width: 50px;
       height: 50px;
-      background-color: ${(props) => props.theme.colors['--blue-sky-dark']};
+      background-color: skyblue;
     }
   }
 `;
@@ -55,7 +65,7 @@ function App() {
         <FancyDiv>
           FancyDIV
           <div>
-            바깥쪽 DIV
+            바깥쪽 DIV1
             <div>안쪽 DIV</div>
           </div>
         </FancyDiv>

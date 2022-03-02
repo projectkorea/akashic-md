@@ -223,4 +223,43 @@ function App() {
   );
 }
 ```
-event.target.checked를 통해 체크 여부를 확인할 수 있습니다.
+- event.target.checked를 통해 체크 여부를 확인할 수 있다.
+
+
+## 13. JSX에서의 {}내에서는 &nbsp;가 먹지 않으니 템플릿리터럴 방법으로 공백을 구현한다.
+
+```js
+<div>{&nbsp `${money}`}</div> ❌
+<div>{` ${money}`}</div> ✅
+```
+
+## 14. state 값이 바뀌어야 컴포넌트가 랜더링된다.
+
+- li로 태그로 할때 state로 만들어야 업데이트가 된다.
+
+```js
+```
+
+## 15. useState의 set함수는 비동기로 처리된다.
+
+- newPrice로 빼줘야 갱신이 된다.
+- `setPrice`는 비동기적으로 state를 처리하기 때문에 `setMoney`함수가 `price`값을 불러들일 때는 처리 전의 state를 받게된다.
+
+❌
+```js
+const onCalc =() => {
+    setPrice(data.reduce((acc,cur)=>acc+cur.price*cur.num,0))
+    setMoney(price-price)
+}
+```
+
+✅
+```js
+const onCalc =() => {
+    const newPrice = data.reduce((acc,cur)=>acc+cur.price*cur.num,0)
+    setPrice(newPrice)
+    setMoney(money-newPrice)
+}
+```
+
+

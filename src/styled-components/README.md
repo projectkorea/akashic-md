@@ -16,9 +16,21 @@ const FancyDiv = styled.div`
 const FancyButton = styled.button`
   background-color: red;
   padding: 10px;
+  :hover{
+    background-color: yellow;
+  }
+  ::after{
+    content:'';
+    display:block;
+    width:10px;
+    height:10px;
+    background-color: blue;
+  }
 `;
 ```
 - `styled.`뒤에 스타일을 입힐 태그 이름을 적어 사용한다.
+- 가상선택자, hover 등을 사용할 수 있다.
+
 
 ### 2. `props` 사용하기
 
@@ -34,9 +46,23 @@ return(
 )
 ```
 - CSS `value`를 `props`를 인자로 받는 콜백함수의 **리턴 값**으로 작성한다.
-  
----
 
+
+### 3. 스타일 컴포넌트 확장하기
+
+- 기존에 존재하는 `styled component`를 바탕으로 디자인을 확장할 수 있다.
+- 대신 `styled.tagName`이 아닌, `styled(확장할 컴포넌트명)`을 사용한다.
+
+```css
+const PrimaryButton = styled(Button)`
+  background-color: #007bff;
+  :hover {
+    background-color: #0069d9;
+  }
+`
+```
+
+---
 
 ## CSS vs SCSS 비교하기
 
