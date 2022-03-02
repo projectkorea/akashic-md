@@ -2,19 +2,19 @@
 
 ### HTML
 
-- [1. 태그의 종류](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [2. HEAD 안에 들어가는 태그](https://github.com/projectkorea/study-html-css/blob/main/HTML/Head%20%ED%83%9C%EA%B7%B8.md)
-- [3. HTML 설계](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/HTML%20%EC%84%A4%EA%B3%84.md)
-- [4. 토이프로젝트](https://github.com/projectkorea/study-html-css/blob/main/HTML/%ED%86%A0%EC%9D%B4%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/README.md)
+1. [태그의 종류](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/1.Tag.md)
+2. [HEAD 안에 들어가는 태그](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/2.in_Head_Tag.md)
+3. [HTML 설계](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/3.Tag.md)
+4. [토이프로젝트](https://github.com/projectkorea/study-html-css/blob/main/HTML/toy-project/README.md)
 
 ### CSS
 
-- [1. selector](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [2. box](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [3. float](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [4. position](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [5. flex](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [6. transition](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [7. mediaquery](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [8. typography](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
-- [9. etc](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [selector](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [box](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [float](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [position](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [flex](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [transition](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [mediaquery](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [typography](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
+1. [etc](https://github.com/projectkorea/study-html-css/blob/main/HTML/HTML%20%ED%83%9C%EA%B7%B8.md)
