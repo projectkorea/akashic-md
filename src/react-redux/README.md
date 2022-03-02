@@ -51,7 +51,7 @@ import {state} from "./store"
 ### 3. `store.getState()`: state 얻기
 
 ```js
-import {state} from "./store"
+import {store} from "./store"
 
 const DisplayNumber =() => {
   const[number, setNumber] = useState(store.getState().number)
