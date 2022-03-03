@@ -168,20 +168,3 @@ this.setState({
         }.bind(this)}
 >
 ```
-
-### 5. 숫자를 전달할 때는 {}로 감싸야 한다.
-
-```js
-<Component num=2></Component> //error
-```
-```js
-<Component num="2"></Component> // typeof props.num => string
-```
-
-```js
-<Component num={2}></Component> // typeof props.num => num
-```
-
-### 6. props가 변경돼도 리랜더링되나?
-
-- props를 전달한 것은 state이기 때문에, state가 변경되면 props를 전달한 하위 컴포넌트도 diff 알고리즘에 의해 리랜더링된다.

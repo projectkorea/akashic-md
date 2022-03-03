@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 // import App from './toy-project/App';
 // import App from './React-Ajax/AppApis';
 // import App from './react-redux/App';
-import App from './toy-projects/redux-project/App';
+// import App from './toy-projects/redux-project/App';
+import App from './App';
 
 ReactDOM.render(<App />, document.getElementById('root'));

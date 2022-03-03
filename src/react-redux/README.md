@@ -64,7 +64,8 @@ const DisplayNumber =() => {
 ```
 
 - `store.getState()`: 리덕스 스토어의 `state` 객체를 반환한다.
-- `store.subscribe(callback)`: 리덕스 스토어의 값이 변경됐을 때 호출된다. 컴포넌트 스토어의 state값이 변경됐다는 사실을 통보받을 수 있게 구독해야 한다.
+- `store.subscribe(callback)`: 리덕스 스토어의 값이 변경됐을 때 호출된다. 
+  - 컴포넌트 스토어의 state값이 변경됐다는 사실을 통보받을 수 있게 구독해야 한다.
 
 
 
@@ -186,39 +187,12 @@ export default connect()(DisplayNumber)
 - `connect`함수를 호출한 다음, 래핑할 컴포넌트를 인자로 넘겨 실행한 후 반환한다.
 
 
----
-
-## `connect` 함수 내부 살펴보기
-
-```js
-function connect(mapStateToProps, mapDispatchToProps){
-  return function(WrappedComponent){
-    return class extends React.Component{
-      render(){
-        return(<WrappedComponent
-          {...this.props}
-          {...mapStateToProps(store.getState(), this.props)}
-          {...mapDispatchToProps(store.dispatch, this.props)}
-        />)
-      }
-      componentDidMount(){
-        store.subscribe(this.handleChange.bind(this))
-      }
-    }
-  }
-}
-```
-- `this.props` 부분의 코드를 보다시피, connect로 컴포넌트를 반환하면 컨테이너 컴포넌트에서 이를 다시 전달해주지 않아도 프레젠테이셔널 컴포넌트로 props를 전달하는 코드가 구현돼있다.
-
----
-
-
-
 ### 3. connect함수에 리덕스 관련 코드 넣기
 
 #### 1) `mapStateToProps` 사용
 
 - 리덕스의 `state`를 리액트의 `props`로 연결하는 역할을 한다.
+
 
 ```js
 import DisplayNumber from '../components/DisplayNumber';
@@ -237,6 +211,21 @@ export default connect(
   mapReduxDispatchToReactProps
 )(DisplayNumber);
 ```
+
+
+```js
+const DisplayNumber = ({ number }) => {
+  return (
+    <>
+      <h1>Display Number</h1>
+      <input type='text' value={number} readOnly />
+      <h5>{test}</h5>
+    </div>
+  );
+};
+```
+
+
 
 #### 2) `mapDispatchToProps` 사용
 
@@ -257,5 +246,62 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(null, mapDispatchToProps)(AddNumber);
 ```
 
+```js
+import { useState } from 'react';
 
-### 4. react-redux 해쳐보기
+const AddNumber = ({ onClick }) => {
+  const [size, setSize] = useState(1);
+  return (
+    <div>
+      <h1>Add Number</h1>
+      <input type='text' readOnly value={size} />
+      <input type='button' value='+' onClick={() => onClick(size)} />
+    </div>
+  );
+};
+```
+
+
+
+### 4. react-redux `connect` 함수 내부 살펴보기
+
+```js
+function connect(mapStateToProps, mapDispatchToProps){
+  return function(WrappedComponent){
+    return class extends React.Component{
+      render(){
+        return(<WrappedComponent
+          // 컨테이너 컴포넌트로 주입된 props를 WrapperComponent에 전달한다.
+          {...this.props}
+          // 리덕스 store의 state를 WrapperComponent에 전달한다.
+          {...mapStateToProps(store.getState(), this.props)}
+          // 이벤트를 WrapperComponent에 전달한다.
+          {...mapDispatchToProps(store.dispatch, this.props)}
+        />)
+      }
+      componentDidMount(){
+        // 컴포넌트가 마운트 됐을 때, 리덕스 스토어를 구독하여,
+        // 리덕스 스토어 값이 변경 될 때마다, 컴포넌트를 리랜더딩한다.
+        store.subscribe(this.handleChange.bind(this))
+      }
+      componentWillUnmount() {
+        // 컴포넌트가 종료됐을 때 호출된다. 구독을 취소한다.
+        this.unsubscribe()
+      }
+      handleChange() {
+        // 리덕스 스토어가 변경되면 강제로 render를 호출한다.
+        this.forceUpdate()
+      }
+    }
+  }
+}
+```
+
+- `{...mapStateToProps(store.getState(), this.props)}`
+- `{...mapDispatchToProps(store.dispatch, this.props)}`
+  - 필요한 경우 두번째 인자를 통해 전달된 props를 이용할 수 있다.
+
+### react-redux의 connect API의 기특한 점
+
+1. 등록해놓은 props에 한해서만 구독하기 때문에, 불필요한 render 함수 호출이 줄어든다.
+2. `shoulComponentUpdate`를 통해 수동으로 해야할 일을 자동으로 처리해준다.

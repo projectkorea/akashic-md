@@ -11,8 +11,8 @@
 - 데이터 전처리가 약한 모습을 보임
 
 ```js
-    list.splice(index, 1);
-    const newList = Array.from(list);
+list.splice(index, 1);
+const newList = Array.from(list);
 ```
 ```js
 const newList = [

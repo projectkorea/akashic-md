@@ -5,8 +5,13 @@ const mapReduxStateToReactProps = (state) => {
   return { number: state.number };
 };
 
-const mapReduxDispatchToReactProps = () => {
-  return {};
+const mapReduxDispatchToReactProps = (dispatch, props) => {
+  return {
+    onHandler: () => {
+      //dispatch()
+      console.log(props.test);
+    },
+  };
 };
 
 export default connect(
