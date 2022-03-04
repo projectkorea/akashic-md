@@ -83,7 +83,8 @@ class Card extends Component {
 - `this.setstate({key:value})` 함수를 이용하여 `state` 값을 변경한다.
 
 ### `setState(addObj)`는 **`Object.assign(addObj,stateObj)` 방식으로 병합**된다.
-- 하지만 함수형 컴포넌트의 훅 `useState`에서 선언한 `setState` 함수는 병합이 아니라 값을 교체한다.
+
+- **하지만** 함수형 컴포넌트의 훅 `useState`에서 선언한 `setState` 함수는 병합이 아니라 값을 **교체**한다.
 
 
 ## 2. 시행착오
@@ -168,3 +169,14 @@ this.setState({
         }.bind(this)}
 >
 ```
+
+### 5. form data `destructuring`으로 받아오기
+
+```js
+const [form, setForm] = useForm({...})
+const onChange = ( { target: { name, value }} ) 
+=> setForm({ ...form, [name]: value });
+```
+- `event` 인자의 `target`을 구조분해하여 `{ target: { name, value }}`로 바로 받아왔다.
+- `const name = event.target.name`
+- `const value = event.target.value`

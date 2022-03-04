@@ -2,7 +2,7 @@
 
 - 20분안에 구현하고, 40분을 오류를 잡는 양상을 보임😪
 
-1. 최상위 컴포넌트로 감싸야 한다는 말..!
+1. **최상위 컴포넌트**로 감싸야 한다.
   `return { listView };`
   `return <div>{listView}</div>`;로 해야함
 
@@ -22,8 +22,8 @@ const newList = [
     ];
 ```
 
-2. 프로토타입으로 코드를 구현해놓은 것인데 당연히 그 코드가 작동할 거라고 생각했음
+3. 프로토타입으로 코드를 구현해놓은 것인데 당연히 그 코드가 작동할 거라고 생각했음
 
-3. dom element 의 이벤트 프로퍼티와 prop 프로퍼티를 햇갈림
+4. dom element 의 이벤트 프로퍼티와 prop 프로퍼티를 햇갈림
 - `<button onClick={onUpdate}` 했어야 했는데
 - `<button onUpdate={onUpdate}` 했어야 했음

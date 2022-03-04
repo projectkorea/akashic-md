@@ -12,6 +12,7 @@ import ReactDOM from 'react-dom';
 // import App from './React-Ajax/AppApis';
 // import App from './react-redux/App';
 // import App from './toy-projects/redux-project/App';
-import App from './App';
+// import App from './App';
+import App from './toy-projects/timer/App.refactoring';
 
 ReactDOM.render(<App />, document.getElementById('root'));
