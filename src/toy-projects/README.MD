@@ -355,7 +355,8 @@ e.target.dataset.id === "3"
 ## 2. `map`으로 랜더링 하려면 `key`를 사용해야한다.
 
 - `key`: React가 어떤 항목을 변경, 추가, 삭제 식별을 도움
--  랜더링하는 `element`에 안정적인 **고유성**을 부여하기 위해, 배열 내부의 **엘리먼트**에 지정해야한다. `<div>`, `<li>` 상관없이 `map`을 통해 랜더링하는 **모든** 엘리먼트에 해당한다.
+-  랜더링하는 `element`에 안정적인 **고유성**을 부여하기 위해, 배열 내부의 **엘리먼트**에 지정해야한다.
+-  `<div>`, `<li>` 상관없이 `map`을 통해 **배열**로, 랜더링하는 **모든** 엘리먼트에 해당한다.
 
 ```js
 function App() {
@@ -394,6 +395,16 @@ const newTart = tart.map((item, index) => {
 const tart_array = newTart.map((item)=>{
   return <div key={item.id}>{`${item.name} 타르트`}</div>
 })
+```
+
+### nanoid 패키지를 통한 id값 전달
+
+```js
+const createNewTodo = (text) => ({
+  completed: false,
+  id: nanoid(),
+  text
+}
 ```
 
 

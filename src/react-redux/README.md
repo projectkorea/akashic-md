@@ -28,6 +28,8 @@ export default createStore(function(state,action){
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 ```
 
+- `createStore()`는 `dispatch`, `getState`, `subscribe` 등의 메서드를 갖는 **오브젝트**를 리턴한다.
+
 1. `createStore()`함수는 첫번째 인자로 reducer 함수를 받는다.
    1. `state`: redux가 관리하는 `state`
    2. `action`: `action`을 통해 `state` 값을 바꾼다.

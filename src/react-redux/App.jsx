@@ -6,6 +6,7 @@ import store from './store';
 const App = () => {
   return (
     <Provider store={store}>
+      {console.dir(store)}
       <div style={{ border: '1px solid black', padding: '10px' }}>
         <h1>Root</h1>
         <AddNumber></AddNumber>
