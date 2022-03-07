@@ -1,11 +1,15 @@
 import ResultListMain from '../result-list/ResultListMain';
 import ResultListDetail from '../result-list/ResultListDetail';
+import { useState } from 'react';
 
 const ResultList = () => {
+  const [isClicked, setIsClicked] = useState(false);
   return (
     <div>
-      <ResultListMain />
-      <ResultListDetail />
+      <div onClick={() => setIsClicked(!isClicked)}>
+        <ResultListMain />
+      </div>
+      {isClicked && <ResultListDetail />}
     </div>
   );
 };

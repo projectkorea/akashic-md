@@ -8,7 +8,8 @@ const ResultListDetail = () => {
   });
 
   return (
-    <div>
+    <div style={{ border: '1px solid black', padding: 60 }}>
+      <DetailList />
       <DetailButton />
       {deatilListView}
     </div>

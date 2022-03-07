@@ -5,10 +5,16 @@ const ResultListView = () => {
     ['찰리', 100],
     ['배내자', 1000],
   ];
-  listView.map((item) => {
+  const newListView = listView.map((item) => {
     return <ResultList key={item[0]} />;
   });
-  return <div>{listView}</div>;
+  return (
+    <div
+      style={{ width: 800, height: 800, border: '2px solid blue', padding: 30 }}
+    >
+      {newListView}
+    </div>
+  );
 };
 
 export default ResultListView;

@@ -1,5 +1,10 @@
 const DetailButton = () => {
-  return <div>DetailButton</div>;
+  return (
+    <div>
+      <button>check all</button>
+      <button>clear</button>
+    </div>
+  );
 };
 
 export default DetailButton;
