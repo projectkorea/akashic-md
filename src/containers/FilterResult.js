@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ResultSearch from '../components/result-search/ResultSearch';
+import FilterResult from '../components/result-filter/FilterResult';
 import { filterByColumn } from '../modules/result';
 
 const mapStateToProps = (state) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResultSearch);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterResult);

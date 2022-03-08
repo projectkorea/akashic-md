@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const SearchButton = ({ onSort, colNum }) => {
+const FilterButton = ({ onSort, colNum }) => {
   const [option, setOption] = useState({
     isDesc: false,
     colNum,
@@ -18,4 +18,4 @@ const SearchButton = ({ onSort, colNum }) => {
   );
 };
 
-export default SearchButton;
+export default FilterButton;

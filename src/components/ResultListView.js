@@ -1,12 +1,12 @@
 import ResultList from '../containers/ResultList';
-import ResultSearch from '../containers/ResultSearch';
+import FilterResult from '../containers/FilterResult';
 
-const ResultListView = ({ onSort }) => {
+const ResultListView = () => {
   return (
     <div
       style={{ width: 800, height: 800, border: '2px solid blue', padding: 30 }}
     >
-      <ResultSearch />
+      <FilterResult />
       <ResultList />
     </div>
   );

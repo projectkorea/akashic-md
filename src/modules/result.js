@@ -19,6 +19,7 @@ const initialState = {
     },
     error: null,
   },
+  selected: [],
 };
 
 // Action Types
@@ -30,6 +31,10 @@ const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
 const GET_POST_SUCCESS_ALREADY = 'GET_POST_SUCCESS_ALREADY';
 const GET_POST_ERROR = 'GET_POST_ERROR';
 const FILTER = 'FILTER';
+const SELECT = 'SELECT';
+const SELECT_CANCEL = 'SELECT_CANCEL';
+const SELECT_ALL = 'SELECT_ALL';
+const SELECT_ALL_CANCEL = 'SELECT_ALL_CANCEL';
 
 // Action Creators
 export const loadAll = createAction(GET_POSTS);
@@ -81,6 +86,61 @@ export const filterByColumn = (option) => (dispatch, getState) => {
   dispatch({ type: FILTER, filtered });
 };
 
+export const toggleSelect = (name, id) => (dispatch, getState) => {
+  const {
+    result: { selected },
+  } = getState();
+
+  const selectedId = { [name + id]: [name, id] };
+  const isSelected = selected.some(
+    (item) =>
+      Object.values(item)[0][0] === name && Object.values(item)[0][1] === id
+  );
+
+  if (!isSelected) {
+    dispatch({ type: SELECT, selectedId });
+  } else {
+    // filter
+    const newSelected = selected.filter(
+      (item) =>
+        !(
+          Object.values(item)[0][0] === name && Object.values(item)[0][1] === id
+        )
+    );
+    dispatch({ type: SELECT_CANCEL, newSelected });
+  }
+};
+
+export const toggleSelectAll =
+  (isSelectedAll, name) => (dispatch, getState) => {
+    const {
+      result: {
+        selected,
+        post: { data },
+      },
+    } = getState();
+    const selectList = data[name];
+
+    if (isSelectedAll) {
+      const selectedList = selected
+        .filter((item) => Object.values(item)[0][0] === name)
+        .map((item) => Object.values(item)[0][1]);
+
+      const willBeSelect = selectList
+        .filter((item) => !selectedList.includes(item[0]))
+        .map((item) => ({ [name + item[0]]: [name, item[0]] }));
+
+      dispatch({ type: SELECT_ALL, willBeSelect });
+    } else {
+      const newSelected = selected.filter(
+        (item) => !(Object.values(item)[0][0] === name)
+      );
+      console.log(newSelected);
+
+      dispatch({ type: SELECT_ALL_CANCEL, newSelected });
+    }
+  };
+
 // extra Function
 const rounding = (data) =>
   data.map((item) => [item[0], item[1].toFixed(5), item[2].toFixed(5)]);
@@ -117,6 +177,28 @@ const result = handleActions(
     [FILTER]: (state, action) => {
       return produce(state, (draft) => {
         draft.posts.data = action.filtered;
+      });
+    },
+    [SELECT]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.selected.push(action.selectedId);
+      });
+    },
+    [SELECT_CANCEL]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.selected = action.newSelected;
+      });
+    },
+    [SELECT_ALL]: (state, action) => {
+      return produce(state, (draft) => {
+        action.willBeSelect.forEach((item) => {
+          draft.selected.push(item);
+        });
+      });
+    },
+    [SELECT_ALL_CANCEL]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.selected = action.newSelected;
       });
     },
   },

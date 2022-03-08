@@ -1,5 +1,5 @@
 import SearchForm from '../components/SearchForm';
-import SelectListView from '../components/SelectListView';
+import SelectListView from '../containers/SelectListView';
 import ResultListView from '../components/ResultListView';
 
 const Result = () => {
