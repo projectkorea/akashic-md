@@ -1,9 +1,9 @@
 import { Route, Routes, useNavigate } from 'react-router-dom';
-import Result from '../pages/Result';
-import NotFound from '../pages/NotFound';
-import Header from '../parts/Header';
+import Result from './pages/Result';
+import NotFound from './pages/NotFound';
+import Header from './parts/Header';
 import { useEffect } from 'react';
-import Navigation from '../parts/Navigation';
+import Navigation from './parts/Navigation';
 
 const Router = () => {
   let navigate = useNavigate();

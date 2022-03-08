@@ -1,17 +1,17 @@
 import ResultListMain from '../result-list/ResultListMain';
-import ResultListDetail from '../result-list/ResultListDetail';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
-const ResultList = () => {
-  const [isClicked, setIsClicked] = useState(false);
-  return (
-    <div>
-      <div onClick={() => setIsClicked(!isClicked)}>
-        <ResultListMain />
-      </div>
-      {isClicked && <ResultListDetail />}
-    </div>
-  );
+// resultList인자는 리덕스의 state입니다.
+const ResultList = ({ resultList, onUpdate }) => {
+  useEffect(() => {
+    onUpdate();
+  }, [onUpdate]);
+
+  const newList = resultList.data.map((item) => {
+    return <ResultListMain key={item[0] + item[1]} data={item} />;
+  });
+
+  return <>{!resultList.isLoading && newList}</>;
 };
 
 export default ResultList;
