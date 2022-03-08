@@ -6,15 +6,13 @@ const ResultListDetail = ({ resultList, name, onUpdateByName }) => {
   useEffect(() => {
     onUpdateByName(name);
   }, [onUpdateByName, name]);
-  console.log(resultList);
-  const newList = resultList.data.map((item) => {
+
+  const newList = resultList[name]?.map((item) => {
     return <DetailList key={item[0]} data={item} />;
   });
 
   return (
-    <div style={{ border: '1px solid black', padding: 60 }}>
-      {!resultList.isLoading && newList}
-    </div>
+    <div style={{ border: '1px solid black', padding: 60 }}>{newList}</div>
   );
 };
 

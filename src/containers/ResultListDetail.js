@@ -3,7 +3,7 @@ import ResultListDetail from '../components/result-list/ResultListDetail';
 import { getPost } from '../modules/result';
 
 const mapStateToProps = (state) => {
-  return { resultList: state.result.post };
+  return { resultList: state.result.post.data };
 };
 
 const mapDispatchToProps = (dispatch) => {
