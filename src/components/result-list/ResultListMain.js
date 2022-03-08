@@ -1,8 +1,9 @@
 import ResultListDetail from '../../containers/ResultListDetail';
 import { useState } from 'react';
 
-const ResultListMain = ({ item }) => {
+const ResultListMain = ({ item, isPostLoading }) => {
   const [isClicked, setIsClicked] = useState(false);
+
   return (
     <>
       <div

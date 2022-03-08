@@ -5,12 +5,12 @@ import produce from 'immer';
 // States
 const initialState = {
   posts: {
-    isLoading: false,
+    isLoading: true,
     data: [],
     error: null,
   },
   post: {
-    isLoading: false,
+    isLoading: true,
     data: {
       //  철수: [[1.2], [3,4], [5,6], [7,8] ] ,
       // { 영희: [1, 2] },
@@ -20,6 +20,10 @@ const initialState = {
     error: null,
   },
   selected: [],
+  searched: {
+    isSearching: false,
+    data: [],
+  },
 };
 
 // Action Types
@@ -35,6 +39,7 @@ const SELECT = 'SELECT';
 const SELECT_CANCEL = 'SELECT_CANCEL';
 const SELECT_ALL = 'SELECT_ALL';
 const SELECT_ALL_CANCEL = 'SELECT_ALL_CANCEL';
+const SEARCH = 'SEARCH';
 
 // Action Creators
 export const loadAll = createAction(GET_POSTS);
@@ -71,18 +76,18 @@ export const getPost = (name) => async (dispatch, getState) => {
 };
 
 export const filterByColumn = (option) => (dispatch, getState) => {
-  const {
-    result: {
-      posts: { data },
-    },
-  } = getState();
+  const { result } = getState();
+  const postsData = result.posts.data;
+  const searched = result.searched;
+  const searchedData = searched.data;
 
+  const data = searched.isSearching ? searchedData : postsData;
   const { colNum, isDesc } = option;
 
   const filtered = data
     .slice()
     .sort((a, b) => (isDesc ? a[colNum] - b[colNum] : b[colNum] - a[colNum]));
-  console.log(filtered);
+
   dispatch({ type: FILTER, filtered });
 };
 
@@ -141,6 +146,28 @@ export const toggleSelectAll =
     }
   };
 
+export const searchWords = (words) => (dispatch, getState) => {
+  const { result } = getState();
+  const postsData = result.posts.data;
+  const searchedData = result.searched.data;
+
+  const newSearchedData = postsData
+    .filter((item) => item[0].toLowerCase().includes(words.toLowerCase()))
+    .filter((item) => {
+      // 이미 있는 searchedData랑 겹치는지 확인
+      let flag = true;
+      for (let val of searchedData) {
+        if (val[0] === item[0] && val[1] === item[1] && val[2] === item[2]) {
+          flag = false;
+        }
+      }
+      return flag;
+    });
+  const merged = searchedData.concat(newSearchedData);
+
+  dispatch({ type: SEARCH, merged });
+};
+
 // extra Function
 const rounding = (data) =>
   data.map((item) => [item[0], item[1].toFixed(5), item[2].toFixed(5)]);
@@ -172,11 +199,15 @@ const result = handleActions(
       });
     },
     [GET_POST_SUCCESS_ALREADY]: (state, action) => {
-      return state;
+      return produce(state, (draft) => {
+        draft.post.isLoading = false;
+      });
     },
     [FILTER]: (state, action) => {
       return produce(state, (draft) => {
-        draft.posts.data = action.filtered;
+        draft.searched.isSearching
+          ? (draft.searched.data = action.filtered)
+          : (draft.posts.data = action.filtered);
       });
     },
     [SELECT]: (state, action) => {
@@ -199,6 +230,12 @@ const result = handleActions(
     [SELECT_ALL_CANCEL]: (state, action) => {
       return produce(state, (draft) => {
         draft.selected = action.newSelected;
+      });
+    },
+    [SEARCH]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.searched.isSearching = true;
+        draft.searched.data = action.merged;
       });
     },
   },

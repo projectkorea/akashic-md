@@ -3,7 +3,10 @@ import ResultList from '../components/result-list/ResultList';
 import { getPosts } from '../modules/result';
 
 const mapStateToProps = (state) => {
-  return { resultList: state.result.posts };
+  return {
+    resultData: state.result.posts,
+    searchData: state.result.searched,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {

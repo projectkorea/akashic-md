@@ -5,6 +5,9 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 1000px;
+  height: 1000px;
+  background-color: orange;
 `;
 
 const Loading = () => {

@@ -1,9 +1,11 @@
 import DetailList from './detail-list/DetailList';
 import DetailButton from './detail-list/DetailButton';
 import { useEffect } from 'react';
+import Loading from '../../parts/Loading';
 
 const ResultListDetail = ({
   resultList,
+  isPostLoading,
   name,
   onUpdateByName,
   onSelect,
@@ -18,11 +20,17 @@ const ResultListDetail = ({
   });
 
   return (
-    <div style={{ border: '1px solid black', padding: 60 }}>
-      <button onClick={() => onSelectAll(true, name)}>Check All</button>
-      <button onClick={() => onSelectAll(false, name)}>Clear All</button>
-      {newList}
-    </div>
+    <>
+      {isPostLoading ? (
+        <Loading />
+      ) : (
+        <div style={{ border: '1px solid black', padding: 60 }}>
+          <button onClick={() => onSelectAll(true, name)}>Check All</button>
+          <button onClick={() => onSelectAll(false, name)}>Clear All</button>
+          {newList}
+        </div>
+      )}
+    </>
   );
 };
 

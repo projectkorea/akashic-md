@@ -2,16 +2,30 @@ import Loading from '../../parts/Loading';
 import ResultListMain from '../result-list/ResultListMain';
 import { useEffect } from 'react';
 
-const ResultList = ({ resultList, onUpdate }) => {
+const ResultList = ({ resultData, searchData, onUpdate }) => {
   useEffect(() => {
     onUpdate();
   }, [onUpdate]);
 
-  const newList = resultList.data?.map((item) => {
+  const postList = resultData.data?.map((item) => {
     return <ResultListMain key={item[0] + item[1]} item={item} />;
   });
 
-  return <>{resultList.isLoading ? <Loading /> : newList}</>;
+  const searchList = searchData.data?.map((item) => {
+    return <ResultListMain key={item[0] + item[1]} item={item} />;
+  });
+
+  return (
+    <>
+      {resultData.isLoading ? (
+        <Loading />
+      ) : searchData.isSearching ? (
+        searchList
+      ) : (
+        postList
+      )}
+    </>
+  );
 };
 
 export default ResultList;

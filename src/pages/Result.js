@@ -1,4 +1,4 @@
-import SearchForm from '../components/SearchForm';
+import SearchForm from '../containers/SearchForm';
 import SelectListView from '../containers/SelectListView';
 import ResultListView from '../components/ResultListView';
 

@@ -3,7 +3,10 @@ import ResultListDetail from '../components/result-list/ResultListDetail';
 import { getPost, toggleSelect, toggleSelectAll } from '../modules/result';
 
 const mapStateToProps = (state) => {
-  return { resultList: state.result.post.data };
+  return {
+    resultList: state.result.post.data,
+    isPostLoading: state.result.post.isLoading,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
