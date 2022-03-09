@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { HeaderItem, TableRowWrapper } from '../../../styled/table';
 
 const SubTableWrapper = styled(TableRowWrapper)`
-  background-color: #eaeaea;
+  width: 1000px;
 `;
 
 const SubTableRow = ({ data, onSelect }) => {

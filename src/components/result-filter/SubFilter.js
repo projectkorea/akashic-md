@@ -1,23 +1,23 @@
 import FilterButton from './FilterButton';
 import styled from 'styled-components';
 import { useState } from 'react';
-import { HeaderItem } from '../../styled/table';
+import { HeaderItem, TableRowWrapper } from '../../styled/table';
 
-const Header = styled.div`
-  display: flex;
-  justify-content: space-around;
+const Header = styled(TableRowWrapper)`
   border-bottom: 2px solid black;
   margin: 10px 0;
+  width: 1000px;
+  border-bottom: 3px solid #0066ff;
 `;
 
-const FilterHeader = ({ onSort }) => {
+const SubFilter = ({ onSort }) => {
   const [active, setActive] = useState({});
   const onActive = (colName) => () => {
     setActive({ [colName]: true });
   };
   return (
     <Header>
-      <HeaderItem>Name</HeaderItem>
+      <HeaderItem>id</HeaderItem>
       <HeaderItem>
         FoxTrot
         <FilterButton
@@ -40,4 +40,4 @@ const FilterHeader = ({ onSort }) => {
   );
 };
 
-export default FilterHeader;
+export default SubFilter;

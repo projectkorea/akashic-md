@@ -1,10 +1,10 @@
 import MainTable from '../../containers/MainTable';
-import FilterHeader from '../../containers/FilterHeader';
+import MainFilter from '../../containers/MainFilter';
 
 const TableView = () => {
   return (
     <div>
-      <FilterHeader />
+      <MainFilter />
       <MainTable />
     </div>
   );

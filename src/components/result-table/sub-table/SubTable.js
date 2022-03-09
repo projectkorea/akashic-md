@@ -1,13 +1,14 @@
 import SubTableRow from './SubTableRow';
 import Loading from '../../../parts/Loading';
 import { useEffect } from 'react';
-import { TableWrapper } from '../../../styled/table';
-// import styled from 'styled-components';
+import { TableRowWrapper } from '../../../styled/table';
+import styled from 'styled-components';
 
-// const StyleWrapper = style.div`
-
-// `;
-
+const ButtonWrapper = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+`;
 const SubTable = ({
   resultList,
   isPostLoading,
@@ -25,17 +26,19 @@ const SubTable = ({
   });
 
   return (
-    <TableWrapper>
+    <TableRowWrapper>
       {isPostLoading ? (
         <Loading />
       ) : (
         <div>
-          <button onClick={() => onSelectAll(true, name)}>Check All</button>
-          <button onClick={() => onSelectAll(false, name)}>Clear All</button>
+          <ButtonWrapper>
+            <button onClick={() => onSelectAll(true, name)}>Check All</button>
+            <button onClick={() => onSelectAll(false, name)}>Clear All</button>
+          </ButtonWrapper>
           {subTable}
         </div>
       )}
-    </TableWrapper>
+    </TableRowWrapper>
   );
 };
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import FilterHeader from '../components/result-filter/FilterHeader';
+import MainFilter from '../components/result-filter/MainFilter';
 import { filterByColumn } from '../modules/result';
 
 const mapStateToProps = (state) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterHeader);
+export default connect(mapStateToProps, mapDispatchToProps)(MainFilter);

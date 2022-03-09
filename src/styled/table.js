@@ -13,6 +13,8 @@ export const HeaderItem = styled.div`
 export const TableWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  position: relative;
 `;
 
 export const TableRowWrapper = styled.div`

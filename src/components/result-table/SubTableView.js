@@ -1,12 +1,23 @@
 import SubTable from '../../containers/SubTable';
-import FilterHeader from '../../containers/FilterHeader';
+import SubFilter from '../../containers/SubFilter';
+import styled from 'styled-components';
+
+const SubTableWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background-color: #eaeaea;
+  position: relative;
+`;
 
 const SubTableView = ({ name }) => {
   return (
-    <div>
-      <FilterHeader />
+    <SubTableWrapper>
+      <SubFilter />
       <SubTable name={name} />
-    </div>
+    </SubTableWrapper>
   );
 };
 
