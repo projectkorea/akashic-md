@@ -23,7 +23,7 @@ const ViewWrapper = styled.div`
 const ViewController = styled.div`
   position: absolute;
   top: 100px;
-  right: 33px;
+  right: 39px;
   z-index: 2;
 `;
 

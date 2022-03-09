@@ -61,7 +61,7 @@ const Navigation = () => {
         <ListItem path={path === 'delta'}>
           <Link to='/delta'>Delta</Link>
         </ListItem>
-        <ListItem path={path === 'Echo'}>
+        <ListItem path={path === 'echo'}>
           <Link to='/echo'>Echo</Link>
         </ListItem>
         <ListItem path={path === 'result'}>

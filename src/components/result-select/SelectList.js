@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const SelectedItem = styled.div`
-  font-size: 24px;
+  font-size: 20px;
   padding: 5px;
   margin: 10px 15px;
   background-color: rgba(255, 255, 255, 0.8);
@@ -9,7 +9,7 @@ const SelectedItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 150px;
+  width: 180px;
 `;
 
 const DeleteBtn = styled.button`

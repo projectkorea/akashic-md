@@ -42,7 +42,7 @@ const SEARCH_RESET = 'SEARCH_RESET';
 // Action Functions
 
 export const getPosts = () => async (dispatch) => {
-  dispatch({ type: FILTER });
+  dispatch({ type: GET_POSTS });
   try {
     const response = await axios.get('http://testapi.hits.ai/result/');
     const formatted = rounding(response.data);
