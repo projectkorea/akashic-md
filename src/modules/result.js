@@ -11,7 +11,6 @@ const initialState = {
     error: null,
   },
   post: {
-    isLoading: true,
     data: {},
     error: null,
   },
@@ -46,8 +45,8 @@ export const getPosts = () => async (dispatch) => {
   dispatch({ type: FILTER });
   try {
     const response = await axios.get('http://testapi.hits.ai/result/');
-    const formated = rounding(response.data);
-    dispatch({ type: GET_POSTS_SUCCESS, response: formated });
+    const formatted = rounding(response.data);
+    dispatch({ type: GET_POSTS_SUCCESS, response: formatted });
   } catch (e) {
     dispatch({ type: GET_POSTS_ERROR, error: e });
   }
@@ -63,8 +62,8 @@ export const getPost = (name) => async (dispatch, getState) => {
   } else {
     try {
       const response = await axios.get(`http://testapi.hits.ai/result/${name}`);
-      const formated = rounding(response.data);
-      const person = { name, data: formated };
+      const formatted = rounding(response.data);
+      const person = { name, data: formatted };
       dispatch({ type: GET_POST_SUCCESS, person });
     } catch (e) {
       dispatch({ type: GET_POST_ERROR, error: e });
@@ -147,7 +146,6 @@ export const toggleSelectAll =
       const newSelected = selected.filter(
         (item) => !(Object.values(item)[0][0] === name)
       );
-      console.log(newSelected);
 
       dispatch({ type: SELECT_ALL_CANCEL, newSelected });
     }
@@ -200,21 +198,16 @@ const result = handleActions(
       });
     },
     [GET_POST]: (state, action) => {
-      return produce(state, (draft) => {
-        draft.post.isLoading = true;
-      });
+      return produce(state, (draft) => {});
     },
     [GET_POST_SUCCESS]: (state, action) => {
       return produce(state, (draft) => {
-        draft.post.isLoading = false;
         const { name, data } = action.person;
         draft.post.data[name] = data;
       });
     },
     [GET_POST_SUCCESS_ALREADY]: (state, action) => {
-      return produce(state, (draft) => {
-        draft.post.isLoading = false;
-      });
+      return produce(state, (draft) => {});
     },
     [FILTER]: (state, action) => {
       return produce(state, (draft) => {

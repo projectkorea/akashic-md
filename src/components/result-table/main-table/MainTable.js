@@ -1,7 +1,6 @@
 import Loading from '../../../parts/Loading';
 import MainTableRow from './MainTableRow';
 import { useEffect } from 'react';
-import styled from 'styled-components';
 import { TableWrapper } from '../../../styled/table';
 
 const MainTable = ({ resultData, searchData, onUpdate }) => {
@@ -20,7 +19,7 @@ const MainTable = ({ resultData, searchData, onUpdate }) => {
   return (
     <TableWrapper>
       {resultData.isLoading ? (
-        <Loading />
+        <Loading top={500} />
       ) : searchData.isSearching ? (
         searchList
       ) : (

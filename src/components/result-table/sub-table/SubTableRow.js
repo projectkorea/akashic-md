@@ -6,7 +6,6 @@ const SubTableWrapper = styled(TableRowWrapper)`
 `;
 
 const SubTableRow = ({ data, onSelect }) => {
-  console.log(data);
   return (
     <SubTableWrapper onClick={() => onSelect(data[0])}>
       <HeaderItem>{data[0]}</HeaderItem>

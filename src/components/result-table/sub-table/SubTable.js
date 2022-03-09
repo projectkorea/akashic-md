@@ -1,6 +1,6 @@
 import SubTableRow from './SubTableRow';
 import Loading from '../../../parts/Loading';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { TableRowWrapper } from '../../../styled/table';
 import styled from 'styled-components';
 
@@ -11,15 +11,19 @@ const ButtonWrapper = styled.div`
 `;
 const SubTable = ({
   resultList,
-  isPostLoading,
   name,
   onUpdateByName,
   onSelect,
   onSelectAll,
 }) => {
+  const [isPostLoaded, setIsPostLoaded] = useState(false);
   useEffect(() => {
     onUpdateByName(name);
-  }, [onUpdateByName, name]);
+
+    resultList[name]?.length &&
+      resultList[name].length !== 0 &&
+      setIsPostLoaded(true);
+  }, [onUpdateByName, name, resultList]);
 
   const subTable = resultList[name]?.map((item) => {
     return <SubTableRow key={item[0]} data={item} onSelect={onSelect(name)} />;
@@ -27,8 +31,8 @@ const SubTable = ({
 
   return (
     <TableRowWrapper>
-      {isPostLoading ? (
-        <Loading />
+      {!isPostLoaded ? (
+        <Loading top={200} />
       ) : (
         <div>
           <ButtonWrapper>
