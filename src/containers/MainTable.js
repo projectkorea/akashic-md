@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ResultList from '../components/result-list/ResultList';
+import MainTable from '../components/result-table/main-table/MainTable';
 import { getPosts } from '../modules/result';
 
 const mapStateToProps = (state) => {
@@ -17,4 +17,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResultList);
+export default connect(mapStateToProps, mapDispatchToProps)(MainTable);

@@ -1,4 +1,10 @@
 import SelectList from './result-select/SelectList';
+import styled from 'styled-components';
+
+const StyledWrapper = styled.div`
+  background-color: #BDCEFF;
+  border: 1px solid black;
+`;
 
 const SearchListView = ({ selectedList, onSelect }) => {
   const newList = selectedList.map((item) => {
@@ -10,14 +16,7 @@ const SearchListView = ({ selectedList, onSelect }) => {
       />
     );
   });
-  return (
-    <div style={{ border: '2px solid black' }}>
-      <h1>선택한 건 여기에 나옵니다.</h1>
-      <div>선택한 목록</div>
-      {newList}
-      <hr />
-    </div>
-  );
+  return <StyledWrapper>{selectedList.length !== 0 && newList}</StyledWrapper>;
 };
 
 export default SearchListView;

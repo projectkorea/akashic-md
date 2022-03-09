@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ResultListDetail from '../components/result-list/ResultListDetail';
+import SubTable from '../components/result-table/sub-table/SubTable';
 import { getPost, toggleSelect, toggleSelectAll } from '../modules/result';
 
 const mapStateToProps = (state) => {
@@ -23,4 +23,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResultListDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(SubTable);

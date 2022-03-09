@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { createAction, handleActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import produce from 'immer';
 
 // States
+
 const initialState = {
   posts: {
     isLoading: true,
@@ -11,12 +12,7 @@ const initialState = {
   },
   post: {
     isLoading: true,
-    data: {
-      //  철수: [[1.2], [3,4], [5,6], [7,8] ] ,
-      // { 영희: [1, 2] },
-      // { 준하: [1, 2] },
-      // { 윤정: [1, 2] },
-    },
+    data: {},
     error: null,
   },
   selected: [],
@@ -27,6 +23,7 @@ const initialState = {
 };
 
 // Action Types
+
 const GET_POSTS = 'GET_POSTS';
 const GET_POSTS_SUCCESS = 'GET_POSTS_SUCCESS';
 const GET_POSTS_ERROR = 'GET_POSTS_ERROR';
@@ -40,11 +37,10 @@ const SELECT_CANCEL = 'SELECT_CANCEL';
 const SELECT_ALL = 'SELECT_ALL';
 const SELECT_ALL_CANCEL = 'SELECT_ALL_CANCEL';
 const SEARCH = 'SEARCH';
-
-// Action Creators
-export const loadAll = createAction(GET_POSTS);
+const SEARCH_RESET = 'SEARCH_RESET';
 
 // Action Functions
+
 export const getPosts = () => async (dispatch) => {
   dispatch({ type: FILTER });
   try {
@@ -80,7 +76,6 @@ export const filterByColumn = (option) => (dispatch, getState) => {
   const postsData = result.posts.data;
   const searched = result.searched;
   const searchedData = searched.data;
-
   const data = searched.isSearching ? searchedData : postsData;
   const { colNum, isDesc } = option;
 
@@ -105,7 +100,6 @@ export const toggleSelect = (name, id) => (dispatch, getState) => {
   if (!isSelected) {
     dispatch({ type: SELECT, selectedId });
   } else {
-    // filter
     const newSelected = selected.filter(
       (item) =>
         !(
@@ -163,16 +157,22 @@ export const searchWords = (words) => (dispatch, getState) => {
       }
       return flag;
     });
-  const merged = searchedData.concat(newSearchedData);
+  const merged = newSearchedData.concat(searchedData);
 
   dispatch({ type: SEARCH, merged });
 };
 
+export const resetSearch = () => (dispatch) => {
+  dispatch({ type: SEARCH_RESET });
+};
+
 // extra Function
+
 const rounding = (data) =>
   data.map((item) => [item[0], item[1].toFixed(5), item[2].toFixed(5)]);
 
 // Reducer
+
 const result = handleActions(
   {
     [GET_POSTS]: (state, action) => {
@@ -236,6 +236,12 @@ const result = handleActions(
       return produce(state, (draft) => {
         draft.searched.isSearching = true;
         draft.searched.data = action.merged;
+      });
+    },
+    [SEARCH_RESET]: (state, action) => {
+      return produce(state, (draft) => {
+        draft.searched.isSearching = false;
+        draft.searched.data = [];
       });
     },
   },
