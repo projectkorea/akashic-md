@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const HeaderItem = styled.div`
   height: 41px;
-  width: 278px;
+  width: 178px;
   font-size: 24px;
   font-weight: 700;
   line-height: 29px;
@@ -59,7 +59,7 @@ export const FilterBtnWrapper = styled.button`
 `;
 
 export const NameBox = styled.div`
-  width: 60%;
+  width: 100%;
   padding: 5px;
   text-align: center;
   border: 1px solid black;
@@ -75,4 +75,27 @@ export const ButtonBox = styled.button`
   border: 1px solid black;
   border-color: ${(props) => props.theme.colors[`--color-${props.color}`]};
   color: ${(props) => props.theme.colors[`--color-${props.color}`]};
+  background-color: #fff;
+  font-weight: bold;
+  &:hover {
+    background-color: ${(props) =>
+      props.theme.colors[`--color-${props.color}`]};
+    border-color: #fff;
+    color: #fff;
+    a {
+      color: #fff;
+    }
+  }
+`;
+
+export const InputBox = styled.input`
+  width: 162px;
+  height: 34px;
+  padding: 5px;
+  text-align: left;
+  border: 1px solid black;
+  border-color: ${(props) => props.theme.colors[`--color-${props.color}`]};
+  border-right: none;
+  color: black;
+  background-color: #fff;
 `;

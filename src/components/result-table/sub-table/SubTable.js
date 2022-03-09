@@ -1,13 +1,23 @@
 import SubTableRow from './SubTableRow';
 import Loading from '../../../parts/Loading';
 import { useEffect, useState } from 'react';
-import { TableRowWrapper } from '../../../styled/table';
+import { TableRowWrapper, ButtonBox } from '../../../styled/table';
 import styled from 'styled-components';
 
+const SubTableRowWrapper = styled(TableRowWrapper)`
+  padding: 15px;
+`;
+
 const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 5px;
+  margin-right: 10px;
+  button + button {
+    margin-top: 5px;
+  }
 `;
 const SubTable = ({
   resultList,
@@ -30,19 +40,23 @@ const SubTable = ({
   });
 
   return (
-    <TableRowWrapper>
+    <SubTableRowWrapper>
       {!isPostLoaded ? (
         <Loading top={200} />
       ) : (
         <div>
           <ButtonWrapper>
-            <button onClick={() => onSelectAll(true, name)}>Check All</button>
-            <button onClick={() => onSelectAll(false, name)}>Clear All</button>
+            <ButtonBox color='purple' onClick={() => onSelectAll(true, name)}>
+              check all
+            </ButtonBox>
+            <ButtonBox color='red' onClick={() => onSelectAll(false, name)}>
+              clear all
+            </ButtonBox>
           </ButtonWrapper>
           {subTable}
         </div>
       )}
-    </TableRowWrapper>
+    </SubTableRowWrapper>
   );
 };
 

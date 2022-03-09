@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 const Container = styled.div`
   height: 78px;
@@ -29,34 +31,40 @@ const ListItem = styled.li`
     font-family: Lato;
     font-size: 20px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: ${(props) => (props.path ? 'bold' : 400)};
     line-height: 40px;
     letter-spacing: 0em;
     text-align: center;
-    text-decoration: none;
+    border-radius: 10px;
+    &:hover {
+      font-weight: bold;
+    }
   }
 `;
 
 const Navigation = () => {
+  const location = useLocation();
+  const [path, setPath] = useState('');
+  useEffect(() => setPath(location.pathname.substring(1)), [location]);
   return (
     <Container>
       <List>
-        <ListItem>
+        <ListItem path={path === 'alpha'}>
           <Link to='/alpha'>Alpha</Link>
         </ListItem>
-        <ListItem>
+        <ListItem path={path === 'beta'}>
           <Link to='/beta'>Beta</Link>
         </ListItem>
-        <ListItem>
+        <ListItem path={path === 'charlie'}>
           <Link to='/charlie'>Charlie</Link>
         </ListItem>
-        <ListItem>
+        <ListItem path={path === 'delta'}>
           <Link to='/delta'>Delta</Link>
         </ListItem>
-        <ListItem>
+        <ListItem path={path === 'Echo'}>
           <Link to='/echo'>Echo</Link>
         </ListItem>
-        <ListItem>
+        <ListItem path={path === 'result'}>
           <Link to='/result'>Result</Link>
         </ListItem>
       </List>

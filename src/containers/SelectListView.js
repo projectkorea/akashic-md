@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import SelectListView from '../components/SelectListView';
+import SelectListView from '../components/result-select/SelectListView';
 import { toggleSelect } from '../modules/result';
 
 const mapStateToProps = (state) => {

@@ -1,9 +1,14 @@
-import SelectList from './result-select/SelectList';
+import SelectList from './SelectList';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-  background-color: #BDCEFF;
-  border: 1px solid black;
+  background-color: #bdcdffc7;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  border-radius: 10px;
 `;
 
 const SearchListView = ({ selectedList, onSelect }) => {

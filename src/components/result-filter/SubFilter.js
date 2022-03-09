@@ -4,10 +4,9 @@ import { useState } from 'react';
 import { HeaderItem, TableRowWrapper } from '../../styled/table';
 
 const Header = styled(TableRowWrapper)`
-  border-bottom: 2px solid black;
   margin: 10px 0;
   width: 1000px;
-  border-bottom: 3px solid #0066ff;
+  justify-content: space-evenly;
 `;
 
 const SubFilter = ({ onSortById, name }) => {

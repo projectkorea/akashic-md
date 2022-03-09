@@ -3,6 +3,10 @@ import { HeaderItem, TableRowWrapper } from '../../../styled/table';
 
 const SubTableWrapper = styled(TableRowWrapper)`
   width: 1000px;
+  justify-content: space-evenly;
+  &:hover {
+    background-color: #fff;
+  }
 `;
 
 const SubTableRow = ({ data, onSelect }) => {

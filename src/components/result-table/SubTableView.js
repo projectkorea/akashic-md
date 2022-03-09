@@ -10,6 +10,7 @@ const SubTableWrapper = styled.div`
   font-size: 20px;
   background-color: #eeeeee;
   position: relative;
+  margin: 30px;
 `;
 
 const SubTableView = ({ name }) => {
