@@ -9,11 +9,13 @@ ${normalize}
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 body {
   font-family: sans-serif;
   letter-spacing: -0.01em;
+  background-color: #F1F5FF ;
 }
 
 /* Reset */
@@ -50,6 +52,7 @@ button {
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  background-color:transparent ;
 }
 
 button,
@@ -57,4 +60,6 @@ input,
 textarea {
   font-family: 'DM Sans', sans-serif;
 }
+
+
 `;

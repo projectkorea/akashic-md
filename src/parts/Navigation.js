@@ -5,13 +5,8 @@ const Container = styled.div`
   height: 78px;
   width: 1336px;
   border-radius: 16px;
-  left: 0%;
-  right: 0%;
-  top: -5.13%;
-  bottom: 5.13%;
   background: #fcfefe;
   box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
-  position: relative;
   display: flex;
 `;
 

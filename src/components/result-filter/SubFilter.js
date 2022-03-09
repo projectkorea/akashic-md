@@ -1,4 +1,4 @@
-import FilterButton from './FilterButton';
+import SubFilterButton from './SubFilterButton';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { HeaderItem, TableRowWrapper } from '../../styled/table';
@@ -10,7 +10,7 @@ const Header = styled(TableRowWrapper)`
   border-bottom: 3px solid #0066ff;
 `;
 
-const SubFilter = ({ onSort }) => {
+const SubFilter = ({ onSortById, name }) => {
   const [active, setActive] = useState({});
   const onActive = (colName) => () => {
     setActive({ [colName]: true });
@@ -20,20 +20,22 @@ const SubFilter = ({ onSort }) => {
       <HeaderItem>id</HeaderItem>
       <HeaderItem>
         FoxTrot
-        <FilterButton
-          onSort={onSort}
+        <SubFilterButton
+          onSortById={onSortById}
           colNum={1}
           active={active?.foxtrot}
           onActive={onActive('foxtrot')}
+          name={name}
         />
       </HeaderItem>
       <HeaderItem>
         Golf
-        <FilterButton
-          onSort={onSort}
+        <SubFilterButton
+          onSortById={onSortById}
           colNum={2}
           active={active?.golf}
           onActive={onActive('golf')}
+          name={name}
         />
       </HeaderItem>
     </Header>

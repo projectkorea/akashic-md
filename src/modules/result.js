@@ -32,6 +32,7 @@ const GET_POST_SUCCESS = 'GET_POST_SUCCESS';
 const GET_POST_SUCCESS_ALREADY = 'GET_POST_SUCCESS_ALREADY';
 const GET_POST_ERROR = 'GET_POST_ERROR';
 const FILTER = 'FILTER';
+const FILTER_BY_ID = 'FILTER_BY_ID';
 const SELECT = 'SELECT';
 const SELECT_CANCEL = 'SELECT_CANCEL';
 const SELECT_ALL = 'SELECT_ALL';
@@ -84,6 +85,18 @@ export const filterByColumn = (option) => (dispatch, getState) => {
     .sort((a, b) => (isDesc ? a[colNum] - b[colNum] : b[colNum] - a[colNum]));
 
   dispatch({ type: FILTER, filtered });
+};
+
+export const filterByColumnId = (option) => (dispatch, getState) => {
+  const { colNum, isDesc, name } = option;
+  const { result } = getState();
+  const data = result.post.data[name];
+
+  const filtered = data
+    .slice()
+    .sort((a, b) => (isDesc ? a[colNum] - b[colNum] : b[colNum] - a[colNum]));
+
+  dispatch({ type: FILTER_BY_ID, filtered, name });
 };
 
 export const toggleSelect = (name, id) => (dispatch, getState) => {
@@ -208,6 +221,12 @@ const result = handleActions(
         draft.searched.isSearching
           ? (draft.searched.data = action.filtered)
           : (draft.posts.data = action.filtered);
+      });
+    },
+    [FILTER_BY_ID]: (state, action) => {
+      return produce(state, (draft) => {
+        const { name } = action;
+        draft.post.data[name] = action.filtered;
       });
     },
     [SELECT]: (state, action) => {

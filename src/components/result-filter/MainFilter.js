@@ -1,4 +1,4 @@
-import FilterButton from './FilterButton';
+import MainFilterButton from './MainFilterButton';
 import styled from 'styled-components';
 import { useState } from 'react';
 import { HeaderItem, TableRowWrapper } from '../../styled/table';
@@ -18,7 +18,7 @@ const MainFilter = ({ onSort }) => {
       <HeaderItem>Name</HeaderItem>
       <HeaderItem>
         FoxTrot
-        <FilterButton
+        <MainFilterButton
           onSort={onSort}
           colNum={1}
           active={active?.foxtrot}
@@ -27,7 +27,7 @@ const MainFilter = ({ onSort }) => {
       </HeaderItem>
       <HeaderItem>
         Golf
-        <FilterButton
+        <MainFilterButton
           onSort={onSort}
           colNum={2}
           active={active?.golf}

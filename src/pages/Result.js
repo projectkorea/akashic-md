@@ -7,6 +7,10 @@ import { useState } from 'react';
 const ResultWrapper = styled.div`
   width: 1192px;
   position: relative;
+  background-color: #ffffff;
+  margin-top: 79px;
+  padding: 30px;
+  border-radius: 10px;
 `;
 
 const ViewWrapper = styled.div`

@@ -8,14 +8,14 @@ const SubTableWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  background-color: #eaeaea;
+  background-color: #eeeeee;
   position: relative;
 `;
 
 const SubTableView = ({ name }) => {
   return (
     <SubTableWrapper>
-      <SubFilter />
+      <SubFilter name={name} />
       <SubTable name={name} />
     </SubTableWrapper>
   );

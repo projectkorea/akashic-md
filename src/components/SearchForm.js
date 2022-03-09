@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ButtonBox } from '../styled/table';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -27,10 +28,12 @@ const SearchForm = ({ onSearch, onSearchReset }) => {
           }}
         >
           <input type='text' name='search'></input>
-          <input type='submit'></input>
+          <ButtonBox color='purple'>search</ButtonBox>
         </form>
-        <button onClick={onSearchReset}>download</button>
-        <button onClick={onSearchReset}>Reset Search</button>
+        <ButtonBox color='purple'>download</ButtonBox>
+        <ButtonBox color='purple' onClick={onSearchReset}>
+          Refresh
+        </ButtonBox>
       </FormWrapper>
     </StyledWrapper>
   );

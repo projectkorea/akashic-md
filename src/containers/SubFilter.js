@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SubFilter from '../components/result-filter/SubFilter';
-import { filterByColumn } from '../modules/result';
+import { filterByColumnId } from '../modules/result';
 
 const mapStateToProps = (state) => {
   return { resultList: state.result.posts };
@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSort: (option) => () => {
-      dispatch(filterByColumn(option));
+    onSortById: (option) => () => {
+      dispatch(filterByColumnId(option));
     },
   };
 };

@@ -6,7 +6,6 @@ const Container = styled.div`
   height: 100px;
   left: 0px;
   top: 0px;
-  background: #ffffff;
 `;
 
 const HeaderImg = styled.div`

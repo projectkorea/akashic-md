@@ -1,17 +1,26 @@
 import SubTableView from '../SubTableView';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { HeaderItem, TableRowWrapper } from '../../../styled/table';
+import { HeaderItem, TableRowWrapper, NameBox } from '../../../styled/table';
 
-const StyledWrapper = styled.div``;
+const StyledWrapper = styled.div`
+  padding: 20px 0px;
+  border-bottom: 1px solid #f2f2f2;
+  &:hover {
+    background-color: ${(props) => props.isClicked || '#f5f5f5'};
+  }
+  cursor: pointer;
+`;
 
 const TableRow = ({ item, isPostLoading }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper isClicked={isClicked}>
       <TableRowWrapper onClick={() => setIsClicked(!isClicked)}>
-        <HeaderItem>{item[0]}</HeaderItem>
+        <HeaderItem>
+          <NameBox>{item[0]}</NameBox>
+        </HeaderItem>
         <HeaderItem>{item[1]}</HeaderItem>
         <HeaderItem>{item[2]}</HeaderItem>
       </TableRowWrapper>
