@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ButtonBox } from '../styled/table';
+
 const Container = styled.div`
   width: 1440px;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;

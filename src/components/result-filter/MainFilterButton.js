@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import { FilterBtnWrapper } from '../../styled/table';
 
 const MainFilterButton = ({ onSort, colNum, active, onActive }) => {

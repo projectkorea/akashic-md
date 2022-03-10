@@ -18,7 +18,6 @@ const MainTable = ({ resultData, searchData, onUpdate }) => {
 
   return (
     <TableWrapper>
-      {console.log(resultData)}
       {resultData.isLoading ? (
         <Loading top={500} />
       ) : searchData.isSearching ? (
