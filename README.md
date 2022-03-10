@@ -23,19 +23,19 @@
 |**15. fetch**|[비동기 통신 API, fetch()][junha-15]| 
 |**16. axios**|[비동기 통신 API, axios()][junha-16]| 
 
-[junha-01]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/1.callback.md
-[junha-02]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/2.promise.md
-[junha-03]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/3.async.md
-[junha-04]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/4.json.md
-[junha-05]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/5.string.md
-[junha-06]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/6.number.md
-[junha-07]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/7.array.md
-[junha-08]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/8.class.md
-[junha-09]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/9.object.md
-[junha-10]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/10.operator.md
-[junha-11]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/11.script.md
-[junha-12]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/12.tips.md
-[junha-13]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/13.date.md
-[junha-14]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/14.type.md
-[junha-15]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/15.fetch.md
-[junha-16]:https://github.com/projectkorea/study-js-vanila/blob/main/notes/16.axios.md
+[junha-01]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/1.callback.md
+[junha-02]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/2.promise.md
+[junha-03]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/3.async.md
+[junha-04]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/4.json.md
+[junha-05]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/5.string.md
+[junha-06]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/6.number.md
+[junha-07]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/7.array.md
+[junha-08]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/8.class.md
+[junha-09]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/9.object.md
+[junha-10]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/10.operator.md
+[junha-11]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/11.script.md
+[junha-12]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/12.tips.md
+[junha-13]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/13.date.md
+[junha-14]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/14.type.md
+[junha-15]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/15.fetch.md
+[junha-16]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/16.axios.md
