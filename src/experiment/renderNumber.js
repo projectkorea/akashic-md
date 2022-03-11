@@ -13,6 +13,13 @@ const App = () => {
   }, 0);
 
   console.log('render', state);
+
+  // 값이 계속 바뀌니, 랜더링이 계속되는 케이스
+  // const newObj = { "first_name": "White", "last_name": "Rabbit" , "email": "alice@elice.io" }
+  // axios.put("https://reqres.in/api/users/2",newObj).then((response)=>{
+  //   setResult(response.data)
+  // })
+
   return <div>1</div>;
 };
 
