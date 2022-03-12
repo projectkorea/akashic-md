@@ -3,12 +3,10 @@
 
 const { useState, useEffect } = require('react');
 
-function App() {
+function Problem() {
   const [text, setText] = useState('');
   useEffect(() => {
     setText(text + '입니다.');
   }, [text]);
-  return <input value={text} onChange={(e) => setText(e.target.value)}></input>;
+  return <input onChange={(e) => setText(e.target.value)}></input>;
 }
-
-export default App;
