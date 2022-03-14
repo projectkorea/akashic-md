@@ -1,4 +1,4 @@
-# HITS Frontend 과제
+# Data-table을 시각화 하는 토이프로젝트 입니다.
 
 이 프로젝트는 Data table의 `Reading` , `Sorting`, `Selecting`, `Searching`의 기능을 제공합니다.
 
