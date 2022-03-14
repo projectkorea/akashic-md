@@ -1,10 +1,6 @@
-# 쓰리빌리언 web-developer-test
+# 비동기 통신을 이용한 리액트 토이 프로젝트
 
-## 1번 문제
-
-- 해당 레퍼지토리 `algorithm` 디렉토리안에 `Hamming_distance.py`에 작성하였습니다.
-
-## 2번 문제
+## 주요 기능
 
 1. Main.js 구현하기 ✅
 2. Main.js 기능 넣기 ✅
