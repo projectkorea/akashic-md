@@ -80,7 +80,7 @@ class Card extends Component {
 }
 ```
 
-- `this.setstate({key:value})` 함수를 이용하여 `state` 값을 변경한다.
+- `this.setState({key:value})` 함수를 이용하여 `state` 값을 변경한다.
 
 ### `setState(addObj)`는 **`Object.assign(addObj,stateObj)` 방식으로 병합**된다.
 

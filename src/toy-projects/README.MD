@@ -60,7 +60,7 @@ onChange ={
 ---
 # 2장 State
 
-## 1. `State`가 참조형 데이터인 경우
+## 1. `State`가 **객체**, **배열** (참조형 데이터) 인 경우
 
 ### 예제 1
 
@@ -75,7 +75,7 @@ const [person, setPerson] = useState({
 // ❌
 const handleChange = (event) => {
     const { name, value } = event.target;
-    const newPerson = person // ❌ 
+    const newPerson = person // ❌ 원래의 state 값을 복사하면 state 갱신이 되지 않는다.
 
     newPerson.name = name
     newPerson.school = value
@@ -305,7 +305,7 @@ const App = () => {
 };
 
 const SubComponent = ({ value }) => {
-  return <strog>{value}</strog>;
+  return <strong>{value}</strong>;
 };
 ```
 - a는 APP에 독립적인 전역위치에 선언하여, 컴포넌트가 리랜더링 되더라도 다시 선언되지 않게하였다.

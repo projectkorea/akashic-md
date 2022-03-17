@@ -1,7 +1,5 @@
 import React, { useReducer } from 'react';
-import './App.css';
 
-// count의 초기 state를 0으로 설정하세요.
 const initialState = { count: 0 };
 
 function reducer(state, action) {
@@ -16,7 +14,6 @@ function reducer(state, action) {
 }
 
 function App() {
-  // useReducer()를 호출하세요.
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <>

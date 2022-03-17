@@ -54,7 +54,7 @@ function App(props) {
     return () => {
       console.log(`clean-up: ${count}`);
     };
-  }, []);React Hook useEffect has a missing dependency
+  }, []); // React Hook useEffect has a missing dependency
 ```
 
 - `useEffect`에 `count`라는 `state`값을 사용하고 있기 때문에, denpendency에 `count` 값을 넣어줘야한다.

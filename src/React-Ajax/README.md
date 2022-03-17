@@ -17,7 +17,7 @@
 
 ## 3. 로딩 중 기능 구현
 
-- `isLoading` state 값이 `false`면 해당 컴포넌트를, `ture`면 로딩 컴포넌트를 반환한다.
+- `isLoading` state 값이 `false`면 해당 컴포넌트를, `true`면 로딩 컴포넌트를 반환한다.
 - 클릭 이벤트 발생시, state값을 `true`로 설정하고, `fetch`함수를 통해 `resolve`된 데이터가 반환되면 state값을 `false`로 할당한다.
 
 4. 검색시 0.5초 후에 api 작동하게 하기

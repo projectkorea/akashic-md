@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+// import App from './App';
 // import App from './CRUD system/App';
 // import App from './Life Cycle/FuncCycle';
 // import App from './styled-components/App';
@@ -15,5 +15,8 @@ import App from './App';
 // import App from './App';
 // import App from './toy-projects/timer/App.refactoring';
 // import App from './styled-components/Alignment';
+// import App from './Hooks/context/basicContext';
+// import App from './experiment/useEffectVariable';
+import App from './recoil/practice/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
