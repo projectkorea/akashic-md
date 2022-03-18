@@ -2,7 +2,6 @@ let answer = 0;
 
 function DFS(arr, target, sum) {
   if (arr.length === 0) {
-    // arr =[] ❌
     if (target === sum) {
       answer += 1;
     }
