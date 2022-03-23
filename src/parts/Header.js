@@ -11,17 +11,22 @@ const Container = styled.div`
 const HeaderImg = styled.div`
   position: absolute;
   width: 200px;
-  height: 73px;
   left: 15px;
   top: 14px;
-  background-image: url(./assets/images/HITS_logo.png);
+  background-image: url(./assets/images/junhakim.png);
   background-repeat: no-repeat;
+`;
+
+const HeaderText = styled.h1`
+  width: 250px;
+  left: 15px;
+  font-size: 28px;
 `;
 
 const Header = () => {
   return (
     <Container>
-      <HeaderImg />
+      <HeaderText>Data Table Project</HeaderText>
     </Container>
   );
 };
