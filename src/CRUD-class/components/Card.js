@@ -9,34 +9,15 @@ class Card extends Component {
     };
   }
   render() {
-    const props = Object.entries(this.props);
     return (
       <div
         className='card-wrapper'
         onClick={function () {
           this.props.onChangeName();
-          this.props.onCalc();
+          this.props.onCalcMoney();
         }.bind(this)}
       >
         <span className='card-title'>{this.props.cardName}</span>
-        <button
-          className='btn-active'
-          onClick={function (e) {
-            e.preventDefault();
-            this.state.isActive
-              ? this.setState({ isActive: false })
-              : this.setState({ isActive: true });
-          }.bind(this)}
-        >
-          ON
-        </button>
-        <ul>
-          {props.map((prop, index) => (
-            <li key={index}>
-              {prop[0]} : {prop[1]}
-            </li>
-          ))}
-        </ul>
         <UpdateForm
           data={{ id: this.props.id, price: this.props.price }}
           onCreate={this.props.onCreate}

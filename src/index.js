@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './CRUD-class/App';
 // import App from './App';
 // import App from './CRUD system/App';
 // import App from './Life Cycle/FuncCycle';
@@ -12,11 +13,10 @@ import ReactDOM from 'react-dom';
 // import App from './React-Ajax/AppApis';
 // import App from './react-redux/App';
 // import App from './toy-projects/redux-project/App';
-// import App from './App';
 // import App from './toy-projects/timer/App.refactoring';
 // import App from './styled-components/Alignment';
 // import App from './Hooks/context/basicContext';
 // import App from './experiment/useEffectVariable';
-import App from './recoil/practice/App';
+// import App from './recoil/practice/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));

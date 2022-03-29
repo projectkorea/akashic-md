@@ -1,6 +1,7 @@
 import { Component } from 'react';
-import Card from './Card';
-import CreateForm from './CreateForm';
+import Header from './components/Header';
+import CreateForm from './components/CreateForm';
+import Cards from './components/Cards';
 import './App.css';
 
 class App extends Component {
@@ -18,22 +19,6 @@ class App extends Component {
     };
   }
   render() {
-    const onChangeName = function (name) {
-      return function () {
-        this.setState({ currentCard: name });
-      }.bind(this);
-    }.bind(this);
-
-    const onCalc = function (price) {
-      return function () {
-        if (this.state.money >= price) {
-          this.setState({ money: this.state.money - price });
-        } else {
-          alert("You Can't buy it");
-        }
-      }.bind(this);
-    }.bind(this);
-
     const onCreate = function (
       cardsParam,
       totalCardsParam = this.state.totalCards
@@ -41,75 +26,19 @@ class App extends Component {
       this.setState({ cards: cardsParam, totalCards: totalCardsParam });
     }.bind(this);
 
-    const onUpdate = function (_id, _price) {
-      let _cards = Array.from(this.state.cards);
-      // cards에 id를 찾아서 price를 수정
-      for (let idx = 0; idx < this.state.totalCards; idx++) {
-        if (_id === _cards[idx]['id']) {
-          _cards[idx] = {
-            id: _id,
-            price: _price,
-            cardName: _cards[idx]['cardName'],
-          };
-          break;
-        }
-      }
-      this.setState({
-        cards: _cards,
-      });
-    }.bind(this);
-
-    const onDelete = function (_id) {
-      if (window.confirm('Do you want to Delete this Card?')) {
-        let _cards = Array.from(this.state.cards);
-        for (let idx = 0; idx < this.state.totalCards; idx++) {
-          if (_id === _cards[idx]['id']) {
-            _cards.splice(idx, 1);
-            break;
-          }
-        }
-        this.setState({
-          cards: _cards,
-        });
-      }
-    }.bind(this);
-
-    let cards = [];
-
-    for (let elem of this.state.cards) {
-      cards.push(
-        <Card
-          key={elem.id}
-          id={elem.id}
-          cardName={elem.cardName}
-          price={elem.price}
-          onChangeName={onChangeName(elem.cardName)}
-          onCalc={onCalc(elem.price)}
-          onUpdate={onUpdate}
-          onDelete={onDelete}
-          onClick={function () {
-            this.state({ currentCard: elem.cardName });
-          }.bind(this)}
-        ></Card>
-      );
-    }
     return (
       <div className='App'>
-        <div className='header'>
-          <h1>{`My cards: ${this.state.totalCards}`}</h1>
-          <h1>{`Your Choice is ${this.state.currentCard}`}</h1>
-          <h1>{`자산:${this.state.money.toLocaleString()}`} &#8361;</h1>
-        </div>
+        <Header
+          totalCards={this.state.totalCards}
+          currentCard={this.state.currentCard}
+          money={this.state.money}
+        />
         <CreateForm
           cards={this.state.cards}
           totalCards={this.state.totalCards}
           onCreate={onCreate}
-        ></CreateForm>
-        <div className='wrapper'>{cards}</div>
-        <button onClick={() => this.setState({ money: 1 })}>
-          setstate 실험
-        </button>
-        {/* setState가 {money:1}인 객체로 아예 바뀌는지 */}
+        />
+        <Cards cards={this.state.cards} />
       </div>
     );
   }

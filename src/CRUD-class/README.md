@@ -1,59 +1,81 @@
-## 1. 이론 정리
+# 클래스형 컴포넌트
 
-### 1. 클래스 컴포넌트
+- 17.x.x버전부터 `import React from "react"`를 생략할 수 있다.
+
+
+## 1. 컴포넌트 생성
+
+-  `Component` 클래스를 상속해서 만든다.
+- `Component` 클래스는 `render`, `constructor`등의 메서드를 갖고있다.
 
 ```jsx
-import React, { Component } from 'react';
-//
+import { Component } from 'react';
+
 class App extends Component {
+  constructor(){
+    ...
+  }
   render() {
-    return (
-      <header>
-        <h1>Hello There!</h1>
-      </header>;
-    )
+    return ()
   }
 }
 ```
 
-- 리액트가 갖고 있는 `Component`라는 클래스를 상속해서 새로운 `APP`클래스를 만든다.
-- 그 클래스는 `render`라는 메서드를 갖고 있다.
-- `import`한 `'react'`는 현재 17.0.2버전의 `react`를 말한다.
-- react 17버전 부터는 `import React from "react"`를 생략하기 때문에 이후의 코드는 생략한다.
-- `render()` 함수 안에 return을 가진다. React Component로부터 확장되고, 자동적으로 class component의 render method를 실행한다.
+### 1. `render()`
+
+- `render()` 함수는 `return`을 통해 `DOM`을 랜더링한다.
+
 
 ### 2. `constructor()`
 
+- `state`를 초기화를 하는 곳이며, 직접 할당할 수 있는 유일한 곳이다.
+  -  그 외의 메서드에서는 `this.setState()`를 사용해야 한다.
+-  인스턴스에 **이벤트 처리 메서드**를 바인딩할 때 사용한다.
+
+
+
 ```js
 constructor(props) {
-  super(props);
-  // 여기서 this.setState()를 호출하면 안됌
+  super(props); 
+
   this.state = { counter: 0 };
   this.handleClick = this.handleClick.bind(this);
 }
 ```
-#### React에서 생성자는 보통 아래의 두 가지 목적을 위하여 사용한다.
+- 메서드 내부의 `this`는 해당 컴포넌트를 가리킨다.
 
-1. `this.state`에 객체를 할당하여 지역 **state를 초기화**
-2. 인스턴스에 이벤트 처리 메서드를 바인딩
-- 생성자는 `this.state`를 직접 할당할 수 있는 유일한 곳이다.
--  그 외의 메서드에서는 `this.setState()`를 사용해야 한다.
-
-
-### 3. 클래스 컴포넌트에서 이벤트로 state 변경하기
-
-#### vs 바닐라
-
-- `attribute`에 이벤트 핸들러 안의 코드를 적는 html 인라인 핸들러와 다르게, **JSX는 `callback`을 선언**한다.
+#### 참고) this안에는 무엇이 들어있을까
 
 ```js
-<element onClick ={callback : function}>
+for(let property in this){
+  console.log(property)
+}
+```
+- `this`의 프로퍼티들: `props`, `context`, `refs`, `updater`, `state`, `_reactInternals`, `_reactInternalInstance`, `isReactComponent`, `setState`, `forceUpdate`
+
+
+
+### 2. 이벤트 핸들러
+
+#### 1) 이벤트 핸들러 안의 `this`
+
+- 일반 함수로 작성하면 `this`는 `undefined`를 가리킨다.
+```js
+<button onClick ={function(){console.log(this)}} /> // ❌
 ```
 
-- 일반 함수로 선언된 이벤트 핸들러 함수의 `this`는 `undefined`를 가리킨다.
-- `.bind(this)`를 추가하여 핸들러 안의 `this`가 클래스 컴포넌트를 바라보게 한다.
-- `render` 함수 내에서의 `this`는 컴포넌트를 가리킨다.
-- 추가로, 화살표 함수로 선언된 핸들러의 `this`는 상위 스코프의 `this`, 클래스 컴포넌트를 바라보기 때문에 `bind`가 필요하지 않다.
+- `.bind(this)`를 통해 `this`가 해당 컴포넌트를 바라보게 한다.
+```js
+<button onClick ={function(){console.log(this)}.bind(this)} />
+```
+
+- 화살표 함수의 `this`는 상위 스코프의 `this`, 해당 컴포넌트를 바라보기 때문에 `bind`가 필요하지 않다.
+```js
+<button onClick ={()=>console.log(this)} />
+```
+
+
+### 3. `this.setState`: state 변경하기
 
 ```js
 class Card extends Component {
@@ -80,103 +102,7 @@ class Card extends Component {
 }
 ```
 
-- `this.setState({key:value})` 함수를 이용하여 `state` 값을 변경한다.
-
-### `setState(addObj)`는 **`Object.assign(addObj,stateObj)` 방식으로 병합**된다.
-
-- **하지만** 함수형 컴포넌트의 훅 `useState`에서 선언한 `setState` 함수는 병합이 아니라 값을 **교체**한다.
+- 함수형 컴포넌트의 `setState`는 `state`를 **교체**하는 것과 달리,
+- 💛: 클래스형 컴포넌트의 `setState()` 는 **`Object.assign(newObj,prevObj)`** 방식으로 **병합**한다.
 
 
-## 2. 시행착오
-
-### 1. `<li>` 태그 랜더링
-
-```js
-return {<li></li>}
-```
-- `{}`로 감싼 html태그도 DOM요소로 변환된다.
-
-```js
-return {[<textarea></textarea>, <textarea></textarea>, <textarea></textarea>]}
-```
-- 배열 형태로 반환해도, 배열의 모든 요소가 DOM요소로 변환된다.
-
-```js
-return(
-  <ul>
-  {props.forEach((prop) => (
-    <li>
-      {prop[0]} : {prop[1]}
-    </li>
-  ))}
-  </ul>
-)
-```
-- `forEach`문에서 `<li>`태그를 반환하면 알아서 랜더링 되는줄 알았다.😪
-- 하지만 이는 `{}`안의 자바스크립트 코드일 뿐이였다.
-- `<li>`태그들을 랜더링하기 위해선, map함수로 태그를 담은 배열을 리턴해야됐다.
-- **배열 형태로 반환해도, 배열의 모든 요소가 DOM요소로 랜더링되기 때문에!**
-
-### 2. `className` 프로퍼티는 컴포넌트가 아닌 DOM태그에!
-
-```js
-<Component className ="doesn't work">
-```
-
-### 3. Create 구현하기
-
-### 1) `array.prototype.concat`을 이용해 state 값 추가하기
-
-```js
-let _cards = this.state.cards.concat(newObj);
-
-this.setState({
-  cards: _cards,
-});
-```
-
-- `state`값을 추가할 때는 `push`와 같이 원본 데이터를 변경하는 방법을 사용하지 말자.
-- `concat`처럼 원본 데이터를 변경하지 않고 새로운 데이터를 생성하는 방법을 사용해야한다.
-- `push` 구현 방식은 나중에 리액트 앱의 성능 개선하기에 굉장히 까다롭다. 때문에 어떻게 원본 데이터를 바꾸지 않으면서 데이터를 state에 갱신 할 것인지 잘 생각해봐야한다.
-  
-### 2) `Array.from()`을 이용해 state 값 추가해보기
-
-```js
-var newCards = Array.from(this.state.cards)
-newCards.push(newObj)
-
-this.setState({
-  cards:newCards
-})
-```
-
-- `Array.from`을 사용해서 복사한 다음, 사본에 `push`를 하고 `setState`를 호출하기 때문에 원본을 변경하지 않고 원본을 교체한다.
-- 이외에도 `Object.assign()`을 이용해 객체의 내용을 바꾸지 않고 복제된 새 객체를 만들어 `setState`를 사용할 수 있다.
-
-### 4. `cardName: e.target.name`로 써서 오류가 났다. 
-- props로 받아오는 type을 잘 생각하자.
-
-```js
- <form
-        onSubmit={function (e) {
-          e.preventDefault();
-          let _cards = this.props.cards.concat({
-            id: this.props.totalCards + 1,
-            cardName: e.target.name.value,
-            price: Number(e.target.price.value),
-          });
-          this.props.onCreate(_cards);
-        }.bind(this)}
->
-```
-
-### 5. form data `destructuring`으로 받아오기
-
-```js
-const [form, setForm] = useForm({...})
-const onChange = ( { target: { name, value }} ) 
-=> setForm({ ...form, [name]: value });
-```
-- `event` 인자의 `target`을 구조분해하여 `{ target: { name, value }}`로 바로 받아왔다.
-- `const name = event.target.name`
-- `const value = event.target.value`
