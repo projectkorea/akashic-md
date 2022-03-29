@@ -39,23 +39,3 @@ shouldComponentUpdate(newProps, newState) {
   return true // render()가 호출된다.
 }
 ```
-
-
-## 시행착오
-
-### 1. useEffect 내에 state값을 사용하면 dependency에 값을 넣어야 한다.
-
-```js
-function App(props) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log(`effect: ${count}`);
-    return () => {
-      console.log(`clean-up: ${count}`);
-    };
-  }, []); // React Hook useEffect has a missing dependency
-```
-
-- `useEffect`에 `count`라는 `state`값을 사용하고 있기 때문에, denpendency에 `count` 값을 넣어줘야한다.
-- `clean-up` 함수는 `denpendency`가 바뀔 때 마다 이전의 `State`값을 처리하기 위해 호출된다.

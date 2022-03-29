@@ -78,6 +78,20 @@ for(let property in this){
 ### 3. `this.setState`: state 변경하기
 
 ```js
+this.state = {name:"Unknown", job:"developer"}
+this.setState({name:"junha", age:"20"})
+
+console.log(this.state)
+// {name: "junha", job:'developer", age:20 }
+```
+
+- 함수형 컴포넌트의 `setState`는 `state`를 **교체**하는 것과 달리,
+- 💛: 클래스형 컴포넌트의 `setState()` 는 **`Object.assign(newObj,prevObj)`** 방식으로 **병합**한다.
+
+
+### 4. toggle 버튼 예제
+
+```js
 class Card extends Component {
   constructor(props) {
     super(props);
@@ -102,7 +116,32 @@ class Card extends Component {
 }
 ```
 
-- 함수형 컴포넌트의 `setState`는 `state`를 **교체**하는 것과 달리,
-- 💛: 클래스형 컴포넌트의 `setState()` 는 **`Object.assign(newObj,prevObj)`** 방식으로 **병합**한다.
 
+## 3. 클래스형 컴포넌트 예시
 
+```js
+import { Component } from 'react';
+
+class App extends Component {
+  state = { age: 17 };
+  
+  modify = () => {
+    const { age } = this.state;
+    this.setState({ age: age + 1 });
+  };
+  
+  componentDidMount() {
+    this.modify();
+  }
+  
+  render() {
+    const { age } = this.state;
+    return (
+    	<>
+        <h1>{age}</h1>
+        <button onClick={this.modify}>+age</button>
+ 		  </>
+    );
+  }
+}
+```
