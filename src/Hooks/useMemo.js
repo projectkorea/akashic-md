@@ -1,40 +1,34 @@
-{
-  // before
-  const [nickname, setNickname] = useState('');
-  const [nicknameLength, setNicknameLength] = useState(0);
+import { useMemo, useState } from 'react';
 
-  const updateNicknameLength = () => {
-    setNicknameLength(nickname.length);
+const App = () => {
+  console.log('리랜더링');
+  const [isOn, setIsOn] = useState(false);
+  const [users, setUsers] = useState([
+    { active: true },
+    { active: true },
+    { active: false },
+  ]);
+
+  const countActiveUser = () => {
+    console.log('사용자 수 세는중...');
+    return users.filter((user) => user.active).length;
   };
 
-  useEffect(updateNicknameLength, [nickname]);
+  const count = useMemo(() => countActiveUser(), [users]);
 
-  const updateNickname = (event) => {
-    const nickname = event.target.value;
-    setNickname(nickname);
-  };
-}
+  return (
+    <div>
+      <h1>{`활성 사용자 수: ${count}`}</h1>
+      <button onClick={() => setIsOn((isOn) => !isOn)}>리랜더링 하기</button>
+      <button
+        onClick={() => {
+          setUsers(Array.from(users).concat({ active: true }));
+        }}
+      >
+        사용자 추가하기
+      </button>
+    </div>
+  );
+};
 
-{
-  // after
-  const App = () => {
-    const [nickname, setNickname] = useState('');
-    const nicknameLength = useMemo(() => nickname, [nickname]);
-
-    const updateNickname = (event) => {
-      const nickname = event.target.value;
-
-      setNickname(nickname);
-    };
-
-    return (
-      <div>
-        <input onChange={updateNickname} />
-        <br />
-        <label>{nicknameLength}</label>
-      </div>
-    );
-  };
-
-  export default App;
-}
+export default App;
