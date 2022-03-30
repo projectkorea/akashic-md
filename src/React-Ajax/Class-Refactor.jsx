@@ -43,7 +43,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    fetch('list.json')
+    fetch('/data/list.json')
       .then((result) => result.json())
       .then((json) => this.setState({ list: json }));
   }
