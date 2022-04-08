@@ -3,15 +3,20 @@ function setup() {
   function getNumber(e) {
     const children = document.getElementsByTagName('span');
     for (i in children) {
+      // i는 문자열로 이루어진 숫자가 들어가기 때문에 숫자로 변환해야한다.
       if (children[i] == e.target) {
-        return i;
+        return parseInt(i);
       }
     }
   }
 
   function paintStar(num) {
+    for (let i = 4; i > num - 1; i--) {
+      document.getElementsByTagName('span')[i].classList.remove('active');
+    }
+
     for (let i = 0; i < num + 1; i++) {
-      document.getElementsByTagName('span')[i].setAttribute('class', 'active');
+      document.getElementsByTagName('span')[i].classList.add('active');
     }
   }
 
@@ -23,17 +28,4 @@ function setup() {
   rating.addEventListener('click', handleClick);
 }
 
-// Example case.
-document.body.innerHTML = `
-<div id='rating'>
-  <span>*</span>
-  <span>*</span>
-  <span>*</span>
-  <span>*</span>
-  <span>*</span>
-</div>`;
-
 setup();
-
-document.getElementsByTagName('span')[2].click();
-console.log(document.body.innerHTML);
