@@ -223,7 +223,7 @@ function handler() {
 ```js
 <button onclick="this.textContent = '성공입니다!'">클릭하세요!</button>
 ```
-- `인라인 핸들러`에 작성한 내용은 이벤트 핸들러안의 코드와 같으므로 `this`는 **이벤트가 연결된** element를 가리킨다.
+- `인라인 핸들러`에 작성한 내용은 **이벤트 핸들러안의 코드**와 같으므로 `this`는 **이벤트가 연결된** element를 가리킨다.
   
 ```js
 divElem.addEventListener('click',function(){console.log(this)}) //<div>
