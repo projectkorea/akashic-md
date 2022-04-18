@@ -22,6 +22,8 @@
 |**14. type**|[타입][junha-14]| 
 |**15. fetch**|[비동기 통신 API, fetch()][junha-15]| 
 |**16. axios**|[비동기 통신 API, axios()][junha-16]| 
+|**17. module**|[모듈 시스템][junha-17]| 
+|**20. mistake**|[실수 모음][junha-20]| 
 
 [junha-01]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/1.callback.md
 [junha-02]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/2.promise.md
@@ -39,3 +41,5 @@
 [junha-14]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/14.type.md
 [junha-15]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/15.fetch.md
 [junha-16]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/16.axios.md
+[junha-17]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/17.module.md
+[junha-20]:https://github.com/projectkorea/study-js-vanilla/blob/main/notes/20.mistake.md
