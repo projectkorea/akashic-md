@@ -20,6 +20,7 @@ import ReactDOM from 'react-dom';
 // import App from './experiment/useEffectVariable';
 // import App from './recoil/practice/App';
 // import App from './Hooks/useLayoutEffect';
-import App from './app.js';
+import App from './react-redux/App';
+// import App from './app.js';
 
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -1,23 +1,26 @@
-# React에서 Redux 도입하기
+# Redux 도입
 
-## Phase1. Redux
+## 1. Redux를 쓰는 이유
 
-### WHY?? 
-
-- 프로젝트 규모가 커지면, 각 컴포넌트 간 `state`, `props`전달이 까다롭다.
-- 이에 `Redux`를 도입해 `State`를 중앙에서 관리하여, 효율적으로 `state`, `props`를 주고 받는다.
-
-### Redux 특징
-
-1. `Redux`는 React에 의존하는 라이브러리는 아니며, `Angular`, `Vue.js`, `Vanilla JS` 등 JS 언어내의 여러곳에서 사용한다.
-2. `스토어`, `스토어 내부에 state 값 저장`, `각 컴포넌트는 스토어 구독`
+- 프로젝트 규모가 커지면, 컴포넌트 간 `state`, `props`전달이 까다로워진다.
+- `Redux`를 도입하면 `State`를 중앙에서 효율적으로 관리할 수 있게된다.
+- `Redux`는 `React`뿐만아니라, `Angular`, `Vue.js`, `Vanilla JS` 등 JS 언어내의 여러곳에서 사용한다.
 
 
-### 1. `store.js` 셋팅
+## 2. Redux 사용하기
+
+1. 스토어 객체 생성
+2. 스토어 메서드 사용
+3. 스토어 구독
+
+### 1) 스토어 (`store`) 객체 생성하기
 
 ```js
+// store.js
+
 import {createStore} from 'redux'
-export default createStore(function(state,action){
+
+function reducer(state, action) {
   if(state === undefined){
     return {number : 0}
   }
@@ -25,33 +28,38 @@ export default createStore(function(state,action){
     return {...state, number:state.number + action.size}
   }
   return state
-}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+}
+
+const devTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+export default createStore(reducer, devtool)
 ```
 
-1. `createStore()`함수는 첫번째 인자로 reducer 함수를 받는다.
-   1. `state`: redux가 관리하는 `state`
-   2. `action`: `action`을 통해 `state` 값을 바꾼다.
-   3. reducer 함수는 state를 **반환**한다.
-2. 두번째 인자는 크롬 확장 프로그램인 Redux DevTool을 사용하기 위해 지정한 값이다.
+#### 코드설명
+
+- `createStore(reducer, devtool)`: `store` 객체 반환
+- `reducer(state, action)`: `state` 반환
+   1. `state`: `redux`가 관리하는 `state`
+   2. `action`: `state` 값을 바꾸는 기준
 
 
-### 2. `store.dispatch()`: state 수정하기
+
+### 2. `store` 메서드 이용하기
+
+#### 1) `store.dispatch(action)`: `action`을 전달해, state를 수정
 
 ```js
-import {state} from "./store"
+import store from "./store"
 
 <input onClick={() => {
     store.dispatch({type:"INCREMENT", size:size})
   }}>
 ```
 
-- `store.dispatch(action)`: 리덕스 스토어로 `action` 객체를 전달한다.
-
-
-### 3. `store.getState()`: state 얻기
+#### 2) `store.getState()`: state 값 얻기
 
 ```js
-import {store} from "./store"
+import store from "./store"
 
 const DisplayNumber =() => {
   const[number, setNumber] = useState(store.getState().number)
@@ -63,22 +71,23 @@ const DisplayNumber =() => {
 }
 ```
 
-- `store.getState()`: 리덕스 스토어의 `state` 객체를 반환한다.
-- `store.subscribe(callback)`: 리덕스 스토어의 값이 변경됐을 때 호출된다. 
-  - 컴포넌트 스토어의 state값이 변경됐다는 사실을 통보받을 수 있게 구독해야 한다.
+#### 3) `store.subscribe()`: store 구독하기
+
+- `store.subscribe(callback)`: 스토어의 값이 변경됐을 때 호출된다. 
+- 스토어의 `state`가 변경됐다는 사실을 통보받을 수 있게 구독해야 한다.
 
 
 
-## Phase2. 리액트 컴포넌트에서 리덕스에 종속된 기능 제거 
+## 3. 리덕스 종속성 제거 
 
-###  WHY??
-- 컴포넌트의 독립성 보장하여 재사용성 증가시키기 위함
+- 컴포넌트의 독립성 보장하여 **재사용성**을 높이기 위해
 
-### HOW TO??  
-1. **컨테이너 컴포넌트**로 분리
-   - 컨테이너 컴포넌트: 리덕스 스토어 연관 작업 처리
-   - 프레젠테이셔널 컴포넌트: 컨테이너에서 주는 값만 처리(이벤트) & 표시(state값 전달)
-2. 컨테이너 디렉토리를 따로 만들고, 이름은 프레젠테이셔널 컴포넌트와 같게 처리한다.
+#### 컴포넌트 나누기
+- **컨테이너** 컴포넌트
+  - 리덕스 스토어 연관 작업 처리
+- **프레젠테이셔널** 컴포넌트
+  - 컨테이너에서 주는 값만 처리(이벤트) & 표시(state값 전달)
+- 컨테이너 디렉토리 따로 생성, 파일명은 동일하게 생성
 
 
 ### Examples
@@ -130,9 +139,13 @@ class AddNumber extends Component {
 - 이를 통해, `AddNumber` 컴포넌트는 리덕스의 기능이 필요하지 않은 곳에서도 재사용할 수 있게 됐다!!
 
 
-### props을 줘야하는 상황에서 비효율 발생!
 
-- `DisplayNumber` 컨테이너 상위에서 `unit`, `isActive` props을 추가로 전달할 때, `DisplayNumber 컨테이너`와 `DisplayNumber 컴포넌트` 두 곳 모두에서 코드를 수정해야 한다.
+## 3. react-redux 사용하기
+
+### 1) 도입 배경
+
+- `props`을 전달할 때 비효율 발생
+- `DisplayNumber` 컨테이너 상위에서 `unit`, `isActive` 전달할 때, `DisplayNumber 컨테이너`와 `DisplayNumber 컴포넌트` 두 곳 모두에서 코드를 수정해야 한다.
 
 ```js
 import DisplayNumber from './containers/DisplayNumber'
@@ -155,12 +168,7 @@ import DisplayNumber from './components/DisplayNumber'
 </div>
 ```
 
-
-## Phase3. react-redux
-
-### WHY?
-- 익명 래퍼 컨테이너가 `props`를 전달하는 번거로움과 리덕스 관련 중복 코드 해결!
-- `connect`, `Provider`
+- `react-redux`를 사용하면 익명 래퍼 컨테이너가 `props`를 전달하는 번거로움과 리덕스 관련 중복 코드 해결할 수 있다.
 
 
 ### 1. `Provider`로 App 감싸기
@@ -173,14 +181,17 @@ import {Provider} from "react-redux"
 </Provider>
 ```
 
-- Provider를 통해 스토어를 공급받아, 하위 컴포넌트에서 따로 `store`에 접근할 필요가 없어진다.
+- `Provider`를 통해 스토어를 공급받아, 하위 컴포넌트에서 따로 `store`에 접근할 필요가 없어진다.
 
 
-### 2. 컨테이너 컴포넌트의 기본 구조
+### 2. `connect()()` 사용하기
+
+- `connect(mapStateToProps, mapDispatchToProps)(wrappedComponent)` : ? 반환
 
 ```js
-import DisplayNumber from "./components/DisplayNumber"
 import {connect} from "react-redux'
+import DisplayNumber from "./components/DisplayNumber"
+
 export default connect()(DisplayNumber)
 ```
 
@@ -270,38 +281,37 @@ function connect(mapStateToProps, mapDispatchToProps){
   return function(WrappedComponent){
     return class extends React.Component{
       render(){
-        return(<WrappedComponent
-          // 컨테이너 컴포넌트로 주입된 props를 WrapperComponent에 전달한다.
+        
+        return(<WrappedComponent     // 1️⃣
           {...this.props}
-          // 리덕스 store의 state를 WrapperComponent에 전달한다.
           {...mapStateToProps(store.getState(), this.props)}
-          // 이벤트를 WrapperComponent에 전달한다.
           {...mapDispatchToProps(store.dispatch, this.props)}
         />)
       }
       componentDidMount(){
-        // 컴포넌트가 마운트 됐을 때, 리덕스 스토어를 구독하여,
-        // 리덕스 스토어 값이 변경 될 때마다, 컴포넌트를 리랜더딩한다.
         store.subscribe(this.handleChange.bind(this))
       }
       componentWillUnmount() {
-        // 컴포넌트가 종료됐을 때 호출된다. 구독을 취소한다.
         this.unsubscribe()
       }
       handleChange() {
-        // 리덕스 스토어가 변경되면 강제로 render를 호출한다.
         this.forceUpdate()
+        // 리덕스 스토어 값이 변경되면 강제로 render호출
       }
     }
   }
 }
 ```
 
-- `{...mapStateToProps(store.getState(), this.props)}`
-- `{...mapDispatchToProps(store.dispatch, this.props)}`
-  - 필요한 경우 두번째 인자를 통해 전달된 props를 이용할 수 있다.
+- 1️⃣: `WrapperComponent`에 전달한다.
+  1. 컨테이너 컴포넌트로 주입된 `props`
+  2. `state`
+  3. 이벤트
+
+- `mapStateToProps(, this.props)`, `{mapDispatchToProps(, this.props)}`
+  - option: 두번째 인자를 통해 전달된 props를 이용할 수 있다.
 
 ### react-redux의 connect API의 기특한 점
 
-1. 등록해놓은 props에 한해서만 구독하기 때문에, 불필요한 render 함수 호출이 줄어든다.
-2. `shouldComponentUpdate`를 통해 수동으로 해야할 일을 자동으로 처리해준다.
+1. 등록한 `props`에 한해서만 구독하기 때문에, 불필요한 `render` 함수 호출이 줄어듦
+2. `shouldComponentUpdate`를 통해 수동으로 해야할 일을 자동으로 처리해줌.
