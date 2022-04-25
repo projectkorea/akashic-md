@@ -3,7 +3,7 @@ import { Component } from 'react';
 class CreateForm extends Component {
   render() {
     return (
-      <form class='form'>
+      <form className='form'>
         <div>
           <label htmlFor='name'>이름: </label>
           <input name='name' />
