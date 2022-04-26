@@ -15,18 +15,37 @@
 - component가 없어질 때
    - `componentWillUnmount()`
 
+---
 
-## shouldComponentUpdate(){}
+## `componentDidUpdate`
 
-- 어떤 컴포넌트의 `render()` 함수가 실행 or not을 리액트 개발자가 결정할 수 있게 하는 함수다.
-- state를 바꿀 때 마다, `shouldComponentUpdate가` 함수가 호출된 다음 `return`값이 `true`이면 `render()` 함수가 호출된다. 
+- 초기 마운트를 제외하고, 컴포넌트가 업데이트 될 때마다 호출된다.
+- 이전의 props와 state 값을 받아, 이후에 변경된 값을 비교해 서로 다를 때만 작읍 처리할 수 있게 할 수 있다.
 
 ```js
-shouldComponentUpdate(newProps, newState) {
-  return true // render()가 호출된다.
+componentDidUpdate(prevProps, prevState) {
+  if(prevState.count !== this.state.count){
+      doSomething();
+    }
 }
 ```
 
+
+## `shouldComponentUpdate`
+
+- `render()` 함수가 실행여부를 결정하는 메서드
+
+1. `state` 변경
+2. `shouldComponentUpdate` 호출 
+3. `return` === `true` 이면
+4. `render()` 호출 
+
+```js
+shouldComponentUpdate(newProps, newState) {
+  return true 
+  // render() 호출
+}
+```
 - 이전 값과 이후에 변경된 값을 비교해, 서로 다를 때만 어떤 작업을 처리하면 불필요한 처리를 하지 않을 수 있어 성능을 높일 수 있다.
 - `newProps`: 컴포넌트의 props가 바뀌었을 때 바뀐 값
 - `newState`: state가 바뀌었을 때 바뀐 state의 값

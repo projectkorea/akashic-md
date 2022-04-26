@@ -1,9 +1,9 @@
-# Ajax
+# React 비동기
 
 ## 1. 리액트에서 Ajax 사용 방법
 
-- 컴포넌트가 생성될 때 Ajax를 통해 컴포넌트를 초기화해야 하는 경우에는 `componentDidMount` 메서드, `useEffect`를 사용한다.
-- Ajax를 사용해서 가져온 데이터는 `state`에 넘긴 후 `render`메서드가 `state`의 변화에 영향을 받아 처리하게 한다.
+1. Ajax를 통해 컴포넌트를 초기화할때는 `componentDidMount`, `useEffect`를 사용한다.
+2. Ajax를 사용해서 가져온 데이터는 `state`에 넘긴 후 `render`메서드가 `state`의 변화에 영향을 받아 처리하게 한다.
 
 ## 2. 프레젠테이션 컨테이너에서 데이터 종속성 제거하기
 

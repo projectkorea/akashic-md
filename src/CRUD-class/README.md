@@ -104,8 +104,14 @@ this.setState({name:"junha", age:"20"})
 ```
 
 #### `setState()` 차이
+
 - 함수형 컴포넌트: `state` **교체**
-- 클래스형 컴포넌트: **`Object.assign(newObj,prevObj)`** 방식으로 **병합**
+- 클래스형 컴포넌트: `Object.assign(newObj,prevObj)` 방식으로 **병합**
+  ```js
+  var _assign = require('object-assign');
+  ...
+    return _assign({}, prevState, partialState);
+  ```
 
 
 

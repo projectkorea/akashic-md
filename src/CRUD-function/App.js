@@ -3,6 +3,7 @@ import InsertForm from './components/InsertForm';
 import ListView from './components/ListView';
 
 function App() {
+  const [string, setString] = useState('hi');
   const [todoList, setTodoList] = useState([]);
   const isLimitReached = useMemo(() => todoList.length >= 10, [todoList]);
 
@@ -36,6 +37,16 @@ function App() {
 
   return (
     <div className='App'>
+      <button
+        data-id={'abc'}
+        data-junha={'my name is junha'}
+        onClick={(e) =>
+          console.log(e.target.dataset.id, e.target.dataset.junha, string)
+        }
+      >
+        abc버튼
+      </button>
+      <input value={string} onChange={(e) => setString(e.target.value)}></input>
       <InsertForm onInsert={handleInsert} disabled={isLimitReached} />
       <ListView
         todoList={todoList}

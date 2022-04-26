@@ -22,7 +22,25 @@ onChange ={
 ```
 
 
-## 2. `prop`으로 전달한 함수와 햇갈리지 말자
+## 2. `input` 태그의 `value`
+
+- `value` 값은 입력한 값에 따라 바뀌기 때문에에 읽기전용인 `props`를 넣으면 오류가 발생한다.
+- 또한 `onChange` 핸들러 없이 `state` 값만 넣어주어도 아래와 같은 오류가 발생한다.
+
+```jsx
+const [string, setString] = useState('hi');
+<input value={string}></input>
+```
+- Error: You provided a `value` prop to a form field without an `onChange` handler. 
+- If the field should be mutable use `defaultValue.
+- 이는 `onChange` 옵션을 이용해 state값을 변경해주면 에러가 사라진다.
+
+```js
+<input value={string} onChange={(e) => setString(e.target.value)}></input>
+```
+
+
+## 3. `prop`으로 전달한 함수와 햇갈리지 말자
 
 ```jsx
 // ❌
@@ -32,7 +50,7 @@ onChange ={
 - `onInsert`는 함수를 전달하는 `prop`이다.
 
 
-## 3. 많이 쓰는 이벤트 핸들러
+## 4. 많이 쓰는 이벤트 핸들러
 
 - `onClick`: 클릭했을 때
 - `onChange`: input의 텍스트를 변경, 파일 선택 등의 변화가 생길 때

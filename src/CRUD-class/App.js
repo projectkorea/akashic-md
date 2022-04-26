@@ -28,8 +28,6 @@ class App extends Component {
 
     return (
       <div className='App'>
-        {console.log(this.setState)}
-        {console.log(this.updater.enqueueSetState)}
         <Header
           totalCards={this.state.totalCards}
           currentCard={this.state.currentCard}
