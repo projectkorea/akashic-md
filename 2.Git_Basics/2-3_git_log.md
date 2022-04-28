@@ -1,8 +1,12 @@
-# 2.3 Git Basics - Viewing the Commit History
+# 2.3 Viewing the Commit History
 
 ## git log
 
 - 테스트 링크: `git clone https://github.com/schacon/simplegit-progit`
+
+git log will only show commit history below the branch you’ve checked out.
+
+To show commit history for the desired branch you have to explicitly specify it: git log testing. To show all of the branches, add --all to your git log command.
 
 ### 옵션
 
