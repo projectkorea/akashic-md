@@ -60,6 +60,9 @@ ulElementChildNodes
 - `childNodes`에서 반환되는 `NodeList`는 **직계 자식**만을 가진다.
 - `childNodes`는 Element노드 뿐만 아니라 `Text`, `Comment` 노드도 포함한다.
 
+- `querySelectorAll` : 노드리스트, forEach 가능
+- `getElement..S`: 컬레션 `Array.from().forEach`
+
 
 #### `array`로 바꾸어 사용하는 것이 바람직하다.
 
