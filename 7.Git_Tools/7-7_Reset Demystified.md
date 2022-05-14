@@ -3,22 +3,22 @@
 1. `git reset <옵션> <돌아가고싶은커밋>`
 2. `git checkout <브랜치> <옵션>`
 
-- `Git`은 서로 다른 **세 파일의 묶음**를 관리하는 콘텐츠 관리자이다.
+- `reset`을 통해 `HEAD`, `Index`, `Working Directory`을 관리한다.
 
 ## 세 개의 트리
 
 ![](https://user-images.githubusercontent.com/76730867/166095470-833ed40c-6f5d-4966-9010-b004ccf4e47a.png)
 
-|            Tree            |                   Role                    |
-| :------------------------: | :---------------------------------------: |
-|     HEAD (Repository)      | 마지막 커밋 스냅샷, 다음 커밋의 부모 커밋 |
-| Index, Stage, Staging Area |           다음에 커밋할 스냅샵            |
-|     Working Directory      |                  Sandbox                  |
+|              Tree              |                   Role                    |
+| :----------------------------: | :---------------------------------------: |
+|     HEAD <br>(Repository)      | 마지막 커밋 스냅샷, 다음 커밋의 부모 커밋 |
+| Index<br>Stage<br>Staging Area |           다음에 커밋할 스냅샵            |
+|   Working Directory<br>Local   |                  Sandbox                  |
 
-### 1. Head
+### 1. `HEAD`
 
-- **pointer to the current branch reference**, which is **last commit**
-- `HEAD` **will be the parent of the next commit** that is created.
+- 현재 브랜치의 마지막 커밋을 가리키는 포인터
+- 현재 커밋은 다음에 올 커밋의 **부모 커밋**이 된다.
 
 #### `HEAD`가 가리키는 스냅샷 보기
 
@@ -38,15 +38,14 @@ $ git ls-tree -r HEAD
 
 ### 2. The Index
 
-- The index is your **proposed next commit**.
-- `Staging Area` as this is what Git looks at when you run `git commit`.
-- `git commit`을 하면 `Index`는 새 커밋으로 변환된다.
+- **Proposed next commit**.
+- `git commit`을 할 때, `Git`이 바라보는 공간이며 `Index`는 **새로운 커밋**으로 변환된다.
 
 ### 3. The Working Directory
 
-- The other two trees store their content in an efficient but inconvenient manner, inside the `.git` folder.
+- `Staging Area`에 커밋하기전에 자유롭게 수정하는 공간
+- `HEAD`와 `Index`는 효율적이지만 불편한 방식으로 `.git` 안에 저장한다.
 - The working directory unpacks them into **actual files**, which makes it much easier for you to edit them.
-- Think of the working directory as a sandbox, where you can try changes out before committing them to your staging area (index) and then to history.
 
 ## The Workflow
 
@@ -63,7 +62,7 @@ Git’s typical workflow is to record **snapshots of your project** in successiv
 ### Step 1: Move HEAD (`--soft`)
 
 - `HEAD` 브랜치를 이동시킴
-- `checkout` 처럼 HEAD가 가리키는 브랜치를 이동시키지는 않음
+- `checkout` 처럼 `HEAD`가 가리키는 브랜치를 이동시키지는 않음
 - `HEAD`는 계속 현재 브랜치를 가리키고 있고, 현재 브랜치가 가리키는 커밋을 바꿈
 - `git reset 9e5e6a4` will start by making master point to `9e5e6a4`.
 
@@ -156,7 +155,8 @@ Git’s typical workflow is to record **snapshots of your project** in successiv
   - 저장하지 않는 것이 있으면 확인해서 날려버리지 않는다.
   - `git reset --hard`는 head를 업데이트 하지만, `checkout`은 `HEAD` 자체를 다른 브랜치로 옮긴다.
 - `reset`은 `HEAD`가 가리키는 브랜치의 포인터를 옮기고, `checkout`은 `HEAD`자체를 옮긴다.
-- ![reset-checkout](https://user-images.githubusercontent.com/76730867/166132729-00927187-75e5-4427-bf67-4a5e3ef642c0.png)
+
+![reset-checkout](https://user-images.githubusercontent.com/76730867/166132729-00927187-75e5-4427-bf67-4a5e3ef642c0.png)
 
 ### 요약
 
