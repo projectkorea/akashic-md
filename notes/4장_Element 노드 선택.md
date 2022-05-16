@@ -1,28 +1,29 @@
 # 04. Element 노드 선택
 
-
 ## 1. 특정 `Element 노드` 선택
 
 ### 1) `document.getElementById()`
   
-   - **`document` 객체의 메서드로만 사용**할 수 있다. DOM의 다른 객체는 메서드로 가지고 있지 않다. 
-   - ID 값은 문서 전체에서 유일해야 하며 "국지적"인 버전을 쓸 이유가 없기 때문
+   - `getElementById()`는 `document`의 메서드로만 사용할 수 있다.  
+   - ID 값은 문서 전체에서 유일해야 하며 "국지적"인 버전을 쓸 이유가 없기 때문이다.
 
 ### 2) `querySelector()`
   
   1. 단일 element 노드에 대한 참조를 얻는데 가장 많이 사용한다
   2. `CSS selector` 문법 형식을 따른다.
      - `document.querySelector('#scope>tbody>tr>td:nth-of-type(2)')`
-  3. 문서 내에서 발견되는 **첫 번째** 노드 반환 
+  3. 문서 내에서 발견되는 **첫 번째 노드 반환**
   4. **element 노드**도 메서드 갖고 있어, DOM 트리의 특정 부분에 한정해 **상황에 맞는 쿼리**를 할 수 있다.
   5. **속성 값**을 선택자로도 사용할 수 있다. 
-`document.querySelector('[name="title"]')`
+- `document.querySelector('[name="title"]')`
+
 
 
 ## 2. 다중 `Element 노드` 선택
 
-- `NodeList`와 `HTMLCollecton`은 element들의 모음을 갖고 있는 `유사배열객체`이다.
-- `iterable`하기 때문에 둘 다 `length` 프로퍼티를 가지므로 객체를 배열처럼 접근할 수 있고 반복문을 돌 수 있다. 그러나 유사배열객체이기 때문에 자바스크립트에서 제공하는 배열 객체의 메소드는 사용할 수 없다. (ex. map, forEach, reduce 등등)
+- `NodeList`와 `HTMLCollection`은 element들의 모음을 갖고 있는 `유사배열객체`이다.
+- `iterable`하기 때문에 둘 다 `length` 프로퍼티를 가지므로 객체를 배열처럼 접근할 수 있고 반복문을 돌 수 있다. 
+- 그러나 유사배열객체이기 때문에 자바스크립트에서 제공하는 배열 객체의 메소드는 사용할 수 없다. (ex. map, forEach, reduce 등등)
 
 
 ### 1) return `HTMLCollection`
