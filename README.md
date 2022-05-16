@@ -2,7 +2,7 @@
 
 <p align='center'><img src="https://user-images.githubusercontent.com/76730867/141681254-0ffcaf89-add0-4b80-91aa-8f45ecf9db9a.jpg" width="200" height="300"/></center></p>
 
-### 목표
+### 목표 
 
 - DOM의 **작동 원리**를 학습하여 `JavaScript`의 라이브러리 / 프레임워크의 이해도를 높이자!
 
