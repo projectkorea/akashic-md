@@ -1,21 +1,27 @@
 # styled-components
 
-- `styled-components`로 랜더링된 엘리먼트는 `className`이 random string으로 생성되기 때문에 선택자 이름이 겹치지 않는다.
-
+- `className`이 random string으로 자동 생성
 
 ### 1. 기본 사용
 
-```css
+- `styled.`뒤에 스타일을 입힐 태그 이름을 적어 사용한다.
+
+```jsx
 const FancyDiv = styled.div`
   width: 300px;
   height: 300px;
 `;
 ```
 
-```css
+import { useTranslation } from 'react-i18next'
+const { t } = useTranslation("common");
+    showCopyMsg(t("copied"))
+  },[user, t])
+
+- 가상 선택자, hover 등을 사용할 수 있다.
+
+```jsx
 const FancyButton = styled.button`
-  background-color: red;
-  padding: 10px;
   :hover{
     background-color: yellow;
   }
@@ -28,13 +34,10 @@ const FancyButton = styled.button`
   }
 `;
 ```
-- `styled.`뒤에 스타일을 입힐 태그 이름을 적어 사용한다.
-- 가상선택자, hover 등을 사용할 수 있다.
-
 
 ### 2. `props` 사용하기
 
-```scss
+```jsx
 const FancyDiv = styled.div`
   color: ${(props) => props.isActive ? 'red' : 'gray'};
 `
@@ -42,7 +45,7 @@ const FancyDiv = styled.div`
 
 ```jsx
 return(
-  <FancyDiv isActice={true}/>
+  <FancyDiv isActive={true}/>
 )
 ```
 - CSS `value`를 `props`를 인자로 받는 콜백함수의 **리턴 값**으로 작성한다.
