@@ -283,6 +283,7 @@ console.log(e.currentTarget, e.target)
 <form>
   <input type='text' name='id'></input>;
   <input type='password' name='pw'></input>;
+  <input type='checkbox'></input>;
   <textarea name="board"></textarea>
   <select name="selecto"></select>
   <input type="submit"></input>
@@ -296,6 +297,7 @@ form.onsubmit = (e) => {
   e.preventDefault()
   const id = e.target.id.value
   const pw = e.target.password.value
+  const checked = e.target.checked
   const board = e.target.board.value
   const selecto = e.target.selecto.value
   console.log(id, pw, board, selecto) // input, textarea등에 입력한 값이 출력됨

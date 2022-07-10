@@ -38,4 +38,5 @@
 
 
 ---
+- 원문: [http://domenlightenment.com](http://domenlightenment.com)
 - p 47오류 ownerElement- > ownerDocument
