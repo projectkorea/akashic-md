@@ -1,0 +1,13 @@
+.blue {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+  margin: 50px;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+}
+
+#main {
+  background-color: yellow;
+}

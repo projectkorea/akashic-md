@@ -19,3 +19,4 @@
 8. [typography](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/8.typography.md)
 9. [etc](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/9.etc.md)
 10. [grid](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/10.grid.md)
+11. [토이프로젝트](https://github.com/projectkorea/study-html-css/blob/main/CSS/toy-project/README.md)
