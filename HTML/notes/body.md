@@ -1,20 +1,12 @@
-# HTML 태그
+# `<body>` 안에 들어가는 태그
 
 - 태그란?
   - `<>`로 둘러싸인 HTML 문법
 
-## Semantic Markup
-- 문서의 구조와 정보 위계가 명확하게 들어나게 마크업하는 것.
-- HTML은 **SEO 평가의 기준**이 된다. 사람의 언어를 직접 이해한 후 중요도를 파악하는 것이 아니라, 마크업한대로 중요도가 검색엔진에 반영되기 때문이다.
--  의미에 맞게 HTML을 작성하기 위해선 **논리적**으로 작성해야한다.
--  **핵심**: 마크업은 결국에 **브라우저한테 내가 작성한 정보가 어떤 성격의 정보인지 전달하는 것**이다.
-
-
-
 ---
 
-## 글자 태그
 
+## 글자 태그
 
 ### `<h1>` ~ `<h6>`
    - 제목을 표현할 때 사용
@@ -51,53 +43,33 @@
   -   어떤 태그든 일관되게 사용하는 것이 중요하다.
 
 
+
 ---
-
-
-## 미디어 태그
-
-
-### `img` 태그
-
--   `<img src='#' alt="" />`
--   `src:` source, `alt:` alternative text
--   `img`가 정보로써 큰 의미가 없을 경우, `alt="` 빈 string이라도 적어둔다.
--   이미지 태그와 텍스트가 동일할 경우, `alt` 값을 생략해도 된다.
-
-
 
 ## 그룹 태그
 
 
-### **그룹 태그**
+### `<div>` 태그
 
-**· <div>**: 상자를 만듬. 레이아웃 나누는 용도
+- 상자
+- 영역 표현
+- 레이아웃 나누는 용도
 
-- **<article> <section> <nav> <header> <footer>:** div의 파생상품, semantic Marckup
+### `<article>`, `<section>`, `<nav>`, `<header>`, `<footer>`
 
-**· <ul>**: 번호가 **없**는 리스트 집합
-
-**· <ol >**: 번호가 **있**는 리스트 집합 
-
-- LIST 태그를 이용. 타입 속성 사용 가능: **<ol type="1 / a / A / i / I">**
-
-**· <li>:** UL태그나 OL 태그안에서 사용되는 태그
+-  `<div>`의 파생상품들
+- `Semantic MarkUp`을 위해 나눠놨지만,0 결국은 `<div>`와 같다.
 
 
 
-
-
-
-
-
-
-## 4. `ul`, `ol` 태그
+### `<ul>`, `<ol>` 태그
 
 -   unordered list, ordered list, list item
--   목록 태그의 자식요소는 항상 li가 되게 한다.
+-   목록 태그의 자식요소는 항상 `li`가 되야한다.
+-   `<ol type="1 / a / A / i / I">`
 
 ```html
-// 올바른 예시
+// ✅올바른 예시
 <ol>
     <li>
         <a> 내용 </a>
@@ -105,7 +77,7 @@
 </ol>
 ```
 ```html
-// 잘못된 예시
+// ❌잘못된 예시
 <ol>
     <a>
         <li>내용</li>
@@ -114,7 +86,7 @@
 ```
 
 
-## 5. `dl` 태그
+## `<dl>` 태그
 
 - 정의 리스트
   1. 용어를 정의할 때
@@ -159,43 +131,85 @@
 -   그룹핑할때만 쓰는 태그이므로 꼭 필요할 때만 쓰자.
 
 
-## 8. `form` 태그
+---
+
+## `<form>` 태그
+
+```
+<form>
+  <input />
+  <input />
+  <input />
+  <input />
+  <input />
+</form>
+```
+-   입력받은 정보를 **처리**하기 위한 태그
+-   ex) 회원가입 페이지, 설문조사 페이지
+
 
 ```html
 <form action="API주소" method="GET|POST"></form>
 ```
--   사용자로부터 인풋을 받은 정보를 처리하기 위한 태그
--   `action`: 입력받은 인풋을 처리할 API주소
 
-### 8-1) `input` 태그
+- `action` : 데이터를 전송할 API 주소
+- `method` : 데이터 전달 방식 (get, post)
+- `name` : 폼 이름 (백단에서 사용)
+
+
+### `input` 태그
+
+- 정보를 입력할 수 있는 공간을 만드는 태그
+
 
 ```html
 <input type="text" />
 ```
--   입력창을 나타내는 태그
-    -   `placeholder=""`: 아무것도 없을 때 안내문구
-    -   `maxlength | minlength="13"`: 최대 | 최소한 13글자
-    -   `required`: 무조건 입력해야하는 태그
-    -   `disabled`: 입력이 안되게함
-    -   `value=""`: 초기값
 
-#### input type
 
--   `type="num | text | password | email | tel | num | file | radio | range | checkbox | submit"`
-- `type='num'` 일 때 `min`, `max` 사용 가능
-- `type='file'` 일 때 `accept =".png, .jpg"` 사용 가능
+#### `<input type="">`  종류
+
+  - 입력 내용에 따라 입력창이 달라진다.
+- `text`, `password`: 글자
+- `number`, `range`: 숫자
+- `checkbox`, `radio` : 버튼 종류
+- `month`, `week`, `date`, `datetime`: 날짜
+- `url`, `email`: 형식 지켜야 제출 가능
+- `button` : `<input type="button">`은 `HTML4` 이후 `<button> 태그가 됌` 
+- `<hidden>`: 사용자가 변경해서는 안 되는 데이터를 함께 보낼 때 (토큰)
+- `submit` : 데이터 전송 버튼
+- `image`,  `search`, `color`, `file`, `reset` ...등등
+
+
+
+
+#### `<input>` 속성
 
 ```html
 <input type="radio" id="" name="" />
 ```
-- `name`,`value` : 서버로 전달될 때 key의 역할을 한다.
-- `name = value`식으로 서버에 전송된다.
+- `name`, `value` : 서버로 전달될 때 `key`의 역할을 한다.
+  - `name = value`식으로 서버에 전송된다.
+- `name`: `form`안에 있는 여러 `input`들을 구별하는 용도
+  - `radio` 타입 지정 시 필수로 적용해야함
+- `readonly`: 읽기 전용, 수정 불가
+- `placeholder`: 안내 문구
+- `maxlength | minlength="13"`: 최대 | 최소 글자 설정
+- `required`: 필수 입력
+- `disabled`: 입력이 안되게함
+- `value`: 초기값
+- `pattern="정규표현식"`: 값의 입력 범위 설정
+- `autofocus`: 웹 페이지 로딩 시 이 속성을 지정한 태그로 포커스가 바뀜
+- `type='num'` 일 때 `min`, `max` 사용 가능
+- `type='file'` 일 때 `accept =".png, .jpg"` 사용 가능
+
+
 
 
 ### 8-2) `label` 태그
 
-- 특정 태그에 이름을 붙이는 태그
-- `label for` = `tag id`
+- `<input>`태그에 이름을 붙이는 태그
+- `label for` = `input id`
 
 ```html
 <label for="user-name">이름</label>
@@ -218,11 +232,11 @@
 ## 10. `textarea` 태그
 
 ```html
-<textarea placeholder="내용을 입력해주세요"></textarea>
+<textarea cols="50" rows="5" placeholder="내용을 입력해주세요"></textarea>
 ```
 
 -   여러줄에 걸쳐서 많은 양의 글을 받을 때 사용
--   attr) rows="" cols="" 인풋의 창을 조절 가능, 주로 css로 조절한다.
+-   `rows="" cols=""` 인풋의 창을 조절 가능, 주로 css로 조절한다.
 
 ## 11. `button` 태그
 
@@ -238,6 +252,38 @@
 
 -   데이터를 담은 표를 만들 때 사용한다.
 -   원리: **tr(table row)이 하나의 가로줄**이다. 가로줄을 기준으로 테이블을 만들어나간다.
+
+
+
+`<table>`: 표 생성
+`<tr>:` 행을 나눔
+
+`<td>`: `<tr>`태그로 나눈 행에서 셀을 분리할 때 사용
+`<th>`행, 열의 머리말을 나타냄
+
+`<colspan> <rowspan>` :** 셀 병합
+`<thead> <tbody> <tfoot>` 각각 머리글, 본문, 바닥 고정시킴
+
+```html
+<table width= "600" height="250" align="center"
+ border-"2" background="sample.png" cellspadding="1" cellspacing="5">
+
+<tr>
+<th> 번호 </th> ㄹ
+<th> 이름 </th>
+<th> 나이 </th>
+</tr>
+<tr>
+<td>1</td>
+<td>홍길동</td>
+<td>91</td>
+</tr>
+
+</table>
+```
+
+
+
 
 ```html
 <table>
@@ -338,7 +384,43 @@
 - `rowspan=""`,` colspan=""`: 셀이 차지하는 영역이 확장된다.
 - `scope="row | col"`: `thead`에서 사용하는 속성이며, 스크린 리더에서 읽는 순서를 결정한다.
 
-## 13. `audio`, `iframe`
+
+---
+
+## `img`, `audio`, `iframe`
+
+
+### **미디어 태그**
+
+- **<img>:** 이미지
+    
+    1) src 속성 : 가져올 이미지의 주소
+    
+    2) alt 속성 : 이미지 불러오기 실패시 보여줄 문자열
+    
+    3) width 속성 : 이미지의 가로의 길이
+    
+    4) height 속성 : 이미지의 세로의 길이
+    
+    `<img src="data:image/jpeg;base64,/9j/Z" alt="영웅사진" width="200px" height="auto">`
+    
+- **<audio>**
+    
+    `<audio src = " 오디오 경로 " conrtols(컨트롤러) autoplay(자동 재생) loop(반복) />`
+    
+- **<video>**
+
+---
+
+
+## 미디어 태그
+
+
+### `img` 태그
+
+-   `<img src='이미지주소' alt="alternative text" />`
+-   `img`가 정보로써 큰 의미가 없을 경우, `alt="` 빈 string이라도 적어둔다. (접근성 트리에서 제외)
+
 
 - 미디어 파일 태그
 ```html
@@ -406,3 +488,41 @@
 -  `<code>`를 `<pre>` 안에 감싸주는 이유는 코드를 짤 때, 들여쓰기가 가독성에 굉장히 중요한 요소이기 때문에 들여쓰기 한 그대로 표현하기 위해서 `<pre>`로 감싼다.
 
 ---
+
+
+
+
+# 기타
+
+**3-6) 마크업 태그**
+
+**· <frame>:** 여러개의 html 표현 가능
+
+· **<html>:** html 파일 전체를 감싸는 태그
+
+· **<title>:** html의 제목을 정해주는 태그
+
+· **<body>:** 본문, 실제 보여지는 화면
+
+· **<head>:** 머리말에 해당함. css나 javascript를 연결해줌, 문자열 인코딩과 같은 문서정보 제공
+
+· **<meta>:** <head>요소 안에 존재하여 해당 페이지에 대한 정보를 나타낸다. 검색엔진이 검색을 할 때 중요한 키워드가 된다.
+
+· **<link>:** 주로 외부 css 파일을 연결할 때 사용
+
+· **<script>:** 외부 js 파일을 연결하거나 javascript 코드를 입력할 때 사용
+
+**· <sapn>:** 요소 일부만 디자인이나 기능을 변경할 때 사용
+
+**· <select>**: 셀렉트 박스 창을 만드는 태그, OPTION 태그: 여러 내용을 입력
+
+
+<select>
+
+<option value="전체">전체</option>
+
+<option value="제목">제목</option>
+
+<option value="내용">내용</option>
+
+</select>
