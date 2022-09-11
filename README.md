@@ -43,4 +43,5 @@
 [junha-15]: https://github.com/projectkorea/study-js-vanilla/blob/main/notes/15.fetch.md
 [junha-16]: https://github.com/projectkorea/study-js-vanilla/blob/main/notes/16.axios.md
 [junha-17]: https://github.com/projectkorea/study-js-vanilla/blob/main/notes/17.module.md
+[junha-18]: https://github.com/projectkorea/study-js-vanilla/blob/main/notes/18.regex.md
 [junha-20]: https://github.com/projectkorea/study-js-vanilla/blob/main/notes/20.mistake.md
