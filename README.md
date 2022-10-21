@@ -1,4 +1,4 @@
-# Vanila Javascript
+# Vanilla Javascript
 
 <p align='center'><img src="https://user-images.githubusercontent.com/76730867/154012678-848d08de-f65e-44a1-a436-3da97c3690b6.png" width="600" height="300"/></center></p>
 
