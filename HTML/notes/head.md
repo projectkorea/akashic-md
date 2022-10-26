@@ -5,8 +5,10 @@
 ```html
 <!DOCTYPE html>
 ```
--   html5 웹 표준으로 버전으로 작성된 문서임을 알려주는 태그다.
--   DTD, 문서 형식 선언: Document Type Decalaration
+-   이전에는 DOCTYPE을 선언하는 코드가 길고 불편
+-   HTML5 웹 표준으로 버전으로 작성된 문서임을 알려주는 태그
+    - HTML5: 액티브X, 플래시, 실버라이트 등 추가프로그램 없이 가능한 브라우저 환경으로 업그레이드
+-   DTD, 문서 형식 선언: Document Type Declaration
 
 ```html
 <!DOCTYPE html>
