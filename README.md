@@ -1,8 +1,5 @@
-# **트리플 Frontend Homework** 
-### by 프론트엔드 엔지니어 지원자 김준하
-
-## **Mission**  
-### : 트리플 홈페이지의 한 섹션을 홈페지와 동일하게 구현한다.
+# Homework
+- 트리플 홈페이지의 한 섹션을 홈페지와 동일하게 구현한다.
 
 
 ```
@@ -12,13 +9,12 @@
 4) 최소 화면폭은 1200px, 반응형 레이아웃은 고려하지 않습니다.
 ```
 
-## **결과 화면**
-링크: https://projectkorea.github.io/triple-homework  
+## 결과
   
-<img src="public/readme/result.gif" width = "600px" alt="result"></img>
+<img src="public/readme/result.gif" width = "600px" alt="result">
 
 
-## **프로젝트 중점사항**
+## 중점 사항
 
 **1) 컴포넌트 설계 및 상태관리**
    * Styled-Components를 사용하여 기능별 재사용 가능한 컴포넌트 설계  
@@ -45,7 +41,7 @@
    * 해당 함수를 Countup 라이브러리 입력 attribute 형식에 맞춰 입력 후 animation.ts에 저장&사용
 
 
-## **기술스택 & 폴더 구조**  
+## 기술스택 & 디렉토리  
 
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=white"/></a>
 <img src="https://img.shields.io/badge/react countup-61DAFB?style=flat-square&logo=react&logoColor=white"/></a>
@@ -55,4 +51,3 @@
 <img src="https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=white"/></a>
 
 <img src="public/readme/directory.PNG" width="200px" alt="result"></img>
-
