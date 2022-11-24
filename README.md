@@ -1,53 +1,9 @@
 # todo-app-vue
 
-- 1. vue3 에서는 start-from을 사용할 것
+## 정오표
 
-## Project setup
-
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-<!-- template for the modal component -->
-<script type="text/x-template" id="modal-template">
-   
-</script>
-
-<!-- app -->
-<div id="app">
-  <button id="show-modal" @click="showModal = true">Show Modal</button>
-  <!-- use the modal component, pass in the prop -->
-  <transition name="modal">
-  <modal v-if="showModal" @close="showModal = false">
-    <!--
-      you can use custom content here to overwrite
-      default content
-    -->
-    <template v-slot:header>
-      <h3>custom header</h3>
-    </template>
-  </modal>
-  </transition>
-</div>
+1. vue3 에서는 start-from을 사용할 것
+2. v-slot 속성을 통해 오버라이딩 하며 이는 template 태그에서만 사용할 수 있는 어트리뷰터다.
+3. @keyup.enter="addTodo"는 input태그 속성에 넣어야 할 것
+4. dev에 저장되는 이슈
+   if (localStorage.key(i) != "loglevel:webpack-dev-server") {
