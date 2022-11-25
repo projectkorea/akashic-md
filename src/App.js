@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import BarChart from './Component/BarChart';
+import CtBart from './Component/CtBar';
+import Coming from './Component/Coming.jsx';
+import Scatter from './Component/Scantter';
+import SankeyGrapth from './Component/SankeyGraph';
+import Sankey from './Component/Sankey.jsx';
+import './css/Chart.css';
+import Dnd from './Component/dnd.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <div className='left'>
+        <div className='item-container'>
+          <SankeyGrapth />
+        </div>
+        <div className='item-container'>
+          <CtBart />
+        </div>
+        <div className='item-container'>
+          <Dnd />
+        </div>
+      </div>
+      <div className='center'>
+        <Sankey />
+      </div>
+      <div className='right'>
+        <Dnd />
+        <Scatter />
+        <Coming />
+      </div>
     </div>
   );
 }
