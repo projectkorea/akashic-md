@@ -1,0 +1,45 @@
+<!DOCTYPE html5>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="og:type" content="미리보기 종류" />
+    <meta property="og:url" content="페이지 URL" />
+    <meta property="og:title" content="미리보기 제목" />
+    <meta
+      property="og:description"
+      content="나의 솔로탈출 능력은 어느정돌까?"
+    />
+    <meta property="og:image" content="미리보기 이미지 주소" />
+    <meta name="twitter:card" content="트위터 미리보기 종류" />
+    <meta name="twitter:url" content="페이지 URL" />
+    <meta name="twitter:title" content="미리보기 제목" />
+    <meta name="twitter:description" content="미리보기 설명" />
+    <meta name="twitter:image" content="미리보기 이미지 주소" />
+    <link rel="stylesheet" href="./share.css" />
+  </head>
+  <body>
+    <div class="btnCollection">
+      <a
+        id="btnTwitter"
+        class="link-icon twitter"
+        href="javascript:shareTwitter();"
+        >트위터</a
+      >
+      <a
+        id="btnFacebook"
+        class="link-icon facebook"
+        href="javascript:shareFacebook();"
+        >페이스북</a
+      >
+      <a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();"
+        >카카오톡</a
+      >
+      <a id="btnLink" class="link-icon link" href="javascript:shareLink();"
+        >링크 복사</a
+      >
+    </div>
+    <script src="index.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  </body>
+</html>
