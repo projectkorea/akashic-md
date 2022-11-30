@@ -2,41 +2,58 @@
 const Slider = function (element, config) {
   this.length =
     element.childElementCount - 1 > 0
-      ? element.childElementCount
-      : config.length
+      ? element.childElementCount + 2
+      : config.length + 2
   this.curIdx = 0
   this.curSlide = null
-
-  // config
+  this.element = element
   this.slideWidth = 300
   this.slideSpeed = 300
-
-  // Mobile
   if (config.isMobile) {
     this.startX = 0
     this.endX = 0
   }
+}
 
-  // init
+Slider.prototype.init = function () {
+  var self = this;
+
+  element.style.width = (slideWidth + slideMargin) * (slideCount + 2) + 'px';
+  element.style.left = -(slideWidth + slideMargin) + 'px';
   element.style.width = this.slideWidth * (this.length + 2) + 'px'
   let firstNode = slideList.firstElementChild.cloneNode(true)
   let lastNode = slideList.lastElementChild.cloneNode(true)
   slideList.appendChild(firstNode)
   slideList.insertBefore(lastNode, slideList.firstElementChild)
+  
+  // addEventListener
+  if (config.isMobile) {
+    function touch_start(e) {
+      startX = e.touches[0].pageX
+    }
+    function touch_end(e) {
+      endX = e.changedTouches[0].pageX
+      startX > endX ? self.next() : self.prev()
+    }
+    this.element.addEventListener('touchstart', touch_start)
+    this.element.addEventListener('touchend', touch_end)
+  }
 
   const slideBtnNext = document.querySelector('.slide-btn-next')
   const slideBtnPrev = document.querySelector('.slide-btn-prev')
   const pagination = document.querySelector('.slide-pagination')
+  // start slide
+  setInterval(moveSlide, 2000)
+  slideBtnNext.addEventListener('click', moveSlide)
 }
 
-Slider.prototype.init = function () {
-  const moveSlide = () => {
-    if (curIndex <= slideLen - 1) {
+Slider.prototype.next = function () {
+    if (curIndex <= this.length - 1) {
       slideList.style.transition = slideSpeed + 'ms'
       slideList.style.transform =
         'translate3d(-' + slideWidth * (curIndex + 2) + 'px, 0px, 0px)'
     }
-    if (curIndex === slideLen - 1) {
+    if (curIndex === this.length - 1) {
       setTimeout(function () {
         slideList.style.transition = '0ms'
         slideList.style.transform =
@@ -44,48 +61,42 @@ Slider.prototype.init = function () {
       }, slideSpeed)
       curIndex = -1
     }
-    curSlide = slides[++curIndex]
-  }
-  // startSlide
-  setInterval(moveSlide, 2000)
-  slideBtnNext.addEventListener('click', moveSlide)
-  loadSlides(slides)
+  curSlide = slides[++curIndex]
+  
+}
+
+Slider.prototype.prev = function () {
+  prev.addEventListener('click', function () {
+    if (currentIdx >= 0) {
+      slides.style.left = -currentIdx * (slideWidth + slideMargin) + 'px';
+      slides.style.transition = `${0.5}s ease-out`;
+    }
+    if (currentIdx === 0) {
+      setTimeout(function () {
+        slides.style.left = -slideCount * (slideWidth + slideMargin) + 'px';
+        slides.style.transition = `${0}s ease-out`;
+      }, 500);
+      currentIdx = slideCount;
+    }
+    currentIdx -= 1;
+  });
 }
 
 export default Slider
 
-/*******************************************
- *
- * 모바일
- *
- *******************************************/
-
-function prev() {
-  if (curIdx <= 0) {
-    // 슬라이드 끝 보여주기
-    curIdx = lenSlides
-  } else {
-    // 현재 인데스 -1 슬라이드 보여주기
+// 왼쪽 오른쪽 다른 로직
+next.addEventListener('click', function () {
+  if (currentIdx <= slideCount - 1) {
+    slides.style.left = -(currentIdx + 2) * (slideWidth + slideMargin) + 'px';
+    slides.style.transition = `${0.5}s ease-out`;
   }
-}
-function next() {
-  if (curIdx >= lenSlides) {
-    // 슬라이드 처음 보여주기
-    curIdx = 0
-  } else {
-    // 현재 인데스 +1 슬라이드 보여주기
+  if (currentIdx === slideCount - 1) {
+    setTimeout(function () {
+      slides.style.left = -(slideWidth + slideMargin) + 'px';
+      slides.style.transition = `${0}s ease-out`;
+    }, 500);
+    currentIdx = -1;
   }
-}
+  currentIdx += 1;
+});
 
-function touch_start(event) {
-  startX = event.touches[0].pageX
-}
-
-function touch_end(event) {
-  endX = event.changedTouches[0].pageX
-  startX > endX ? next() : prev()
-}
-
-images.addEventListener('touchstart', touch_start)
-images.addEventListener('touchend', touch_end)
-images.style.backgroundImage = `url("${slides[0]}"`
