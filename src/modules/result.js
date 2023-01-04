@@ -44,7 +44,7 @@ const SEARCH_RESET = 'SEARCH_RESET';
 export const getPosts = () => async (dispatch) => {
   dispatch({ type: GET_POSTS });
   try {
-    const response = await axios.get('http://testapi.hits.ai/result/');
+    const response = await axios.get('http://testapi/result/');
     const formatted = rounding(response.data);
     dispatch({ type: GET_POSTS_SUCCESS, response: formatted });
   } catch (e) {
@@ -61,7 +61,7 @@ export const getPost = (name) => async (dispatch, getState) => {
     dispatch({ type: GET_POST_SUCCESS_ALREADY });
   } else {
     try {
-      const response = await axios.get(`http://testapi.hits.ai/result/${name}`);
+      const response = await axios.get(`http://testapi/result/${name}`);
       const formatted = rounding(response.data);
       const person = { name, data: formatted };
       dispatch({ type: GET_POST_SUCCESS, person });
