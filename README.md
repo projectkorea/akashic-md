@@ -8,6 +8,8 @@
 
 ### 목차
 
+- 원문: http://domenlightenment.com
+
 |  챕터 |      제목      |
 |:-----:|:-------------: |
 |   0   |[서문][0장]     |
@@ -23,20 +25,21 @@
 |   10  |[DOM에서의 Javascript][10장] |
 |   11  |[dom.js 만들기][11장] |
 
-[0장]: https://github.com/projectkorea/study-js-dom/blob/main/notes/0%EC%9E%A5_%EC%84%9C%EB%AC%B8.md
-[1장]: https://github.com/projectkorea/study-js-dom/blob/main/notes/1%EC%9E%A5_%EB%85%B8%EB%93%9C%EA%B0%9C%EC%9A%94.md
-[2장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[3장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[4장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[5장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[6장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[7장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[8장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[9장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[10장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
-[11장]: https://github.com/projectkorea/study-js-dom/tree/main/notes
+[0장]: https://github.com/projectkorea/dom-enlightenment/blob/main/notes/0%EC%9E%A5_%EC%84%9C%EB%AC%B8.md
+[1장]: https://github.com/projectkorea/dom-enlightenment/blob/main/notes/1%EC%9E%A5_%EB%85%B8%EB%93%9C%EA%B0%9C%EC%9A%94.md
+[2장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[3장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[4장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[5장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[6장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[7장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[8장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[9장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[10장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
+[11장]: https://github.com/projectkorea/dom-enlightenment/tree/main/notes
 
 
 ---
-- 원문: [http://domenlightenment.com](http://domenlightenment.com)
-- p 47오류 ownerElement- > ownerDocument
+### 정오표
+
+- p.47 ownerElement -> ownerDocument
