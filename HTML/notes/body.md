@@ -9,24 +9,28 @@
 ## 글자 태그
 
 ### `<h1>` ~ `<h6>`
-   - 제목을 표현할 때 사용
+
+  - 제목을 표현할 때 사용
+  - `<h1><img /></h1>` 도 가능
 
 ### `<p>`
+
   - 단락을 표현할 때 사용
 
 
 ### `a` 
-  - 링크 표시
-  - `<a href = "https://www.naver.com">`
+
+- 링크 표시
+- `<a href = "https://www.naver.com">`
     1) 절대 경로: `https://www.naver.com`
     2) 상대 경로: 코드를 작성하고 있는 파일 기준 
        - `./` 현재 위치
        - `../` 상위 위치
-   - `href=""`: hypertext(문서, 웹페이지) reference(주소값)
-     -   엘리먼트: `href="#hello`: id가 hello인 태그로이동
-     -   메일: `href="mailto:projectkorea@gamil.com`
-     -   전화: `href="tel:01023456789"`: 모바일에서 가능
-     -   새로운 페이지에서 열 때: `target="\_blank">`
+- `href=""`: hypertext(문서, 웹페이지) reference(주소값)
+  - 엘리먼트: `href="#hello`: id가 hello인 태그로이동
+  - 메일: `href="mailto:projectkorea@gamil.com`
+  - 전화: `href="tel:01023456789"`: 모바일에서 가능
+  - 새로운 페이지에서 열 때: `target="\_blank">`
 
 
 ### `<pre>`
