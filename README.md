@@ -1,13 +1,13 @@
 # HTML과 CSS를 복습하자
 
-### HTML
+## HTML
 
 1. [태그의 종류](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/1.Tag.md)
 2. [HEAD 안에 들어가는 태그](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/2.in_Head_Tag.md)
 3. [HTML 설계](https://github.com/projectkorea/study-html-css/blob/main/HTML/notes/3.Tag.md)
 4. [토이프로젝트](https://github.com/projectkorea/study-html-css/blob/main/HTML/toy-project/README.md)
 
-### CSS
+## CSS
 
 1. [selector](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/1.selector.md)
 2. [box](https://github.com/projectkorea/study-html-css/blob/main/CSS/notes/2.box.md)
