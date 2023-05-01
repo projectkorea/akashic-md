@@ -387,48 +387,27 @@
 
 ---
 
-## `img`, `audio`, `iframe`
-
-
-### **미디어 태그**
-
-- **<img>:** 이미지
-    
-    1) src 속성 : 가져올 이미지의 주소
-    
-    2) alt 속성 : 이미지 불러오기 실패시 보여줄 문자열
-    
-    3) width 속성 : 이미지의 가로의 길이
-    
-    4) height 속성 : 이미지의 세로의 길이
-    
-    `<img src="data:image/jpeg;base64,/9j/Z" alt="영웅사진" width="200px" height="auto">`
-    
-- **<audio>**
-    
-    `<audio src = " 오디오 경로 " conrtols(컨트롤러) autoplay(자동 재생) loop(반복) />`
-    
-- **<video>**
-
----
-
-
 ## 미디어 태그
-
 
 ### `img` 태그
 
--   `<img src='이미지주소' alt="alternative text" />`
--   `img`가 정보로써 큰 의미가 없을 경우, `alt="` 빈 string이라도 적어둔다. (접근성 트리에서 제외)
+- `<img src='이미지주소' alt="alternative text" />`
+- img가 정보로써 큰 의미가 없을 경우, `alt="` 빈 string이라도 적어둔다. (접근성 트리에서 제외)
+- src 속성 : 가져올 이미지의 주소
+- alt 속성 : 이미지 불러오기 실패시 보여줄 문자열
+- width 속성 : 이미지의 가로의 길이
+- height 속성 : 이미지의 세로의 길이
+    `<img src="data:image/jpeg;base64,/9j/Z" alt="영웅사진" width="200px" height="auto">`
 
+### `audio` 태그
 
-- 미디어 파일 태그
 ```html
 <audio src="" autoplay loop></audio>
 ```
 - `controls`: 컨트롤 패널 표시
 - `autoplay` : 컨트롤 패널 없이 자동재생
 - `loop` : 반복 가능
+- `<audio src = " 오디오 경로 " conrtols(컨트롤러) autoplay(자동 재생) loop(반복) />`  
 
 ```html
 <audio>
@@ -454,8 +433,8 @@
 ></iframe>
 ```
 
--   html파일을 embed한다.
--   ex) embedded html을 하고 싶을 때 사용, 유튜브 동영상 embed 링크로 삽입
+- html파일을 embed한다.
+- ex) embedded html을 하고 싶을 때 사용, 유튜브 동영상 embed 링크로 삽입
 
 ## 14. 기타태그
 
@@ -494,35 +473,21 @@
 
 # 기타
 
-**3-6) 마크업 태그**
+```
+<html>:html 파일 전체를 감싸는 태그
+<title>: html의 제목을 정해주는 태그
+<body>:본문, 실제 보여지는 화면
+<head>:머리말에 해당함. css나 javascript를 연결해줌, 문자열 인코딩과 같은 문서정보 제공
+<meta>:<head>요소 안에 존재하여 해당 페이지에 대한 정보를 나타낸다. 검색엔진이 검색을 할 때 중요한 키워드가 된다.
 
-**· <frame>:** 여러개의 html 표현 가능
-
-· **<html>:** html 파일 전체를 감싸는 태그
-
-· **<title>:** html의 제목을 정해주는 태그
-
-· **<body>:** 본문, 실제 보여지는 화면
-
-· **<head>:** 머리말에 해당함. css나 javascript를 연결해줌, 문자열 인코딩과 같은 문서정보 제공
-
-· **<meta>:** <head>요소 안에 존재하여 해당 페이지에 대한 정보를 나타낸다. 검색엔진이 검색을 할 때 중요한 키워드가 된다.
-
-· **<link>:** 주로 외부 css 파일을 연결할 때 사용
-
-· **<script>:** 외부 js 파일을 연결하거나 javascript 코드를 입력할 때 사용
-
-**· <sapn>:** 요소 일부만 디자인이나 기능을 변경할 때 사용
-
-**· <select>**: 셀렉트 박스 창을 만드는 태그, OPTION 태그: 여러 내용을 입력
-
+<link> 주로 외부 css 파일을 연결할 때 사용
+<script> 외부 js 파일을 연결하거나 javascript 코드를 입력할 때 사용
+<sapn> 요소 일부만 디자인이나 기능을 변경할 때 사용
+<select> 셀렉트 박스 창을 만드는 태그, OPTION 태그: 여러 내용을 입력
 
 <select>
-
-<option value="전체">전체</option>
-
-<option value="제목">제목</option>
-
-<option value="내용">내용</option>
-
+    <option value="전체">전체</option>
+    <option value="제목">제목</option>
+    <option value="내용">내용</option>
 </select>
+```
