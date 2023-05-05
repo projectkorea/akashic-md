@@ -9,6 +9,7 @@
 
 ## CSS
 
+0. [intro](https://github.com/projectkorea/html-css/blob/main/CSS/notes/0.intro.md)
 1. [selector](https://github.com/projectkorea/html-css/blob/main/CSS/notes/1.selector.md)
 2. [box](https://github.com/projectkorea/html-css/blob/main/CSS/notes/2.box.md)
 3. [float](https://github.com/projectkorea/html-css/blob/main/CSS/notes/3.float.md)
