@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>float 이미지</title>
+        <style>
+            div {
+                margin: 0 auto;
+                width: 900px;
+            }
+            li {
+                filter: grayscale(100%);
+                width: 200px;
+                height: 150px;
+                list-style: none;
+                background-size: cover;
+                float: left;
+            }
+            li:hover {
+                filter: grayscale(0%);
+                transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1000ms;
+            }
+            .box1 {
+                background-image: url('https://cdn.famtimes.co.kr/news/photo/202102/502199_3315_3651.png');
+            }
+            .box2 {
+                background-image: url('https://1.gall-img.com/hygall/files/attach/images/82/817/895/291/5821e457b4d8e9224c27943948d0c458.jpg');
+            }
+            .box3 {
+                background-image: url('https://blog.kakaocdn.net/dn/boz8ky/btqHVoTDTeb/dYAFVt5ZPolWTEGrHTPsoK/img.jpg');
+            }
+            .box4 {
+                background-image: url('https://cdn.imweb.me/upload/S20210419469031325677f/e9d3b849aa480.jpg');
+            }
+            .box5 {
+                background-image: url('https://cdn.famtimes.co.kr/news/photo/202102/502199_3315_3651.png');
+            }
+            .box6 {
+                background-image: url('https://1.gall-img.com/hygall/files/attach/images/82/817/895/291/5821e457b4d8e9224c27943948d0c458.jpg');
+            }
+            .box7 {
+                background-image: url('https://blog.kakaocdn.net/dn/boz8ky/btqHVoTDTeb/dYAFVt5ZPolWTEGrHTPsoK/img.jpg');
+            }
+            .box8 {
+                background-image: url('https://cdn.imweb.me/upload/S20210419469031325677f/e9d3b849aa480.jpg');
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul>
+                <li class="box1"></li>
+                <li class="box2"></li>
+                <li class="box3"></li>
+                <li class="box4"></li>
+                <li class="box5"></li>
+                <li class="box6"></li>
+                <li class="box7"></li>
+                <li class="box8"></li>
+            </ul>
+        </div>
+    </body>
+</html>

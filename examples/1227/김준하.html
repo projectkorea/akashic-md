@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김준하</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>애완용품숍</header>
+      <main>
+        <div class="container">
+          <img v-bind:src="product.img" style="width: 150px" />
+          <div class="item">
+            <h1>{{product.name}}, {{product.price}}원</h1>
+            <p v-html="product.description">\n\n\n\n</p>
+            <span>&#8361;{{product.price}}</span>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          title: '애완용품샵',
+          product: {
+            img: 'product.png',
+            name: '고양이 사료',
+            description:
+              '당신의 고양이를 위한 거부할 수 없는, <br/> 유기농20,000원 사료입니다.',
+            price: '20,000',
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

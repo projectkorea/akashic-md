@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-size: 16px;
+      }
+      #wrap {
+        position: relative;
+        top: 50px;
+        width: 900px;
+        margin: 0 auto;
+      }
+      h3,
+      hr {
+        margin: 0px;
+      }
+      fieldset {
+        border: none;
+        margin: 0px;
+      }
+      legend {
+        display: none;
+      }
+      ul {
+        list-style: none;
+        /* list-style-type: none; */
+      }
+      .input-name {
+        background-color: whitesmoke;
+      }
+      p {
+        margin: 0px;
+        border-bottom: 0.5px gray solid;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+        padding: 10px;
+        background-color: #eee;
+        text-align: right;
+      }
+      input {
+        width: 150px;
+        padding: 5px;
+        margin: 5px 5px 5px 5px;
+      }
+      .btn-double-check {
+        background-color: #e74c3c;
+        border-radius: 2px;
+        border: transparent;
+        padding: 5px;
+        color: #f7f9f9;
+        font-size: 12px;
+      }
+      i {
+        padding-left: 140px;
+        font-size: 12px;
+      }
+      .submit {
+        width: 330px;
+        margin: 0 auto;
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <h3>회원가입 양식</h3>
+      <hr />
+      <form>
+        <fieldset>
+          <legend>회원 가입 양식</legend>
+          <ul>
+            <li>
+              <p>
+                <label>이름</label>
+                <input class="input-name" value="이름" />
+              </p>
+            </li>
+            <li>
+              <p>
+                <label>아이디</label>
+                <input value="아이디" />
+                <button class="btn-double-check">중복확인</button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <label class="password">비밀번호</label>
+                <input type="password" value="비밀번호" />
+                <br />
+                <span class="wording"
+                  >Lorem ipsum dolor sit amet consectetur adipisicing
+                  elit.</span
+                >
+              </p>
+            </li>
+            <li>
+              <p>
+                <label class="password">비밀번호 확인</label>
+                <input type="password" value="비밀번호 확인" />
+              </p>
+            </li>
+            <li>
+              <p>
+                <label>이메일</label>
+                <input type="password" value="비밀번호 확인" />
+                @
+                <input type="password" value="비밀번호 확인" />
+                <select>
+                  <option>직접확인</option>
+                </select>
+                <button class="btn-double-check">이메일 중복확인</button>
+              </p>
+            </li>
+            <li>
+              <p>
+                <label>학년/반</label>
+                <select>
+                  <option value="선택">선택</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+                학년
+                <select>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                </select>
+                반
+              </p>
+            </li>
+          </ul>
+        </fieldset>
+        <p class="submit">
+          <input type="submit" value="회원가입" />
+          <input type="submit" value="가입취소" />
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

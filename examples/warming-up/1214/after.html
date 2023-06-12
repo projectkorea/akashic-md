@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #2e86c1;
+            }
+            form {
+                margin: auto;
+                top: 30vh;
+                position: relative;
+                width: 300px;
+            }
+            fieldset {
+                background-color: #fbfcfc;
+                margin: 0px;
+                padding: 20px 20px 20px 30px;
+                border-radius: 20px;
+                border: hidden;
+                overflow: hidden;
+            }
+            label,
+            legend {
+                display: none;
+            }
+            .btn1 {
+                position: absolute;
+                right: 25px;
+                top: 25px;
+            }
+            .btn1 button {
+                width: 60px;
+                height: 60px;
+            }
+            input {
+                background-color: #eee;
+                border: none;
+                padding: 5px;
+                border-radius: 5px;
+            }
+            .find_btn input {
+                background-color: whitesmoke;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>로그인</legend>
+                <p>
+                    <label>아이디</label>
+                    <input type="text" name="" placeholder="아이디" />
+                </p>
+                <p>
+                    <label>비밀번호</label>
+                    <input type="password" name="" placeholder="비밀번호" />
+                </p>
+                <p class="btn1">
+                    <button>로그인</button>
+                </p>
+                <p class="find_btn">
+                    <input type="button" value="회원가입" />
+                    <input type="button" value="아이디 찾기" />
+                    <input type="button" value="비밀번호 찾기" />
+                </p>
+            </fieldset>
+        </form>
+    </body>
+</html>

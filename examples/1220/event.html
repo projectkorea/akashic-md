@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <child-component v-on:show-log="printText"></child-component>
+      <!--이벤트 전달 v-on:show-log 대상 메서드인 최상위 컴포넌트 메서드 printText()가 실행-->
+    </div>
+    <script>
+      Vue.component('child-component', {
+        template: '<button v-on:click="showLog">show</button>', // 1. showLog 메서드 발생
+        methods: {
+          showLog: function () {
+            this.$emit('show-log'); // 2. show-log 이벤트 발생, 🐔this가 들어간 이유? 차일드 메서드라는 객체에서...!
+          },
+        },
+      });
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue! passed from Parent Component',
+        },
+        methods: {
+          printText: function () {
+            console.log('received an event');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
