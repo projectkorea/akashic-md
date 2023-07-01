@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <!-- dom에 있어야하기 때문에 위에 선언 -->
+        <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.js"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+        <link rel="stylesheet" href="./src/css/index.css" />
+        <script type="module" defer src="./src/js/index.js"></script>
+    </head>
+
+    <body>
+        <div id="container" class="container">
+            <!-- 왼쪽 -->
+            <!-- sankey -->
+            <div id="left" class="left">
+                <div id="L1" class="item-container" draggable="true">
+                    <div class="header">
+                        병원 대시보드
+                        <button id="startL1Button" class="btn_image zoomIn">
+                            <img src="src/img/zoom-in.png" class="img" />
+                        </button>
+                        <button id="closeL1Button" class="btn_image zoomOut">
+                            <img src="src/img/zoom-out.png" class="img" />
+                        </button>
+                        <button id="pdfL1Button" class="pdfButton">
+                            <img src="src/img/pdfImage.png" class="buttonImg" />
+                        </button>
+                        <button id="imageL1Button" class="imgButton">
+                            <img src="src/img/pngImage.png" class="buttonImg" />
+                        </button>
+
+                        <div id="main1" class="main"></div>
+                    </div>
+                </div>
+
+                <!-- ct -->
+                <div id="L2" class="item-container" draggable="true">
+                    <div class="header">
+                        CT 검사
+                        <button id="startL2Button" class="btn_image zoomIn">
+                            <img src="src/img/zoom-in.png" class="img" />
+                        </button>
+                        <button id="closeL2Button" class="btn_image zoomOut">
+                            <img src="src/img/zoom-out.png" class="img" />
+                        </button>
+                        <button id="pdfL2Button" class="pdfButton">
+                            <img src="src/img/pdfImage.png" class="buttonImg" />
+                        </button>
+                        <button id="imageL2Button" class="imgButton">
+                            <img src="src/img/pngImage.png" class="buttonImg" />
+                        </button>
+                        <div id="main2" class="main"></div>
+                    </div>
+                </div>
+
+                <!-- hit+bar -->
+                <div id="L3" data-isDouble="true" class="item-container" draggable="true">
+                    <div class="header">
+                        채혈검사
+                        <button id="startL3Button" class="btn_image zoomIn">
+                            <img src="src/img/zoom-in.png" class="img" />
+                        </button>
+                        <button id="closeL3Button" class="btn_image zoomOut">
+                            <img src="src/img/zoom-out.png" class="img" />
+                        </button>
+                        <button id="pdfL3Button" class="pdfButton">
+                            <img src="src/img/pdfImage.png" class="buttonImg" />
+                        </button>
+                        <button id="imageL3Button" class="imgButton">
+                            <img src="src/img/pngImage.png" class="buttonImg" />
+                        </button>
+                        <div id="plus" class="plus">
+                            <div id="main8" class="bar1"></div>
+                            <div id="main3" class="heat"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 중간 -->
+            <!-- moving sk -->
+            <div id="center" class="center">
+                <div id="C" class="item-container" draggable="true">
+                    <div class="header">
+                        이동현황
+                        <button id="startCButton" class="btn_image zoomIn">
+                            <img src="src/img/zoom-in.png" class="img" />
+                        </button>
+                        <button id="closeCButton" class="btn_image zoomOut">
+                            <img src="src/img/zoom-out.png" class="img" />
+                        </button>
+                        <button id="pdfCButton" class="pdfButton">
+                            <img src="src/img/pdfImage.png" class="buttonImg" />
+                        </button>
+                        <button id="imageCButton" class="imgButton">
+                            <img src="src/img/pngImage.png" class="buttonImg" />
+                        </button>
+                        <div id="main4" class="main"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 오른쪽 -->
+            <!-- bar -->
+            <div id="right" class="right">
+                <div id="R1" class="item-container" draggable="true">
+                    <div class="header">
+                        검사/수술 운영
+                        <button id="startR1Button" class="btn_image zoomIn">
+                            <img src="src/img/zoom-in.png" class="img" />
+                        </button>
+                        <button id="closeR1Button" class="btn_image zoomOut">
+                            <img n src="src/img/zoom-out.png" class="img" />
+                        </button>
+                        <button id="pdfR1Button" class="pdfButton">
+                            <img src="src/img/pdfImage.png" class="buttonImg" />
+                        </button>
+                        <button id="imageR1Button" class="imgButton">
+                            <img src="src/img/pngImage.png" class="buttonImg" />
+                        </button>
+
+                        <div id="main5" class="main"></div>
+                    </div>
+                </div>
+
+                <!-- scatter -->
+                <div id="R2" class="item-container" draggable="true">
+                    <div class="header">
+                        병동별 환자 유입/유출
+                        <button id="startR2Button" class="btn_image zoomIn">
+                            <img src="src/img/zoom-in.png" class="img" />
+                        </button>
+                        <button id="closeR2Button" class="btn_image zoomOut">
+                            <img src="src/img/zoom-out.png" class="img" />
+                        </button>
+                        <button id="pdfR2Button" class="pdfButton">
+                            <img src="src/img/pdfImage.png" class="buttonImg" />
+                        </button>
+                        <button id="imageR2Button" class="imgButton">
+                            <img src="src/img/pngImage.png" class="buttonImg" />
+                        </button>
+                        <div id="main6" class="main"></div>
+                    </div>
+                </div>
+
+                <!-- coming -->
+                <div id="R3" class="item-container" draggable="true">
+                    <div class="header">
+                        방문 환자 수
+                        <button id="startR3Button" class="btn_image zoomIn">
+                            <img src="src/img/zoom-in.png" class="img" />
+                        </button>
+                        <button id="closeR3Button" class="btn_image zoomOut">
+                            <img src="src/img/zoom-out.png" class="img" />
+                        </button>
+                        <button id="pdfR3Button" class="pdfButton">
+                            <img src="src/img/pdfImage.png" class="buttonImg" />
+                        </button>
+                        <button id="imageR3Button" class="imgButton">
+                            <img src="src/img/pngImage.png" class="buttonImg" />
+                        </button>
+                        <div id="main7" class="main"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
