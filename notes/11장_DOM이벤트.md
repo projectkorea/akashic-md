@@ -218,7 +218,14 @@ function handler() {
 
 ## 7. `this` 값: `event.currentTarget`
 
-`this` 값은 **이벤트가 연결된** element를 가리킨다.
+- `this` 값은 **이벤트가 연결된** element를 가리킨다.
+
+```js
+button.addEventListener('click', function(event) {
+	console.log(this === event.target === button) // true
+});
+```
+- 이벤트 핸들러안의 **`this`** 는 해당 이벤트가 발생한 요소를 가리킴
 
 ```js
 <button onclick="this.textContent = '성공입니다!'">클릭하세요!</button>
