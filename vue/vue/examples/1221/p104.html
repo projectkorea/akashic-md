@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directive</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+      #vid {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <a v-if="flag">Vue.js 버튼</a>
+      <ul>
+        <li v-for="item in items">{{ item }}</li>
+      </ul>
+      <p v-show="flag">v-show 디렉티브 내가 보이니</p>
+      <h5 v-bind:id="uid">뷰는 쉽다</h5>
+      <button v-on:click="popupAlert">경고 창 버튼</button>
+    </div>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          flag: true,
+          items: ['android', 'ios', 'window', 'Linux'],
+          uid: 'vid',
+        },
+        methods: {
+          popupAlert: function () {
+            return alert('경고창표시');
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

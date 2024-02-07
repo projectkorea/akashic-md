@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>배경이미지, 반투명컬러</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            div.example2 {
+                width: 100%;
+                background-image: url('https://i.ytimg.com/vi/RD7X_TGjNcE/maxresdefault.jpg');
+                background-size: 50%;
+            }
+            div.example1 {
+                /* width: 100%; */
+                height: 300px;
+                background-image: url('https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt802359e531f91088/61a97a6e34f3f5135367b563/120721_Debonair_Leona_Splash_v2.jpg');
+                background-position: center;
+                background-size: cover;
+                padding: 20px;
+            }
+            p {
+                background-color: rgba(0, 0, 0, 0.5);
+                /* 뭐를 기준으로 90% 인지 부모 기준이제*/
+                color: white;
+                font-size: 60px;
+                font-weight: bold;
+                text-align: center;
+                padding: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="example2">
+            <p>투명 배경 예시</p>
+        </div>
+        <div class="example1">
+            <p>연미복 레오나</p>
+        </div>
+    </body>
+</html>

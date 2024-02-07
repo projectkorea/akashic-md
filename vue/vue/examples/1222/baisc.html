@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h3>{{message}}</h3>
+        <h3>{{name}}</h3>
+        <h5 v-bind:id="uid"></h5>
+        <!-- 아이디 바인딩 -->
+      </header>
+      <section>
+        <p v-bind:id="uid"></p>
+        <button v-on:click="clickBtn">alert</button>
+        <ul v-if="flag">
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+        </ul>
+      </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="basic.js"></script>
+    <!-- 두 스크립트의 순서를 바꿨더니 라이브러리 적용이 안되었었음 -->
+  </body>
+</html>
