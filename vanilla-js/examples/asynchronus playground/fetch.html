@@ -1,0 +1,32 @@
+<input
+  type="button"
+  value="GET"
+  onclick="
+fetch('./db.json')
+  .then(response =>{ 
+    console.log(response)       // Response 객체
+    return response.json()}) 
+  .then(data => {
+    console.log(data)           // json타입으로 인식해서 Javascript 데이터타입으로 컨버팅
+    
+  })
+"
+/>
+
+<input
+  type="button"
+  value="CREATE"
+  onclick="
+  fetch('http://localhost:3000/topics',{
+    method:'POST',
+    body: JSON.stringify({title:'aa'}),
+    headers: {
+      'Content-type' : 'application/json'
+    }
+  }
+  )
+  .then(response =>{ 
+    console.log(response)       // Response 객체
+    return response.json()})
+"
+/>
