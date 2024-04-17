@@ -42,6 +42,7 @@ constructor(props) {
   this.handleClick = this.handleClick.bind(this); // 이벤트 처리 메서드 바인딩
 }
 ```
+
 - `this`는 해당 컴포넌트를 가리킨다.
 
 

@@ -8,7 +8,7 @@
 
 1. [데이터 테이블](https://github.com/projectkorea/react/tree/main/1.data-table)
 2. [좋아하는 동물](https://github.com/projectkorea/react/tree/main/2.favorite-animal)
-2. [좋아하는 동물](https://github.com/projectkorea/react/tree/main/3.triple)
+3. [클론 코딩](https://github.com/projectkorea/react/tree/main/3.triple)
 
 ## Learning Project
 
