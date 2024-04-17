@@ -1,5 +1,3 @@
-import ReactDOM from 'react-dom'
-// import App from './App';
 // import App from './CRUD-class/App';
 // import App from './CRUD-function/App';
 // import App from './Life Cycle/FuncCycle';
@@ -19,7 +17,7 @@ import ReactDOM from 'react-dom'
 // import App from './Hooks/useLayoutEffect';
 // import App from './react-redux/App';
 // import App from './app.js';
-// import App from './useContext/themeProvider'
-import App from './experiment/useRef'
+// import App from "./experiment/useRef";
 
-ReactDOM.render(<App />, document.getElementById('root'))
+
+
