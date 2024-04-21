@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-// 지시사항에 따라 출력 결과와 동일한 동작을 하는 코드를 작성하세요.
 function App() {
   const coffee_array = [
     {

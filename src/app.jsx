@@ -24,7 +24,8 @@ function App() {
           {name}
         </button>
       ))}
-
+      {/* 구분선을 나타내는 코드 */}
+      
       {selectedComponent && renderComponent(selectedComponent)}
     </>
   );
