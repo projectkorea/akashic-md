@@ -1,10 +1,10 @@
 import { useState } from "react";
+import Buttons from "./Buttons.jsx";
 import AppClass from "./components/class/AppClass.jsx";
-import AppFunction from "./components/function/AppFunction.jsx"; 
+import AppFunction from "./components/function/AppFunction.jsx";
 
 function App() {
-  const [selectedComponent, setSelectedComponent] = useState(null); 
-
+  const [selectedComponent, setSelectedComponent] = useState(null);
   const componentMap = {
     AppClass: AppClass,
     AppFunction: AppFunction,
@@ -15,17 +15,14 @@ function App() {
     return Component ? <Component /> : null;
   };
 
-  const componentNames = Object.keys(componentMap);
-
   return (
+    // selectedComponent가 바뀔 때 마다 <></>를 리랜더링함.
     <>
-      {componentNames.map((name) => (
-        <button key={name} onClick={() => setSelectedComponent(name)}>
-          {name}
-        </button>
-      ))}
-      {/* 구분선을 나타내는 코드 */}
-      
+      <Buttons
+        componentMap={componentMap}
+        setSelectedComponent={setSelectedComponent}
+      />
+      <div className="division" style={{ margin: "30px 0" }}></div>
       {selectedComponent && renderComponent(selectedComponent)}
     </>
   );
