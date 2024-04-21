@@ -16,12 +16,13 @@ function App() {
   }, []);
 
   return (
-    <div style={{ backgroundColor: 'black' }}>
-      <div style={{ width: 500, height: 500 }} className='skeleton'>
+    <div style={{ backgroundColor: "black" }}>
+      <div style={{ width: 500, height: 500 }} className="skeleton">
         <img
-          alt='duck'
+          className="image"
+          alt="duck"
           src={duckUrl}
-          style={loaded ? { display: 'block' } : { display: 'none' }}
+          style={loaded ? { display: "block" } : { display: "none" }}
           onLoad={() => setLoaded(true)}
         />
       </div>

@@ -1,8 +1,10 @@
+/* Skeleton */
+
 :root {
   --loading-grey: #ededed;
 }
 
-img {
+.image {
   display: block;
   width: 500px;
   height: 500px;
