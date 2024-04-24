@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 
 const theme = {
@@ -30,11 +31,12 @@ const FancyDiv = styled.div`
   padding: 50px 0 0 0;
   font-size: 20px;
   background-color: darkblue;
+  flex-direction: ${(props) => (props.toggle ? "row-reverse" : "column")};
   :hover {
     background-color: yellow;
   }
   ::after {
-    content: '';
+    content: "";
     display: block;
     width: 50px;
     height: 50px;
@@ -57,16 +59,18 @@ const FancyDiv = styled.div`
 `;
 
 function App() {
+  const [toggle, setToggle] = useState(false);
   return (
     <ThemeProvider theme={theme}>
       <FancyContainer>
         <FancyButton>그냥 버튼</FancyButton>
         <FancyButton active>활성화 버튼</FancyButton>
-        <FancyDiv>
+        <FancyDiv toggle={toggle}>
           FancyDIV
           <div>
             바깥쪽 DIV1
             <div>안쪽 DIV</div>
+            <button onClick={() => setToggle(!toggle)}>버튼</button>
           </div>
         </FancyDiv>
       </FancyContainer>

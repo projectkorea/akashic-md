@@ -1,7 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const useClick = (callback) => {
   const element = useRef();
+
   useEffect(() => {
     if (element.current) {
       element.current.addEventListener('click', callback);
@@ -12,11 +13,11 @@ const useClick = (callback) => {
 };
 
 const App = () => {
-  const clickElem = useClick(() => window.confirm('저를 누르샸습니까?'));
+  const clickElemRef = useClick(() => window.confirm('저를 누르셨죠?'));
 
   return (
     <>
-      <button ref={clickElem}>버튼</button>
+      <button ref={clickElemRef}>버튼</button>
     </>
   );
 };
