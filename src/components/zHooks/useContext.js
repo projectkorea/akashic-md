@@ -1,10 +1,8 @@
 import { createContext, useContext, useState } from "react";
-import { useState, useContext, createContext } from "react";
-import { A, Header } from "./basicContextComp";
 
-export const ThemeContext = createContext();
+const ThemeContext = createContext();
 
-function App1() {
+function App() {
   const [theme, setTheme] = useState("dark");
   
   const switchTheme = () => {
@@ -12,6 +10,7 @@ function App1() {
   };
 
   const themeProps = { theme, switchTheme };
+
   return (
     <ThemeContext.Provider value={themeProps}>
       <Content />
@@ -26,29 +25,6 @@ function Content() {
       <span>Current theme: {context.theme}</span>
       <button onClick={context.switchTheme}>Switch Theme</button>
     </section>
-  );
-};
-
-
-function App2() {
-  const StateContext = createContext();
-  const [state, setState] = useState("");
-
-  return (
-    <StateContext.Provider value={{ state, setState }}>
-      <Header />
-      <A />
-    </StateContext.Provider>
-  );
-}
-
-function A() {
-  const { setState } = useContext(StateContext);
-  return (
-    <div>
-      <h1>B</h1>
-      <input onChange={(e) => setState(e.target.value)} />
-    </div>
   );
 }
 

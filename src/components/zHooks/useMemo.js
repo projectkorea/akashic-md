@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 
-const App = () => {
-  console.log('리랜더링');
+function App() {
+
   const [isOn, setIsOn] = useState(false);
   const [users, setUsers] = useState([
     { active: true },
@@ -29,6 +29,6 @@ const App = () => {
       </button>
     </div>
   );
-};
+}
 
 export default App;
