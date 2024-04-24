@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function App() {
+function CoffeeOrderComponent() {
   const coffee_array = [
     {
       id: 1,
@@ -49,7 +49,7 @@ function App() {
     );
   });
   return (
-    <div className='App'>
+    <div className='CoffeeOrderComponent'>
       <div>
         <p>{coffee_list}</p>
         <p>
@@ -62,4 +62,4 @@ function App() {
   );
 }
 
-export default App;
+export default CoffeeOrderComponent;

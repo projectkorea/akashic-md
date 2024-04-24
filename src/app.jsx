@@ -4,14 +4,21 @@ import AppClass from "./components/ClassComponent/App.jsx";
 import AppFunc from "./components/FuncComponent/App.jsx";
 import AppCRUD from "./components/CRUDComponent/App.jsx";
 // import AppStyle from "./components/StyleComponent/App.jsx";
+import CoffeeOrderComponent from "./components/CoffeeOrderComponent.jsx";
+import AJAXComponent from "./components/AJAXComponent.jsx";
+import BlinkingComponent from "./components/BlinkingComponent.jsx";
+
 
 function App() {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const componentMap = {
-    AppClass: AppClass,
-    AppFunction: AppFunc,
-    AppCRUD: AppCRUD,
-    // AppStyle: AppStyle,
+    AppClass,
+    AppFunc,
+    AppCRUD,
+    //AppStyle,
+    CoffeeOrderComponent,
+    AJAXComponent,
+    BlinkingComponent,
   };
 
   const renderComponent = (componentName) => {

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import './skeleton.css';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const [duckUrl, setDuckUrl] = useState('');
@@ -9,7 +8,7 @@ function App() {
     const getDuck = async () => {
       const {
         data: { url },
-      } = await axios.get('https://random-d.uk/api/random');
+      } = await axios.get('/api/duck/random');
       setDuckUrl(url);
     };
     getDuck();
