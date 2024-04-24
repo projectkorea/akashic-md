@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import  { useState, useMemo } from 'react';
 import InsertForm from './components/InsertForm';
 import ListView from './components/ListView';
 

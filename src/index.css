@@ -1,5 +1,36 @@
+/* blinking */
 
-/* CSS */
+:root {
+  --loading-grey: #ededed;
+}
+
+.image {
+  display: block;
+  width: 500px;
+  height: 500px;
+}
+
+.skeleton {
+  background-color: var(--loading-grey);
+  background: linear-gradient(
+      100deg,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 60%
+    )
+    var(--loading-grey);
+  background-size: 200% 100%;
+  background-position-x: 180%;
+  animation: 1s loading ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
+
+/* App.jsx */
 .button-17 {
   align-items: center;
   appearance: none;

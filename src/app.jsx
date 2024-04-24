@@ -1,13 +1,17 @@
 import { useState } from "react";
 import Buttons from "./Buttons.jsx";
-import AppClass from "./components/class/AppClass.jsx";
-import AppFunction from "./components/function/AppFunction.jsx";
+import AppClass from "./components/ClassComponent/App.jsx";
+import AppFunc from "./components/FuncComponent/App.jsx";
+import AppCRUD from "./components/CRUDComponent/App.jsx";
+// import AppStyle from "./components/StyleComponent/App.jsx";
 
 function App() {
   const [selectedComponent, setSelectedComponent] = useState(null);
   const componentMap = {
     AppClass: AppClass,
-    AppFunction: AppFunction,
+    AppFunction: AppFunc,
+    AppCRUD: AppCRUD,
+    // AppStyle: AppStyle,
   };
 
   const renderComponent = (componentName) => {

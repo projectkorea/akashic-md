@@ -3,8 +3,7 @@ import PropTypes from "prop-types";
 function Buttons({ componentMap, setSelectedComponent }) {
   const componentNames = Object.keys(componentMap);
   return (
-    // make buttons align center
-    <div style ={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+    <div style ={{display:'flex', justifyContent:'center'}}>
       {componentNames.map((name) => {
         return (
           <button

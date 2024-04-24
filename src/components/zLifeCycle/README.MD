@@ -1,17 +1,20 @@
 # Component Life Cycle
 
 #### 1. Mounting
+
 - component가 생성될 때 호출된다.
    - `constructor()`: class 방식으로 state를 초기화하는 목적
    - `UNSAFE_componentWillMount()`: Component가 render 되기 전에 호출된다.
    - `componentDidMount()`: Component가 render 되고나서 호출된다.
 
 #### 2. Updating
+
 - component가 업데이트 될 때 호출된다.
    - `UNSAFE_componentWillUpdate()`
    - `componentDidUpdate()`
 
 #### 3. Unmounting
+
 - component가 없어질 때
    - `componentWillUnmount()`
 
@@ -46,6 +49,7 @@ shouldComponentUpdate(newProps, newState) {
   // render() 호출
 }
 ```
+
 - 이전 값과 이후에 변경된 값을 비교해, 서로 다를 때만 어떤 작업을 처리하면 불필요한 처리를 하지 않을 수 있어 성능을 높일 수 있다.
 - `newProps`: 컴포넌트의 props가 바뀌었을 때 바뀐 값
 - `newState`: state가 바뀌었을 때 바뀐 state의 값
