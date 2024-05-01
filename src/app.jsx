@@ -3,10 +3,9 @@ import Buttons from "./Buttons.jsx";
 import AppClass from "./components/ClassComponent/App.jsx";
 import AppFunc from "./components/FuncComponent/App.jsx";
 import AppCRUD from "./components/CRUDComponent/App.jsx";
-// import AppStyle from "./components/StyleComponent/App.jsx";
 import CoffeeOrderComponent from "./components/CoffeeOrderComponent.jsx";
-import AJAXComponent from "./components/AJAXComponent.jsx";
 import BlinkingComponent from "./components/BlinkingComponent.jsx";
+// import AppStyle from "./components/StyleComponent/App.jsx";
 
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
     AppCRUD,
     //AppStyle,
     CoffeeOrderComponent,
-    AJAXComponent,
     BlinkingComponent,
   };
 
