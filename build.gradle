@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0'
 }
 
 group = 'org.example'
@@ -10,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
