@@ -1,0 +1,131 @@
+* {
+  font-family: 'Spoqa Han Sans';
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+button {
+  background-color: transparent;
+}
+
+li,
+ul {
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+}
+button {
+  width: 100px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  width: 120px;
+  height: 200px;
+  background-color: hsla(232, 100%, 69%, 0.274);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+  animation: fadeIn 1s forwards;
+  position: relative;
+  /* filter: grayscale(100%);
+  -webkit-filter: grayscale(100%); */
+  transition: all 200ms ease-in;
+}
+
+.card-wrapper:hover {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
+.header {
+  width: 500px;
+  border-radius: 5px;
+  padding: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  margin: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.1;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+span {
+  padding: 2px 0;
+}
+
+.btn-active {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 10px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.btn-delete {
+  width: 30px;
+  height: 20px;
+  font-size: 10px;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  background-color: rgba(255, 98, 98, 0.952);
+  padding: 0 0 0 1px;
+}
+
+.btn-modify {
+  width: 30px;
+  height: 20px;
+  font-size: 10px;
+  position: absolute;
+  right: 35px;
+  bottom: 5px;
+  background-color: rgba(208, 255, 98, 0.952);
+  padding: 0 0 0 1px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input-mod {
+  height: 14px;
+  width: 60px;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form {
+  display: flex;
+  padding: 20px 120px;
+  margin: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

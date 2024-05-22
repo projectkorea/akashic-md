@@ -2,6 +2,16 @@
 
 Akashic-MD is a repository for Programming. Here, you can store and share programming languages, algorithms, data structures, project ideas, development tips, and other technology-related subjects.
 
+## Migrating Repository
+
+```bash
+git remote add sub-repo https://github.com/username/sub-repo.git
+git fetch sub-repo
+git merge -s ours --allow-unrelated-histories sub-repo/main
+git read-tree --prefix=path/to/sub-repo/ -u sub-repo/main
+
+```
+
 ## How to Use
 
 1. Clone this repository to your local computer.
