@@ -1,6 +1,6 @@
 # Akashic-MD
 
-Akashic-MD is a repository for gathering Markdown files related to coding studies. Here, you can store and share documents on topics such as programming languages, algorithms, data structures, project ideas, development tips, and other technology-related subjects.
+Akashic-MD is a repository for Programming. Here, you can store and share programming languages, algorithms, data structures, project ideas, development tips, and other technology-related subjects.
 
 ## How to Use
 
