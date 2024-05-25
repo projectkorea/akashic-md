@@ -20,7 +20,7 @@ fun main() {
 
     var num4:Int? = 10
 
-    val num5 = num1 + num2 + num3;
+    val num5 = num1 + num2   // + num3; type misMatch
     // 4.
     // 연산시 알아서 Long타입이 long으로 바뀌며 효율적으로 계산
 
