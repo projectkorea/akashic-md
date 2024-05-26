@@ -32,3 +32,9 @@
 - 생성자, init
 - 커스텀 getter, setter
 - backing field
+
+## Chapter 4. 코틀린의 함수형 프로그래밍
+### STEP15. 코틀린에서 배열과 컬렉션을 다루는 방법
+- 배열
+- 컬렉션 ( List, Set, Map )
+- 컬렌션의 null 가능성, Java와 함께 사용하는 법
