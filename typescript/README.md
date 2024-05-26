@@ -33,6 +33,17 @@ The type system is at the heart of TypeScript. It allows you to define and enfor
 
 TypeScript's type inference capabilities can save you time and effort by automatically deducing types from your code. You'll explore how TypeScript infers types and how to leverage this feature to write cleaner and more concise code.
 
+- item06 ~ item18
+
+- 함수 표현식에 타입 적용하기
+- 타입과 인터페이스의 차이
+- 타입 연산과 제너릭 사용으로 반복 줄이기
+- 동적 데이터에 인덱스 시그니처 사용하기
+- number 인덱스 시그니처보다는 Array, 튜플, ArrayLike 사용하기
+- 변경 관련된 오류 방지를 위해 readonly 사용하기
+- 매핑된 탕입을 사용하여 값 동기화하기
+
+
 ## Type Design
 
 Designing types effectively is crucial for maintaining a clean and scalable codebase. This section covers best practices and principles for type design, including:
