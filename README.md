@@ -27,6 +27,8 @@
 - default parameter
 - named argument
 - 같은 타입의 여러 parameter 받기 (가변인자)
+
+## Chapter 3. OOP
 ### Step09. 클래스
 - 클래스, 프로퍼티
 - 생성자, init
