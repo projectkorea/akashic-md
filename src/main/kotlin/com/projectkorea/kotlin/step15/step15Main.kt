@@ -15,5 +15,5 @@ private fun main2() {
     val numbers = listOf(100,200)
     println(numbers[0])
 
-    for ((index,key) in numbers.withIndex())
+    // for ((index,key) in numbers.withIndex())
 }

@@ -41,6 +41,6 @@ public class step08 {
     }
 
     String[] array = new String[]{"A", "B", "C"};
-    printAll(array);
-    printAll("a" ,"b", "c")
+    //printAll(array);
+    //printAll("a" ,"b", "c")
 }
