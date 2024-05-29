@@ -14,3 +14,6 @@ public class main {
         }
     }
 }
+
+// 동등성(equality) 두 객체의 값이 같은가 equals
+// 동일성(identity) 두 객체가 같은 객체인가, 주소가 같은가 ==

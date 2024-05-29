@@ -1,4 +1,4 @@
-package com.projectkorea.java.JavaMoney;
+package com.projectkorea.java.step04;
 
 import org.jetbrains.annotations.NotNull;
 
