@@ -1,6 +1,6 @@
 package com.projectkorea.kotlin.step08
 
-// (public) 접근 지시어는 생략 가능 public fun max
+// 접근 지시어는 생략 가능 (public) fun max
 // Void == Unit 반환 타입은 생략 가능
 
 fun main() {
@@ -10,8 +10,7 @@ fun main() {
     // Named Argument
     // 함수 호출시 특정 파라미터 지정해 값 할당 가능
     // builder를 직접 만들지 않고 builder의 장점을 갖게된다.
-    // Kotlin에서 Java 함수를 가져다 사용할 때는 사용 불가
-    // jvm상에서 java가 바이트 코드로 변환됐을 때 parameter 이름을 보존하고 있지 않음
+    // Java 함수를 가져다 사용할 때는 사용 불가: jvm상에서 java가 바이트 코드로 변환됐을 때 parameter 이름을 보존하고 있지 않음
     repeat("Hello World", useNewLine = true)
 
     // builder 추가 예시
@@ -82,9 +81,7 @@ fun printAll(vararg string: String) {
 // 가변인자에는 vararg 키워드 사용
 
 // 요약
-// 1. 코틀린에서 함수 선언
-// 접근지시어 fun 함수이름(파라미터):반환타입 {}
-
-// 2. body가 하나의 값으로 간주되는 경우 block없앨 수 있고, block이 없다면 반환 타입을 없앨 수 있다.
+// 1. 코틀린에서 함수 선언: 접근지시어 fun 함수이름(파라미터):반환타입 {}
+// 2. body가 하나의 값으로 간주되는 경우 block 없s앨 수 있고, block이 없다면 반환 타입을 없앨 수 있다.
 // 3. 함수 default parameter 지원
 // 4. 가변인자에는 vararg 키워드를 사용, 가변인자 함수를 배열과 호출할 때는 *를 붙여준다.
