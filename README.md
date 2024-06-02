@@ -1,7 +1,5 @@
 # Java with Kotlin
 
-## Table of Steps
-
 ## Chapter 1. 변수, 타입, 연산자
 
 ### Step 01. 변수 다루기
