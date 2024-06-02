@@ -5,16 +5,15 @@ import com.projectkorea.java.step09.JavaPerson
 fun main() {
 
     val junha = KotlinPerson("junha", 20)
-    println("junha = ${junha.name}")
     junha.age = 30
-    println("junha = ${junha.age}")
+    println("junha = ${junha.name} ${junha.age}")
 
-    val kimjunha = JavaPerson("kimjunha", 20)
-    println("kimjunha = ${kimjunha.name}")
+    val leo = JavaPerson("leo", 20)
+    println("leo = ${leo.name}")
 
-    val junhajunha = KotlinPersonV2()
-    // this체이닝에 의해 print는 역순으로 실행
-    println(junhajunha.isAdultV3)
+    val junha2 = KotlinPersonV2()
+    println(junha2.isAdultV3)
+    // 체이닝에 의해 print는 역순으로 실행
 }
 
 // 1. constructor 키워드를 생략할 수 있음

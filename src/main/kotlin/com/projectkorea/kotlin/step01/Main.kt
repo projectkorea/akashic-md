@@ -1,24 +1,32 @@
 package com.projectkorea.kotlin.step01
 
-// 1,
+// 1.
+// Kotlin에서는 파일 이름과 클래스 이름이 일치할 필요가 없습니다. 파일 내에 여러 클래스나 함수를 정의할 수 있습니다.
+
+// 2.
+// Kotlin에서는 원시 타입(primitive types)이 아니라 모든 것이 객체입니다.
+// 기본 타입들은 Java의 원시 타입들과 대응되며, Kotlin 표준 라이브러리에서 제공하는 클래스들로 래핑되어 있습니다.
+
+// 3.
 // import com.projectkorea.step01.Person
-// 같은 package안에 있으면 import 할 필요 없음
+// 같은 package 안에 있으면 import 할 필요 없음
 
 fun main() {
     val num1 = 10L
-    // 2.
+    // 1.
+    // val num1 : Long = 10L
     // type inference 지원
 
-    // 3.
+    // 2.
     // val == const
 
     val num2 = 10L
-    var num3:Long? = 1_000L
-    // 4.
-    // kotlin에서는 기본적으로 모든 변수는 null이 들어갈 수 없도록 설계
-    // 따라서 nullable 하다면 type?를 명시적으로 사용해야함
+    var num3: Long? = 1_000L
+    // 2.
+    // 기본적으로 모든 변수는 null이 들어갈 수 없도록 설계됌
+    // nullable 하다면 type?를 명시적으로 사용하자
 
-    var num4:Int? = 10
+    var num4: Int? = 10
 
     val num5 = num1 + num2   // + num3; type misMatch
     // 4.
