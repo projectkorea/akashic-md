@@ -82,7 +82,7 @@ class KotlinPersonV2(name: String, var age: Int) {
 // (느낀점) 코틀린 정도쓰면 부생성자를 사용할 일이 없을 것 같다
 
 // 요약
-// 1. 필드를 만들면 getter, setter를 자동으로 만들어주기에 이를 프로퍼티라고 부른다.
+// 1. 필드를 만들면 getter, setter를 자동으로 만들어준다. 이 필드+getter+setter 셋트를 프로퍼티라고 부른다.
 // 2. 주생성자가 필수다
 // 3. constructor 키워드를 사용해 부성자를 추가로 만들 수 있다. 단, default parameter를 추천한다.
 // 실제 메모리에 존재하는 것과 무관하게 (=함수로도 만들 수 있지만 프로퍼티 인것처럼) custom getter 처럼 활용

@@ -81,6 +81,6 @@ fun printAll(vararg string: String) {
 
 // 요약
 // 1. 코틀린에서 함수 선언: 접근지시어 fun 함수이름(파라미터):반환타입 {}
-// 2. body가 하나의 값으로 간주되는 경우 block 없s앨 수 있고, block이 없다면 반환 타입을 없앨 수 있다.
+// 2. body가 하나의 값으로 간주되는 경우 block 없앨 수 있고, block이 없다면 반환 타입을 없앨 수 있다.
 // 3. 함수 default parameter 지원
 // 4. 가변인자에는 vararg 키워드를 사용, 가변인자 함수를 배열과 호출할 때는 *를 붙여준다.
