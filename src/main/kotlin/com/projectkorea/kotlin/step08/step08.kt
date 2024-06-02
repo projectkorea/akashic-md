@@ -6,14 +6,13 @@ package com.projectkorea.kotlin.step08
 fun main() {
     repeat("Hello World", 3)
     repeat("Hello World")
-
+    repeat("Hello World", useNewLine = true)
     // Named Argument
     // 함수 호출시 특정 파라미터 지정해 값 할당 가능
     // builder를 직접 만들지 않고 builder의 장점을 갖게된다.
     // Java 함수를 가져다 사용할 때는 사용 불가: jvm상에서 java가 바이트 코드로 변환됐을 때 parameter 이름을 보존하고 있지 않음
-    repeat("Hello World", useNewLine = true)
 
-    // builder 추가 예시
+    // builder example
     // printNameAndGender(name="준하", gender = "MALE")
     //    .name("준하")
     //    .gender("MALE")
