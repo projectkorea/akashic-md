@@ -20,20 +20,29 @@
 - for
 - progression, range
 - while
+- 
 ### Step 07. 예외 다루기
 - try, catch, finally
 - checked exception, unchecked exception
 - try with resources
+- 
 ### Step 08. 함수 다루기
 - 함수 선언
 - default parameter
 - named argument
 - 같은 타입의 여러 parameter 받기 (가변인자)
+- 
 ### Step09. 클래스
 - 클래스, 프로퍼티
 - 생성자, init
 - 커스텀 getter, setter
 - backing field
+
+### Step10. 상속
+- 추상 클래스
+- 인터페이스
+- 클래스 상속시 주의점
+- 상속 관련 지시어(키워드)
 
 ## Chapter 4. 코틀린의 함수형 프로그래밍
 ### STEP15. 코틀린에서 배열과 컬렉션을 다루는 방법

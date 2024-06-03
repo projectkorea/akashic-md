@@ -1,4 +1,4 @@
-package com.projectkorea.java.step09;
+package com.projectkorea.java.step10;
 
 public abstract class JavaAnimal {
     protected final String species;
@@ -19,3 +19,5 @@ public abstract class JavaAnimal {
         return legCount;
     }
 }
+
+// 추상클래스는 인스턴스화 할 수 없음
