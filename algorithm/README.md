@@ -1,3 +1,1 @@
 # Algorithm
-
-## Table of Contents
