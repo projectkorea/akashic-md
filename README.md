@@ -65,8 +65,13 @@
 - 익명 클래스
 
 ### Step13. 중첩 클래스
+- 종류
+- 내부 클래스
 
-### Step14. 
+### Step14. 다양한 클래스
+- Data Class
+- Enum Class
+- Sealed Class, Sealed Interface
 
 
 ## Chapter 4. 코틀린의 함수형 프로그래밍
