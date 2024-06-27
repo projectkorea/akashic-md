@@ -1,4 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tech Blog
+
+- 중점사항: next.js 사용, 디자인 욕심은 최소한으로
+
 
 ## Project Setting
 
@@ -6,8 +9,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Framework: Next.js(^14), React(^18)
 - State Management: Zustand
 - Styling: Tailwind CSS
-- Library: react-hook-form
-- Hosting: Vercel, MDX
+- Library: react-hook-form, MDX
+- DB: mongoDB, firebase
+- Hosting: Vercel
+
+## 고민
+
+- 정적 파일을 주로 사용할 경우 @next/mdx가 적합하고, 원격 소스나 CMS에서 데이터를 가져와야 하는 경우 next-remote-mdx가 더 적합
 
 ```bash
 npx create-next-app@latest --typescript --tailwind --use-eslint-config  --import-alias '@/*'  --src-dir tech-blog
@@ -37,8 +45,9 @@ tech-blog/
 └── styles/
     ├── globals.css
     └── Layout.module.css
-
 ```
+
+### 디렉토리 설명
 
 - `lib`
   - 파일 시스템에서 MDX 파일을 읽기
@@ -52,10 +61,7 @@ tech-blog/
 - `posts/`
   - `lib/posts.ts`에서 읽혀서 `pages/posts/[id].tsx`에서 렌더링
 
-
 ## Getting Started
-
-First, run the development server:
 
 ```bash
 npm run dev
@@ -87,3 +93,38 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## 2장 챕터 React Error Boundaries
+
+## 요약
+
+### 오류 포착 및 상태 업데이트
+
+`getDerivedStateFromError` 메서드와 `componentDidCatch` 메서드를 통해 오류를 포착하고 상태를 업데이트합니다.
+
+### 대체 UI 렌더링
+
+오류가 발생하면 `fallback` 속성으로 전달된 UI를 렌더링하여 사용자에게 오류가 발생했음을 알립니다.
+
+## 호출 순서 설명
+
+### 오류 발생
+자식 컴포넌트에서 오류가 발생
+
+### `getDerivedStateFromError` 호출
+
+- React는 먼저 `getDerivedStateFromError`를 호출하여 컴포넌트의 상태를 업데이트합니다.
+- 예제 코드에서는 `console.log("getDerivedStateFromError called")`가 출력됩니다.
+- 상태가 업데이트되면, React는 컴포넌트를 다시 렌더링하고, 업데이트된 상태에 따라 폴백 UI를 표시할 수 있습니다.
+
+### `componentDidCatch` 호출
+
+- 다음으로, React는 `componentDidCatch`를 호출합니다.
+- 이 메서드에서는 오류와 오류 정보를 받아서 추가적인 작업을 수행할 수 있습니다.
+- 예제 코드에서는 `console.log("componentDidCatch called")`와 함께 오류가 출력됩니다.
+
+## 요약
+
+- **`getDerivedStateFromError`**가 먼저 호출되어 상태를 업데이트하고 UI를 변경합니다.
+- 그 다음에 **`componentDidCatch`**가 호출되어 오류를 로깅하거나 외부 서비스에 보고하는 등의 추가 작업을 수행합니다.

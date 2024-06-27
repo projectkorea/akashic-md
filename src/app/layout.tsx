@@ -16,7 +16,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="absolute bg-yellow-50 top-5">레이아웃입니다</div>
+        {children}
+      </body>
     </html>
   );
 }

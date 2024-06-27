@@ -1,11 +1,15 @@
-/** @type {import('next').NextConfig} */
-const withMDX = require('@next/mdx')()
- 
-/** @type {import('next').NextConfig} */
+// Importing the necessary modules using ESM syntax
+import withMDX from '@next/mdx';
+
+// Define the MDX configuration
+const mdxConfig = withMDX();
+
+// Define the Next.js configuration
 const nextConfig = {
   // Configure `pageExtensions` to include MDX files
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   // Optionally, add any other Next.js config below
-}
- 
-module.exports = withMDX(nextConfig)
+};
+
+// Export the combined configuration using ESM syntax
+export default { ...mdxConfig, ...nextConfig };
