@@ -1,14 +1,14 @@
-const LoadingSkeleton: React.FC = () => {
+function VerticalList() {
   return (
-    <div className="space-y-4 animate-pulse">
-      <div className="bg-gray-300 h-6 rounded"></div>
-      <div className="space-y-2">
-        <div className="bg-gray-300 h-4 rounded"></div>
-        <div className="bg-gray-300 h-4 rounded"></div>
-        <div className="bg-gray-300 h-4 rounded"></div>
-      </div>
+    <div className="w-1/4 p-4 bg-gray-100 h-screen">
+      <h1 className="text-2xl font-bold mb-4">Vertical List</h1>
+      <ul className="space-y-2">
+        <li className="p-2 bg-white shadow rounded">Item 1</li>
+        <li className="p-2 bg-white shadow rounded">Item 2</li>
+        <li className="p-2 bg-white shadow rounded">Item 3</li>
+      </ul>
     </div>
-  );
-};
+  )
+}
 
-export default LoadingSkeleton;
+export default VerticalList
