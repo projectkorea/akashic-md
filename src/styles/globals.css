@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "github-markdown-css/github-markdown.css";
 
 :root {
   --foreground-rgb: 0, 0, 0;

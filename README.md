@@ -7,8 +7,8 @@
 - Framework: Next.js(^14), React(^18)
 - Language: TypeScript
 - State Management: Zustand
-- Library: react-hook-form, MDX
-- DB: local file system (maybe later mongoDB, firebase)
+- Library: react-hook-form, next-remote-mdx, @next/mdx
+- DB: local file system (maybe later mongoDB)
 - Auth: x (maybe later firebase)
 - Styling: Tailwind CSS
 - Hosting: Vercel
@@ -16,11 +16,9 @@
 ```bash
 npx create-next-app@latest --typescript --tailwind --use-eslint-config  --import-alias '@/*'  --src-dir tech-blog
 npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+npm install next-mdx-remote github-markdown-css
+
 ```
-
-### 라이브러리
-
-- 정적 파일을 주로 사용할 경우 `@next/mdx`가 적합하고, 원격 소스나 CMS에서 데이터를 가져와야 하는 경우 `next-remote-mdx`가 더 적합
 
 ## Directory Structure
 
@@ -61,15 +59,11 @@ tech-blog/
 - `posts/`
   - `lib/posts.ts`에서 읽혀서 `pages/posts/[id].tsx`에서 렌더링
 
-### 구조 설계 
-
-- https://nextjs.org/docs/app/building-your-application/routing/colocation
-- https://nextjs.org/docs/getting-started/project-structure#routing-files
-
-
 
 ## Reference
 
+- [구조 설계](https://nextjs.org/docs/app/building-your-application/routing/colocation)
+- [컨벤션](https://nextjs.org/docs/getting-started/project-structure)
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
