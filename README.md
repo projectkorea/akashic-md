@@ -17,32 +17,6 @@
 npx create-next-app@latest --typescript --tailwind --use-eslint-config  --import-alias '@/*'  --src-dir tech-blog
 npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
 npm install next-mdx-remote github-markdown-css
-
-```
-
-## Directory Structure
-
-```
-tech-blog/
-├── _components/
-│   └── Layout.tsx
-├── _lib/
-│   └── posts.ts
-├── pages/
-│   ├── api/
-│   │   └── posts.ts
-│   ├── posts/
-│   │   └── [id].tsx
-│   ├── new-post.tsx
-│   ├── index.tsx
-│   └── _app.tsx
-├── posts/
-│   └── (generated mdx files)
-├── public/
-│   └── (static assets)
-└── styles/
-    ├── globals.css
-    └── Layout.module.css
 ```
 
 ### 디렉토리 설명
@@ -59,10 +33,9 @@ tech-blog/
 - `posts/`
   - `lib/posts.ts`에서 읽혀서 `pages/posts/[id].tsx`에서 렌더링
 
-
 ## Issues
 
-- raw.githubusercontent.com을 사용하면 GitHub의 파일을 원시(raw) 형식으로 직접 가져올 수 있으며, 이는 CORS 문제를 피할 수 있는 방법이다. 
+- `raw.githubusercontent.com`을 사용하면 GitHub의 파일을 원시(raw) 형식으로 직접 가져올 수 있으며, 이는 CORS 문제를 피할 수 있는 방법이다.
 - 현재 사용 중인 URL https://github.com/projectkorea/Akashic-MD/blob/main/typescript/chapter03/item20.md는 HTML 페이지를 반환하며, CORS 헤더가 없다. 반면에 raw.githubusercontent.com은 실제 파일 내용을 반환한다.
 
 ## Reference

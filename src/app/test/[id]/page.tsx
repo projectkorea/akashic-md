@@ -12,7 +12,6 @@ const urls = [
   'https://raw.githubusercontent.com/projectkorea/Akashic-MD/main/typescript/chapter01/item02.md',
   'https://raw.githubusercontent.com/projectkorea/Akashic-MD/main/typescript/chapter01/item03.md',
   'https://raw.githubusercontent.com/projectkorea/Akashic-MD/main/typescript/chapter01/item04.md',
-
 ];
 
 interface PageProps {
