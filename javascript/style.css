@@ -1,0 +1,150 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: whitesmoke;
+    color: black;
+    text-align: center;
+}
+
+.title-text {
+    color: whitesmoke;
+    font-size: 50px;
+    line-height: 20px;
+    font-weight: 700;
+    padding-bottom: 30px;
+    margin: 0;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+}
+
+.todo-container {
+    width: 600px;
+    min-height: 90vh;
+    background-color: rgb(180, 204, 243);
+    margin: 10px auto;
+    padding: 30px 20px 50px 20px;
+    border-radius: 5px;
+}
+
+#todoForm {
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 550px;
+    height: 40px;
+}
+
+.todo-input {
+    width: 500px;
+    height: 40px;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+.todo-view {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-view div {
+    width: 300px;
+    margin: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: rgba(255, 255, 255, 0.705);
+    border-radius: 6px;
+}
+
+.todo-submit {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.todo-checkbox {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: #2eb2ff;
+}
+
+.todo-check:checked {
+    content: '✔';
+}
+
+.todo-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 25px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #0066ff54;
+    border-radius: 5px;
+    padding: 0;
+    margin: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.todo-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.progress-bar {
+    width: 90%;
+    height: 20px;
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+progress::-webkit-progress-value {
+    transition: width 500ms ease-out;
+    background-color: #0066ff;
+    border-radius: 5px;
+}
