@@ -4,7 +4,6 @@ const Header = () => {
   return (
     <header className="bg-gray-800 text-white p-4 flex items-center justify-between">
       <div className="flex items-center ">
-        <div>Icon</div>
         <Link href="/">
           <h1 className="text-2xl font-bold px-2">Leo.md</h1>
         </Link>

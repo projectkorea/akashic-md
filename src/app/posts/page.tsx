@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
-import PostFeed from '../../components/PostFeed'; // Adjust the path if necessary
+import PostFeed from '../../components/post/PostFeed'; // Adjust the path if necessary
 import Weather from '../../components/Weather';   // Adjust the path if necessary
-import ErrorBoundary from '../ErrorBoundary'; // Adjust the path if necessary
+import ErrorBoundary from '../../components/post/ErrorBoundary'; // Adjust the path if necessary
 
 export default function Posts() {
   return (

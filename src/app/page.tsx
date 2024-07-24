@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import VerticalList from './VerticalList'
+import VerticalList from '@/components/VerticalList'
+import PostButtons from '@/components/main/PostButtons'
+import PostButton from '@/components/main/PostButton'
 
 export default function Home() {
-  const ids = [0, 1, 2, 3];
   
   return (
     <main className="flex min-h-screen flex-col items-center justify-around p-24">
@@ -11,37 +11,8 @@ export default function Home() {
         <Image className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert" src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
       </div>
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <Link
-          href="/posts"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Posts <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">-&gt;</span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">Navigate to the posts page.</p>
-        </Link>
-        {ids.map(id => (
-          <Link
-            key={id}
-            href={`/test/${id}`}
-            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          >
-            <h2 className="mb-3 text-2xl font-semibold">
-            {`Go to MD File ${id}`}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">-&gt;</span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">Navigate to the posts page.</p>
-          </Link>
-        ))}
-        <Link
-          href="/posts"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Posts <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">-&gt;</span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">Navigate to the posts page.</p>
-        </Link>
+        <PostButton />
+        <PostButtons />
       </div>
     </main>
   )
