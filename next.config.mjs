@@ -1,10 +1,10 @@
 // Importing the necessary modules using ESM syntax
-import withMDX from '@next/mdx';
+import withMDX from '@next/mdx'
 
 // Define the MDX configuration
 const mdxConfig = withMDX({
-  extension: /\.mdx?$/
-});
+  extension: /\.mdx?$/,
+})
 
 // Define the Next.js configuration
 const nextConfig = {
@@ -30,10 +30,10 @@ const nextConfig = {
           },
         ],
       },
-    ];
+    ]
   },
-};
+}
 
 // Export the combined configuration using ESM syntax with a named export
-const combinedConfig = { ...mdxConfig, ...nextConfig };
-export default combinedConfig;
+const combinedConfig = { ...mdxConfig, ...nextConfig, env: { NOTION_API_KEY: process.env.NOTION_API_KEY } }
+export default combinedConfig

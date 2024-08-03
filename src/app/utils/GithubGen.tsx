@@ -1,6 +1,6 @@
 import PostButton from '@/components/post/PostButton'
 
-export default function PostButtons() {
+export default function GithubGen() {
   const ids = [0, 1, 2, 3]
 
   return (

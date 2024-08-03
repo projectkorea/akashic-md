@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import GithubGen from '@/components/main/GithubGen'
+import GithubGen from '@/app/hooks/GithubGen'
 
 export default function Home() {
   
