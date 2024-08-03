@@ -1,4 +1,4 @@
-const PostFeed: React.FC = () => {
+const LoadingPost: React.FC = () => {
   // Simulating an error
   // throw new Error("Failed to load post feed");
   return (
@@ -6,7 +6,7 @@ const PostFeed: React.FC = () => {
       <h2 className="text-xl font-bold mb-2">Post Feed</h2>
       <p>Loading posts...</p>
     </div>
-  );
-};
+  )
+}
 
-export default PostFeed;
+export default LoadingPost
