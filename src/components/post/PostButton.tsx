@@ -1,3 +1,5 @@
+'use client'
+
 import { NotionPage } from '@/types/notionTypes'
 import Link from 'next/link'
 
@@ -5,7 +7,7 @@ interface PostButtonProps {
   title?: string
   description?: string
   ts?: number
-  data: NotionPage | object
+  data: any
   type: string
 }
 
