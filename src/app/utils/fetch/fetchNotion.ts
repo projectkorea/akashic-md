@@ -7,9 +7,23 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
 export const fetchNotion = async (pageId: string): Promise<MDXRemoteSerializeResult | null> => {
   const n2m = new NotionToMarkdown({ notionClient: notion })
-  const mdblocks = await n2m.pageToMarkdown(pageId)
-  const {parent: mdString} = n2m.toMarkdownString(mdblocks)
-  const mdxSource = await serialize(mdString)
-    
-  return mdxSource
+
+  try {
+    console.time('Fetch Notion Page')
+    const mdblocks = await n2m.pageToMarkdown(pageId)
+    console.timeEnd('Fetch Notion Page')
+
+    console.time('Convert to Markdown String')
+    const mdString = n2m.toMarkdownString(mdblocks).parent
+    console.timeEnd('Convert to Markdown String')
+
+    console.time('Serialize MDX')
+    const mdxSource = await serialize(mdString)
+    console.timeEnd('Serialize MDX')
+
+    return mdxSource
+  } catch (error) {
+    console.error('Failed to fetch Notion page:', error)
+    return null
+  }
 }

@@ -16,7 +16,7 @@ const Home = async () => {
       <NotionList list={list} />
       <GithubList />
       {/* Tistory List */}
-        <pre>{formattedJson}</pre>
+      {/* <pre>{formattedJson}</pre> */}
       </div>
     </main>
   )

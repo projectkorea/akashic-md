@@ -12,7 +12,7 @@ interface PostButtonProps {
 export default function PostButton({ type, data, ts }: PostButtonProps) {
   const pageId = data.id || data.split('/').slice(5).join('-');
   const emoji = data?.icon?.emoji || '📄';
-  const title = data?.properties?.["이름"]?.title[0]?.plain_text || 'Untitled';
+  const title = data?.properties?.["이름"]?.title[0]?.plain_text || data.split('/').slice(6,8).join('\n');
 
 
   return (
