@@ -48,6 +48,7 @@ npm install next-mdx-remote github-markdown-css
 - [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 - [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
 - [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- https://developers.notion.com/docs/getting-started
 
 ## 7주 목표 (6/20 - 8/1)
 

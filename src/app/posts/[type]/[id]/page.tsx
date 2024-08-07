@@ -25,7 +25,7 @@ const fetchData = async (type: string, id: string) => {
 export default async function PostPage({ params }: PageProps) {
   const { type, id } = params
   const source = await fetchData(type, id)
-
+  
   if (!source) return notFound()
 
   return <PostPageClient source={source} />
