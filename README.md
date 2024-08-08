@@ -1,16 +1,16 @@
 # Tech Blog
 
-- 중점 사항: NextJS 사람들이 왜 열광하는지 구조 파악해보기
+- 사람들이 왜 `NextJS`에 열광하는지 알아보자
 
 ## Project Setting
 
 - Framework: Next.js(^14), React(^18)
 - Language: TypeScript
 - State Management: Zustand
-- Library: react-hook-form, next-remote-mdx, @next/mdx
-- DB: local file system (maybe later mongoDB)
-- Auth: x (maybe later firebase)
-- Styling: Tailwind CSS
+- Library: next-remote-mdx, @next/mdx, react-hook-form
+- DB: local file system (mongoDB)
+- Auth: x (firebase)
+- Styling: Tailwind
 - Hosting: Vercel
 
 ```bash
@@ -35,8 +35,10 @@ npm install next-mdx-remote github-markdown-css
 
 ## Issues
 
-- `raw.githubusercontent.com`을 사용하면 GitHub의 파일을 원시(raw) 형식으로 직접 가져올 수 있으며, 이는 CORS 문제를 피할 수 있는 방법이다.
-- 현재 사용 중인 URL https://github.com/projectkorea/Akashic-MD/blob/main/typescript/chapter03/item20.md는 HTML 페이지를 반환하며, CORS 헤더가 없다. 반면에 raw.githubusercontent.com은 실제 파일 내용을 반환한다.
+- `raw.githubusercontent.com`을 사용하면 GitHub의 파일을 원시(raw) 형식으로 직접 가져올 수 있음.
+- 이는 CORS 문제를 피할 수 있음
+- 현재 사용 중인 URL `https://github.com/projectkorea/Akashic-MD/blob/main/typescript/chapter03/item20.md`는 HTML 페이지를 반환하며, CORS 헤더가 없다.
+- 반면, `raw.githubusercontent.com`은 실제 파일 내용을 반환한다.
 
 ## Reference
 
@@ -77,4 +79,4 @@ npm install next-mdx-remote github-markdown-css
 
 ### 7주차 (8/1)
 
-- 회고 글 쓰기 (개발하다가 마주친 이슈와 해결한 방법)
+- 회고 글 쓰기 (개발하다가 마주친 이슈와 해결 방법)

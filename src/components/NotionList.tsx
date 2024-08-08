@@ -1,9 +1,9 @@
 import PostButton from '@/components/post/PostButton'
-import { NotionData, NotionPage } from '@/types/notionTypes'
+import { NotionPages } from '@/types/notionTypes'
 import { QueryDatabaseResponse } from '@notionhq/client/build/src/api-endpoints'
 
 interface NotionListProps {
-  list: NotionPage[]
+  list: NotionPages
 }
 
 export default function NotionList({ list }: NotionListProps ) {

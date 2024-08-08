@@ -75,4 +75,4 @@ export interface NotionPage {
   public_url: string | null;
 }
 
-export type NotionData = NotionPage[];
+export type NotionPages = NotionPage[];
