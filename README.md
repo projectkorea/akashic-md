@@ -26,7 +26,7 @@
 - for
 - progression, range
 - while
-- 
+
 ### Step 07. 예외 다루기
 - try, catch, finally
 - checked exception, unchecked exception
@@ -94,24 +94,33 @@
 - try with resources / use
 
 ### STEP18. 컬렉션을 함수형으로 다루는 방법
-
+- 필터, 맵
+- 다양한 컬렉션 처리 기능
+- List to Map
+- 중첩된 컬렉션 처리
 
 ## Chapter 5. 코틀린 특성
 
-### STEP19.이모저모
+### STEP19.기타 문법
+- Type Alias, as import
+- 구조 분해, componetN 함수
+- Jump, Label
+- TakeIf, TakeUnless
 
 ### STEP20. Scope Function
+- scope function 이란
+- scope function 분류
+- scope function 언제 쓸까
+- scope function 가독성
 
 ## 프로젝트 디렉토리 설명
 
-- **.gradle**: Gradle 빌드 도구에서 생성한 캐시 파일과 빌드 정보를 저장하는 디렉토리입니다.
-- **.idea**: IntelliJ IDEA 프로젝트 설정 파일이 저장된 디렉토리입니다. 프로젝트 구성, 설정, 플러그인 정보 등이 포함됩니다.
-- **build**: Gradle 빌드 결과물(컴파일된 클래스 파일, JAR 파일 등)을 저장하는 디렉토리입니다.
-- **gradle**: 프로젝트에서 사용하는 Gradle 래퍼 스크립트 및 설정 파일이 들어 있는 디렉토리입니다.
-- **src**: 소스 코드 파일이 포함된 디렉토리입니다. 일반적으로 `main`과 `test` 디렉토리로 나뉘어 있습니다.
-- **.gitignore**: Git 버전 관리에서 제외할 파일이나 디렉토리를 정의하는 파일입니다.
-- **build.gradle**: Gradle 빌드 스크립트 파일입니다. 프로젝트의 빌드 설정, 종속성 등을 정의합니다.
-- **gradlew**: Unix 계열 시스템에서 사용할 수 있는 Gradle 래퍼 스크립트입니다. Gradle이 설치되어 있지 않아도 프로젝트를 빌드할 수 있게 해줍니다.
-- **gradlew.bat**: Windows 시스템에서 사용할 수 있는 Gradle 래퍼 배치 파일입니다.
-- **README.md**: 프로젝트에 대한 설명, 설치 방법, 사용 방법 등을 기술한 마크다운 파일입니다.
-- **settings.gradle**: Gradle 설정 파일로, 멀티 프로젝트 빌드 시 서브프로젝트를 포함시키기 위한 설정을 합니다.
+- `.gradle`: Gradle 빌드 도구에서 생성한 캐시 파일과 빌드 정보를 저장
+- `.idea`: IntelliJ IDEA 프로젝트 설정 파일 저장. 프로젝트 구성, 설정, 플러그인 정보 등이 포함.
+- `build`: Gradle 빌드 결과물(컴파일된 클래스 파일, JAR 파일 등)을 저장.
+- `gradle`: 프로젝트에서 사용하는 Gradle 래퍼 스크립트 및 설정 파일
+- `src`: 소스 코드 파일이 포함된 디렉토리입니다. 일반적으로 `main`과 `test` 디렉토리로 나뉘어 있음
+- `build.gradle`: Gradle 빌드 스크립트 파일입니다. 프로젝트의 빌드 설정, 종속성 등 정의
+- `gradlew`: Unix 계열 시스템에서 사용할 수 있는 Gradle 래퍼 스크립트. Gradle이 설치되어 있지 않아도 프로젝트를 빌드할 수 있게 해줌.
+- `gradlew.bat`: Windows 시스템에서 사용할 수 있는 Gradle 래퍼 배치 파일
+- `settings.gradle`: Gradle 설정 파일로, 멀티 프로젝트 빌드 시 서브프로젝트를 포함시키기 위한 설정
