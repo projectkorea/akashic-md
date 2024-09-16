@@ -2,6 +2,9 @@
 
 Welcome to **Effective TypeScript**! This guide aims to provide a comprehensive understanding of TypeScript, covering its core features, best practices, and how to effectively utilize it in your projects.
 
+![1](https://github.com/user-attachments/assets/9c0f5521-6172-44cf-b9ea-e9927b44898f)
+
+
 ## Table of Contents
 
 1. [Getting to know TypeScript]()
