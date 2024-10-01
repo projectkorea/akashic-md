@@ -12,6 +12,8 @@
 - java
 - kotlin
 - python
+- rust
+- go
 
 ## How to Use
 
