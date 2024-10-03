@@ -43,7 +43,29 @@ const person: AandB = {
   age: 25
 };
 
-``` 
+```
+
+## extends
+
+- ~의 부분집합, ~의 서브타입이라고 이해하면 쉽다.
+
+```ts
+interface Vector1D { x: number; }
+interface Vector2D extends Vector1D { y: number; }
+interface Vector3D extends Vector2D { z: number; }
+```
+
+```mermaid
+graph TD;
+    subgraph Vector1D["Vector1D"]
+        subgraph Vector2D["Vector2D"]
+            subgraph Vector3D["Vector3D"]
+            end
+        end
+    end
+```
+
+
 
 ## 요약
 
