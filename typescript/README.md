@@ -1,9 +1,8 @@
 # Effective TypeScript
 
-Welcome to **Effective TypeScript**! This guide aims to provide a comprehensive understanding of TypeScript, covering its core features, best practices, and how to effectively utilize it in your projects.
+This guide aims to provide a comprehensive understanding of TypeScript, covering its core features, best practices, and how to effectively utilize it in your projects.
 
 ![1](https://github.com/user-attachments/assets/9c0f5521-6172-44cf-b9ea-e9927b44898f)
-
 
 ## Table of Contents
 
@@ -12,17 +11,17 @@ Welcome to **Effective TypeScript**! This guide aims to provide a comprehensive 
 3. [Type Inference]()
 4. [Type Design]()
 5. [Working with `any`]()
-6. [Types Declarations and `@types`](#types-declarations-and-types)
-7. [Writing and Running Your Code](#writing-and-running-your-code)
-8. [Migrating to TypeScript](#migrating-to-typescript)
+6. [Types Declarations and `@types`]()
+7. [Writing and Running Your Code]()
+8. [Migrating to TypeScript]()
 
 ---
 
-## Getting to know TypeScript
+## 1. Getting to know TypeScript
 
 TypeScript is a powerful, statically typed superset of JavaScript that compiles to plain JavaScript. It brings the advantages of strong typing, modern JavaScript features, and enhanced tooling to your development workflow, making your code more robust, maintainable, and scalable.
 
-## Type System
+## 2. Type System
 
 The type system is at the heart of TypeScript. It allows you to define and enforce types, providing compile-time checks that help catch errors early in the development process. You'll learn about:
 
@@ -32,7 +31,7 @@ The type system is at the heart of TypeScript. It allows you to define and enfor
 - Union and intersection types
 - Enums and literals
 
-## Type Inference
+## 3. Type Inference
 
 TypeScript's type inference capabilities can save you time and effort by automatically deducing types from your code. You'll explore how TypeScript infers types and how to leverage this feature to write cleaner and more concise code.
 
@@ -46,8 +45,7 @@ TypeScript's type inference capabilities can save you time and effort by automat
 - 변경 관련된 오류 방지를 위해 readonly 사용하기
 - 매핑된 탕입을 사용하여 값 동기화하기
 
-
-## Type Design
+## 4. Type Design
 
 Designing types effectively is crucial for maintaining a clean and scalable codebase. This section covers best practices and principles for type design, including:
 
@@ -55,11 +53,11 @@ Designing types effectively is crucial for maintaining a clean and scalable code
 - Balancing strictness and flexibility
 - Using generics to create type-safe abstractions
 
-## Working with `any`
+## 5. Working with `any`
 
 While `any` can be a convenient escape hatch, overusing it can undermine TypeScript's benefits. Learn how to minimize the use of `any` and employ safer alternatives like unknown, generics, and conditional types.
 
-## Types Declarations and `@types`
+## 6. Types Declarations and `@types`
 
 Type declarations provide type information for existing JavaScript libraries. You'll learn how to:
 
@@ -67,7 +65,7 @@ Type declarations provide type information for existing JavaScript libraries. Yo
 - Write your own type declaration files
 - Manage type dependencies
 
-## Writing and Running Your Code
+## 7. Writing and Running Your Code
 
 Discover the best practices for writing and running TypeScript code, including:
 
@@ -76,7 +74,7 @@ Discover the best practices for writing and running TypeScript code, including:
 - Integrating with build tools and task runners
 - Debugging TypeScript code
 
-## Migrating to TypeScript
+## 8. Migrating to TypeScript
 
 Migrating an existing JavaScript codebase to TypeScript can be daunting. This section provides a step-by-step guide to:
 
