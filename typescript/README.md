@@ -1,12 +1,12 @@
 # Effective TypeScript
 
-This guide aims to provide a comprehensive understanding of TypeScript, covering its core features, best practices, and how to effectively utilize it in your projects.
+This guide aims to provide a **comprehensive understanding of TypeScript**, covering its core features, best practices, and **how to effectively utilize** it in your projects.
 
 ![1](https://github.com/user-attachments/assets/9c0f5521-6172-44cf-b9ea-e9927b44898f)
 
 ## Table of Contents
 
-1. [Getting to know TypeScript]()
+1. [ts 알아보기]()
 2. [Type System]()
 3. [Type Inference]()
 4. [Type Design]()
@@ -17,9 +17,13 @@ This guide aims to provide a comprehensive understanding of TypeScript, covering
 
 ---
 
-## 1. Getting to know TypeScript
+## 1. ts 알아보기
 
-TypeScript is a powerful, statically typed superset of JavaScript that compiles to plain JavaScript. It brings the advantages of strong typing, modern JavaScript features, and enhanced tooling to your development workflow, making your code more robust, maintainable, and scalable.
+1. js와 ts의 관계 이해하기
+2. ts 설정 이해하기
+3. 코드 생성과 타입은 서로 관계가 없다
+4. 구조적 타이핑 익숙해지기
+5. any 타입 지양하기
 
 ## 2. Type System
 
