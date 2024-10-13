@@ -6,7 +6,7 @@ This guide aims to provide a **comprehensive understanding of TypeScript**, cove
 
 ## Table of Contents
 
-1. [ts 알아보기]()
+1. [Typescript]()
 2. [Type System]()
 3. [Type Inference]()
 4. [Type Design]()
@@ -17,11 +17,11 @@ This guide aims to provide a **comprehensive understanding of TypeScript**, cove
 
 ---
 
-## 1. ts 알아보기
+## 1. Typescript
 
 1. js와 ts의 관계 이해하기
 2. ts 설정 이해하기
-3. 코드 생성과 타입은 서로 관계가 없다
+3. 컴파일과 타입 시스템은 독립적이다
 4. 구조적 타이핑 익숙해지기
 5. any 타입 지양하기
 
@@ -29,7 +29,7 @@ This guide aims to provide a **comprehensive understanding of TypeScript**, cove
 
 The type system is at the heart of TypeScript. It allows you to define and enforce types, providing compile-time checks that help catch errors early in the development process. You'll learn about:
 
-- Basic and advanced types
+6. ts 언어 서비스
 - Type annotations and type inference
 - Interfaces and type aliases
 - Union and intersection types
