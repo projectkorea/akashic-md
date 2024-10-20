@@ -1,57 +1,64 @@
 # akashic-md
 
-Here, you can store and share programming languages, algorithms, data structures, project ideas, development tips, and other technology-related subjects.
+You can explore and share topics such as programming languages, algorithms, data structures, development tips, and other areas of computer science. The term 'akashic' was chosen to evoke the concept of an infinite repository of knowledge, drawing inspiration from the Akashic Records in mythology.
 
-## Migrating Repository
+## 1. Topics
 
-```bash
-git remote add sub-repo https://github.com/username/sub-repo.git
-git fetch sub-repo
-git merge -s ours --allow-unrelated-histories sub-repo/main
-# 독립적인 히스토리를 가진 sub-repo/main 브랜치를 현재 브랜치에 병합하되, 현재 브랜치의 변경 사항만을 유지
-git read-tree --prefix=path/to/sub-repo/ -u sub-repo/main
-# sub-repo/main 브랜치의 파일들을 현재 브랜치의 path/to/sub-repo/라는 하위 경로에 위치시키고, 워킹 디렉토리로 업데이트
-```
-
-## How to Use
-
-1. Clone this repository to your local computer.
-
-```shell
-git clone https://github.com/projectkorea/akashic-md.git
-```
-
-2. Write new Markdown files for your desired topics or modify existing files.
-
-3. Commit your changes and push to update the repository.
-
-```shell
-git add .
-git commit -m "Add new content"
-git push origin topic-name
-```
-
-## Example Topics
-
-- JavaScript Basics
-- Python Data Structures
+- Javascript
+- Typescript
+- React
 - Migration Kotlin from Java
 - Algorithm Problem Solving Strategies
-- Development Project Ideas
-- Development Tips and Tricks
+- Development Tips
 
-
-## Contributing
+## 2. How to Contribute
 
 If you'd like to contribute to this project, follow these steps:
 
-- Fork this repository.
-- Create a new branch for your work.
-- Commit your changes and push.
-- Create a pull request.
+1. Fork and Clone the Repository
 
-Thank you!
+```bash
+git clone https://github.com/your-username/akashic-md.git
+```
 
+2. Create a New Branch
+
+```bash
+git checkout -b feature/your-branch-name
+```
+
+Add a Sub-Repository (Optional)
+If you need to integrate another repository, add the sub-repository using these commands:
+
+shell
+코드 복사
+git remote add sub-repo https://github.com/username/sub-repo.git
+git fetch sub-repo
+git merge -s ours --allow-unrelated-histories sub-repo/main
+git read-tree --prefix=path/to/sub-repo/ -u sub-repo/main
+Make Your Changes
+Add new Markdown files or modify existing ones.
+
+Commit Your Changes
+Commit your changes with a clear and concise commit message:
+
+shell
+코드 복사
+git add .
+git commit -m "Add feature/your-branch-name"
+Push the Branch to GitHub
+Push your branch to your GitHub repository:
+
+shell
+코드 복사
+git push origin feature/your-branch-name
+Create a Pull Request
+Go to the original repository on GitHub and submit a pull request from your branch. Make sure to provide a clear description of your changes.
+
+Merge the Pull Request
+Once your pull request is reviewed and approved, it will be merged into the main branch. If you are managing the repository, you can also merge it manually.
+
+Thank you for contributing!
 
 ## License
 
