@@ -6,6 +6,17 @@
 
 ![2](https://github.com/user-attachments/assets/730f0423-537a-4195-8f80-97b8ac66e9df)
 
+### Table of Contents
+
+1. [Typescript]()
+2. [Type System]()
+3. [Type Inference]()
+4. [Type Design]()
+5. [Working with `any`]()
+6. [Types Declarations and `@types`]()
+7. [Writing and Running Your Code]()
+8. [Migrating to TypeScript]()
+
 ## Effective TypeScript
 
 This guide aims to provide a **comprehensive understanding of TypeScript**, covering its core features, best practices, and **how to effectively utilize** it in your projects.
