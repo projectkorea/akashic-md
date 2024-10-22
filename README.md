@@ -1,19 +1,31 @@
 # akashic-md
 
-You can explore and share topics such as programming languages, algorithms, data structures, development tips, and other areas of computer science. The term 'akashic' was chosen to evoke the concept of an infinite repository of knowledge, drawing inspiration from the Akashic Records in mythology.
-
-![download-min](https://github.com/user-attachments/assets/c31f0b11-754c-492c-b0e6-6d2dd258da57)
-
 ## 1. Topics
 
-- Javascript
-- Typescript
-- React
-- Migration Kotlin from Java
-- Algorithm Problem Solving Strategies
+- [Javascript][js]
+- [Typescript][ts]
+- [React][react]
+- [Docker][docker]
+- Migration [Kotlin-from-Java][kotlin]
+- [Algorithm][algo]
 - Development Tips
 
-## 2. How to Contribute
+[js]: https://github.com/projectkorea/akashic-md/tree/main/javascript
+[ts]: https://github.com/projectkorea/akashic-md/tree/main/typescript
+[react]: junha.today
+[docker]: junha.today
+[kotlin]: junha.today
+[algo]: junha.today
+
+## 2. Overview
+
+You can explore and share topics such as programming languages, algorithms, data structures, development tips, and other areas of computer science. The term 'akashic' was chosen to evoke the concept of an infinite repository of knowledge, drawing inspiration from the Akashic Records in mythology.
+
+<div>
+  <img src="https://github.com/user-attachments/assets/c31f0b11-754c-492c-b0e6-6d2dd258da57" width="350px" height"350px">
+</div>
+
+## 3. How to Contribute
 
 If you'd like to contribute to this project, follow these steps:
 
