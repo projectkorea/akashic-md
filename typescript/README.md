@@ -2,24 +2,29 @@
 
 ## Programming TypeScript
 
-- Check TypeScript syntax and cover any gaps I don't know yet through this book.
+Check TypeScript syntax and cover any gaps I don't know yet through this book.
 
 ![2](https://github.com/user-attachments/assets/730f0423-537a-4195-8f80-97b8ac66e9df)
 
 ### Table of Contents
 
-1. [Typescript]()
-2. [Type System]()
-3. [Type Inference]()
-4. [Type Design]()
-5. [Working with `any`]()
-6. [Types Declarations and `@types`]()
-7. [Writing and Running Your Code]()
-8. [Migrating to TypeScript]()
+1. Introduction
+2. TypeScript: A 10,000 Foot View
+3. All About Types
+4. Functions
+5. Classes and Interfaces
+6. Advanced Types
+7. Handling Errors
+8. Asynchronous Programming, Concurrency, and Parallelism
+9. Frontend and Backend Frameworks
+10. Namespaces and Modules
+11. Interoperating with JavaScript
+12. Building and Running TypeScript
+13. Conclusion
 
 ## Effective TypeScript
 
-This guide aims to provide a **comprehensive understanding of TypeScript**, covering its core features, best practices, and **how to effectively utilize** it in your projects.
+Cover typescript's core features, best practices, and **how to effectively utilize** it in projects.
 
 ![1](https://github.com/user-attachments/assets/9c0f5521-6172-44cf-b9ea-e9927b44898f)
 
@@ -36,7 +41,7 @@ This guide aims to provide a **comprehensive understanding of TypeScript**, cove
 
 ---
 
-### 1. Typescript
+### 1. Typescript (01~05)
 
 1. js와 ts의 관계 이해하기
 2. ts 설정 이해하기
@@ -44,21 +49,19 @@ This guide aims to provide a **comprehensive understanding of TypeScript**, cove
 4. 구조적 타이핑 익숙해지기
 5. any 타입 지양하기
 
-### 2. Type System
+### 2. Type System (06~18)
 
 The type system is at the heart of TypeScript. It allows you to define and enforce types, providing compile-time checks that help catch errors early in the development process. You'll learn about:
 
 6. ts 언어 서비스
-- Type annotations and type inference
-- Interfaces and type aliases
-- Union and intersection types
-- Enums and literals
+7. Type annotations and type inference
+8. Interfaces and type aliases
+9. Union and intersection types
+10. Enums and literals
 
-### 3. Type Inference
+### 3. Type Inference 
 
 TypeScript's type inference capabilities can save you time and effort by automatically deducing types from your code. You'll explore how TypeScript infers types and how to leverage this feature to write cleaner and more concise code.
-
-- item06 ~ item18
 
 - 함수 표현식에 타입 적용하기
 - 타입과 인터페이스의 차이
