@@ -1,0 +1,14 @@
+FROM node:18-alpine
+
+RUN npm install -g pnpm
+
+WORKDIR /app
+
+# pnpm-lock.yaml requires package.json to install dependencies
+COPY pnpm-workspace.yaml pnpm-lock.yaml package.json ./
+
+RUN mkdir packages server
+COPY packages/package.json packages/
+COPY server/package.json server/
+
+RUN pnpm install -r

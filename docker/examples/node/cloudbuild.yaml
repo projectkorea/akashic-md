@@ -1,0 +1,11 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/my-project/merge-user:$COMMIT_SHA', '.' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push', 'gcr.io/my-project/merge-user:$COMMIT_SHA' ]
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: [ 'run', 'deploy', 'merge-user', '--image', 'gcr.io/my-project/merge-user:$COMMIT_SHA', '--region', 'us-central1', '--platform', 'managed', '--no-cpu-throttling', '--concurrency', '1000', '--min-instances', '1', '--update-env-vars', 'NODE_ENV=production', '--service-account', 'merge-user@my-project.iam.gserviceaccount.com']
+images:
+- gcr.io/my-project/merge-user:$COMMIT_SHA
+

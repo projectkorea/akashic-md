@@ -1,0 +1,14 @@
+FROM my_base_image AS build
+
+COPY . .
+RUN pnpm run build
+
+WORKDIR /app/server
+RUN pnpm run build
+
+WORKDIR /app
+
+EXPOSE 8080
+
+RUN chmod +x run.sh
+CMD ["./run.sh"]
