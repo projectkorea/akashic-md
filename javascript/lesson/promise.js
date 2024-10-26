@@ -1,6 +1,7 @@
 // readFile, writeFile -> 비동기적으로 실행되는 코드
 // readFileSync, writeFileSync -> 비동기적으로 실행되는 코드
-import {readFile, writeFile, readFileSync, writeFileSync} from 'fs';
+
+import { readFile, writeFile, readFileSync, writeFileSync } from 'fs'
 
 console.log("1");
 
