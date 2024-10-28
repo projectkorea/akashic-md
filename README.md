@@ -12,8 +12,8 @@
 
 [js]: https://github.com/projectkorea/akashic-md/tree/main/javascript
 [ts]: https://github.com/projectkorea/akashic-md/tree/main/typescript
-[react]: junha.today
-[docker]: junha.today
+[react]: https://github.com/projectkorea/akashic-md/tree/main/react
+[docker]: https://github.com/projectkorea/akashic-md/tree/main/docker
 [kotlin]: junha.today
 [algo]: junha.today
 
