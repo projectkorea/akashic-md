@@ -4,7 +4,10 @@
 
 ### Table of contents
 
-- 주요 파일들
+- 개요
+- 주요 명령어
+- 주요 cli
+- 주요 파일
 
 ## Docker Examples
 
