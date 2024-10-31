@@ -1,5 +1,5 @@
 // readFile, writeFile -> 비동기적으로 실행되는 코드
-// readFileSync, writeFileSync -> 비동기적으로 실행되는 코드
+// readFileSync, writeFileSync -> 동기적으로 실행되는 코드
 
 import { readFile, writeFile, readFileSync, writeFileSync } from 'fs'
 
@@ -19,3 +19,15 @@ readFile('bori2.txt', 'utf-8', (err, data)=> {
 })
 
 console.log("6");
+
+
+// 동기 예제
+
+console.log('1')
+
+writeFileSync('bori2.txt', 'bori2', 'utf-8')
+console.log('2')
+
+const buffer = readFileSync('bori2.txt', 'utf-8')
+console.log('buffer: ', buffer)
+console.log('3')
