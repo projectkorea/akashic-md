@@ -1,0 +1,79 @@
+# 문자열
+name: "John"   # 따옴표 사용 가능
+name2: John    # 따옴표 없이도 가능
+
+# 숫자
+age: 25
+price: 99.99
+
+# 불리언
+is_active: true
+is_deleted: false
+
+# 모두 같은 null 값을 나타냅니다
+example:
+  value1: null
+  value2: ~
+  value3:
+
+# 배열 요소들은 따옴표로 감싸거나, 하이픈(-)으로 시작해야 합니다.
+
+#하이픈 사용
+list:
+  - apple
+  - banana
+  - orange
+
+#따옴표와 쉼표 사용
+yamlFruits1: ['apple', 'banana', 'orange']
+yamlFruits2:
+  - 'apple'
+  - 'banana'
+  - 'orange'
+
+
+# 객체 (딕셔너리)
+# 반드시 스페이스로 들여쓰기 (보통 2칸 또는 4칸)
+
+person:
+  name: John
+  age: 30
+  address:
+    city: Seoul
+    country: Korea
+
+company:
+  name: ABC Corp
+  departments:
+    - engineering:
+        team_size: 50
+        location: Seoul
+    - marketing:
+        team_size: 20
+        location: Busan
+
+
+# 여러 줄 문자열
+
+# | 사용: 줄바꿈 유지
+# > 사용: 줄바꿈을 스페이스로 변환
+
+# 스크립트나 로그에는 | 사용
+script: |
+  #!/bin/bash
+  echo "Hello"
+  echo "World"
+
+# 긴 설명문에는 > 사용
+description: >
+  이것은 매우 긴 설명문입니다.
+  한 줄로 표시되어야 하지만,
+  YAML 파일에서는 보기 좋게
+  여러 줄로 작성할 수 있습니다.
+
+
+# 환경변수
+
+database:
+  username: ${DB_USER}
+  password: ${DB_PASSWORD}
