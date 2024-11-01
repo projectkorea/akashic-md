@@ -2,7 +2,6 @@
 
 - `17.x.x`버전부터 `import React from "react"`를 생략할 수 있다.
 
-
 ## 1. 컴포넌트 생성
 
 - `Component` 클래스를 상속해서 만든다.
@@ -67,11 +66,7 @@ for(let property in this){
 - `_reactInternalInstance`
 - `isReactComponent`
 
-
-
-
 ### 2. 이벤트 핸들러
-
 
 ### 1) 이벤트 핸들러의 `this`
 
@@ -80,6 +75,7 @@ for(let property in this){
 <button onClick ={function(){console.log(this)}} /> 
 // ❌
 ```
+
 - 일반 함수로 작성하면 `this`는 `undefined`를 가리킨다.
 
 

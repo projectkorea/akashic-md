@@ -9,6 +9,7 @@
 ```js
 const [state, dispatch] = useReducer(reducer, initialArg, initFn?)
 ```
+
 - 컴포넌트의 상태 업데이트 로직을 컴포넌트에서 분리하거나, 컴포넌트 바깥에 작성 할 수 있음.
 
 ```js

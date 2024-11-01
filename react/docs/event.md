@@ -31,6 +31,7 @@ onChange ={
 const [string, setString] = useState('hi');
 <input value={string}></input>
 ```
+
 - Error: You provided a `value` prop to a form field without an `onChange` handler. 
 - If the field should be mutable use `defaultValue.
 - 이는 `onChange` 옵션을 이용해 state값을 변경해주면 에러가 사라진다.
@@ -39,13 +40,13 @@ const [string, setString] = useState('hi');
 <input value={string} onChange={(e) => setString(e.target.value)}></input>
 ```
 
-
 ## 3. `prop`으로 전달한 함수와 햇갈리지 말자
 
 ```jsx
 // ❌
 <InsertForm onInsert={(event) => console.log(event.target.value)}/>
 ```
+
 - 이벤트 핸들러와 혼동하지 말자.
 - `onInsert`는 함수를 전달하는 `prop`이다.
 
