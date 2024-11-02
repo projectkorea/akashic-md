@@ -19,11 +19,11 @@
 
 ## 2. Overview
 
-You can explore and share topics such as programming languages, algorithms, data structures, development tips, and other areas of computer science. The term 'akashic' was chosen to evoke the concept of an infinite repository of knowledge, drawing inspiration from the Akashic Records in mythology.
-
 <div>
   <img src="https://github.com/user-attachments/assets/c31f0b11-754c-492c-b0e6-6d2dd258da57" width="350px" height"350px">
 </div>
+
+You can explore and share topics such as programming languages, algorithms, data structures, development tips, and other areas of computer science. The term 'akashic' was chosen to evoke the concept of an infinite repository of knowledge, drawing inspiration from the Akashic Records in mythology.
 
 ## 3. How to Contribute
 
