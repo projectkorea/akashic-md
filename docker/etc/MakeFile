@@ -1,0 +1,27 @@
+GCP_PROJECT_ID := notification-upgrade
+GCP_LOCATION := asia-northeast3
+GCP_REPOSITORY := notification-upgrade-docker
+
+SERVICE := nextapp
+COMMIT_ID := $(shell git rev-parse HEAD | cut -c1-8)
+TARGET := $(GCP_LOCATION)-docker.pkg.dev/$(GCP_PROJECT_ID)/$(GCP_REPOSITORY)/$(SERVICE):$(COMMIT_ID)
+RELEASE_VERSION := $(shell sed -n 's/.*"version": "\(.*\)",.*/\1/p' package.json)
+
+all: build push deploy
+	@echo "Completed build and deploy image.  $(TARGET)"
+
+build:
+	@docker build -t $(TARGET) \
+	--platform linux/amd64 \
+	--build-arg AUTH_SECRET=$$$ \
+	--build-arg NEXT_PUBLIC_RELEASE_VERSION=$(RELEASE_VERSION) \
+	.; \
+
+push:
+	@docker push $(TARGET)
+
+deploy:
+	@kubectl --namespace notification-upgrade set image deployment/$(SERVICE) $(SERVICE)=$(TARGET)
+
+tag:
+	@echo $(TARGET)
