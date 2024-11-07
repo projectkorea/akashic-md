@@ -4,7 +4,7 @@ const url = 'https://api.thecatapi.com/v1/images/search'
 fetch('https://api.thecatapi.com/v1/images/search') //
   .then((response) => {
     // response는 응답에 관한 객체가 반환이 된다.
-    console.log(response)
+    // console.log(response)
     return response.json() // json is also async
   })
   .then((data) => {
