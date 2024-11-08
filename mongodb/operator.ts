@@ -8,17 +8,6 @@ $concatArrays // 배열 합치기
 $exists       // 필드 존재 여부
 $ne           // Not Equal
 
-
-// 배열 관련 주요 연산자
-$push         // 배열에 요소 추가
-$addToSet     // 중복없이 배열에 추가
-$pull         // 배열에서 요소 제거
-$pop          // 배열 처음/끝 요소 제거
-$slice        // 배열 자르기
-$in           // 배열 내 존재 여부
-$all          // 모든 요소 포함 여부
-
-
 // Aggregation Pipeline: 단계별 파이프라인 구성
 [
     { $match: { /* 필터링 */ } },
