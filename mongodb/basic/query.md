@@ -4,9 +4,9 @@
 {
     // 여기에 작성한다
 }
-```
 
-```js
+
+
 { 
     // 
     uploadStatus: { 
@@ -14,30 +14,30 @@
         $ne: null
     }
 }
-```
 
-```js
+
+
 { processed: { $regex: "Child" }}
-```
 
-```js
+
+
 {
     $rename: {
     uplaodStatus: "uploadStatus"
     },
 }
-```
 
-```js
+
+
 {
     $and: [
     { uploadStatus: 'ok' },
     { uploadStatus: 'onRegister' },
     ] 
 }
-```
 
-```json
+
+on
 { 
     score: { $exists: true },
     gender: 'female',
@@ -46,17 +46,22 @@
     { appGender: { $ne: 'F' } }
     ]
 }
-```
 
-```json
+
+on
 { gender: { $nin: ['male', 'female', null] } }
 
-```
 
-```js
+
+
 {
     timestamp: { // 18 minutes ago (from now)
     $gt: new Date(ISODate().getTime() - 1000 * 60 * 18)
     }
 }
+
+
+{expr: { $gte: [{ $size: "$topics" }, 4] }} // 배열요소 3개이상인것
+{"$expr": { "$gte": [{ "$size": "$topics" }, 4] }} // atlas
+
 ```
