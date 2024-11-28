@@ -2,16 +2,18 @@
 
 npx는 npm의 도구다.
 
-- 1.패키지를 설치하지 않고 CLI 도구를 일회성으로 실행할 수 있다.
-- 2.프로젝트 의존성 기반 실행
+1. 패키지를 설치하지 않고 CLI 도구를 일회성으로 실행할 수 있다.
+2. 프로젝트 의존성 기반 실행
+
+## 1. create-react-app을 글로벌로 설치하지 않고도 실행 가능
 
 ```bash
-# 1. create-react-app을 글로벌로 설치하지 않고도 실행 가능
 npx create-react-app my-app
 ```
 
+## 2. 프로젝트의 expo 패키지를 사용해 실행
+
 ```bash
-# 2. 프로젝트의 expo 패키지를 사용해 실행
 npx expo start
 npx expo install
 ```
