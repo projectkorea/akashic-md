@@ -14,5 +14,5 @@
 
 ### 2. notification
 
-- node 서버에서 스케줄링한 알림등을 next.js 웹 서버를 통해 확인
+- node 서버에서 스케줄링한 알림등을 next.js 웹 서버를 통해 관리하는 프로젝트
 - next.js, node 환경

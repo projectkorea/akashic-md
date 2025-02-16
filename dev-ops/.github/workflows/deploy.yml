@@ -1,0 +1,28 @@
+name: Production Deployment
+
+on:
+  push:
+    branches: [ release ]
+
+jobs:
+  deploy:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4 # git pull과 같은 역할
+      
+    - name: Build Docker image locally
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        load: true
+        tags: junha-today:latest
+        
+    - name: Execute remote SSH commands
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.REMOTE_IP }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.REMOTE_PRIVATE_KEY }}
+        port: ${{ secrets.REMOTE_SSH_PORT }}
+        script: |
