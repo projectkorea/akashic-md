@@ -1,7 +1,4 @@
-
-
----
-## 2장 챕터 React Error Boundaries
+# React Error Boundaries
 
 ## 요약
 
@@ -34,4 +31,3 @@
 
 - **`getDerivedStateFromError`**가 먼저 호출되어 상태를 업데이트하고 UI를 변경합니다.
 - 그 다음에 **`componentDidCatch`**가 호출되어 오류를 로깅하거나 외부 서비스에 보고하는 등의 추가 작업을 수행합니다.
-

@@ -1,8 +1,4 @@
-# Tech Blog
-
-- 사람들이 왜 `NextJS`에 열광하는지 알아보자
-
-## Project Setting
+# Dashboard Setting
 
 - Framework: Next.js(^14), React(^18)
 - Language: TypeScript
@@ -19,7 +15,7 @@ npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
 npm install next-mdx-remote github-markdown-css
 ```
 
-### 디렉토리 설명
+## 디렉토리 설명
 
 - `lib`
   - 파일 시스템에서 MDX 파일을 읽기
@@ -50,33 +46,10 @@ npm install next-mdx-remote github-markdown-css
 - [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 - [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
 - [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+- Rendering [Building Your Application: Rendering](https://nextjs.org/docs/app/building-your-application/rendering)
+- Routing [Building Your Application: Routing](https://nextjs.org/docs/app/building-your-application/routing)
+- Data fetching [Building Your Application: Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
+- Optimizing [Building Your Application: Optimizing](https://nextjs.org/docs/app/building-your-application/optimizing)
+
 - https://developers.notion.com/docs/getting-started
-
-## 7주 목표 (6/20 - 8/1)
-
-- Next.js V14(app router)을 사용한 **기술 블로그 만들기**
-- 프레임워크 전체적으로 경험
-- 다양한 렌더링 전략 / 기존 CSR 비교
-- **공식 문서와 친해지기**
-
-## 커리큘럼
-
-### 1주차. Rendering (6/20)
-
-[Building Your Application: Rendering](https://nextjs.org/docs/app/building-your-application/rendering)
-
-### 2-3주차. Routing (6/27, 7/4)
-
-[Building Your Application: Routing](https://nextjs.org/docs/app/building-your-application/routing)
-
-### 4주차. Data fetching (7/11)
-
-[Building Your Application: Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
-
-### 5-6주차 optimizing(7/18, 25)
-
-[Building Your Application: Optimizing](https://nextjs.org/docs/app/building-your-application/optimizing)
-
-### 7주차 (8/1)
-
-- 회고 글 쓰기 (개발하다가 마주친 이슈와 해결 방법)
