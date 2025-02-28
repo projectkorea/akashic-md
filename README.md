@@ -1,33 +1,42 @@
 # akashic-md
 
-## 1. Topics
-
-- [Algorithm](https://github.com/projectkorea/akashic-md/tree/main/algorithm)
-- [Books](https://github.com/projectkorea/akashic-md/tree/main/books)
-- [DevOps](https://github.com/projectkorea/akashic-md/tree/main/dev-ops)
-- [Docker](https://github.com/projectkorea/akashic-md/tree/main/docker)
-- [DOM](https://github.com/projectkorea/akashic-md/tree/main/dom)
-- [Git](https://github.com/projectkorea/akashic-md/tree/main/git)
-- [HTML/CSS](https://github.com/projectkorea/akashic-md/tree/main/html-css)
-- [Java to Kotlin](https://github.com/projectkorea/akashic-md/tree/main/java-to-kotlin)
-- [JavaScript](https://github.com/projectkorea/akashic-md/tree/main/javascript)
-- [MongoDB](https://github.com/projectkorea/akashic-md/tree/main/mongodb)
-- [Next.js](https://github.com/projectkorea/akashic-md/tree/main/next)
-- [Node.js](https://github.com/projectkorea/akashic-md/tree/main/node)
-- [Pattern](https://github.com/projectkorea/akashic-md/tree/main/pattern)
-- [React](https://github.com/projectkorea/akashic-md/tree/main/react)
-- [React Native](https://github.com/projectkorea/akashic-md/tree/main/react-native)
-- [Shell](https://github.com/projectkorea/akashic-md/tree/main/shell)
-- [TypeScript](https://github.com/projectkorea/akashic-md/tree/main/typescript)
-- [Vue](https://github.com/projectkorea/akashic-md/tree/main/vue)
-
-## 2. Overview
+## 1. Overview
 
 <div>
   <img src="https://github.com/user-attachments/assets/c31f0b11-754c-492c-b0e6-6d2dd258da57" width="350px" height"350px">
 </div>
 
-You can explore and share topics such as programming languages, algorithms, data structures, development tips, and other areas of computer science. The term 'akashic' was chosen to evoke the concept of an infinite repository of knowledge, drawing inspiration from the Akashic Records in mythology.
+akashic-md is a repository where you can explore and share topics such as programming languages, algorithms, data structures, development tips, and other areas of computer science. The term 'akashic' was chosen to evoke the concept of an infinite repository of knowledge, drawing inspiration from the Akashic Records in mythology.
+
+## 2. Topics
+
+- **Development Fundamentals**
+  - [Algorithm](https://github.com/projectkorea/akashic-md/tree/main/algorithm)
+  - [Pattern](https://github.com/projectkorea/akashic-md/tree/main/pattern)
+  - [Git](https://github.com/projectkorea/akashic-md/tree/main/git)
+  - [Shell](https://github.com/projectkorea/akashic-md/tree/main/shell)
+
+- **Frontend**
+  - [HTML/CSS](https://github.com/projectkorea/akashic-md/tree/main/html-css)
+  - [JavaScript](https://github.com/projectkorea/akashic-md/tree/main/javascript)
+  - [TypeScript](https://github.com/projectkorea/akashic-md/tree/main/typescript)
+  - [DOM](https://github.com/projectkorea/akashic-md/tree/main/dom)
+
+- **Frameworks**
+  - [React](https://github.com/projectkorea/akashic-md/tree/main/react)
+  - [React Native](https://github.com/projectkorea/akashic-md/tree/main/react-native)
+  - [Next.js](https://github.com/projectkorea/akashic-md/tree/main/next)
+  - [Vue](https://github.com/projectkorea/akashic-md/tree/main/vue)
+
+- **Backend & Infrastructure**
+  - [Node.js](https://github.com/projectkorea/akashic-md/tree/main/node)
+  - [MongoDB](https://github.com/projectkorea/akashic-md/tree/main/mongodb)
+  - [Docker](https://github.com/projectkorea/akashic-md/tree/main/docker)
+  - [DevOps](https://github.com/projectkorea/akashic-md/tree/main/dev-ops)
+
+- **Others**
+  - [Books](https://github.com/projectkorea/akashic-md/tree/main/books)
+  - [Java to Kotlin](https://github.com/projectkorea/akashic-md/tree/main/java-to-kotlin)
 
 ## 3. How to Contribute
 
