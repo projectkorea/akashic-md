@@ -35,6 +35,7 @@ akashic-md is a repository where you can explore and share topics such as progra
   - [DevOps](https://github.com/projectkorea/akashic-md/tree/main/dev-ops)
 
 - **Others**
+  - [Python](https://github.com/projectkorea/akashic-md/tree/main/python)
   - [Books](https://github.com/projectkorea/akashic-md/tree/main/books)
   - [Java to Kotlin](https://github.com/projectkorea/akashic-md/tree/main/java-to-kotlin)
 
