@@ -60,3 +60,23 @@ npm 7 이후: 피어 의존성 충돌이 있으면 설치를 중단
 
 의존성 충돌을 무시하기 때문에 잠재적인 문제가 발생할 수 있음
 하지만 이번 webpack-config 케이스처럼, 실제로는 작동할 것이 확실한 경우에는 유용
+
+## package.json
+
+```json
+// 어떤 UI 라이브러리의 package.json
+{
+  "name": "my-ui-lib",
+  "peerDependencies": {
+    "react": "^18.2.0"  // 실제로 설치되진 않음
+  }
+}
+
+// 이 라이브러리를 사용하는 프로젝트의 package.json
+{
+  "dependencies": {
+    "react": "^18.2.0",     // 실제 React 설치
+    "my-ui-lib": "^1.0.0"   // UI 라이브러리 설치
+  }
+}
+```

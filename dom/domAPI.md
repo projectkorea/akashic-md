@@ -1,4 +1,6 @@
-### 클래스 메서드
+# 자주쓰는 API
+
+## 클래스 메서드
 
 ```jsx
 div.classList.add('className')
@@ -15,7 +17,7 @@ div.classList.replace('old', 'new');
 div.classList.contain('good');// true
 ```
 
-### DOM **선택자**
+## DOM **선택자**
 
 ```jsx
 elem.firstChild
@@ -31,21 +33,21 @@ elem.children          // element만 ,htmlCollection
 elem.childNodes        // Nodelist
 ```
 
-### HTML 속성 값 추가/제거
+## HTML 속성 값 추가/제거
 
 ```jsx
 e.target.removeAttribute('readonly');
 e.target.setAttribute('readonly', true);
 ```
 
-### 현재 태그 찾기
+## 현재 태그 찾기
 
 ```jsx
 event.target.tagName
 // "A", "UL", "LI"
 ```
 
-### 이벤트
+## 이벤트
 
 ```jsx
 elem.addEventListener('animationend', () => {
@@ -65,7 +67,7 @@ inputElem.addEventListener('change', (event) => {
     - 포커스를 잃었을 때 (blur)
     - **`<input type="radio">`** 체크된 상태에서 다른 라디오 버튼을 선택할 때도 **`change`** 이벤트 발생
 
-### 프로그래밍적으로 클릭/포커스/블러 하기
+## 프로그래밍적으로 클릭/포커스/블러 하기
 
 ```jsx
 element.onclick(callback);
@@ -83,7 +85,7 @@ element.blur()
     - ❌ `onClick={ checkMobile ? connectStore : props.signIn }`
     - ✅ `onClick={ ()=> checkMobile() ? connectStore() : props.signIn() }`
 
-### 스타일
+## 스타일
 
 ```jsx
 hTopAppBar.style.backgroundColor = ''
@@ -96,7 +98,7 @@ var calcBtnHeight = "calc(1rem + " + statusHeight + "px)";
 // Requires a space between all operators (`+ \ * -`) Parser쪽 로직임
 ```
 
-### DOM 스타일링
+## DOM 스타일링
 
 ```jsx
 // 특정 css 프로퍼티 추출하기

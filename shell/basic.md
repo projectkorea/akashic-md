@@ -1,18 +1,49 @@
+# Basic Code
 
-### `mkdir`
+## `mkdir`
 
 ```bash
 mkdir -p /home/user/projects/logs
 # -p: 부모 디렉토리까지 안전한게 모두 생성
 ```
 
-### Path
+## Pipe operator
+
+1. 기본 파이프 (`|`)  
+   - 한 명령어의 출력을 다음 명령어의 입력으로 전달
+
+```bash
+ps aux | grep nginx
+# ps aux 출력 중 nginx 포함된 행만 필터링
+# 현재 열린 모든 포트를 나열하고, 그 중에서 포트 80을 사용하는 항목만 출력
+netstat -an | grep 80
+```
+
+2. 오류 포함 파이프 (`|&`)  
+
+- 표준 출력 + 표준 오류까지 전달
+
+```bash
+command |& tee log.txt
+# 실행 결과(출력+오류)를 `log.txt`에 저장하면서 터미널에도 표시
+```
+
+3. Xargs와 조합 (`| xargs`)  
+
+- 파이프 출력값을 다음 명령어의 인자로 전달  
+
+```bash
+find . -name "*.log" | xargs rm
+# `find`로 찾은 `.log` 파일들을 `rm`으로 삭제  
+```
+
+## Path
 
 - `/`는 **루트 디렉토리**, **시스템 전체**의 최상위 디렉토리
 - `~`는 **현재 사용자의 홈 디렉토리**
-    - `~/.ssh` 실제 경로 `/Users/username/.ssh`
+- `~/.ssh` 실제 경로 `/Users/username/.ssh`
 
-### Process
+## Process
 
 ```bash
 ps -aux
@@ -29,13 +60,13 @@ kill -9 `pgrep -f gunicorn`
 # pgrep -f gunicorn에 의해 찾아진 모든 gunicorn 프로세스들을 강제 종료함
 ```
 
-### Syntax
+## Syntax
 
 - `백틱(`)`
     - 명령어 치환에 사용
     - 백틱 사이에 있는 명령어가 먼저 실행되고, 그 출력이 외부 명령어의 인수로 사용
 
-### grep
+## grep
 
 ```bash
 grep -P "/getOneGenderData\S*\s*\S*302\S*" /home/.forever/Tz1Y.log
@@ -103,7 +134,7 @@ wc -l a.txt
         - `python`, `node`, `ruby` 등의 명령어로 직접 실행
         - IDE와 개발 도구 사용으로 인한 실행 환경 명확화
 
-### 파일 권한 변경
+## 파일 권한 변경
 
 - `chmod +x depoy.sh`
     

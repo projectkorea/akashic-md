@@ -1,5 +1,4 @@
-
-### ssh 접속
+# ssh
 
 ```bash
 # ~/.ssh/config
@@ -13,13 +12,8 @@ Host admin
     IdentityFile ~/.ssh/xxx.gcloud.pem
 ```
 
-```bash
-# 현재 열린 모든 포트를 나열하고, 그 중에서 포트 80을 사용하는 항목만 출력
-netstat -an | grep 80
-```
 
-
-### SSH 접속 구조와 관련 요소
+## SSH 접속 구조와 관련 요소
 
 1. SSH 키 구성
 - 프라이빗 키: 클라이언트가 보관 (~/.ssh/id_ed25519, custom.pem 등)
@@ -30,7 +24,8 @@ netstat -an | grep 80
 - 최초 접속 시 "Are you sure you want to continue connecting?" 메시지 표시
 - 이후 접속 시 저장된 핑거프린트와 비교하여 서버 신원 확인
 - 중간자 공격(MITM) 방지 목적
-1. 클라이언트 설정 (~/.ssh/config)
+
+## 클라이언트 설정 (~/.ssh/config)
 
 ```
 Host myserver
@@ -42,6 +37,7 @@ Host myserver
 
 - 위 설정은 단순 편의기능 (별칭, 기본값 설정)
 - User나 키 주석(user@host)은 실제 인증과 무관
+
 1. 인증 과정
     1. 클라이언트가 서버에 접속 시도
     2. 서버의 신원을 known_hosts로 확인
@@ -54,5 +50,3 @@ Host myserver
 - ~/.ssh/known_hosts: 접속한 서버들의 핑거프린트 저장
 - ~/.ssh/authorized_keys: 허용된 퍼블릭 키들의 목록 (서버 측)
 - ~/.ssh/config: 클라이언트의 접속 설정
-
-이러한 구조로 SSH는 안전한 원격 접속을 제공합니다.
