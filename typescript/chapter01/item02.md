@@ -1,39 +1,41 @@
 # ts 설정 이해하기
 
-- ts 컴파일러는 **100가지 이상의 설정**을 제공한다. 이 설정들의 조합이 오류 없이 타입 검사를 통과할 수 있을지 결정한다.
+- ts 컴파일러는 **100가지 이상의 설정**들을 제공하고 이 조합으로 타입 검사를 수행한다.
+- 소스 파일을 어디에서 찾을지, 어떤 JS 버전으로 컴파일할지, 어떤 **타입 검사 규칙**을 적용할지 설정한다.
 
 ## `tsconfig.json` 설정
 
 - `tsc --init`: 설정 파일 만들기
-- 컴파일러가 소스 파일을 어디에서 찾을지, 어떤 JS 버전으로 컴파일할지, 그리고 어떤 **타입 검사 규칙**을 적용할지 설정한다.
 
 ```json
 {
   "compilerOptions": {
     "noImplicitAny": true,
-    "strictNullChecks": true // noImplicitAny 설정이 선행되어야한다.
+    "strictNullChecks": true // noImplicitAny:true가 선행되어야한다.
   }
 }
 ```
 
 ### 두 가지 중요한 설정
 
-- **`noImplicitAny`**
-  - implicit any = any라고 간주한다.
-  - no implicit any = any라고 간주하지 않는다.
-  - 타입을 지정하지 않았을 때 자동으로 any로 취급되는데 이를 막는 설정
-  - 모든 변수에 명시적으로 타입을 지정해야한다.
-  - ts로 마이그레이션중 일 때만 `false` 시키자
-  ```ts
+#### `noImplicitAny`
+
+- implicit any == any라고 간주한다
+- no implicit any == any라고 간주하지 않는다.
+- 타입 지정안할 때 자동으로 any로 캐스팅 되는걸 막음.
+- 모든 변수에 명시적으로 타입을 지정해야함
+- ts로 마이그레이션중 일 때만 `false` 시키자
+
+```ts
   const add = (a, b) => a+b; 
   // Error: Parameter 'a' implicitly has an 'any' type.
-
   const add = (a:number, b:number) => a+b;
-  ```
+```
 
-- **`strictNullChecks`**
-  - 모든 타입에 `null`과 `undefined`를 자동으로 포함시키지 않는 설정
-  - `undefined is not an object`와 같은 오류 방지 가능
+#### `strictNullChecks`
+
+- 모든 타입에 `null`과 `undefined`를 자동으로 포함시키지 않음
+- `undefined is not an object`와 같은 오류 방지 가능
 
 ### 예시1
 
@@ -134,7 +136,10 @@ if (elem) {
 
 ### 요약
 
-- **`strictNullChecks: false`**: `null`과 `undefined`를 자동으로 허용하므로, 런타임 오류 가능성 있다.
-- **`strictNullChecks: true`**: `null`과 `undefined`를 명확하게 체크하도록 강제하여, 컴파일러가 오류를 발생시킨다.
-- **`non-null assertion operator`**: 컴파일러에게 값이 `null`이 아니라고 단언하지만, 런타임 시 위험하다.
-- **null 체크**: 안전한 방식으로, `null` 체크를 통해 타입 안정성을 보장한다.
+- `strictNullChecks: false`
+  - `null`, `undefined`를 자동으로 허용하여 런타임 오류 가능성이 높다.
+- `strictNullChecks: true`:
+  - `null`, `undefined`를 체크를 강제하여 컴파일러가 오류 가능성이 높다.
+- `non-null assertion operator`
+  - 컴파일러에게 값이 `null`이 아니라고 단언하지만, 런타임 시 위험하다.
+- null 체크: 안전한 방식으로, `null` 체크를 통해 타입 안정성을 보장한다.
