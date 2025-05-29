@@ -1,0 +1,243 @@
+{% import 'macros.html' as macros %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiWatcher</title>
+    <link href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.oaistatic.com/_next/static/media/favicon-32x32.630a2b99.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.oaistatic.com/_next/static/media/favicon-16x16.a052137e.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://unpkg.com/gridjs/dist/gridjs.umd.js"></script>
+    <script defer src="{{ url_for('static', filename='index.js') }}"></script>
+</head>
+<body>
+  <script>// console.log('Data:', JSON.stringify({{ data | tojson | safe }}, null, 2));</script>
+
+  {{ macros.header(data_args='["admin"]') }}
+
+  <!-- Capture 전용 -->
+  <div id="hContainer"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new gridjs.Grid({
+        columns: [
+          { id: 'content', name: 'content', hidden: true },
+          { id: 'appGender', name: 'appGender', formatter: (cell) => gridjs.html(`
+              <div style="color: ${cell === 'M' ? '#007BFF': 'rgb(255 97 166)' };">${cell}</div>`) },
+          { id: 'updatedAt', name: 'updatedAt', formatter: (cell, row) => gridjs.html(`
+              <div class="content"
+                    onmouseover="showPopup(event, 'content', '${cell}', \`${row.cells[0].data}\`)"
+                    onmousemove="movePopup(event, 'content')"
+                    onmouseout="hidePopup('content')">${new Date(cell.replace(' ', 'T').slice(0, 23) + 'Z').toLocaleString()}</div>`) },
+          { id: 'url', name: 'Img', formatter: (cell) => gridjs.html(`
+              <div class="thumbnail">
+                <img src="${cell}" width="36" height="64"
+                    onmouseover="showPopup(event, 'image', '${cell}')"
+                    onmousemove="centerPopup()"
+                    onmouseout="hidePopup('image')">
+              </div>`) },
+          { id: 'claude', name: 'claude', formatter: (cell) => gridjs.html(`
+              <span style="font-weight: ${cell.toLowerCase().includes('none') ? 'normal' : 'bold'};">${cell}</span>`) },
+          { id: 'processed', name: 'processed', formatter: (cell) => gridjs.html(`
+              <span style="font-weight: ${cell.toLowerCase().includes('pass') ? 'normal' : 'bold'};">${cell}</span>`) },
+          { id: 'score', name: 'score'},
+          { id: 'gender', name: 'gender' },
+          { id: 'age', name: 'age' },
+          { id: 'fbUid', name: 'uid'},
+          { id: 'uploadStatus', name: 'status' },
+        ],
+        data: [
+          {% for item in data %}
+            {
+              content: "{{ item.content | default('') | escape_html | nl2br | safe }}",
+              updatedAt: "{{ item['updatedAt'] }}",
+              url: "{{ item['url'] }}" ,
+              claude: "{% if item.get('anthropic') and item['anthropic'].get('content') %}{{ item['anthropic']['content'] | js_escape | safe }}{% else %}{{ '' }}{% endif %}",
+              processed: "{{ item['processed'] }}",
+              score: "{{ item['score'] }}",
+              gender: "{{ item['gender'] }}",
+              age: "{{ item['age'] }}",
+              fbUid: "{{ item['fbUid'] }}",
+              appGender: "{{ item['appGender'] }}",
+              uploadStatus: "{{ item['uploadStatus'] }}",
+            },
+          {% endfor %}
+        ],
+
+        search: true,
+        sort: true,
+        pagination: {
+          limit: 100
+        }
+      }).render(document.getElementById('hContainer'));
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // const count = {{ total_documents }};
+        // document.querySelector('.doc-count').textContent = count.toLocaleString() + '개';
+    });
+    
+    function showPopup(event, type, value, additionalValue) {
+        if (type === 'image') {
+            let popup = document.getElementById('popup-image');
+            if (!popup) {
+                popup = document.createElement('img');
+                popup.id = 'popup-image';
+                popup.className = 'popup-image';
+                document.body.appendChild(popup);
+            }
+            popup.src = value;
+            popup.style.display = 'block';
+            centerPopup();
+        } else if (type === 'content') {
+            let popup = document.getElementById('popup-content');
+            if (!popup) {
+                popup = document.createElement('div');
+                popup.id = 'popup-content';
+                popup.className = 'popup-content';
+                document.body.appendChild(popup);
+            }
+            popup.innerHTML = additionalValue;
+            popup.style.display = 'block';
+            movePopup(event, type);
+        }
+    }
+    
+    function centerPopup() {
+        let popup = document.getElementById('popup-image');
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const popupWidth = popup.offsetWidth;
+        const popupHeight = popup.offsetHeight;
+    
+        const leftPosition = (windowWidth - popupWidth) / 2;
+        const topPosition = (windowHeight - popupHeight) / 2;
+    
+        popup.style.position = 'fixed';
+        popup.style.top = `${topPosition}px`;
+        popup.style.left = `${leftPosition}px`;
+    }
+
+    function hidePopup(type) {
+        const popup = document.getElementById(`popup-${type}`);
+        if (popup) {
+            popup.style.display = 'none';
+        }
+    }
+
+    function movePopup(event, type) {
+        const popup = document.getElementById(`popup-${type}`);
+
+        if (popup) {
+            const offsetX = 15; // 마우스 커서로부터 x축 오프셋
+            const offsetY = 15; // 마우스 커서로부터 y축 오프셋
+            const windowHeight = window.innerHeight;
+            const popupHeight = popup.offsetHeight;
+
+            let topPosition = event.pageY + offsetY;
+
+            // 마우스가 화면의 하단 15%에 위치하면 팝업 이미지를 위에 표시
+            if (event.clientY > windowHeight * 0.5) {
+                topPosition = event.pageY - popupHeight - offsetY;
+            }
+
+            popup.style.top = `${topPosition}px`;
+            popup.style.left = `${event.pageX + offsetX}px`;
+        }
+    }
+
+    
+  </script>
+
+  <div class="modal-background" id="modal-background">
+    <div class="modal">
+      <button id="hCloseBtn" class="modal-btn">Close</button>
+      <h3>Select Filters</h3>
+      <form method="POST" action="{{ url_for('admin') }}">
+          <button class="modal-btn green" type="submit">Apply Filters</button>
+          <!-- 성별 선택 -->
+          <div class="filter-section">
+              <h4>Gender</h4>
+              <label>
+                  <input type="checkbox" name="gender" value="male" {% if 'male' in selected_filters %} checked {% endif %}>
+                  Male
+              </label>
+              <label>
+                  <input type="checkbox" name="gender" value="female" {% if 'female' in selected_filters %} checked {% endif %}>
+                  Female
+              </label>
+          </div>
+          
+          <!-- 점수 필터 -->
+          <div class="filter-section">
+              <h4>Minimum Score</h4>
+              <label>
+                  <input type="number" name="goodScore" value="60">
+              </label>
+          </div>
+  
+          <!-- processed 필터 -->
+          <div class="filter-section">
+            <h4>Processed</h4>
+            <div class="checkbox-container">
+              <label>
+                  <input type="checkbox" name="processed" value="pass" {% if 'pass' in selected_filters %} checked {% endif %}>
+                  pass
+              </label>
+              <label>
+                  <input type="checkbox" name="processed" value="child" {% if 'child' in selected_filters %} checked {% endif %}>
+                  child
+              </label>
+              <label>
+                  <input type="checkbox" name="processed" value="maybeChild" {% if 'maybeChild' in selected_filters %} checked {% endif %}>
+                  maybeChild
+              </label>
+              <label>
+                  <input type="checkbox" name="processed" value="mustBeChild" {% if 'mustBeChild' in selected_filters %} checked {% endif %}>
+                  mustBeChild
+              </label>
+              <label>
+                  <input type="checkbox" name="processed" value="possibly" {% if 'possibly' in selected_filters %} checked {% endif %}>
+                  possibly
+              </label>
+              <label>
+                  <input type="checkbox" name="processed" value="retry" {% if 'retry' in selected_filters %} checked {% endif %}>
+                  retry
+              </label>
+              <label>
+                  <input type="checkbox" name="processed" value="nsfw" {% if 'nsfw' in selected_filters %} checked {% endif %}>
+                  nsfw
+              </label>
+              <label>
+                  <input type="checkbox" name="processed" value="femaleCheck" {% if 'femaleCheck' in selected_filters %} checked {% endif %}>
+                  femaleCheck
+              </label>
+            </div>
+          </div>
+          <!-- 나이 필터 -->
+          <div class="filter-section">
+              <h4>Age Filters</h4>
+              <div class="filter-checkbox">
+                  <label>
+                      <input id="hAllAgeCheckbox" type="checkbox" name="age_filter" value="all">
+                      All
+                  </label>
+                  <br>
+                  {% for field in age_fields %}
+                    <label>
+                      <input type="checkbox" name="age_filter" value="{{ field['_id'] }}" 
+                      {% if field in selected_filters %} checked {% endif %}>
+                      {{ field }}
+                      </label>
+                    <br>
+                  {% endfor %}
+              </div>
+          </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
