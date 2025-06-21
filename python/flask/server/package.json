@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@google-cloud/pubsub": "^4.5.0",
+    "@google-cloud/storage": "^7.11.2",
+    "@google-cloud/vertexai": "^1.9.3",
+    "firebase-admin": "^12.1.1",
+    "mongodb": "^6.7.0",
+    "openai": "^4.51.0"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_ENV=dev node src/app.js",
+    "start": "NODE_ENV=prod node src/app.js"
+  }
+}

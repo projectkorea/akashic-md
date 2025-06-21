@@ -1,0 +1,16 @@
+{% macro header(data_args='[]') %}
+<div class="header">
+    <div class="left">
+      <div id="hTitleBtn" class="title">AiWatcher 3.4.0</div>
+    </div>
+    <div class="right">
+      <div class="doc-count"></div>
+      <div class="buttons">
+        <button id="hProfileBtn" class="blue">profile</button>
+        <button id="hFilterBtn" class="red">filter</button>
+        <input type="text" id="hSearch" placeholder="uid">  
+        <button id="hSearchBtn" data-args='{{ data_args if data_args else "[]" }}'>🔎</button>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
