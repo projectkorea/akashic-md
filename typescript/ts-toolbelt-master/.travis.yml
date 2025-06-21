@@ -1,0 +1,89 @@
+# https://docs.travis-ci.com/user/job-lifecycle
+
+language: node_js
+
+node_js:
+- '12.0'
+
+git:
+  depth: 5
+
+install:
+- npm install --only=dev
+
+env:
+  - DEPLOY=true
+
+stages:
+  - test
+  - deploy:master
+  - deploy:branch
+  - deploy:docs
+
+jobs:
+  include:
+    - stage: test
+      if: tag IS blank # filter double build with tags
+      script:
+        - npm run test 
+      deploy:
+        edge: true
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
+        skip_cleanup: true
+        tag: test
+        on:
+          all_branches: true
+      before_deploy: # https://github.com/travis-ci/travis-ci/issues/1574#issuecomment-451787844
+        - if ! npm run ci:test:bd; then travis_terminate 1; fi
+      after_deploy: # the above link explains how to make the build fail if something went wrong
+        - if ! npm run ci:test:ad; then travis_terminate 1; fi
+
+    - stage: deploy:master
+      if: tag IS blank AND branch = master AND fork = false AND env(DEPLOY) = true
+      deploy:
+        edge: true
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
+        tag: latest
+        skip_cleanup: true
+        on:
+          all_branches: true
+      before_deploy:
+        - if ! npm run ci:master:bd; then travis_terminate 1; fi
+      after_deploy:
+        - if ! npm run ci:master:ad; then travis_terminate 1; fi
+  
+    - stage: deploy:branch
+      if: tag IS blank AND branch != master AND fork = false AND env(DEPLOY) = true
+      deploy:
+        edge: true
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
+        tag: $TRAVIS_BRANCH
+        skip_cleanup: true
+        on:
+          all_branches: true
+      before_deploy:
+        - if ! npm run ci:branch:bd; then travis_terminate 1; fi
+      after_deploy:
+        - if ! npm run ci:branch:ad; then travis_terminate 1; fi
+
+    - stage: deploy:docs #deploys doc to gh-pages branch
+      if: tag IS blank AND branch = master AND fork = false AND env(DEPLOY) = true
+      deploy:
+        edge: true
+        provider: pages
+        skip_cleanup: true
+        github_token: $GH_TOKEN
+        local_dir: "docs"
+        keep_history: true
+        on:
+          all_branches: true
+      before_deploy:
+        - if ! npm run ci:docs:bd; then travis_terminate 1; fi
+      after_deploy:
+        - if ! npm run ci:docs:ad; then travis_terminate 1; fi
