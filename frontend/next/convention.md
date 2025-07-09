@@ -26,4 +26,3 @@
 5. `head.tsx` / `head.js` — 페이지의 `<head>` 설정 파일
 6. `middleware.ts` / `middleware.js` — 미들웨어 파일
 7. `meta.tsx` / `meta.js` — 메타 정보 설정 파일
-

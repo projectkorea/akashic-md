@@ -10,34 +10,33 @@ akashic-md is a repository where you can explore and share topics such as progra
 
 ## 2. Topics
 
-- **Development Fundamentals**
-  - [Algorithm](https://github.com/projectkorea/akashic-md/tree/main/algorithm)
-  - [Pattern](https://github.com/projectkorea/akashic-md/tree/main/pattern)
-  - [Git](https://github.com/projectkorea/akashic-md/tree/main/git)
-  - [Shell](https://github.com/projectkorea/akashic-md/tree/main/shell)
+- **Computer Science Fundamentals**
+  - [Algorithm](https://github.com/projectkorea/akashic-md/tree/main/basic/algorithm)
+  - [Pattern](https://github.com/projectkorea/akashic-md/tree/main/basic/pattern)
+  - [Git](https://github.com/projectkorea/akashic-md/tree/main/basic/git)
+  - [Shell](https://github.com/projectkorea/akashic-md/tree/main/basic/shell)
+  - [Books](https://github.com/projectkorea/akashic-md/tree/main/basic/books)
 
-- **Frontend**
-  - [HTML/CSS](https://github.com/projectkorea/akashic-md/tree/main/html-css)
-  - [JavaScript](https://github.com/projectkorea/akashic-md/tree/main/javascript)
-  - [TypeScript](https://github.com/projectkorea/akashic-md/tree/main/typescript)
-  - [DOM](https://github.com/projectkorea/akashic-md/tree/main/dom)
+- **Web Technologies**
+  - [HTML](https://github.com/projectkorea/akashic-md/tree/main/frontend/HTML)
+  - [CSS](https://github.com/projectkorea/akashic-md/tree/main/frontend/CSS)
+  - [JavaScript](https://github.com/projectkorea/akashic-md/tree/main/frontend/javascript)
+  - [TypeScript](https://github.com/projectkorea/akashic-md/tree/main/frontend/typescript)
+  - [DOM](https://github.com/projectkorea/akashic-md/tree/main/frontend/dom)
+  - [React](https://github.com/projectkorea/akashic-md/tree/main/frontend/react)
+  - [React Native](https://github.com/projectkorea/akashic-md/tree/main/frontend/react-native)
+  - [Next.js](https://github.com/projectkorea/akashic-md/tree/main/frontend/next)
+  - [Vue](https://github.com/projectkorea/akashic-md/tree/main/frontend/vue)
 
-- **Frameworks**
-  - [React](https://github.com/projectkorea/akashic-md/tree/main/react)
-  - [React Native](https://github.com/projectkorea/akashic-md/tree/main/react-native)
-  - [Next.js](https://github.com/projectkorea/akashic-md/tree/main/next)
-  - [Vue](https://github.com/projectkorea/akashic-md/tree/main/vue)
+- **Server & Infrastructure**
+  - [Node.js](https://github.com/projectkorea/akashic-md/tree/main/backend/node)
+  - [MongoDB](https://github.com/projectkorea/akashic-md/tree/main/backend/mongodb)
+  - [Docker](https://github.com/projectkorea/akashic-md/tree/main/backend/docker)
+  - [DevOps](https://github.com/projectkorea/akashic-md/tree/main/backend/dev-ops)
 
-- **Backend & Infrastructure**
-  - [Node.js](https://github.com/projectkorea/akashic-md/tree/main/node)
-  - [MongoDB](https://github.com/projectkorea/akashic-md/tree/main/mongodb)
-  - [Docker](https://github.com/projectkorea/akashic-md/tree/main/docker)
-  - [DevOps](https://github.com/projectkorea/akashic-md/tree/main/dev-ops)
-
-- **Others**
+- **Programming Languages**
+  - [Java to Kotlin](https://github.com/projectkorea/akashic-md/tree/main/backend/java-to-kotlin)
   - [Python](https://github.com/projectkorea/akashic-md/tree/main/python)
-  - [Books](https://github.com/projectkorea/akashic-md/tree/main/books)
-  - [Java to Kotlin](https://github.com/projectkorea/akashic-md/tree/main/java-to-kotlin)
 
 ## 3. How to Contribute
 
