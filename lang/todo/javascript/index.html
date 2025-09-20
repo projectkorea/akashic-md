@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>그래도 해야지 어떡해</title>
+        <script defer src="todo.js"></script>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="todo-container">
+            <div class="title-text">그래도</div>
+            <div class="title-text">해야지</div>
+            <div class="title-text">어떡해</div>
+            <div class="todo-progress">
+                <progress class="progress-bar" value="0" max="100"></progress>
+                <div class="progress-per">0 %</div>
+            </div>
+            <form id="toDoForm">
+                <input name="todo-input" class="todo-input" placeholder="후딱 끝내버리자!" />
+                <input class="todo-submit" type="submit" value="등록" />
+            </form>
+            <div class="todo-view">
+                <div class="todo-view-pending">
+                    <h2>대기중</h2>
+                    <ul class="pending-list"></ul>
+                </div>
+                <div class="todo-view-finished">
+                    <h2>끝냈다!</h2>
+                    <ul class="finished-list"></ul>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
